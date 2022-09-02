@@ -1,34 +1,31 @@
-# YYYY-MM-DD Intensive Python/JavaScript Fullstack Bootcamp
+# 2022-09-06 Intensive Python/JavaScript Fullstack Bootcamp
 
-Repo for the PDX Code Guild Intensive Python/JavaScript Fullstack Bootcamp starting MM/DD/YYYY
+Repo for the PDX Code Guild Intensive Python/JavaScript Fullstack Bootcamp starting 09/06/2022
 
-Class is held from **Month Day, Year to Month Day, Year**
-M-F H:MM am – H:MM pm
+Class is held from **September 6th, 2022 to December 16th, 2022**
+M-F 9:30 am – 4:30 pm (Pacific Time)
 
 ### Holidays
 
-- Month Day (Reason)
-- Month Day (Reason)
-- Month Day (Reason)
-- Month Day (Reason)
-- Month Day (Reason)
+- November 8th (Election Day)
+- November 11th (Veterans Day)
+- November 24th-25th (Thanksgiving)
 
 ### Staff
 
-- NAME OF INSTRUCTOR, Instructor
+- Merritt Lawrenson, Instructor
 
-  - NAME@pdxcodeguild.com
+  - merritt@pdxcodeguild.com
 
-- NAME OF TA, TA
-
-  - NAME@gmail.com
+- Bruce Stull, TA
+- Gage Lieble, TA
 
 ## Capstone Dates:
 
-Capstone proposal due: Month Day, Year
-Presentation Day: Month Day, Year
+Capstone proposal due: November 28th, 2022  
+Presentation Day: December 16th, 2022
 
-
+<!--
 ## Django Labs Assigned:
 
 | Lab   | Name                   | Date Assigned | Due By Start Of Class | Hard Due Date |
@@ -64,25 +61,25 @@ Presentation Day: Month Day, Year
 | Group | Flask Todos            | Jun 1st       | Jun 1st               | Jun 15th      |
 | 05    | Flask Redo             | Jun 2nd       | Jun 6th               | Jun 16th      |
 | 06    | Personal Portfolio     | Jun 3rd       | Jun 7th               | Jun 17th      |
-
+-->
 ## Python Labs Assigned:
 
 | Lab   | Name                   | Date Assigned | Due By Start Of Class | Hard Due Date |
 | ----- | ---------------------- | ------------- | --------------------- | ------------- |
-| 01    | Unit Converter         | Apr 26th      | May 2nd               | May 10th      |
-| 02    | Number To Phrase       | Apr 27th      | May 2nd               | May 11th      |
-| 03    | Blackjack Advice       | Apr 28th      | May 2nd               | May 12th      |
-| 04    | Pick 6                 | Apr 28th      | May 2nd               | May 12th      |
-| 05    | Credit Card Validation | May 2nd       | May 9th               | May 16th      |
-| 06    | ROT13                  | May 2nd       | May 9th               | May 16th      |
-| Group | Jackalope              | May 3rd       | May 3rd               | May 17th      |
-| 07    | ARI                    | May 4th       | May 9th               | May 18th      |
-| 08    | Contact List           | May 5th       | May 9th               | May 19th      |
-| 09    | ATM                    | May 9th       | May 16th              | May 23rd      |
-| 10    | Tic-Tac-Toe            | May 10th      | May 16th              | May 24th      |
-| 11    | Dad Joke API           | May 12th      | May 16th              | May 26th      |
-| 12    | Quotes API             | May 16th      | May 23rd              | May 30th      |
-| 13    | Mini-Capstone          | May 18th      | May 23rd              | Jun 1st       |
+| 01    | Unit Converter         | Sep 7th       | Sep 12th              | Sep 21st      |
+| 02    | Number To Phrase       | Sep 8th       | Sep 12th              | Sep 22nd      |
+| 03    | Blackjack Advice       | Sep 9th       | Sep 19th              | Sep 23rd      |
+| 04    | Pick 6                 | Sep 9th       | Sep 19th              | Sep 23rd      |
+| 05    | Credit Card Validation | Sep 13th      | Sep 19th              | Sep 27th      |
+| 06    | ROT13                  | Sep 13th      | Sep 19th              | Sep 27th      |
+| Group | Jackalope              | Sep 14th      | Sep 14th              | Sep 28th      |
+| 07    | ARI                    | Sep 15th      | Sep 19th              | Sep 29th      |
+| 08    | Contact List           | Sep 16th      | Sep 26th              | Sep 30th      |
+| 09    | ATM                    | Sep 21st      | Sep 26th              | Oct 5th       |
+| 10    | Tic-Tac-Toe            | Sep 22nd      | Sep 27th              | Oct 6th       |
+| 11    | Dad Joke API           | Sep 27th      | Sep 30th              | Oct 11th      |
+| 12    | Quotes API             | Sep 28th      | Sep 30th              | Oct 12th      |
+| 13    | Mini-Capstone          | Sep 30th      | Oct 5th               | Oct 14th      |
 
 
 ## Student Presentations
