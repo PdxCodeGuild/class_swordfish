@@ -23,14 +23,16 @@
 conversion_values = { 'feet': 0.3048,
 'miles': 1609.34, 
 'meters': 1, 
-'kilometers': 1000
+'kilometers': 1000,
+'yards': 0.9144,
+'inches': 0.0254 
 }
 
 distance = input('What is the distance: ')
 
 distance = int(distance)
 
-user_units = input('What are the units? (feet/miles/meters/kilometers): ')
+user_units = input('What are the units? (feet/miles/meters/kilometers/yards/inches): ')
 
 chosen_conversion = distance * conversion_values[user_units]
 
