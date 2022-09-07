@@ -37,3 +37,9 @@ user_units = input('What are the units? (feet/miles/meters/kilometers/yards/inch
 chosen_conversion = distance * conversion_values[user_units]
 
 print(f"{distance} {user_units} is", round(chosen_conversion, 2), "m")
+
+new_units = input('What units would you like to convert to?(feet/miles/meters/kilometers/yards/inches): ')
+
+new_conversion = conversion_values[new_units] * chosen_conversion
+
+print('Your new conversion is', new_conversion)
