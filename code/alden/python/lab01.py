@@ -31,7 +31,7 @@ elif out_unit == 'km':                          # Conversion output to kilometer
 elif out_unit == 'yard':                        # Conversion output to yards.
     conversion = m_conversion / meters['yard']
 
-elif out_unit == 'inch':                        # Conversion output to inches.
+elif out_unit == 'in':                        # Conversion output to inches.
     conversion = m_conversion / meters['in']
 
 print(conversion)                               # Print out the converted number.
