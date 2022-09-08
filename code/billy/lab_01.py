@@ -26,6 +26,8 @@ unit = input("\n> what are the input units? ")
 
 output_unit = input("\n> what are the output units? ")
 
-output_distance = ({distance * unit_converter[unit]})
+output_distance = distance * unit_converter[unit]
+
+# print(unit_converter[output_unit])
 
 print(f"> {distance} {unit} is {output_distance / unit_converter[output_unit]}")
