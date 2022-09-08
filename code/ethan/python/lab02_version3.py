@@ -1,11 +1,11 @@
-# Number to phrase
+# Version 3
 
-# Version 1 & 2
+numbers = ['zero', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 
+'XI', 'XII', 'XIII', 'XIV', 'XV', 'XVI', 'XVII', 'XVIII', 'XIX']
 
-numbers = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 
-'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen']
+tens = ['void', 'void', 'XX', 'XXX', 'XL', 'L', 'LX', 'LXX', 'LXXX', 'XC']
 
-tens = ['void', 'void', 'twenty', 'thirty', 'fourty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety']
+hundreds = ['void', 'C', 'CC', 'CCC', 'CD', 'D', 'DC', 'DCC', 'DCCC', 'CM']
 
 num = input('Type a number between 1-999. ')
 num = int(num)
@@ -29,4 +29,4 @@ elif num > 99 and num < 1000:
     digit_two = int(digit_two)
     digit_three = num[2]
     digit_three = int(digit_three)
-    print(f"{numbers[digit_one]}hundred and {tens[digit_two] + numbers[digit_three]}")
+    print(f"{hundreds[digit_one] + tens[digit_two] + numbers[digit_three]}")
