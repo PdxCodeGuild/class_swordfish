@@ -38,10 +38,24 @@ if x in ones:
 elif 10 < x < 20:
     print(tens_under20[x])
 
-elif x > 20:
+elif 20 > x > 100:
     tens_digit = x//10
     ones_digit = x%10
-    print(tens_digitwritten[tens_digit], ones[ones_digit])
+    print(tens_digitwritten[tens_digit], ones[ones_digit])  
+
+elif 100 <= x < 999:
+    x = str(x)
+    num_ls = []
+    num_ls.extend(x)
+    num_ls_seperated = num_ls.pop[1]
+    
+    
+    print(num_ls_seperated)
+    # firstwrd = num_ls(ones[0])
+    # secondwrd= num_ls(tens_digitwritten[1])
+    # thirdwrd = num_ls(ones[2])
+    # print(firstwrd + secondwrd + thirdwrd)
+
 
 
 
