@@ -2,6 +2,9 @@ x = input('Enter a number: ')
 x = int(x)
 # tens_digit = x//10
 # ones_digit = x%10
+# hundreds_digit = x//100
+# print(hundreds_digit)
+
 
 ones = {1: 'one',
 2: 'two',
@@ -44,13 +47,19 @@ elif 20 > x > 100:
     print(tens_digitwritten[tens_digit], ones[ones_digit])  
 
 elif 100 <= x < 999:
+    hundreds_digit = x//100
     x = str(x)
-    num_ls = []
-    num_ls.extend(x)
-    num_ls_seperated = num_ls.pop[1]
-    
-    
-    print(num_ls_seperated)
+    lst = []
+    lst.extend(x)
+    lst.pop(0)
+    last_two_nums = ''.join(lst)
+    last_two_nums = int(last_two_nums)
+    hundreds_digit = ones[hundreds_digit]
+    tens_digit = last_two_nums//10
+    ones_digit = last_two_nums%10 
+    print(hundreds_digit + 'hundred',tens_digitwritten[tens_digit],ones[ones_digit])
+
+
     # firstwrd = num_ls(ones[0])
     # secondwrd= num_ls(tens_digitwritten[1])
     # thirdwrd = num_ls(ones[2])
