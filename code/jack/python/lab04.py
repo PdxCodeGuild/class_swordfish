@@ -4,6 +4,7 @@ import random
 
 repeat = 100000
 total_winnings = 0
+total_cost = 0
 winnings_breakdown = {
     0: 0,
     1: 4,
@@ -40,8 +41,10 @@ for i in range(100000):
     ticket = pick6()
     matches = num_matches(winning_ticket, ticket)
     total_winnings += winnings_breakdown[matches]
+    total_cost += 2
 
+roi = (total_winnings - total_cost) / total_cost
 
-print(f'total winnings: ${total_winnings}, total cost: $200000')
+print(f'total winnings: ${total_winnings}, total expenses: ${total_cost}, ROI: {roi}')
 
 
