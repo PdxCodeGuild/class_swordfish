@@ -33,9 +33,13 @@ cards = {
 }
 # print(cards)
 
-'''
+# ask the user for first card
+first_card = input('What\'s your first card?: ')
+# ask the user for second card
+second_card = input('What\'s your second card?: ')
+# ask the user for third card
+third_card = input('What\'s your third card?: ')
+
+
 def basic_blackjack():
-    # ask the user for first card
-    # ask the user for second card
-    # ask the user for third card
-'''
+    if
