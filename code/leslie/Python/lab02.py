@@ -3,7 +3,6 @@ ones_digits = ["","one","two","three","four","five","six","seven","eight","nine"
 tens_digits = ["", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety", ""]
 hundreds = ["", "one hundred","two hundred","three hundred", "four hundred","five hundred","six hundred", "seven hundred", "eight hundred", "nine hundred"]
 
-
 num = int(input("Enter a number: "))
 def convert_to_words(number):    
     if num == 0:
