@@ -5,8 +5,6 @@ Lab 2: Number to Phrase
 '''
 # converting from an integer to a string????
 # use the digit, as a key for a dict of digit:phrase pairs
-from colorsys import ONE_SIXTH
-
 
 ones_suffix = {
     0: 'zero',
