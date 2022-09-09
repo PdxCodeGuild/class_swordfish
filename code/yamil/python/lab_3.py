@@ -18,13 +18,14 @@ card_values = {
 first_card = input("What is your first card?: ").upper()
 second_card = input("What is your second card?: ").upper()
 third_card = input("What is your third card?: ").upper()
+total = card_values[first_card]+card_values[second_card]+card_values[third_card]
 
-if card_values[first_card]+card_values[second_card]+card_values[third_card] < 17:
-    print("Hit.")
-elif 21 > card_values[first_card]+card_values[second_card]+card_values[third_card] >= 17:
-    print("Stand.")
-elif card_values[first_card]+card_values[second_card]+card_values[third_card] == 21:
-    print("Winner winner chicken dinner!")
-else:
-    print("You have busted.")
 
+if total < 17:
+    print(f"{total}, Hit.")
+elif 21 > total >= 17:
+    print(f"{total}, Stand.")
+elif total == 21:
+    print(f"{total}! Winner winner chicken dinner!")
+elif 21 < total:
+    print(f"{total} You have busted.")
