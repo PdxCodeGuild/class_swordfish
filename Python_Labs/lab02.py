@@ -50,8 +50,8 @@ elif 100 <= x < 999:
     hundreds_digit = x//100
     x = str(x)
     lst = []
-    lst.extend(x)
-    lst.pop(0)
+    lst.extend(x)           #here I am simply taking the string, turning it into a string, then using the previous
+    lst.pop(0)              #code to take the seperate numbers and concatenating them at the end
     last_two_nums = ''.join(lst)
     last_two_nums = int(last_two_nums)
     hundreds_digit = ones[hundreds_digit]
