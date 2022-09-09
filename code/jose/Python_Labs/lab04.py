@@ -1,16 +1,19 @@
-import numbers
 import string
 import random
 
 digits = string.digits
 
-numbers = []
-
 def pick6():
+    """
+    generates a list of six numbers
+    """
+    numbers = []
     while len(numbers) < 6:
         numbers.append(random.randint(0, 99))
-        return numbers
+    return numbers
+
+print(pick6())
 
 
-print(numbers)
-print(random.randint(0,99))
+while 
+
