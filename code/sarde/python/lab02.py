@@ -6,6 +6,7 @@ Lab 2: Number to Phrase
 # converting from an integer to a string????
 # use the digit, as a key for a dict of digit:phrase pairs
 
+# 0-9
 ones_suffix = {
     0: 'zero',
     1: 'one',
@@ -17,17 +18,6 @@ ones_suffix = {
     7: 'seven',
     8: 'eight',
     9: 'nine'
-}
-# 20-90
-tens_suffix = {
-    2: 'twenty',
-    3: 'thirty',
-    4: 'fourty',
-    5: 'fifty',
-    6: 'sixty',
-    7: 'seventy',
-    8: 'eighty',
-    9: 'ninety'
 }
 # 10-19
 teens_suffix = {
@@ -42,23 +32,33 @@ teens_suffix = {
     8: 'eighteen',
     9: 'nineteen'
 }
+# 20-90
+tens_suffix = {
+    2: 'twenty',
+    3: 'thirty',
+    4: 'fourty',
+    5: 'fifty',
+    6: 'sixty',
+    7: 'seventy',
+    8: 'eighty',
+    9: 'ninety'
+}
 
-input_number = 1
+input_number = 0
 
 
 tens_digit = input_number // 10  # prints 9
 ones_digit = input_number % 10  # prints 7
 
-
 if tens_digit > 2:
-    # do suff for 2 and above
+    # 20 and above
     print(f'{tens_suffix[tens_digit]}-{ones_suffix[ones_digit]}')
 
 
-elif ones_digit >= 0 and ones_digit <= 9:
-    # do stuff for 10-19
+elif tens_digit == 1:
+    # 10-19
     print(f'{teens_suffix[ones_digit]}')
 
 else:
-    # do stuff for 0-9
-    print(f'{ones_suffix[tens_digit]}')
+    # 0-9
+    print(f'{ones_suffix[ones_digit]}')
