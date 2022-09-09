@@ -73,4 +73,3 @@ conversion = distance * users_unit
 
 
 print(f'{round(conversion / users_converter,4)}')
-
