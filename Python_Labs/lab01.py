@@ -70,6 +70,8 @@ elif user_units == 'yards':
     userunits_meters = user_distance * conversion_values['yards']
 elif user_units == 'inches':
     userunits_meters = user_distance * conversion_values['inches']
+elif user_units == 'meters':
+    userunits_meters = user_distance * conversion_values['meters']
 
 final_converted_units = userunits_meters * conversion_values_meters[desired_units]
 print ('Your new units are ' + str(final_converted_units) + str(desired_units))
