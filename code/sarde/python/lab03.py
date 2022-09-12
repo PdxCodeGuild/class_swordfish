@@ -16,6 +16,7 @@ during a game by asking the player for cards
 -21 --> 'Blackjack'
 -greater than 21 --> 'Already Busteed
 '''
+
 cards = {
     'A': 1,
     '2': 2,
@@ -31,15 +32,28 @@ cards = {
     'Q': 10,
     'K': 10
 }
-# print(cards)
-
-# ask the user for first card
-first_card = input('What\'s your first card?: ')
-# ask the user for second card
-second_card = input('What\'s your second card?: ')
-# ask the user for third card
-third_card = input('What\'s your third card?: ')
 
 
-def basic_blackjack():
-    if
+def add_input_cards(the_cards_dict):
+    # ask the user for first card
+    first_card = input('What\'s your first card?: ')
+    # ask the user for second card
+    second_card = input('What\'s your second card?: ')
+    # ask the user for third card
+    # third_card = input('What\'s your third card?: ')
+    first_card_value = the_cards_dict[first_card]
+    second_card_value = the_cards_dict[second_card]
+    print(first_card, first_card_value)
+    print(second_card, second_card_value)
+
+# return a list of the values
+
+
+# call the function
+card_values_list = add_input_cards(cards)
+
+# pass in the card values list
+
+
+def blackjack_advice():
+    return
