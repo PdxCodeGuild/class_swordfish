@@ -25,9 +25,26 @@
 7.Add to your balance the winnings from your matches
 8.After the loop, print the final balance'''
 
-import random
-random_integer = random.randint(1, 99)
-winning_ticket = []
-print(random_integer)
+# generate a list of 6 random number = winning tickets
 
-balance = 0
+
+
+
+import random
+def pick6():
+    # generate a list of 6 random number = winning tickets
+    balance = 0
+    winning_ticket_list = []
+    # print(random_integer)
+    while (balance) < 99:
+        random_integer = random.randint(1, 99)
+        winning_ticket_list.append(random_integer)
+
+        balance = balance + 1
+
+    if (balance) >= 99:
+        pass
+    else:
+
+        return winning_ticket_list
+    print(winning_ticket_list)
