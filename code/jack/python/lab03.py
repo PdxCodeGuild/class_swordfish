@@ -1,22 +1,34 @@
 #Lab 3: Blackjack advice
 
+#define card scoring
 options = {'A': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, '10': 10, 'J': 10, 'Q': 10, 'K': 10}
 
-cards = {}
-total = 0
-
+#create list of cards from user input
+cards = []
 for i in range(3):
-    cards[i] = input(f'What is card # {i + 1}? ').upper()
-    if cards[i] == 'A':#placeholder for version 2
-        total += options[cards[i]]
-    else:
-        total += options[cards[i]]
+    cards.append(input(f'What is card # {i + 1}? ').upper())
 
-if total < 17:
-    print(total, 'Hit')
-elif 17 <= total < 21:
-    print(total, 'Stay')
-elif total == 21:
-    print(total, 'Blackjack!')
+#evaluate each card in cards and increment total score with respective card score
+total = [0]
+for x in cards:
+    for i in range(len(total)): # increments each item in 'total' list by card score
+        total[i] += options[x]
+    if x == 'A': # if card is an ace, create another possible total score where ace score = 11 instead of 1
+        total.append(total[-1] + 10)
+
+#determine best score from all total options, where default is first item in list:
+best_total = total[0]
+for x in reversed(total):
+    if x <= 21:
+        best_total = x
+        break
+
+#evaluate best total score and return advice
+if best_total < 17:
+    print(best_total, 'Hit')
+elif 17 <= best_total < 21:
+    print(best_total, 'Stay')
+elif best_total == 21:
+    print(best_total, 'Blackjack!')
 else:
-    print(total, 'Already Busted')
+    print(best_total, 'Already Busted')
