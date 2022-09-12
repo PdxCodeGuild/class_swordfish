@@ -45,10 +45,23 @@ def add_input_cards(the_cards_dict):
     first_card_value = the_cards_dict[first_card]
     second_card_value = the_cards_dict[second_card]
     third_card_value = the_cards_dict[third_card]
-    print(first_card, first_card_value)
-    print(second_card, second_card_value)
-    print(third_card, third_card_value)
-# return a list of the values
+    #print(first_card, first_card_value)
+    #print(second_card, second_card_value)
+    #print(third_card, third_card_value)
+
+    cards_total = first_card_value + second_card_value + third_card_value
+    # print(cards_total)
+# if first_card_value + second_card_value + third_card _value
+    # is less than 17
+    if cards_total < 17:
+        print(f'{cards_total} "Hit"')
+    elif cards_total >= 17 and cards_total < 21:
+        print(f'{cards_total} "Stay"')
+    elif cards_total == 21:
+        print(f'{cards_total} "Blackjack!"')
+    else:
+        print(f'{cards_total} "Already Busteed"')
+
     return
 
 
@@ -57,8 +70,9 @@ def add_input_cards(the_cards_dict):
 card_values_list = add_input_cards(cards)
 
 
+'''
 def blackjack_advice(first_card_value, second_card_value, third_card_value):
-    '''
+    cards_total = first_card_value, second_card_value, third_card_value
     # if first_card_value + second_card_value + third_card _value
     # is less than 17
     if cards_total < 17:
@@ -66,7 +80,7 @@ def blackjack_advice(first_card_value, second_card_value, third_card_value):
     elif cards_total >= 17 and cards_total < 21:
         print(f'{cards_total}"Stay"')
     elif cards_total == 21:
-        print(f'{cards_total}"Blackjack"')
+        print(f'{cards_total}"Blackjack!"')
     else:
         print(f'{cards_total}"Already Busteed"')
 '''
