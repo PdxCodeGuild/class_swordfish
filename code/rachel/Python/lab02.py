@@ -1,4 +1,5 @@
-x = 23
+x = input('Enter a number: ')
+x = int(x)
 hundreds_digit = x//100
 y = hundreds_digit*100
 ones_digit = x%10
