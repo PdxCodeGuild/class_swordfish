@@ -14,8 +14,6 @@ def pick6():
 winning_ticket = pick6()
 ticket = pick6()
 
-
-
 def num_matches(x):
     balance = 0
     for x in range(100000):
@@ -65,5 +63,7 @@ def num_matches(x):
     return balance
 
 balance = num_matches(1)
+roi = (balance - 200000)/200000
 
 print(f"Your remaining balance after playing Pick 6 100000 times is ${balance}.00.")
+print(f'Your return on investment is {roi} for every ticket bought.')
