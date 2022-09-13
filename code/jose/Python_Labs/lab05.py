@@ -3,7 +3,7 @@
 import numbers
 
 
-credit_card_number = '4556737586899859'
+credit_card_number = input('What is the credit card number?: ')
 cc_split = list(credit_card_number)                         #turned str into list of individual strings
 check_value = cc_split.pop()                                #popped last value and created check value for later
 cc_split.reverse()                                             #reversed list
@@ -14,9 +14,9 @@ cc_split_sum = str(sum(cc_split))                           #added the sum of th
 cc_split_sum = list(cc_split_sum)                           #created string into list
 
 if cc_split_sum.pop() == check_value:
-    print(True)
+    print('Valid')
 elif cc_split.pop() != check_value:                         #checked to see if popped value of sum of list was equal to check value
-    print(False)                                               #returned bool with if/elif both situations
+    print('Invalid')                                               #returned bool with if/elif both situations
 
 # print(cc_split)
 # print(cc_split_sum)
