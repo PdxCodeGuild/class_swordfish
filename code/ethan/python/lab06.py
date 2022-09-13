@@ -37,11 +37,14 @@ element_number = len(word)
 
 code = []
 
+aor = input('Enter the amount of rotation: ')
+aor = int(aor)
+
 for x in range(element_number):
     x = 0
     letter = word.pop(x)
     number = letters.get(letter)
-    number = number + 13
+    number = number + aor
     if number > 25:
         number = number - 26
         code.append(number)
