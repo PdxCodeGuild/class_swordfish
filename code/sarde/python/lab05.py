@@ -18,10 +18,23 @@ returns whether a string containing a credit card number is valid as a boolean.
 
 # def credit_card_validator():
 integer_list = []  # --> list of integers
-credit_card_number = int(input('Enter a valid credit card number: '))
-integer_list.append(credit_card_number)
-# print(integer_list)
+# --> convert to a list
+credit_card_number = list(input('Enter a valid credit card number: '))
+for i in credit_card_number:
+    integer_list.append(int('i'))
+print(integer_list)
 
 # slice of last digit of the integer_list
-check_digit = integer_list[-1]
+check_digit = integer_list.pop(-1)
 print(check_digit)
+
+# reverse the digits
+integer_list.reverse()
+print(integer_list)
+
+# get every other element
+every_other = integer_list[1::2]
+print(every_other)
+# double every other element in the reversed list
+#doubled_numbers = [i * 2 for i in integer_list]
+# print(doubled_numbers)
