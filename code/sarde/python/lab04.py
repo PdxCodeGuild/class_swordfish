@@ -3,7 +3,7 @@
 '''
 -Have the computer play pick6 many times and determine net balance.
 -Initially the program will pick 6 random numbers as the 'winner'. Then try playing pick6 100,000 times, with the ticket cost and payoff below.
--A ticket contains 6 numbers, 1 to 99, and the number of matches between the ticket 
+-A ticket contains 6 numbers, 1 to 99, and the number of matches between the ticket
     -and the winning numbers determines the payoff
 -Order matters
 - Calculate your net winnings (the sum of all expenses and earnings).
@@ -25,26 +25,47 @@
 7.Add to your balance the winnings from your matches
 8.After the loop, print the final balance'''
 
-# generate a list of 6 random number = winning tickets
-
-
-
-
 import random
-def pick6():
-    # generate a list of 6 random number = winning tickets
-    balance = 0
+counter = 0
+balance = 0
+while (counter) <= 100000:
+    balance = balance - 2
+    counter = counter + 1
     winning_ticket_list = []
-    # print(random_integer)
-    while (balance) < 99:
+    ticket_list = []
+    n = 6
+    for i in range(n):
         random_integer = random.randint(1, 99)
+        random_integer_two = random.randint(1, 99)
         winning_ticket_list.append(random_integer)
+        ticket_list.append(random_integer_two)
+    # print(winning_ticket_list)
+    # print(ticket_list)
 
-        balance = balance + 1
+    matching_numbers = 0
+    if winning_ticket_list[0] == ticket_list[0]:
+        matching_numbers = matching_numbers + 1
+    if winning_ticket_list[1] == ticket_list[1]:
+        matching_numbers = matching_numbers + 1
+    if winning_ticket_list[2] == ticket_list[2]:
+        matching_numbers = matching_numbers + 1
+    if winning_ticket_list[3] == ticket_list[3]:
+        matching_numbers = matching_numbers + 1
+    if winning_ticket_list[4] == ticket_list[4]:
+        matching_numbers = matching_numbers + 1
+    if winning_ticket_list[5] == ticket_list[5]:
+        matching_numbers = matching_numbers + 1
 
-    if (balance) >= 99:
-        pass
-    else:
-
-        return winning_ticket_list
-    print(winning_ticket_list)
+    if matching_numbers == 1:
+        balance = balance + 4
+    if matching_numbers == 2:
+        balance = balance + 7
+    if matching_numbers == 3:
+        balance = balance + 100
+    if matching_numbers == 4:
+        balance = balance + 50000
+    if matching_numbers == 5:
+        balance = balance + 1000000
+    if matching_numbers == 6:
+        balance = balance + 25000000
+print(balance)
