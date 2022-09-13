@@ -38,14 +38,14 @@ winnings = {0: -2,          # #a ticket costs $2
 lotto_runs = int(0)
 user_funds = int()
 
-while lotto_runs > 1000000:
+while lotto_runs < 1000000:
     match_counts = find_matching_indicies(lotto_numbers, user_numbers)
-    earned_amounts = int(match_counts[winnings] + user_funds)
+    earned_amounts = winnings[match_counts] + user_funds
     total_earnings = earned_amounts + user_funds
     lotto_runs += 1
 
     
-print(user_funds)
+print(total_earnings)
 
 
 
