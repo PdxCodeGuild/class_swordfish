@@ -20,7 +20,6 @@ second_card = input("What is your second card?: ").upper()
 third_card = input("What is your third card?: ").upper()
 total = card_values[first_card]+card_values[second_card]+card_values[third_card]
 
-
 if total < 17:
     print(f"{total}, Hit.")
 elif 21 > total >= 17:
