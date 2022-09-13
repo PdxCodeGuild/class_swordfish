@@ -19,7 +19,7 @@ for j in range(100000):
     
     if my_numbers[j] == winning_numbers[i]: #Find how many numbers match
         matching_numbers += 1 #Add to your balance the winnings from your matches
-print(matching_numbers)
+print("Matching numbers: ",matching_numbers)
     
 if matching_numbers == 1:
     balance += 4
