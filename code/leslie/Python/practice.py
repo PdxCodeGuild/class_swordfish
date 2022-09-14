@@ -1,9 +1,12 @@
-xs = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+def rot13(input_string):
+    abc = "abcdefghijklmnopqrstuvwxyz"
+    output = ""
+    
+    for char in input_string:
+        output += abc[(abc.find(char) +13)%26]
+    return output
 
-print(xs)
+input_string = input("Please enter a string: ")
 
-for idx in range(2, len(xs), 3):
-    if xs[idx] % 2 == 1:
-        xs[idx] -= 1
-
-print(xs)
+print(rot13(input_string))
+print(rot13(rot13(input_string)))
