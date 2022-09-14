@@ -11,12 +11,8 @@ while len(jackalope_list) < 1001:
         if jackalope_list[i] >= 4 and jackalope_list[i] <= 8:
             jackalope_list.append(0)
         elif jackalope_list[i] >= 10:
-            jackalope_list.pop(i)
-    #jackalope_list = [x+1 for x in jackalope_list]
-    
-    for i in range(len(jackalope_list)):
-        jackalope_list[i] = jackalope_list[i] + 1
-    
+
+    jackalope_list = [x+1 for x in jackalope_list]
     print(jackalope_list)
 
 print(years)
