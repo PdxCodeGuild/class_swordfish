@@ -3,7 +3,7 @@
 import random
 
 #birth function to return newborn jackalope info
-def birth(sex = None):
+def birth():
     jack_dict = {
         # 'name': not sure how to approach this
         'age': 0, 
@@ -12,8 +12,8 @@ def birth(sex = None):
     }
     return jack_dict
 
-#population = [{'age': 0, 'sex': 'Male', 'pregnant': False}, {'age': 0, 'sex': 'Female', 'pregnant': False}] # jackalopes are stored as dict in list
-population = [birth() for i in range(6)]
+# population = [{'age': 0, 'sex': 'Male', 'pregnant': False}, {'age': 0, 'sex': 'Female', 'pregnant': False}] # jackalopes are stored as dict in list
+population = [birth() for i in range(3)]
 year = 0
 
 #returns list of all newborn dictionaries
@@ -22,11 +22,20 @@ def pop_increase():
     for i in population: 
         if i['pregnant'] == True:
             jack.append(birth())
+        i['pregnant'] = False
     return jack
+
+def age_check(i):
+    if 2 <= population[i]['age'] <= 8:
+        return True
+    else:
+        return False
 
 #sets pregnancy status for females
 def sex():
     for i in range(len(population)):
+        if age_check(i) == False:
+            continue
         if population[i]['sex'] == 'Female':
             #checks if next to male jackalope (connects list ends)
             if population[(i + 1) % len(population)]['sex'] == 'Male' or population[(i - 1) % len(population)]['sex'] == 'Male':
@@ -38,8 +47,10 @@ while len(population) < 7:
     for i in range(len(population)):
         population[i]['age'] += 1 #jackalope ages 1 year
     sex()
-    population.append(birth())
+    population.extend(pop_increase())
+    year +=1
 
 # print(population)
 # print(len(population))
 print([[population[i]['sex'], population[i]['pregnant']] for i in range(len(population))])
+print(year)
