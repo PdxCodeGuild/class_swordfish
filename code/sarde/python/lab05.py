@@ -50,5 +50,22 @@ def credit_card_validator(credit_card_number):
     subtract_9 = [num - 9 if num > 9 else num for num in final_list]
     print(subtract_9)
 
+# sum all of the values
+    sum_of_values = sum(subtract_9)
+    print(sum_of_values)
+    # print(type(sum_of_values))
+
+# get the second digit of that sum. --> 85
+    second_digit = str(sum_of_values)
+    second_digit = int(second_digit[1])
+    print(second_digit)
+    # print(type(second_digit))
+
+# if second_digit matches the check digit, the whole card number is valid.
+    if second_digit == check_digit:
+        print('Credit Card Is Valid!')
+    else:
+        print('Credit Card Is Not Valid!')
+
 
 credit_card_validator(credit_card_number)
