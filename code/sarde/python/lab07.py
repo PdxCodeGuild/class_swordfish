@@ -21,7 +21,7 @@
 
 import re
 import math
-f = open('lab07.txt')  # --> open the file
+f = open('gettysburg-address.txt')  # --> open the file
 contents = f.read()  # --> read the file
 # -- print the contents of the file to the console
 print(contents)
@@ -36,10 +36,28 @@ characters_list = list(contents)
 characters_to_remove = [',', '.', '-', '_', '\n', ' ']
 words = contents.split(' ')
 number_of_words = len(words)
-# print(words)
+print('number of words:', words)
 sentences = contents.split('\n')
 number_of_sentences = len(sentences)
-# print(sentences)
+print(sentences)
+print('number of sentences:', number_of_sentences)
+
+ari_scale = {
+    1: {'ages':   '5-6', 'grade_level': 'Kindergarten'},
+    2: {'ages':   '6-7', 'grade_level':    '1st Grade'},
+    3: {'ages':   '7-8', 'grade_level':    '2nd Grade'},
+    4: {'ages':   '8-9', 'grade_level':    '3rd Grade'},
+    5: {'ages':  '9-10', 'grade_level':    '4th Grade'},
+    6: {'ages': '10-11', 'grade_level':    '5th Grade'},
+    7: {'ages': '11-12', 'grade_level':    '6th Grade'},
+    8: {'ages': '12-13', 'grade_level':    '7th Grade'},
+    9: {'ages': '13-14', 'grade_level':    '8th Grade'},
+    10: {'ages': '14-15', 'grade_level':    '9th Grade'},
+    11: {'ages': '15-16', 'grade_level':   '10th Grade'},
+    12: {'ages': '16-17', 'grade_level':   '11th Grade'},
+    13: {'ages': '17-18', 'grade_level':   '12th Grade'},
+    14: {'ages': '18-22', 'grade_level':      'College'}
+}
 
 
 def remove_chars(characters_list, characters_to_remove):
@@ -56,11 +74,17 @@ single_char_list = remove_chars(characters_list, characters_to_remove)
 
 
 def computeARI(single_char_list, number_of_words, number_of_sentences):
-    score = len(single_char_list) / number_of_words / 4.17 + \
-        number_of_words / number_of_sentences * 0.5 - 21.43
+    score = 4.17 * len(single_char_list) / number_of_words + \
+        0.5 * number_of_words / number_of_sentences - 21.43
     rounded_score = math.ceil(score)
     print(score)
     print(rounded_score)
+    print(f'The ARI for the gettysburg-address.txt is {rounded_score}.')
+    # print(f'This corresponds to a {ari_scale[rounded_score]} of difficulty.')
+    print(
+        f'that is suitable for an average person {ari_scale[rounded_score][0]} years old.'
+    )
+
     return score
 
 
