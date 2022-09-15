@@ -15,20 +15,19 @@ def rot_encryption(decrypt, encrypt):
     rot_text = ''
 
     # takes the each letter that was entered and uses variable "alphabet" to have a list of strings to convert with.
-    for letter in decrypt:
+    for letters in decrypt:
 
-        if letter in alphabet:
-            
+        if letters in alphabet:
             
             # creates index based off of alphabet variable and the users input.
             # modulus (%) 26 will account for all 26 letters, and take the remainder of anything above 26, and loops around the alphabet.
-            rot_cypher_index = (alphabet.index(letter) + encrypt) % 26
+            rot_cypher_index = (alphabet.index(letters) + encrypt) % 26
 
             # creates variable 'rot_text' which recieves the converted strings from rot_cypher_index.
             rot_text = rot_text + alphabet[rot_cypher_index]
 
-        # returns so 'None' appears
-        return rot_text
+    # returns so 'None' appears
+    return rot_text
 
 decrypt = input("\n> please enter a message to have encrypted: ")
 
