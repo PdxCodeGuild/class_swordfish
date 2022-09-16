@@ -15,7 +15,8 @@ alphabet = {
     'w': 23, 'x': 24, 'y': 25, 'z': 26
 }
 print(alphabet)
-rot_13_alpahabet = {}  # -->??
+rot_13_alpahabet_start = alphabet[13]  # -->??
+print(rot_13_alpahabet_start)
 input_string = input('Enter a word:')
 
 
