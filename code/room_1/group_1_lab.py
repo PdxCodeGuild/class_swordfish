@@ -1,4 +1,3 @@
-
 jackalopes = [0,0]
 
 years_passed = 0
@@ -17,7 +16,7 @@ while len(jackalopes) <= 1000:
             jackalopes.remove(item)
 
     years_passed += 1
+
 print(jackalopes)
 
 print(f"{years_passed} years have passed.")
-
