@@ -26,11 +26,8 @@ y = 0
 
 for i in contents:
     contacts = []
-    print(y)
     for i in range(key_amount):
-        print(i)
         x[keys[i]] = contents[y][i]
-        print(x)
         contacts.append(x)
     y += 1
 
