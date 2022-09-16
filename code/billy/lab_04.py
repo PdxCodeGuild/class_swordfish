@@ -3,22 +3,25 @@ program: lab_04
 author: billy frick
 date: 12 september 2022
 
-funcion: this program will generate 6 random numbers as the "winning numbers". The net 
+funcion: this program will generate 6 random numbers as the "winning numbers". The net winnings will be printed out at the end.
 
 '''
 
 import random
 
-# def ticket_comparison(winning_numbers, generated_tickets):
-    
-#     matching_numbers = []
+def ticket_comparison(winning_numbers, generated_tickets):
 
-#     if generated_tickets in winning_numbers:
+    matching_numbers = 0
 
-#         return matching_numbers
+    for i in range(len(winning_numbers)):
 
+        if winning_numbers[i] == generated_tickets[i]:
 
+            matching_numbers += 1
 
+    return matching_numbers
+
+# this function generates a 6-digit ticket at random. This will be used for the winning ticket, as well as any generated tickets.
 def ticket_randomizer(ticket_numbers):
 
     ticket_numbers = []
@@ -27,13 +30,20 @@ def ticket_randomizer(ticket_numbers):
 
     stop = 6
 
+    # selects a random number between 1 and 99 to loop 6 times for the ticket numbers.
     while start < stop:
+
         number = random.randint(1 , 99)
+
         ticket_numbers.append(number)
+
         start += 1
+
     return ticket_numbers
     
-balance = 0
+expenses = 0
+
+earnings = 0
 
 ticket_generator = 0
 
@@ -43,17 +53,17 @@ generated_tickets = []
 
 print("\nThe winning numbers are:", ticket_randomizer(winning_numbers))
 
+number_of_matches = ticket_comparison(winning_numbers, generated_tickets)
 
-while ticket_generator < 10:
+print("The number of matches is:", number_of_matches)
 
-    balance -- 2
+# this will run the program 100000 times, creating 100000 tickets to compare to the winning ticket.
+while ticket_generator < 100000:
+
+    expenses += 2
 
     (ticket_randomizer(generated_tickets))
 
-    # print(ticket_comparison(winning_numbers, generated_tickets))
-
     ticket_generator += 1
 
-# if generated_tickets == winning_numbers:
-#     balance ++ 25000000
-
+print(earnings, expenses)
