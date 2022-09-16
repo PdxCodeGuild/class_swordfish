@@ -36,11 +36,11 @@ characters_list = list(contents)
 characters_to_remove = [',', '.', '-', '_', '\n', ' ']
 words = contents.split(' ')
 number_of_words = len(words)
-print('number of words:', words)
+#print('number of words:', number_of_words)
 sentences = contents.split('\n')
 number_of_sentences = len(sentences)
-print(sentences)
-print('number of sentences:', number_of_sentences)
+# print(sentences)
+#print('number of sentences:', number_of_sentences)
 
 ari_scale = {
     1: {'ages':   '5-6', 'grade_level': 'Kindergarten'},
@@ -58,6 +58,7 @@ ari_scale = {
     13: {'ages': '17-18', 'grade_level':   '12th Grade'},
     14: {'ages': '18-22', 'grade_level':      'College'}
 }
+# print(ari_scale)
 
 
 def remove_chars(characters_list, characters_to_remove):
@@ -77,13 +78,19 @@ def computeARI(single_char_list, number_of_words, number_of_sentences):
     score = 4.17 * len(single_char_list) / number_of_words + \
         0.5 * number_of_words / number_of_sentences - 21.43
     rounded_score = math.ceil(score)
-    print(score)
-    print(rounded_score)
-    print(f'The ARI for the gettysburg-address.txt is {rounded_score}.')
-    # print(f'This corresponds to a {ari_scale[rounded_score]} of difficulty.')
+    # print(score)
+    # print(rounded_score)
+    # scores greater than 14 should be presented as having the same age and grade level as scores of 14.
+    if rounded_score >= 14:
+        rounded_score = ari_scale[14]
+    rounded_score_grade = ari_scale[rounded_score]['grade_level']
+    rounded_score_ages = ari_scale[rounded_score]['ages']
+    # print(rounded_score_grade)
+    # print(rounded_score_ages)
+    print(f'The ARI for the gettysburg-address.txt is {rounded_score}')
+    print(f'This corresponds to a {rounded_score_grade} level of difficulty')
     print(
-        f'that is suitable for an average person {ari_scale[rounded_score][0]} years old.'
-    )
+        f'that is suitable for an average person {rounded_score_ages} years old.')
 
     return score
 
