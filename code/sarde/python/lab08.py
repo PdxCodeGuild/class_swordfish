@@ -19,37 +19,37 @@ with open('contacts.csv') as file:
 # load csv file
 f = open('contacts.csv')
 contacts_list = f.read().split('\n')  # --> converted to list
-print(contacts_list)  # --> prints --> list
-
-'''
-tuple_list = []
-keys = contacts_list[0],
-# print(keys)  # -- tuple
-contact_1 = contacts_list[1],
-contact_2 = contacts_list[2],
-contact_3 = contacts_list[3],
-values = contact_1, contact_2, contact_3
-# print(values)  # -- tuple
-tuple_list.append(keys)
-tuple_list.append(values)
-# print(tuple_list)
-'''
+# print(contacts_list)  # --> prints --> list
 
 
-def contacts_list_dictionary(contacts_list):
-    tuple_list_keys = contacts_list[0].split(',')
-    tuple_list_values = contacts_list[1], contacts_list[2], contacts_list[3]
-    print(tuple_list_keys)
-    print(tuple_list_values)
-    name_key = tuple_list_keys[0]
-    # print(name_key)
-    favorite_fruit_key = tuple_list_keys[1]
-    # print(favorite_fruit_key)
-    favorite_color_key = tuple_list_keys[2]
-    # print(favorite_color_key)
-    # tuple_dictionary = dict((i) for i in tuple_list)
-    # print(tuple_dictionary)
-    return
+keys = contacts_list[0]
+keys_list = keys.split(',')  # -- list of keys
+# print(keys_list)
+contact_1 = contacts_list[1]
+contact_2 = contacts_list[2]
+contact_3 = contacts_list[3]
+contacts = contact_1 + contact_2 + contact_3
+values_list = contacts.split(',')
+# print(values_list)  # --> list of values
 
 
-contacts_list_dictionary(contacts_list)
+def contacts_list_dictionary(keys_list, values_list):
+   # iterate over the elements
+    n = len(keys)
+    # create an empty list
+    list_dict = []
+    for i in range(0, n, 3):
+        contacts_list_dict = (
+            {keys_list[0]: values_list[0], keys_list[1]
+                : values_list[1], keys_list[2]: values_list[2]},
+            {keys_list[0]: values_list[3], keys_list[1]
+                : values_list[4],  keys_list[2]: values_list[5]},
+            {keys_list[0]: values_list[6], keys_list[1]: values_list[7],  keys_list[2]: values_list[8]},)
+        list_dict.append(contacts_list_dict)
+        final_list = list(contacts_list_dict)
+        print(final_list)
+
+    return final_list
+
+
+contacts_list_dictionary(keys_list, values_list)
