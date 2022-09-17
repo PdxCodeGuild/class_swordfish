@@ -1,41 +1,32 @@
-#lab 08: contact list
+# Lab 08: Contact List
 
 
-#load csv file and save contents as list of strings
-csvfile = 'contacts.csv'
-with open(csvfile, 'r') as file:
-    lines = file.read().split('\n')
+# load csv file and save contents as a list of strings
+with open('contacts.csv', 'r') as file:
+    lines = file.read().split('\n') # each line of data is stored as a string in a list
 
 
-#pulls csv headers out and converts to list
+# removes and stores csv headers
+# used to generate dictionary keys
 keys = lines.pop(0)
-keys = keys.split(',')
+keys = keys.split(',') # string of headers to list of headers
 
 
-#converts csv data from strings to dictionaries stored in contacts list
-contacts = []
+# converts 'lines' variable from strings to dictionaries
+# each line is converted to a dictionary
+contacts = [] # main list of dictionaries containing all data
 for x in lines:
-    dict_x = {}
-    split_line = x.split(',')
-    for i in range(len(keys)):
+    split_line = x.split(',') # string of data converted to list of data
+    dict_x = {} 
+    for i in range(len(keys)): # creates a key from 'keys' and matches index to the data for each line and column
         dict_x[keys[i]] = split_line[i]
-    contacts.append(dict_x)
+    contacts.append(dict_x) # adds dictionary to main contacts list
 
 
-# contact create function returns the new contact dictionary
-def create():
-    print('Creating new contact...\n')
-    name = input('Enter the contact name:\n>').capitalize()
-    fruit = input('Enter the favorite fruit:\n>').capitalize()
-    color = input('Enter the favorite color:\n>').capitalize()
-    new_line = [name, fruit, color]
-    new_dict = {}
-    for i in range(len(keys)):
-        new_dict[keys[i]] = new_line[i]
-    return new_dict
+# data is now processed for use in program
 
 
-#function to return list of contact dictionaries with given name
+# function to return list of contact dictionaries with given name
 def contacts_name(name):
     ret_contacts = []
     for x in contacts: # finds all contacts with retrieved name, appends contact dictionary to retrieved contacts list
@@ -44,23 +35,36 @@ def contacts_name(name):
     return ret_contacts
 
 
+# contact create function
+# returns the new contact dictionary
+def create():
+    print('Creating new contact...\n')
+    new_line = [input(f'Enter the {x}:\n>').capitalize() for x in keys] # creates a list of user inputs for each key
+    new_dict = {}
+    for i in range(len(keys)):
+        new_dict[keys[i]] = new_line[i] # adds each item in new_line list as a value to its respective key
+    return new_dict
+
+
 #function to return contact info as a string
 def retrieve(name):
     ret_contacts = contacts_name(name) # function returns list of contact dictionaries with given name
-    req_output = ''
-    req_output_num = 0 # used to output number of contacts found
+    
+    output = '' # empty string to append to
+    output_num = 0 # used to track number of contacts returned
     for contact in ret_contacts: # runs through each contact in the list
-        req_output += f'Contact #{ret_contacts.index(contact) + 1}: '
+        output += f'Contact #{ret_contacts.index(contact) + 1}: '
         for i in range(len(keys)):
-            req_output += (f'{keys[i]}: {contact[keys[i]]}')
+            output += (f'{keys[i]}: {contact[keys[i]]}')
             if i != len(keys) - 1: # if statement checks for following info to append commas for
-                req_output += ', '
-        req_output += '\n'
-        req_output_num += 1
+                output += ', '
+        output += '\n'
+        output_num += 1
     s = 's' # weird error if variable isn't used
     n = '' # weird error if variable isn't used
-    print(f'\n{req_output_num} contact{s if req_output_num > 1 else n} with \'{name}\' name found:')
-    return req_output
+    print(f'\n{output_num} contact{s if output_num != 1 else n} with \'{name}\' name found:')
+
+    return output
 
 
 #function to select which contact to work with when multiple with same name exist
@@ -80,28 +84,30 @@ def contact_select(name, ret_contacts):
             print('Invalid input')
     select_dict = ret_contacts[ret_contacts_i] # selected contact dictionary is the selected dict from retrieved dicts (ret_contacts)
     contacts_i = contacts.index(select_dict) # index of selected dictionary in main 'contacts' list
+    
     return contacts_i
 
 
 # function returns the main 'contacts' list index of selected contact dictionary 
 def contacts_index(name):
     ret_contacts = contacts_name(name) # retrieves list of contact dictionaries with given name
+    
     if len(ret_contacts) == 0:
         print(f'No contacts with {name} name found.\n')
         return None
+
     elif len(ret_contacts) > 1: # if multiple contacts with requested name, runs contact select function
-        contacts_i = contact_select(name, ret_contacts) ### see below
+        contacts_i = contact_select(name, ret_contacts) 
     else:
-        for x in contacts:
-            if x['name'] == name:
-                contacts_i = contacts.index(x)
+        contacts_i = contacts.index(ret_contacts[0])
+    
     return contacts_i
 
 
 # UPDATE 
 def update(name): 
     contacts_i = contacts_index(name) # function returns correct 'contacts' index to work with
-    update_contact = contacts[contacts_i] # dictionary associated with aforementioned index
+    update_contact = contacts[contacts_i] # pulls dictionary associated with above index
     print('\nUpdating contact...')
     print('Note: press return to skip the field.')
     for x in update_contact: # for loop runs through each attribute in the contact
@@ -112,25 +118,40 @@ def update(name):
 #function to delete contact
 def delete(name):
     contacts_i = contacts_index(name) # function returns correct 'contacts' index to work with
-    contacts.pop(contacts_i)
+    contacts.pop(contacts_i) # removes contact from main 'contacts' list
 
 
+# function to save edits
+def save():
+    updated_contents = ','.join(keys) # start of string to save into csv
+   
+    for dictionary in contacts: # appends to string with a new line for each contact data
+        updated_contents += '\n'
+        attributes = [dictionary[i] for i in dictionary.keys()]
+        updated_contents += ','.join(attributes)
+
+    with open('contacts.csv', 'w') as f:
+        f.write(updated_contents)
 
 input_options = ['e', 'c', 'r', 'u', 'd']
+print('\n\n')
 
 #REPL to make CRUD actions
 while True:
+    
     while True: # while loop to ensure input is allowed
         action = input('Choose one of the following:\n\tCreate a record (c)\n\tRetrieve a record (r)\n\tUpdate a record (u)\n\tDelete a record (d)\n\tExit (e)\n>').lower()
         if action in input_options:
             break
         else:
             print('Invalid input.\n')
-    if action == 'e':
+
+    if action == 'e': # exits the program
         break
 
     if action == 'c':
-        contacts.append(create())
+        contacts.append(create()) # add new contact dictionary to main contacts list
+        save()
         print('Contact created.\n')
     elif action == 'r':
         name_input = input('Enter a the contact name:\n>').capitalize()
@@ -138,21 +159,13 @@ while True:
     elif action == 'u':
         name_input = input('Enter a contact name to update:\n>').capitalize()
         update(name_input)
+        save()
         print('\nContact updated.\n')
     elif action == 'd':
         name_input = input('Enter a contact name to remove:\n>').capitalize()
         delete(name_input)
+        save()
         print('\nContact removed.\n')
     
     cont = input('Press enter to continue')
     print('\n\n')
-
-updated_contents = ','.join(keys) + '\n'
-for dictionary in contacts:
-    attributes = [dictionary[i] for i in dictionary.keys()]
-    updated_contents += ','.join(attributes)
-    if contacts.index(dictionary) + 1 != len(contacts):
-        updated_contents += '\n'
-
-with open(csvfile, 'w') as f:
-    f.write(updated_contents)
