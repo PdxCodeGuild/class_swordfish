@@ -35,6 +35,17 @@ def contacts_name(name):
     return ret_contacts
 
 
+#function to return non empty string with given action prompt
+# def take_name(action):
+#     while True:
+#         input_string = input(f'Enter name to {action}:\n>').capitalize()
+#         if len(input_string) > 0:
+#             break
+#         else:
+#             print('Invalid input.')
+#     return (input_string)
+
+
 # contact create function
 # returns the new contact dictionary
 def create():
@@ -43,17 +54,19 @@ def create():
     new_dict = {}
     for i in range(len(keys)):
         new_dict[keys[i]] = new_line[i] # adds each item in new_line list as a value to its respective key
-    return new_dict
+    contacts.append(new_dict)
+    print('Contact created.\n')
 
 
 #function to return contact info as a string
-def retrieve(name):
+def retrieve():
+    name = input('Enter a the contact name:\n>').capitalize()
     ret_contacts = contacts_name(name) # function returns list of contact dictionaries with given name
     
     output = '' # empty string to append to
     output_num = 0 # used to track number of contacts returned
     for contact in ret_contacts: # runs through each contact in the list
-        output += f'Contact #{ret_contacts.index(contact) + 1}: '
+        output += f'Contact #{ret_contacts.index(contact) + 1}: ' # contact info prefixed by temporary contact ID
         for i in range(len(keys)):
             output += (f'{keys[i]}: {contact[keys[i]]}')
             if i != len(keys) - 1: # if statement checks for following info to append commas for
@@ -63,8 +76,7 @@ def retrieve(name):
     s = 's' # weird error if variable isn't used
     n = '' # weird error if variable isn't used
     print(f'\n{output_num} contact{s if output_num != 1 else n} with \'{name}\' name found:')
-
-    return output
+    print(output)
 
 
 #function to select which contact to work with when multiple with same name exist
@@ -93,7 +105,7 @@ def contacts_index(name):
     ret_contacts = contacts_name(name) # retrieves list of contact dictionaries with given name
     
     if len(ret_contacts) == 0:
-        print(f'No contacts with {name} name found.\n')
+        print(f'No contacts with \'{name}\' name found.\n')
         return None
 
     elif len(ret_contacts) > 1: # if multiple contacts with requested name, runs contact select function
@@ -104,21 +116,35 @@ def contacts_index(name):
     return contacts_i
 
 
-# UPDATE 
-def update(name): 
+# update contact function
+def update(): 
+    name = input('Enter a contact name to update:\n>').capitalize()
     contacts_i = contacts_index(name) # function returns correct 'contacts' index to work with
-    update_contact = contacts[contacts_i] # pulls dictionary associated with above index
-    print('\nUpdating contact...')
-    print('Note: press return to skip the field.')
-    for x in update_contact: # for loop runs through each attribute in the contact
-        updated_info = input(f'Enter new value for {x}:\n>').capitalize()
-        if updated_info != '': # if nothing entered, field is not updated
-            update_contact[x] = updated_info
+    
+    #only runs update function body if valid contact is found
+    if contacts_i in range(len(contacts)):
+        update_contact = contacts[contacts_i] # pulls dictionary associated with above index
+        print('\nUpdating contact...')
+        print('Note: press return to skip the field.')
+        for x in update_contact: # for loop runs through each attribute in the contact
+            updated_info = input(f'Enter new value for {x}:\n>').capitalize()
+            if updated_info != '': # if nothing entered, field is not updated
+                update_contact[x] = updated_info
+        print('Contact updated.\n')
+
+    else:
+        print('No contact updated.\n')
+    
 
 #function to delete contact
-def delete(name):
+def delete():
+    name = input('Enter name to delete:\n>').capitalize() # function returns contact name
     contacts_i = contacts_index(name) # function returns correct 'contacts' index to work with
-    contacts.pop(contacts_i) # removes contact from main 'contacts' list
+    if contacts_i in range(len(contacts)):
+        contacts.pop(contacts_i) # removes contact from main 'contacts' list
+        print('Contact removed.\n')
+    else:
+        print('No contact removed.\n')
 
 
 # function to save edits
@@ -147,25 +173,21 @@ while True:
             print('Invalid input.\n')
 
     if action == 'e': # exits the program
+        print('Program terminated.')
         break
 
     if action == 'c':
-        contacts.append(create()) # add new contact dictionary to main contacts list
+        create()
         save()
-        print('Contact created.\n')
     elif action == 'r':
-        name_input = input('Enter a the contact name:\n>').capitalize()
-        print(retrieve(name_input))
+        retrieve()
     elif action == 'u':
-        name_input = input('Enter a contact name to update:\n>').capitalize()
-        update(name_input)
+        update()
         save()
-        print('\nContact updated.\n')
     elif action == 'd':
-        name_input = input('Enter a contact name to remove:\n>').capitalize()
-        delete(name_input)
+        delete()
         save()
-        print('\nContact removed.\n')
     
+    #REPL done, user is notified program will run again
     cont = input('Press enter to continue')
     print('\n\n')
