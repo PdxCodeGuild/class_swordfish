@@ -1,6 +1,6 @@
 import math # because I'm using math.ceil() to round up the answer
 
-with open('code\leslie\Python\gettysburg_address.txt', 'r') as f:
+with open('gettysburg_address.txt', 'r') as f:
     contents = f.read()
     words = contents.split() # Splits into words
     chars = contents.replace(' ', '') #reads content and replaces spaces with NO spaces to get accurate character count
