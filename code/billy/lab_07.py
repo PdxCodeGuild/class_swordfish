@@ -7,17 +7,16 @@ function:
 
 '''
 
+# imports #
 import re
+import math
 
-characters = 0
-
+# variables #
 words = 0
 
-sentence = 0
+sentences = 0
 
-
-automated_readability_index = 4.71 * (characters // words) + 0.5 (words // sentence) - 21.43
-
+# this dictionary will allow the variable 'automated_readability_index' to grab the age and grade level. #
 ari_scale = {
      1: {'ages':   '5-6', 'grade_level': 'Kindergarten'},
      2: {'ages':   '6-7', 'grade_level':    '1st Grade'},
@@ -35,12 +34,46 @@ ari_scale = {
     14: {'ages': '18-22', 'grade_level':      'College'}
 }
 
+# this will open the text file, and assign it to a variable. #
+# The character count, number of sentences and words will also be assigned to variables. #
+# The ARI will then be calculated using the formula seen on line 54, and rounded up on line 56. #
+with open(r'advanced_reading.txt', 'r') as file:
 
-with open(r'atlus_shrugged.txt', 'r') as file:
+    book_title = file.name
+
     book = file.read()
 
     book_lines = book.split()
 
     words += len(book_lines)
 
-print(words)
+    characters = len(book)
+
+    sentences += book.count('.')
+
+    automated_readability_index = 4.71 * (characters // words) + 0.5 * (words // sentences) - 21.43
+
+    automated_readability_index = math.ceil(automated_readability_index)
+
+# Ensures any ari greater than 14 will be accounted for. #
+if automated_readability_index > 14:
+
+    automated_readability_index = 14
+
+# grabs age and grade level from dict, based on the ari. #
+ari_grade_level = ari_scale[automated_readability_index]['grade_level']
+
+ari_age = ari_scale[automated_readability_index]['ages']
+
+# prints ari, ghrade level and age in a format that is readable for the user. #
+print("\n----------------------------------------------------")
+
+print("> The ARI for", book_title , "is", automated_readability_index)
+
+print("> This corresponds to a(n)", ari_grade_level, "level of difficulty.")
+
+print("> That is suitable for for an average person", ari_age, "years old.")
+
+print("----------------------------------------------------\n")
+
+# end #
