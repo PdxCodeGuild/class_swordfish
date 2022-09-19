@@ -1,4 +1,5 @@
 import re
+
 with open('contacts.csv', 'r') as file: # Retrieves .csv file, reads it, and splits it into lists.
     lines = file.read().split('\n')
 
@@ -48,7 +49,7 @@ def update():       # Function for Update part of CRUD.
             break
     return cont_list
 
-def delete():
+def delete():       # Function for Delete part of CRUD.
     name = input('Please enter the name associated with the record you would like to remove: ').title()
     name = check(name)
     for i in range(len(cont_list)):
@@ -57,9 +58,37 @@ def delete():
             break
 
 
-# update()
-create()
-print(cont_list)
-delete()
-# print(retrieve())
-print(cont_list)
+user = input('What would you like? Create, Retrieve, Update, or Delete?: ').lower() # Asks user what they would like to do.
+
+while user != True:         # Filters out their selection and runs the function.
+    if user == 'create':
+        create()
+        break
+    elif user == 'retrieve':
+        print(retrieve())
+        break
+    elif user == 'update':
+        update()
+        break
+    elif user == 'delete':
+        delete()
+        break
+    else:
+        user = input("Didn't select a proper option. Please try again! Create, Retieve, Update, or Delete?: ")
+
+cont_update = []
+for i, sub in enumerate(cont_list, start = 0):  # Iterates through both index and dict of the list to separate it for a list of dict to a list of lists.
+    if i == 0:
+        cont_update.append(list(sub.keys()))
+        cont_update.append(list(sub.values()))
+    else:
+        cont_update.append(list(sub.values()))
+
+lines =[]
+for i in range(0, len(cont_update)):            # Takes it back to a list of stings as it was when first imported for the .csv doc.
+    lines.append(','.join(cont_update[i]))
+    
+lines = '\n'.join(lines)    # Puts everything back into a string and separates them onto different lines to be ready to put back into the .csv file.
+
+with open('contacts.csv', 'w') as phone_book_file:  # Writes over the .csv file, updating any changes.
+    phone_book_file.write(lines)
