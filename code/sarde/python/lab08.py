@@ -33,9 +33,9 @@ def contacts_list_dictionary(keys_list, values_list):
     # iterate over the elements
     for i in range(len(keys)):
         contacts_list_dict = (
-            {keys_list[0]: values_list[0], keys_list[1]
-                : values_list[1], keys_list[2]: values_list[2]},
-            {keys_list[0]: values_list[3], keys_list[1]: values_list[4],  keys_list[2]: values_list[5]},
+            {keys_list[0]: values_list[0], keys_list[1]                : values_list[1], keys_list[2]: values_list[2]},
+            {keys_list[0]: values_list[3], keys_list[1]
+                : values_list[4],  keys_list[2]: values_list[5]},
             {keys_list[0]: values_list[6], keys_list[1]: values_list[7],  keys_list[2]: values_list[8]},)
     list_dict.append(contacts_list_dict)
     final_list = list(contacts_list_dict)
@@ -45,3 +45,4 @@ def contacts_list_dictionary(keys_list, values_list):
 
 
 contacts_list_dictionary(keys_list, values_list)
+#
