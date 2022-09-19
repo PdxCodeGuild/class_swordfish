@@ -58,27 +58,13 @@ tens_digitwritten = {2: 'twenty',
 if x in random_numbers:
     print (random_numbers[x])
 
-
-if 110<=x < 119 or 220 <= x < 229 or 330 <= x < 339 or 440 <= x < 449 or 550 <= x < 559 or 660 <= x < 669 or 770 <= x < 779 or 880 <= x < 889 or 990 <= x < 999:
+elif 110<=x < 119 or 220 <= x < 229 or 330 <= x < 339 or 440 <= x < 449 or 550 <= x < 559 or 660 <= x < 669 or 770 <= x < 779 or 880 <= x < 889 or 990 <= x < 999:
     hundreds_digit = x//100
     lst = []
     lst.extend(x)
     tens_digits =lst.pop(0)
     print(tens_digits)
     print(ones[hundreds_digit + tens_under20[tens_digits]])
-elif 100 <= x < 999:
-    hundreds_digit = x//100
-    x = str(x)
-    lst = []
-    lst.extend(x)           #here I am simply taking the string, turning it into a string, then using the previous
-    lst.pop(0)              #code to take the seperate numbers and concatenating them at the end
-    last_two_nums = ''.join(lst)
-    last_two_nums = int(last_two_nums)
-    hundreds_digit = ones[hundreds_digit]
-    tens_digit = last_two_nums//10
-    ones_digit = last_two_nums%10 
-    print(hundreds_digit + 'hundred',tens_digitwritten[tens_digit],ones[ones_digit])
-
 
 elif x in ones:
     print(ones[x])
@@ -99,18 +85,18 @@ elif 100<=x < 109 or 200 <= x < 209 or 300 <= x < 309 or 400 <= x < 409 or 500 <
     last_digit = lst.pop(1)
     print(ones[hundreds_digit]+'hundred', ones[int(last_digit)])
 
-# elif 100 <= x < 999:
-#     hundreds_digit = x//100
-#     x = str(x)
-#     lst = []
-#     lst.extend(x)           #here I am simply taking the string, turning it into a string, then using the previous
-#     lst.pop(0)              #code to take the seperate numbers and concatenating them at the end
-#     last_two_nums = ''.join(lst)
-#     last_two_nums = int(last_two_nums)
-#     hundreds_digit = ones[hundreds_digit]
-#     tens_digit = last_two_nums//10
-#     ones_digit = last_two_nums%10 
-#     print(hundreds_digit + 'hundred',tens_digitwritten[tens_digit],ones[ones_digit])
+elif 100 <= x < 999:
+    hundreds_digit = x//100
+    x = str(x)
+    lst = []
+    lst.extend(x)           #here I am simply taking the string, turning it into a string, then using the previous
+    lst.pop(0)              #code to take the seperate numbers and concatenating them at the end
+    last_two_nums = ''.join(lst)
+    last_two_nums = int(last_two_nums)
+    hundreds_digit = ones[hundreds_digit]
+    tens_digit = last_two_nums//10
+    ones_digit = last_two_nums%10 
+    print(hundreds_digit + 'hundred',tens_digitwritten[tens_digit],ones[ones_digit])
 
 
     # firstwrd = num_ls(ones[0])
