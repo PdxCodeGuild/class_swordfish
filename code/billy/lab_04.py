@@ -6,6 +6,7 @@ date: 12 september 2022
 funcion: this program will generate 6 random numbers as the "winning numbers". The net winnings will be printed out at the end.
 
 '''
+from ast import Num
 import random
 
 # the program rarely returns matching numbers, for some reason.
@@ -17,7 +18,7 @@ def ticket_comparison(winning_numbers, generated_tickets):
     
     for i in range(6):
 
-        if winning_numbers[i] == generated_tickets[i]:
+        if generated_tickets[i] == winning_numbers[i]:
 
             matching_numbers += 1
 
@@ -35,7 +36,7 @@ def ticket_randomizer():
     # selects a random number between 1 and 99 to loop 6 times for the ticket numbers.
     while start < stop:
 
-        number = random.randint(1 , 99)
+        number = random.randint(1,99)
 
         ticket_numbers.append(number)
 
@@ -54,44 +55,44 @@ winning_numbers = ticket_randomizer()
 
 generated_tickets = ticket_randomizer()
 
-number_of_matches = ticket_comparison(winning_numbers, generated_tickets)
-
 # this will run the program 100000 times, creating 100000 tickets to compare to the winning ticket.
 while ticket_generator < 100000:
 
-    ticket_generator += 1
+    expenses += 2
 
     generated_tickets = ticket_randomizer()
 
-    expenses += 2
+    ticket_generator += 1
 
-# if/elif to add the amount earned for each generated ticket number that matches the winning numbers.
-if number_of_matches == 1:
-    earnings += 4
+    number_of_matches = ticket_comparison(winning_numbers, generated_tickets)
 
-elif number_of_matches == 2:
-    earnings += 7
+    # if/elif to add the amount earned for each generated ticket number that matches the winning numbers.
+    if number_of_matches == 0:
+        earnings += 0
 
-elif number_of_matches == 3:
-    earnings += 100
+    elif number_of_matches == 1:
+        earnings += 4
 
-elif number_of_matches == 4:
-    earnings += 50000
+    elif number_of_matches == 2:
+        earnings += 7
 
-elif number_of_matches == 5:
-    earnings += 1000000
+    elif number_of_matches == 3:
+        earnings += 100
 
-elif number_of_matches == 6:
-    earnings += 25000000
+    elif number_of_matches == 4:
+        earnings += 50000
 
-print("\n> You have", number_of_matches, "matches")
+    elif number_of_matches == 5:
+        earnings += 1000000
+
+    elif number_of_matches == 6:
+        earnings += 25000000
 
 # calculates total earnings
 total_earnings = earnings - expenses
 
 # calculates the ROI
 return_on_investement = (earnings - expenses) / expenses
-
 
 print("\n> Your total earnings:", total_earnings)
 
