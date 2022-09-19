@@ -36,7 +36,9 @@ def rotate_by_13(alphabet, rot_13_alphabet):
         if (letter != ' '):
             # adds + 13 to the current index
             number = (alphabet[letter] - rotate_13 + 26) % 26
-            print(number)
+            # print(number)
+            print(rot_13_alphabet[number])
+    return
 
 
 rotate_by_13(alphabet, rot_13_alphabet)

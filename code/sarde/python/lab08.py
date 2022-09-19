@@ -9,13 +9,6 @@ Version 1
     -the text in the header represents the keys,
     -the text in the other lines represent the values
 '''
-'''
-with open('contacts.csv') as file:
-    lines = file.read().split('\n')
-    print(lines)  # --> prints a list
-'''
-
-
 # load csv file
 f = open('contacts.csv')
 contacts_list = f.read().split('\n')  # --> converted to list
