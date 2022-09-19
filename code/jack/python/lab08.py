@@ -2,7 +2,7 @@
 
 
 # load csv file and save contents as a list of strings
-with open('contacts.csv', 'r') as file:
+with open('./contacts.csv', 'r') as file:
     lines = file.read().split('\n') # each line of data is stored as a string in a list
 
 
@@ -73,7 +73,7 @@ def retrieve(name = None):
 #returns
 #to be called when user inputs a name with multiple associated contact dictionaries
 def contact_select(name, ret_contacts):
-    print(retrieve(name)) # prints all contacts with given name
+    retrieve(name) # function prints found contacts with given name
     
     while True:
         try:
@@ -147,7 +147,7 @@ def save():
         attributes = [dictionary[i] for i in dictionary.keys()]
         updated_contents += ','.join(attributes)
 
-    with open('contacts.csv', 'w') as f:
+    with open('./contacts.csv', 'w') as f:
         f.write(updated_contents)
 
 
