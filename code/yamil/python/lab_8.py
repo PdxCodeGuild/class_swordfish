@@ -35,8 +35,6 @@ def c():
     added_info.append(league_add.lower())
     return added_info
 
-with open("csv_copy.csv", "w") as f2:
-    f2.write(f"{csv}{new_line}{','.join(c())}")
 
 
 def r():
@@ -61,3 +59,19 @@ def u():
                 print("Please enter either club or league.")
         print(update_attribute)
         return update_attribute
+
+def d():
+    delete = input("Which player would you like to delete?: ")
+    for i in player_csv[:]:
+        if player_csv[player_csv.index(i)]['name'].lower() == delete.lower():
+            player_csv.pop()
+            break
+            
+        
+    return True
+
+# with open("csv_copy.csv", "w") as f2:
+#     f2.write(f"{csv}{new_line}{','.join(c())}")
+
+d()
+print(player_csv)
