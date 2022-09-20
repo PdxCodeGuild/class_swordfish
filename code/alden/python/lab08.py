@@ -58,23 +58,21 @@ def delete():       # Function for Delete part of CRUD.
             break
 
 
-user = input('What would you like? Create, Retrieve, Update, or Delete?: ').lower() # Asks user what they would like to do.
 
-while user != True:         # Filters out their selection and runs the function.
+while True:
+    user = input('What would you like? Create, Retrieve, Update, Delete, or Exit?: ').lower() # Asks user what they would like to do
     if user == 'create':
-        create()
-        break
+        create()   
     elif user == 'retrieve':
         print(retrieve())
-        break
     elif user == 'update':
         update()
-        break
     elif user == 'delete':
         delete()
+    elif user == 'exit':
         break
     else:
-        user = input("Didn't select a proper option. Please try again! Create, Retieve, Update, or Delete?: ")
+        user = input("Didn't select a proper option. Please try again! Create, Retieve, Update, Delete, or Exit?: ")
 
 cont_update = []
 for i, sub in enumerate(cont_list, start = 0):  # Iterates through both index and dict of the list to separate it for a list of dict to a list of lists.
