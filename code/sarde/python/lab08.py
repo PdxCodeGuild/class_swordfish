@@ -11,8 +11,6 @@ Version 1
 '''
 # load csv file
 
-
-from optparse import Values
 f = open('contacts.csv')
 contacts_list_of_strings = f.read().split('\n')  # --> converted to list
 # print(contacts_list_of_strings)  # --> prints --> list
@@ -29,16 +27,16 @@ contacts = contact_1 + contact_2 + contact_3
 values_list = contacts.split(',')
 # print(values_list)  # --> list of values
 '''
-#values_list = [a for a in contacts_list_of_strings[1:]]
+# values_list = [a for a in contacts_list_of_strings[1:]]
 values_list = contacts_list_of_strings[1:]
-#print('values list', values_list)
-#['sarde,pineapple,pink', 'eryan,strawberries,green', 'slade,papaya,blue']
+# print('values list', values_list)
+# ['sarde,pineapple,pink', 'eryan,strawberries,green', 'slade,papaya,blue']
 
 
 def person_dictionary(keys_list, contact_split):
     person = {}
     for i in range(len(contact_split)):
-        #print(contact_split[i], keys_list[i])
+        # print(contact_split[i], keys_list[i])
         person[keys_list[i]] = contact_split[i]
     # print(person)
     return person
@@ -52,7 +50,7 @@ for contact in values_list:
     person = person_dictionary(keys_list, contact_split)
     final_list.append(person)
 
-print('final list', final_list)
+#print('final list', final_list)
 
 
 '''Version 2
@@ -64,8 +62,8 @@ Implement a CRUD REPL
 '''
 
 
-def create_contacts(final_list, keys_list):
-    print(keys_list)
+def create_contact(final_list, keys_list):
+    # print(keys_list)
 
     # create a record
     # Ask the user for name, favorite fruit , favorite color
@@ -82,29 +80,56 @@ def create_contacts(final_list, keys_list):
     return final_list
 
 
-new_contacts = create_contacts(final_list, keys_list)
+#new_contact = create_contact(final_list, keys_list)
 
-# print(new_contacts)
+# print(new_contact)
 
 
-# def retrieve_contacts(final_list):
-# ask the user for the contact's name
-input_contacts_name = input('Enter contact\'s name: ')
-# convert input to int
-converted_input = int(input_contacts_name)
-#print("contact's name", input_contacts_name)
+def retrieve_contact(final_list):
+    # ask the user for the contact's name
+    input_contact_name = input('Enter contact\'s name: ')
+    # print(input_contacts_name)
+    for contact in final_list:
+        name = contact['name']
+        if name == input_contact_name:
+            # print(contact)
+            # print(name)
+
+            return contact
+
+
+# retrieve_contact(final_list)
 print(final_list)
 
+
+def update_contact(final_list):
+    # ask the user for the contact's name
+    input_name = input('Enter contact\'s name: ')
+    # ask which attribute they would like to update
+    input_attribute = input(
+        'What do you want to update? name, favorite fruit, favorite color?: ')
+    input_value = input('What do you want to update it to?: ')
+    for contact in final_list:
+        name = contact['name']
+
+
+update_contact(final_list)
+
+
 '''
-    # find the user with the given name
-    # iterate over the final list
-    for i in final_list:
-        # if the input name is equal to
-        if final_list[1] == input_contacts_name:
-            print(contact)
-    # display their information
-    return input_contacts_name
-
-
-retrieve_contacts(final_list)
+# REPL Loop
+stop = False
+while not stop:
+    response = input('Enter a choice(q, c, r): ').lower()
+    if response == 'q':
+        print('Person wants to quit')
+        stop = True
+    elif response == 'c':
+        print('Person wants to create')
+        new_contact = create_contact(final_list, keys_list)
+        print(new_contact)
+    elif response == 'r':
+        print('Person wants to retrieve')
+        contact = retrieve_contact(final_list)
+        print(contact)
 '''
