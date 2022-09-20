@@ -50,7 +50,7 @@ for contact in values_list:
     person = person_dictionary(keys_list, contact_split)
     final_list.append(person)
 
-#print('final list', final_list)
+# print('final list', final_list)
 
 
 '''Version 2
@@ -80,7 +80,7 @@ def create_contact(final_list, keys_list):
     return final_list
 
 
-#new_contact = create_contact(final_list, keys_list)
+# new_contact = create_contact(final_list, keys_list)
 
 # print(new_contact)
 
@@ -106,21 +106,22 @@ def update_contact(final_list):
     # ask the user for the contact's name
     input_name = input('Enter contact\'s name: ')
     # ask which attribute they would like to update
-    input_attribute = input(
-        'What do you want to update? name, favorite fruit, favorite color?: ')
+    input_attribute = input('What do you want to update?: ')
     input_value = input('What do you want to update it to?: ')
+    # print(input_value)
     for contact in final_list:
-        name = contact['name']
+
+        return contact
 
 
-update_contact(final_list)
+updated_contact = update_contact(final_list)
 
 
 '''
 # REPL Loop
 stop = False
 while not stop:
-    response = input('Enter a choice(q, c, r): ').lower()
+    response = input('Enter a choice(q, c, r, u): ').lower()
     if response == 'q':
         print('Person wants to quit')
         stop = True
@@ -132,4 +133,8 @@ while not stop:
         print('Person wants to retrieve')
         contact = retrieve_contact(final_list)
         print(contact)
+    elif response == 'u'
+        print('Person wants to update')
+        updated_contact = update_contact(final_list)
+        print(updated_contact)
 '''
