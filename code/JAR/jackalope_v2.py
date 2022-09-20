@@ -29,7 +29,7 @@ def pop_increase():
 
 # Age check for females
 def age_check(i):
-    if 4 <= population[(i + 1) % len(population)]['age'] <= 8:
+    if 4 <= population[(i) % len(population)]['age'] <= 8:
         return True
     else:
         return False
@@ -78,16 +78,19 @@ def census(population):
 while len(population) < 1000:
     for i in range(len(population)):
         population[i]['age'] += 1 #newbornsalope ages 1 year
-    
-    year +=1
-    mate()
-    population.extend(pop_increase())
-    population = death()
 
+    # population data for this year is stored
     census_year = census(population)
     pop_r_total.append(sum(census_year))
     pop_r_males.append(census_year[0])
     pop_r_females.append(census_year[1])
+
+    population.extend(pop_increase())
+    mate()
+    
+    population = death()
+    year +=1
+    
 
     random.shuffle(population)
     if len(population) == 0:
@@ -95,14 +98,14 @@ while len(population) < 1000:
         break
 
 
-#setting variables to plot
-plt.plot(pop_r_total, 'm', label = 'total')
-plt.plot(pop_r_males, 'r', label = 'males')
-plt.plot(pop_r_females, 'b', label = 'females')
+# setting variables to plot
+plt.plot(pop_r_total, 'm', marker = 'o', label = 'total')
+plt.plot(pop_r_males, 'r', marker = 'o', label = 'males')
+plt.plot(pop_r_females, 'b', marker = 'o', label = 'females')
 plt.legend(loc = "upper left")
 plt.xlabel('Year')
 plt.ylabel('Population')
 
-plt.show()
+plt.show() # creates plot to show data
 
 print(f'years: {year}')
