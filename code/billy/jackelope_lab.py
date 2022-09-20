@@ -30,7 +30,6 @@ while len(jackalopes_population) < 1000:
 
             # adds 2 additional jackelope for each mating instance. Start at 0 to represent them being newborns.
             jackalopes_population.append(0)
-            jackalopes_population.append(0)
 
     # this targets the last sequence in the list to account for any jackelope that is 10 years old.
     for i in range(len(jackalopes_population)-1, -1, -1):
