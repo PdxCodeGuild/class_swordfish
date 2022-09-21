@@ -1,6 +1,6 @@
 cc = '4556737586899855'
 cc_num = [int(x) for x in cc] #Convert the input string into a list of ints
-print(cc_num)
+print(cc_num)                 
 check_digit = cc_num.pop()
 cc_num.reverse()
 print(cc_num)
@@ -25,7 +25,7 @@ print(doubled_even_nums)
 print(minus_nine)
 #6. Sum all values
 print("Sum: ", sum_of_minus_nine)
-#7. Take the second digit of that sum. 
+#7. Take the second digit of that sum.
 #8. If that matches the check digit, the whole card number is valid.
 if str(check_digit) == str(sum_of_minus_nine)[1]:
     print("Valid!")
