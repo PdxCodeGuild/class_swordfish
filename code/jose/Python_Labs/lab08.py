@@ -60,7 +60,7 @@ def remove_user():
 
 user_request = input('What would you like to do?(create new user/ retrieve user info/ update user info/ delete user):')
 
-while True:
+while user_request == (''):
     if user_request == 'create new user':
         print(new_user())
     elif user_request == 'retrieve user info':
