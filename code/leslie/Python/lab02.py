@@ -11,8 +11,12 @@ def convert_to_words(number):
         return ones_digits[num]
     elif num >= 20 and num < 100:
         return tens_digits[int(num/10)]+ " " + ones_digits[int(num%10)]
+    
     elif num >= 100 and num < 1000:
-        return hundreds[int(num/100)] + " " + tens_digits[int(num/10)%10]+ " " + ones_digits[int(num%10)]
+        
+        return hundreds[int(num/100)] + " " + tens_digits[int(num/10)%10] + " " + ones_digits[int(num%10)]
+        
 print(convert_to_words(num))
-
+print(num%10)
+print(num%100)
      
