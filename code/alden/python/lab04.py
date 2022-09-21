@@ -3,7 +3,7 @@ import random
 def pick6():                                # Function producing 6 random numbers in a list between 1 and 10.
     pick6=[]
     for i in range(6):
-        random_num = random.randint(1, 10)
+        random_num = random.randint(1, 99)
         pick6.append(random_num)
     return pick6
 win_tik = pick6()     # Use the function to generate the winning numbers.
@@ -29,7 +29,7 @@ num_tiks = 0       # Place holder for the number of tickets
 winning_tik = 0    # Place holder for number of winning tickets
 earnings = 0       # Place holder for earnings from winning tickets
 
-while num_tiks < 100000:        # While loop to gerate tickets and take $2 per ticket
+while num_tiks <= 100000:        # While loop to gerate tickets and take $2 per ticket
     tik_num = pick6()           # The 6 numbers on the ticket.
     balance -= 2                # Takes the money every ticket
     num_tiks += 1               # Creates a new ticket.
