@@ -15,7 +15,6 @@ for i in range(length):
     y = y.split(',')
     contents[i] = y
 
-<<<<<<< HEAD
 answer = input('Would you like to alter your contact list?: ')
 
 updated_contact = [0,1,2]
@@ -92,7 +91,6 @@ del contents[0]
 
 y = 0
 
-<<<<<<< HEAD
 contacts = []
 
 for i in contents:
