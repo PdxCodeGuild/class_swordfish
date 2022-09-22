@@ -1,122 +1,156 @@
+'''
+program: lab_09
+author: billy frick
+
+date: 22 september 2022
+
+function:   > This program will simulate an ATM for the user.
+            > The user will be able to input a command or "help" for a list of commands.
+
+'''
 
 class ATM:
 
-    def __init__(self, balance = 0, interest_rate = 0.1):
+    def __init__(self):
 
-        self.balance = balance
+        # default balance.
+        self.balance = 0
 
-        self.interest_rate = interest_rate
+        # default self interest.
+        self.interest = 0.1
 
-    def check_balance(self, b):
+        # this will append each user transaction for later use.
+        self.transactions = []
 
-        b = self.balance 
+    # checks the balance of the users account.
+    def check_balance(self):
 
-        return sum(b)
+        self.transactions.append(f'The user checked the balance of the account (${self.balance}).')
 
-#     def deposit_amount():
+        return self.balance
 
-#     def check_withdrawal():
+    # deposits the users amount and adds it to the balance.
+    def deposit(self, deposit_amount):
 
-#     def withdraw_amount():
+        self.deposit_amount = deposit_amount
 
-    def calculate_interest(self, i):
+        self.transactions.append(f'The user deposited ${deposit_amount}.')
 
-       i = self.interest_rate
+        self.balance += self.deposit_amount
 
+    # for line 96 'if statement'. Checks balance to ensure it is greater than the amount requested.
+    def check_withdrawal(self, amount):
 
+        return self.balance > amount
 
-    
-balance = ATM(1000)
+    # withdraws the users amount given, and subtracts it from the balance.
+    def withdraw(self, amount):
 
-user_balance = balance
+        self.balance -= amount
 
-print(user_balance)
+        self.transactions.append(f'The user withdrew ${amount}.')
 
+        return amount
 
+    # calculates interest based off of the balance. Unsure which form of interest formula should be used.
+    def calculate_interest(self):
 
+        amount = round(self.balance * self.interest)
 
+        self.transactions.append(f'The user has accrued ${amount} of interest.')
 
+        return amount
 
+    # returns the list 'transactions' which has appended each user transaction from the other functions.
+    def print_transactions(self):
 
+        return self.transactions
 
 
 
 
+# main code.
+# this program will run until the user enters command 'exit'
 
+# create an instance of our class
+atm = ATM() 
 
+print('\nWelcome to the ATM')
 
+while True:
 
+    command = input('Enter a command: ')
 
+    if command == 'balance':
 
+        balance = atm.check_balance() # call the check_balance() method
 
+        print(f'Your balance is ${balance}')
 
+    elif command == 'deposit':
 
+        amount = float(input('How much would you like to deposit? '))
 
+        atm.deposit(amount) # call the deposit(amount) method
 
+        print(f'Deposited ${amount}')
 
+    elif command == 'withdraw':
 
-# atm = ATM() # create an instance of our class
+        amount = float(input('How much would you like '))
 
-# print('Welcome to the ATM')
+        if atm.check_withdrawal(amount): # call the check_withdrawal(amount) method
 
-# while True:
+            atm.withdraw(amount) # call the withdraw(amount) method
 
-#     command = input('Enter a command: ')
+            print(f'Withdrew ${amount}')
 
-#     if command == 'balance':
+        else:
 
-#         balance = atm.check_balance() # call the check_balance() method
+            print('Insufficient funds')
 
-#         print(f'Your balance is ${balance}')
+    elif command == 'interest':
 
-#     elif command == 'deposit':
+        amount = atm.calculate_interest() # call the calc_interest() method
 
-#         amount = float(input('How much would you like to deposit? '))
+        atm.deposit(amount)
 
-#         atm.deposit(amount) # call the deposit(amount) method
+        print(f'Accumulated ${amount} in interest')
 
-#         print(f'Deposited ${amount}')
+    # allows user to input 'transactions' and have a list printed off.
+    elif command == 'transactions':
 
-#     elif command == 'withdraw':
+        transactions = atm.print_transactions()
 
-#         amount = float(input('How much would you like '))
+        print(f"\n|----------your transaction history--------------|\n")
 
-#         if atm.check_withdrawal(amount): # call the check_withdrawal(amount) method
+        # for loop will print out each transaction in the list; on a new line.
+        for x in range(len(transactions)):
+            print(' >>',transactions[x])
 
-#             atm.withdraw(amount) # call the withdraw(amount) method
+        print("\n|-----------end of your transactions--------------|\n")
 
-#             print(f'Withdrew ${amount}')
+    elif command == 'help':
 
-#         else:
+        print('Available commands:')
 
-#             print('Insufficient funds')
+        print('balance  - get the current balance')
 
-#     elif command == 'interest':
+        print('deposit  - deposit money')
 
-#         amount = atm.calc_interest() # call the calc_interest() method
+        print('withdraw - withdraw money')
 
-#         atm.deposit(amount)
+        print('interest - accumulate interest')
 
-#         print(f'Accumulated ${amount} in interest')
+        # added print function for transactions list.
+        print('transactions - print a list of your previous transactions')
 
-#     elif command == 'help':
+        print('exit     - exit the program')
 
-#         print('Available commands:')
+    elif command == 'exit':
 
-#         print('balance  - get the current balance')
+        break
 
-#         print('deposit  - deposit money')
+    else:
 
-#         print('withdraw - withdraw money')
-
-#         print('interest - accumulate interest')
-
-#         print('exit     - exit the program')
-
-#     elif command == 'exit':
-
-#         break
-
-#     else:
-
-#         print('Command not recognized')
+        print('Command not recognized')
