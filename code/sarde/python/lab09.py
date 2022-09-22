@@ -1,8 +1,8 @@
 '''Lab 9: ATM
 '''
 '''
-Let's represent an ATM with a class containing two attributes: 
--a balance and an interest rate. 
+Let's represent an ATM with a class containing two attributes:
+-a balance and an interest rate.
 -A newly created account will default to a balance of 0 and an interest rate of 0.1%.
 -Implement the initializer, as well as the following functions:
     -check_balance() returns the account balance
@@ -12,25 +12,43 @@ Let's represent an ATM with a class containing two attributes:
     -calc_interest() returns the amount of interest calculated on the account
 '''
 
-# create an instance of our class
-
 
 class ATM:
-    def __init__(self, balance, interest_rate):  # --> initializer
+    # create an instance of our class
+    def __init__(self, balance=0, interest_rate=0.001):  # --> initializer
         self.balance = balance
-        self.interest = interest_rate
-
-
-# call the initilizer of the ATM class
-atm = ATM(0, 0.1)
-print('Welcome to the ATM')
+        self.interest_rate = interest_rate
 
 # check_balance() returns the account balance
+    def check_balance(self):
+        return self.balance
+
+# deposits the given amount in the account
+    def deposit(self, amount):
+        self.balance += amount
+
+# check_withdrawal(amount) returns true if the withdrawn amount won't put the account in the negative
+
+    def check_withdrawal(self, amount):
+        if self.balance < amount:
+            return False
+        else:
+            return True
+
+    def withdraw(self, amount):
+        self.balance -= amount
+        # withdraws the amount from the account and returns it
+        return amount
+
+    def calc_interest(self):
+        interest = self.balance * self.interest_rate
+        # returns the amount of interest calculated on the account
+        return interest
 
 
-def check_balance(self, balance):
-
-    return account_balance
+atm = ATM()
+# call the initilizer of the ATM class
+print('Welcome to the ATM')
 
 
 while True:
