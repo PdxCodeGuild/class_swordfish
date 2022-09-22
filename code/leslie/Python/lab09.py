@@ -21,8 +21,15 @@ class ATM:
     def calc_interest(self): #returns amount of interest calculated on account. 
         interest = self.balance * self.interest_rate
         return interest
+    
+    def print_transactions(self, list_of_transactions):
+        self.list_of_transactions = list_of_transactions
+        print(transactions)
+        
+        
         
 atm = ATM()
+transactions = []
 while True:
     command = input('Enter a command: ')
     if command == 'balance':
@@ -30,12 +37,15 @@ while True:
         print(f'Your balance is ${balance}')
     elif command == 'deposit':
         amount = float(input('How much would you like to deposit? '))
-        atm.deposit(amount) # call the deposit(amount) method
+        atm.deposit(amount)        # call the deposit(amount) method
+        transactions.append(str(f"user deposited ${amount}"))
+        atm.print_transactions(amount)
         print(f'Deposited ${amount}')
     elif command == 'withdraw':
         amount = float(input('How much would you like '))
         if atm.check_withdrawal(amount): # call the check_withdrawal(amount) method
             atm.withdraw(amount) # call the withdraw(amount) method
+            transactions.append(str(f"user withdrew ${amount}"))
             print(f'Withdrew ${amount}')
         else:
             print('Insufficient funds')
@@ -50,6 +60,8 @@ while True:
         print('withdraw - withdraw money')
         print('interest - accumulate interest')
         print('exit     - exit the program')
+    elif command == "transactions":
+        atm.print_transactions(amount)   
     elif command == 'exit':
         break
     else:
