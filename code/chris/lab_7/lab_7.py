@@ -1,6 +1,6 @@
 import re
 
-with open('/Users/ckeego/code-guild/class_swordfish/code/chris/lab_7/gettysburg_addy.txt') as f:
+with open('gettysburg_addy.txt') as f:
     getty = f.read()
 
 # print(getty)
