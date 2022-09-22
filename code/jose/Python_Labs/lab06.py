@@ -1,27 +1,27 @@
 import string
 
 letters = string.ascii_lowercase
-letters_list = list(letters)
+letters_list = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',]
 
-# user_string = input('Please type in what you want encoded: ')
-# user_string = (list(user_string))
+# print(letters_list)
 user_string= input("Enter a word to encode it: ")
 user_list = list(user_string)
 
-encoding_letters = {1: 'a', 2: 'b', 3:'c', 4:'d', 5:'e', 6:'f', 7:'g', 8:'h', 9:'i', 10:'j', 11:'k', 12:'l', 13:'m', 14:'n', 15:'o',
-16:'p', 17:'q', 18:'r', 19:'s', 20:'t', 21:'u', 22:'v', 23:'w',24:'x',25:'y', 26:'z', 27:'a', 28:'b', 29:'c', 30:'d', 31:'e', 32:'f',
-33:'g', 34:'h', 35:'i', 36:'j', 37:'k', 38:'l', 39:'m'}
-
 index_numbers = []
-
-def find_index(a):
+encoded_word =[]
+def encoding_index(a):
     """finds the index number in a corresponding list"""
-    for i in enumerate(index_numbers):
-        index_numbers.append(i)
-        print(index_numbers)
-        return index_numbers
+    for i, char in enumerate(user_list):
+        if user_list[::] in enumerate(letters_list):
+            encoded_letter = letters_list[[i +13]]
+            print(encoded_letter)
+            encoded_word.append(encoded_letter)
+            return encoded_word
 
-print(find_index(user_string))
+encoded_word = encoding_index(user_string)
+print(encoded_word)
+
 
 
 
