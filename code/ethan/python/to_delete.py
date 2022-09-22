@@ -81,6 +81,9 @@ new_length = len(contents)
 
 keys = contents[0]
 
+=======
+keys = contents[0]
+>>>>>>> 5b1722803822cc565b4705e8ae6d6c9f6909e150
 key_amount = len(keys)
 
 x = dict.fromkeys(keys, 1)
@@ -105,10 +108,20 @@ updated_contacts.insert(0, keys)
 
 new_contacts =[]
 
-for i in range(0, len(updated_contacts)):            # Takes it back to a list of stings as it was when first imported for the .csv doc.
+for i in range(0, len(updated_contacts)):
     new_contacts.append(','.join(updated_contacts[i]))
 
 new_contacts = '\n'.join(new_contacts)
 
 with open('./contacts.csv', 'w') as f:
     f.write(new_contacts)
+=======
+for i in contents:
+    contacts = []
+    for i in range(key_amount):
+        x[keys[i]] = contents[y][i]
+        contacts.append(x)
+    y += 1
+
+print(contacts)
+>>>>>>> 5b1722803822cc565b4705e8ae6d6c9f6909e150
