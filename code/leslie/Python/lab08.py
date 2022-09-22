@@ -42,5 +42,13 @@ with open('contacts.csv', 'r') as file:
             if item["Name"] == search_name:
                 #print("Yay")
                 print(item.items())
-    (find_user())
-               
+    (find_user()) 
+    
+    
+    def update_record():
+        contact_name = input("enter name: ")
+        attribute_to_update = input("What would you like to update? Favorite fruit, or favorite color? ")
+        new_value = input("What is the new value? ")
+        for contact in contacts_list:
+            if contact["Name"] == contact_name:
+                
