@@ -3,7 +3,6 @@ tens_digits = {0: "", 10: "ten", 20: "twenty", 30: "thirty", 40: "forty", 50: "f
 hundreds = {0: "", 100: " one hundred", 200: "two hundred",300: "three hundred", 400: "four hundred", 500: "five hundred", 600: "six hundred", 700: "seven hundred", 800: "eight hundred", 900: "nine hundred"}
 teens = {}
 num = int(input("Enter a number: "))
-print(num%100)
 def convert_to_words(number):    
     if num < 20:
         return ones_digits[num]
@@ -13,7 +12,7 @@ def convert_to_words(number):
     
     elif num >= 100 and num < 1000:    
         if (num % 100)//10 == 0:
-            return hundreds[(num//100)*100] + " and " + ones_digits[num%10]
+            return hundreds[(num//100)*100] + " " + ones_digits[num%10]
         elif (num % 100):
             if num % 100 < 20:
                 return hundreds[(num//100)*100] + " " + ones_digits[(num%100)]
