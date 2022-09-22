@@ -4,11 +4,14 @@ class ATM():
     def __init__(self):
         self.balance = 0
         self.interest = 0.001
+        self.transactions = []
 
     def check_balance(self):
         return self.balance
     
-    def deposit(self, amount):
+    def deposit(self, amount, interest = False):
+        if interest == False:
+            self.transactions.append(f'deposit: +${amount}')
         self.balance += amount
 
     def check_withdrawal(self, amount):
@@ -16,11 +19,16 @@ class ATM():
             return True
 
     def withdraw(self, amount):
+        self.transactions.append(f'withdraw: -${amount}')
         self.balance -= amount
         
     def calc_interest(self):
         amount = self.balance * self.interest
+        self.transactions.append(f'interest: +${amount}')
         return amount
+    
+    def print_transactions(self):
+        return self.transactions
 
 
 
@@ -44,14 +52,19 @@ while True:
             print('Insufficient funds')
     elif command == 'interest':
         amount = atm.calc_interest() # call the calc_interest() method
-        atm.deposit(amount)
+        atm.deposit(amount, True) # passes True into deposit 'interest' attribute for use in transaction history
         print(f'Accumulated ${amount} in interest')
+    elif command == 'transactions':
+        transactions = atm.print_transactions()
+        for i in transactions:
+            print(i)
     elif command == 'help':
         print('Available commands:')
         print('balance  - get the current balance')
         print('deposit  - deposit money')
         print('withdraw - withdraw money')
         print('interest - accumulate interest')
+        print('transactions - print transactions history')
         print('exit     - exit the program')
     elif command == 'exit':
         break
