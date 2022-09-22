@@ -81,9 +81,6 @@ new_length = len(contents)
 
 keys = contents[0]
 
-=======
-keys = contents[0]
->>>>>>> 5b1722803822cc565b4705e8ae6d6c9f6909e150
 key_amount = len(keys)
 
 x = dict.fromkeys(keys, 1)
@@ -115,13 +112,3 @@ new_contacts = '\n'.join(new_contacts)
 
 with open('./contacts.csv', 'w') as f:
     f.write(new_contacts)
-=======
-for i in contents:
-    contacts = []
-    for i in range(key_amount):
-        x[keys[i]] = contents[y][i]
-        contacts.append(x)
-    y += 1
-
-print(contacts)
->>>>>>> 5b1722803822cc565b4705e8ae6d6c9f6909e150

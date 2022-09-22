@@ -3,6 +3,10 @@ ethan,pear,green
 madalyn,banana,teal
 micah,apple,blue
 katherine,plum,orange
+<<<<<<< HEAD
 jeni,orange,purple
 sam,pizza,red
 steve,peach,brown
+=======
+jeni,orange,purple
+>>>>>>> 5b1722803822cc565b4705e8ae6d6c9f6909e150
