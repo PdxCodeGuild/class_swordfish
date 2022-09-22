@@ -17,7 +17,7 @@ for index in contact_list_csv:
         
     contact_list.append(list_row)
 header = ','.join(contact_list.pop(0).values())
-
+print(contact_list)
 # Version 2a
 def new_user_func(contacts):
     user_name = input(f'Please give us your name: ')
@@ -40,18 +40,23 @@ def retrieve_func(contact_list):
 #Version 2c
 
 def update_func(contact_list):
-    up_name = input('Please enter your name: ')
+    up_name = input('Please give us your name: ')
     for i, contact in enumerate(contact_list): #contact = each dictionary in list
-        if up_name == contact['name']:
-            updated = 'favorite fruit'
-            contact[updated] = input(f'Please enter your new value for {updated}: ')
+        if up_name == i['name']:
+            fruit_color = input('What would you like to update? Your choices are, favorite fruit or favorite color: ')
+            fruit_update = 'favorite fruit'
+            color_update = 'favorite color'
+            if fruit_color == fruit_update:
+                contact[fruit_color] = input(f'Please enter your new value for {fruit_update}: ')
+            elif fruit_color == color_update:   
+                contact[fruit_color] = input(f'Please enter your new value for {color_update}: ')
             break
     return contact_list
 
 #Version 2d
 
 def del_update(contact_list):
-    del_name = input('Please enter your name: ')
+    del_name = input('Please give us your name: ')
     for i, contact in enumerate(contact_list):
         # print(i, contact)
         if del_name == contact['name']:
@@ -66,13 +71,13 @@ def write_func(contact_list):
         the_values_string = ','.join(the_values)
         output_list.append(the_values_string)
     return output_list
-print(write_func(contact_list))
+# print(write_func(contact_list))
 
 
 keep_looping = True
 
 while keep_looping:
-    response = input(f'What would you like to do? (create)(retrieve)(update)(delete)(quit)').lower()
+    response = input(f'What would you like to do? (create)(retrieve)(update)(delete)(quit): ').lower()
     if response == 'quit':
         print('User is quitting')
         keep_looping = False
