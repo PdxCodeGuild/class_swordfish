@@ -26,7 +26,6 @@ with open('contacts.csv', 'r') as file:
         new_color = input("Enter your favorite color: ")
         new_user.append(new_color) #add color to list
         
-        
         zipped_user = dict(zip(keys,new_user)) 
         contacts_list.append(zipped_user)
         #print("New user: ", new_user)
@@ -39,16 +38,23 @@ with open('contacts.csv', 'r') as file:
     def find_user():
         search_name = input("enter name: ")
         for item in contacts_list:
-            if item["Name"] == search_name:
+            if item["name"] == search_name:
                 #print("Yay")
                 print(item.items())
-    (find_user()) 
+    #find_user()
     
     
     def update_record():
         contact_name = input("enter name: ")
-        attribute_to_update = input("What would you like to update? Favorite fruit, or favorite color? ")
-        new_value = input("What is the new value? ")
         for contact in contacts_list:
-            if contact["Name"] == contact_name:
+            if contact["name"] == contact_name:
+                attribute_to_update = input("What would you like to update? Favorite fruit, or favorite color? ")
+                new_value = input("What is the new value? ")
+                if attribute_to_update == "favorite fruit":
+                    contacts_list[int("favorite fruit")] =  new_value
+                elif attribute_to_update == "favorite color":
+                    contacts_list[int("favorite color")] =  int(new_value)
+            print(contact.items())
+                
+    update_record()
                 
