@@ -14,7 +14,7 @@ class ATM():
         self.transaction_histroy.append(statement)
         self.balance = self.balance + amount
         return self.balance
-    def check_withdrawal(self):
+    def check_withdrawal(self, amount):
         if self.balance >= 0:
             return self.balance
         elif self.balance < 0:
