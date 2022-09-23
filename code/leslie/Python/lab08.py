@@ -14,47 +14,57 @@ with open('contacts.csv', 'r') as file:
     for i in rows_list: 
         zipped = dict(zip(keys,i)) #zip()combines 2 lists to make tuples, dict() made it a dictionary
         contacts_list.append(zipped)  #each value in rows_list was zipped with each header 
-   
+
+print("Contacts List: ", contacts_list)
+while True:
+    
     def new_contact():
         new_user = [] #Where to put new user info
-        new_name = input("Enter your name: ")
+        new_name = input("Enter new contact's name: ")
         new_user.append(new_name) #add name to list
         
-        new_fruit = input("Enter your favorite fruit: ")
+        new_fruit = input("Enter new contact's favorite fruit: ")
         new_user.append(new_fruit) #add fruit to list
         
-        new_color = input("Enter your favorite color: ")
+        new_color = input("Enter new contact's favorite color: ")
         new_user.append(new_color) #add color to list
         
         zipped_user = dict(zip(keys,new_user)) 
         contacts_list.append(zipped_user)
-        #print("New user: ", new_user)
-        #print(contacts_list)
+        print("Updated contacts list: ", contacts_list)    
     #new_contact()
-    #print(contacts_list[0].keys())
-    #print(contacts_list[3].values())   
-    #print(contacts_list)            # 
 
-    def find_user():
-        search_name = input("enter name: ")
+    def retrieve_record():
+        search_name = input("enter name to look up: ")
         for item in contacts_list:
             if item["name"] == search_name:
                 #print("Yay")
                 print(item.items())
-    #find_user()
+                break
+    retrieve_record()
     
-    
+
+
     def update_record():
-        contact_name = input("enter name: ")
+        contact_name = input("enter name to update: ")
         for contact in contacts_list:
             if contact["name"] == contact_name:
                 attribute_to_update = input("What would you like to update? Favorite fruit, or favorite color? ")
-                new_value = input("What is the new value? ")
                 if attribute_to_update == "favorite fruit":
-                    contacts_list[int("favorite fruit")] =  new_value
+                    new_value = input("What is the new value? ")
+                    #new_fruit = {"favorite_fruit": new_value}
+                    contact['favorite fruit'] = new_value
                 elif attribute_to_update == "favorite color":
-                    contacts_list[int("favorite color")] =  int(new_value)
-            print(contact.items())
+                    new_value = input("What is the new value? ")
+                    contact["favorite color"] =  new_value
+    update_record() 
+    
+    def delete_record():
+        name = input("enter name: ")
+        for contact in contacts_list:
+            if contact['name'] == name:
+                contacts_list.remove(contact)
                 
-    update_record()
-                
+                print(contacts_list)
+                    
+    #delete_record()
