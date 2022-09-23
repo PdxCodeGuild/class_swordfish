@@ -17,7 +17,7 @@ class ATM:
         self.balance = 0
 
         # default self interest.
-        self.interest = 0.1
+        self.interest = 0.001
 
         # this will append each user transaction for later use.
         self.transactions = []
@@ -55,7 +55,7 @@ class ATM:
     # calculates interest based off of the balance. Unsure which form of interest formula should be used.
     def calculate_interest(self):
 
-        amount = round(self.balance * self.interest)
+        amount = round(self.balance * self.interest, 2)
 
         self.transactions.append(f'The user has accrued ${amount} of interest.')
 
