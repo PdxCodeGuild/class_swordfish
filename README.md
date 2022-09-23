@@ -76,10 +76,9 @@ Presentation Day: December 16th, 2022
 | 07    | ARI                    | Sep 15th      | Sep 19th              | Sep 29th      |
 | 08    | Contact List           | Sep 16th      | Sep 26th              | Sep 30th      |
 | 09    | ATM                    | Sep 21st      | Sep 26th              | Oct 5th       |
-| 10    | Tic-Tac-Toe            | Sep 22nd      | Sep 27th              | Oct 6th       |
-| 11    | Dad Joke API           | Sep 27th      | Sep 30th              | Oct 11th      |
-| 12    | Quotes API             | Sep 28th      | Sep 30th              | Oct 12th      |
-| 13    | Mini-Capstone          | Sep 30th      | Oct 5th               | Oct 14th      |
+| 10    | Dad Joke API           | Sep 23rd      | Sep 26th              | Oct 7th       |
+| 11    | Quotes API             | Sep 26th      | Sep 28th              | Oct 10th      |
+| 12    | Mini-Capstone          | Sep 28th      | Oct 3rd               | Oct 12th      |
 
 
 ## Student Presentations
