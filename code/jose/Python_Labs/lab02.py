@@ -1,3 +1,6 @@
+
+
+
 x = input('Enter a number: ')
 x = int(x)
 # tens_digit = x//10
@@ -57,8 +60,11 @@ elif 100 <= x < 999:
     tens_digit = last_two_nums//10
     ones_digit = last_two_nums%10 
     draft_output = hundreds_digit + ' hundred',tens_digitwritten[tens_digit],ones[ones_digit]
-    final_output = draft_output[:-1]
-    output = " ".join(final_output)
-    print(output)
+    if 'zero' in draft_output:
+        draft_output = list(draft_output)
+        darft_output = draft_output.remove('zero')
+    final_output = " ".join(draft_output)
+    
+    print(final_output)
 
 

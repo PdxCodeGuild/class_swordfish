@@ -8,18 +8,23 @@ letters_list = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
 user_string= input("Enter a word to encode it: ")
 user_list = list(user_string)
 
-index_numbers = []
 encoded_word =[]
 def encoding_index(a):
     """finds the index number in a corresponding list"""
-    for i, char in enumerate(user_list):
-        if user_list[::] in enumerate(letters_list):
-            encoded_letter = letters_list[[i +13]]
-            print(encoded_letter)
-            encoded_word.append(encoded_letter)
-            return encoded_word
+    index_numbers = []
 
-encoded_word = encoding_index(user_string)
+    for ind, char in enumerate(letters_list): 
+        if user_list[ind] == char:
+            index_numbers.append(char)
+            print(index_numbers)
+            # print(encoded_letter)
+            # encoded_word.append(encoded_letter)
+            return index_numbers
+
+    
+# print(index_numbers)
+
+
 print(encoded_word)
 
 
