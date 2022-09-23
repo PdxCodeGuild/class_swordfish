@@ -8,14 +8,13 @@ response = requests.get('https://icanhazdadjoke.com/', headers={'Accept': 'appli
 
 results = response.json()
 # print(results)
-joke = results['joke']
-
-joke_line = re.split('[?]', joke)                   #seperated the joke lines by creating a list of both
-
-print(f"{joke_line[0]+'?'}")                        #printing the joke's first line here
-time.sleep(3)                                       #delaying the punnchline by 3 seconds
-print(joke_line[1])                                 #printing out the punchline after the time delay
-
+jokes = results['joke']                 #can print here with a joke from the web
+joke = jokes.split('?')                 # Trying to split up the jokes here by punctuation
+print(joke[0])                                  
+time.sleep(3)
+if len(joke) > 1:
+    line_of_joke = str(joke[1::].pop())         #printing out the joke with a delay given the length of the joke lines in the text
+    print(line_of_joke)
 
 # time.sleep(6)
 # pprint.pprint(joke)
