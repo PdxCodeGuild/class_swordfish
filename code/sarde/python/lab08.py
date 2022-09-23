@@ -77,6 +77,7 @@ def create_contact(final_list, keys_list):
         keys_list[2]: user_favorite_color
     }
     final_list.append(user_inputs)
+    print('added contact', user_inputs)
     return final_list
 
 
@@ -87,7 +88,7 @@ def create_contact(final_list, keys_list):
 
 def retrieve_contact(final_list):
     # ask the user for the contact's name
-    input_contact_name = input('Enter contact\'s name: ')
+    input_contact_name = input("Enter contact's name: ")
     # print(input_contacts_name)
     for contact in final_list:
         name = contact['name']
@@ -98,45 +99,61 @@ def retrieve_contact(final_list):
             return contact
 
 
-# retrieve_contact(final_list)
-print(final_list)
+# #retrieve_contact(final_list)
+# print(final_list)
 
 
 def update_contact(final_list):
+    """
+    This is where the DOC string goes
+    """
     # ask the user for the contact's name
-    input_name = input('Enter contact\'s name: ')
-    # ask which attribute they would like to update
-    input_attribute = input('What do you want to update?: ')
-    input_value = input('What do you want to update it to?: ')
-    # print(input_value)
-    for contact in final_list:
+    input_contact_name = input('Enter contact\'s name: ')
+    for i in range(len(final_list)):
+        # print(final_list[i])
+        if final_list[i]['name'] == input_contact_name:
+            input_attribute = input(
+                "What do you want to update? 'name', 'favorite fruit', 'favorite color': ")
+            input_value = input('What do you want to update it to?: ')
+            final_list[i][input_attribute] = input_value
+            return final_list
 
-        return contact
+            #updated_contact = update_contact(final_list)
 
 
-updated_contact = update_contact(final_list)
+def delete_contact(final_list):
+    # ask the user for the contact's name
+    input_contact_name = input('Enter contact\'s name: ')
+    # iterate over the final_list
+    for i in range(len(final_list)):
+        if final_list[i]['name'] == input_contact_name:
+            final_list.pop(i)
+            return final_list
 
 
-'''
+#deleted_contact = delete_contact(final_list)
+
 # REPL Loop
 stop = False
 while not stop:
-    response = input('Enter a choice(q, c, r, u): ').lower()
+    response = input('Enter a choice(q, c, r, u, d): ').lower()
     if response == 'q':
         print('Person wants to quit')
         stop = True
     elif response == 'c':
         print('Person wants to create')
-        new_contact = create_contact(final_list, keys_list)
-        print(new_contact)
+        final_list = create_contact(final_list, keys_list)
+        # print(final_list)
     elif response == 'r':
         print('Person wants to retrieve')
         contact = retrieve_contact(final_list)
         print(contact)
-    elif response == 'u'
+    elif response == 'u':
         print('Person wants to update')
-        updated_contact = update_contact(final_list)
-        print(updated_contact)
-'''
-#
-#
+        final_list = update_contact(final_list)
+        # print(final_list)
+    elif response == 'd':
+        print('Person wants to delete')
+        final_list = delete_contact(final_list)
+
+    print(final_list)
