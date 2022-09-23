@@ -5,7 +5,7 @@ import math
 class ATM():
     def __init__(self):
         self.balance = 0    
-        self.interest = .1
+        self.interest = .01
         self.transaction_histroy = []
     def check_balance(self):
         return self.balance
@@ -14,7 +14,7 @@ class ATM():
         self.transaction_histroy.append(statement)
         self.balance = self.balance + amount
         return self.balance
-    def check_withdrawal(self, amount):
+    def check_withdrawal(self):
         if self.balance >= 0:
             return self.balance
         elif self.balance < 0:
