@@ -30,8 +30,8 @@ for i in range(100000):
     for i in range(len(winning_ticket)):
         if ticket[i] == winning_ticket[i]:
             matches += 1
-        earnings += earnings_dict[matches]
-        balance += earnings_dict[matches]
+    earnings += earnings_dict[matches]
+    balance += earnings_dict[matches]
 
 print(winning_ticket)
 print(earnings)
