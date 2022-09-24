@@ -17,7 +17,7 @@ for index in contact_list_csv:
         
     contact_list.append(list_row)
 header = ','.join(contact_list.pop(0).values())
-print(contact_list)
+# print(contact_list)
 # Version 2a
 def new_user_func(contacts):
     user_name = input(f'Please give us your name: ')
@@ -42,7 +42,7 @@ def retrieve_func(contact_list):
 def update_func(contact_list):
     up_name = input('Please give us your name: ')
     for i, contact in enumerate(contact_list): #contact = each dictionary in list
-        if up_name == i['name']:
+        if up_name == contact['name']:
             fruit_color = input('What would you like to update? Your choices are, favorite fruit or favorite color: ')
             fruit_update = 'favorite fruit'
             color_update = 'favorite color'
@@ -68,11 +68,13 @@ def write_func(contact_list):
     output_list = []
     for contact in contact_list:
         the_values = list(contact.values())
+        # print(the_values)
         the_values_string = ','.join(the_values)
+        # print(the_values_string)
         output_list.append(the_values_string)
+    # print(output_list[0])
     return output_list
 # print(write_func(contact_list))
-
 
 keep_looping = True
 
@@ -95,12 +97,17 @@ while keep_looping:
         print('User wants to delete')
         contact_list = del_update(contact_list)
 
-#Version 3
-with open('lab_8_backup.csv', 'w') as file:
+
+# Version 3
+with open('lab_8.csv', 'w') as file:
     file.write(header + '\n')
     for i in write_func(contact_list):
-        file.write(i + '\n')
-
+        if write_func(contact_list).index(i) == len(write_func(contact_list))-1:
+            file.write(f"{i}")
+            print('yes')
+        else:
+            file.write(f"{i} \n")
+            print('no')
 
 
 
