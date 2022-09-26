@@ -10,18 +10,17 @@ def credit_card_validator(orig_num):
     list_digits.reverse()
     for i in range(len(list_digits)):
         if i % 2 == 0:
-          
-            return list_digits
-
-
+            list_digits[i] = list_digits[i] *2
     
-    # every_second_num = list(list_digits)
-    # for i in range(1, len(), *2):
-    #     every_second_num.append(list_digits[i])
-        
 
+    for i in range(len(list_digits)):
+        if list_digits[i] > 9:
+            list_digits[i] = list_digits[i] -9
+    
 
-
-print(credit_card_validator("4556737586899855"))
+    print(list_digits)
+    print(list_digits[-2])
+    return list_digits       
+print(sum(credit_card_validator("4556737586899855")))
 
 
