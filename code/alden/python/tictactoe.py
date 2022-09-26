@@ -27,11 +27,13 @@ class Board():
             self.board[x][y] = player
             return self.board
 
-    def calc_winner(self, player):
-        for i in range(len(self.board)):     # Use zip in for loop to get vertical solution.
-            if all(self.board[i]) == True: # horizonal check
-                if self.board[i] != ' ':
-                    print(f'{player} is the winner!!')
+    def calc_winner(self, player): # Use zip in for loop to get vertical solution.
+        for i in range(3):
+            hori = self.board[i]        # horizonal check
+            list = [s==hori[0] and s != ' ' for s in hori] # creates a list of booleans
+            if all(list):           # Checks that list of booleans are all True.
+                    return f'{hori[0]} wins!'
+            
         else:
             print('check')
             # elif self.board[i]
@@ -39,8 +41,8 @@ class Board():
             
 
 board = Board()
-board.move(0, 0, 'X')
-board.move(0, 1, 'X')
-board.move(0, 2, 'X')
+board.move(1, 0, 'X')
+board.move(1, 1, 'X')
+board.move(1, 2, 'X')
 print(board)
 print(board.calc_winner('X'))
