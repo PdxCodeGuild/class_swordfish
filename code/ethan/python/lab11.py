@@ -16,6 +16,8 @@ while answer == 'next page':
 
     results = response.json()
 
+    print(f'25 quotes associated with {quote_type} - page {page}\n')
+
     x = 0
 
     for _ in results['quotes']:
