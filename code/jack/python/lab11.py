@@ -7,29 +7,24 @@ parameters = {'page': 1}
 def get_quotes(): # returns list of quote dictionaries
     response = requests.get('https://favqs.com/api/quotes', headers={'accept': 'application/json','Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}, params = parameters)
     results = response.json()
-    return results['quotes']
-  
+    quotes = results['quotes']
 
-def quotes_to_print(quotes): # takes list of quote dictionaries and prints quote + author for each dict
     print(f'{len(quotes)} quotes associated with {keyword} - page {parameters["page"]}')
-    for dict in quotes:
+    for dict in quotes: # prints each quote/author from list of quote dictionaries
         quote = dict['body']
         author = dict['author']
         output = '-' + quote + ' -' + author
         print(output)
-        
+    
 
-
-
+# collect keyword, first output
 keyword = input('Enter a keyword to search for quotes: ')
 parameters['filter'] = keyword
 print('\n')
-quotes = get_quotes()
-quotes_to_print(quotes)
+get_quotes()
 
 
-
-# REPL
+# REPL for subsequent pages of quotes
 while True:
     command = input('Enter \'next page\' or \'done\': ')
 
@@ -37,7 +32,6 @@ while True:
         break
     elif command == 'next page':
         parameters['page'] += 1
-        quotes = get_quotes()
-        quotes_to_print(quotes)
+        get_quotes()
     else:
         print('Invalid input')
