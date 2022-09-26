@@ -10,6 +10,7 @@ with open("csv_copy.csv", "r") as f:
     csv = f.read()
 
 lines = csv.split("\n")
+header_2 = lines[0]
 header = lines[0].split(",")
 
 player_list = []
@@ -71,18 +72,11 @@ def d():
             del player_csv[i]
     return player_csv
 
-
+player_csv_print = []
 
 while True:
     crud_choice = input("What would you like to do?:  ")
-    if crud_choice.lower() == "end":
-        player_csv_print = player_csv.copy()
-        player_csv_print
-        with open("csv_copy.csv", "w") as f2:
-            f2.write(player_csv)
-        print(player_csv)
-        break
-    elif crud_choice.lower() == "options":
+    if crud_choice.lower() == "options":
         print(f"Your options are: {choices}.")
     elif crud_choice.lower() == "create":
         c()
@@ -92,11 +86,13 @@ while True:
         u()
     elif crud_choice.lower() == "delete":
         d()
+    elif crud_choice.lower() == "end":
+        for i, x in enumerate(player_csv):
+            player_csv_print.append(f"{x['name']},{x['club']},{x['league']}")
+            player_csv_print_2 = "\n".join(str(e) for e in player_csv_print)
+            player_csv_print_2 = header_2 + new_line + player_csv_print_2
+        with open("csv_copy.csv", "w") as f2:
+            f2.write(f"{player_csv_print_2}")
+        break
     else:
         print("Please enter a valid option.")
-
-
-
-
-# with open("csv_copy.csv", "w") as f2:
-#     f2.write(f"{csv}{new_line}{','.join(c())}")
