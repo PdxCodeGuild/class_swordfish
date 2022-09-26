@@ -82,7 +82,6 @@ copy_of_split_lines = split_lines.copy()
 new_lines = []
 print(split_lines)
 for i, dict in enumerate(split_lines):
-    dict = split_lines [i, **i]
     new_lines.append(dict)
     
 
