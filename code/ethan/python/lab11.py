@@ -21,7 +21,9 @@ while answer == 'next page':
     x = 0
 
     for _ in results['quotes']:
+
         print_quote = results['quotes'][x]['body']
+
         author = results['quotes'][x]['author']
 
         print(f'"{print_quote}"')
@@ -32,6 +34,5 @@ while answer == 'next page':
     answer = input("Enter 'next page' or 'done': ")
 
     if answer == 'next page':
+    
         page += 1
-    
-    
