@@ -22,8 +22,7 @@ def encrypt_string (user_string):
     for char in user_string:
         if char in letters_dict.keys():
             encrypted_word += letters_dict[char]
-        else: # handle non-alphabet characters 
-            encrypted_word += char 
+    
     return encrypted_word
 print(encrypt_string(input('Please enter a word to encrypt or decrypt: ')))
 # print(encoded_word)
