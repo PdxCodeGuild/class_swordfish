@@ -15,7 +15,7 @@ f = open('contacts.csv')
 contacts_list_of_strings = f.read().split('\n')  # --> converted to list
 # print(contacts_list_of_strings)  # --> prints --> list
 
-
+f.close()
 keys = contacts_list_of_strings[0]
 keys_list = keys.split(',')  # -- list of keys
 # print(keys_list)
@@ -104,9 +104,6 @@ def retrieve_contact(final_list):
 
 
 def update_contact(final_list):
-    """
-    This is where the DOC string goes
-    """
     # ask the user for the contact's name
     input_contact_name = input('Enter contact\'s name: ')
     for i in range(len(final_list)):
@@ -118,7 +115,7 @@ def update_contact(final_list):
             final_list[i][input_attribute] = input_value
             return final_list
 
-            #updated_contact = update_contact(final_list)
+            # updated_contact = update_contact(final_list)
 
 
 def delete_contact(final_list):
@@ -131,7 +128,7 @@ def delete_contact(final_list):
             return final_list
 
 
-#deleted_contact = delete_contact(final_list)
+# deleted_contact = delete_contact(final_list)
 
 # REPL Loop
 stop = False
@@ -156,4 +153,23 @@ while not stop:
         print('Person wants to delete')
         final_list = delete_contact(final_list)
 
-    print(final_list)
+    # print(final_list)
+
+'''Version3
+-When REPL loop finishes,
+-write the updated contact info to the CSV file to be saved
+'''
+updated_contact_string = keys
+# iterate over final_list
+for values in final_list:
+    # print(values) --> dict
+    values = values['name'], values['favorite fruit'], values['favorite color']
+    # print('values', values)  # --> tuple
+    values = ','.join(values)  # --> class str
+    # print(values)  # --> class str
+    updated_contact_string += '\n' + values
+    # print(updated_contact_string)
+    # convert the values of each dict to a single string
+
+with open('contacts.csv', 'w') as contacts_file:
+    contacts_file.write(updated_contact_string)
