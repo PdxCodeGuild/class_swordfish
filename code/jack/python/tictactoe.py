@@ -1,23 +1,28 @@
 # Lab 10: tic tac toe
-
-tiles = 3
+while True:
+    try:
+        tiles = int(input('Enter number of tiles (ex: enter 3 for 3x3 game): '))
+        if 2 < tiles < 6:
+            break
+        else:
+            print('Invalid entry: must be between 3 and 5')
+    except:
+        print('Invalid entry: must be integer')
+    
 
 class Game():
     def __init__(self):
         self.board = [[' ' for _ in range(tiles)] for _ in range(tiles)]
 
     def __repr__(self):
-        board_string = '  1 2 3\n'
+        board_string = f'  {" ".join((str(x + 1) for x in range(tiles)))}\n' # initiates string and adds horizontal index labels
         i = 1
         for y in self.board:
-            board_string += str(i) + ' '
+            board_string += str(i) + ' ' # adds vertical index labels
             i += 1
-            for x in range(len(y)):
-                board_string += str(y[x])
-                if not x + 1 == len(y): # adds | if not last x
-                    board_string += '|'
+            board_string += '|'.join([str(y[x]) for x in range(len(y))])
             if not y is self.board[tiles - 1]: # adds new line if not last y
-                board_string += '\n'
+                board_string += f'\n  {"".join(["-" for x in range((tiles * 2) - 1)])}\n'
         return board_string
 
     def setup(self):
@@ -27,8 +32,8 @@ class Game():
     def move(self, player):
         while True: # takes spot and ensures entered spot is valid
             try:
-                x = int(input('Enter x (1-3): ')) - 1
-                y = int(input('Enter y (1-3): ')) - 1
+                x = int(input(f'Enter x (1-{tiles}): ')) - 1
+                y = int(input(f'Enter y (1-{tiles}): ')) - 1
                 if self.board[y][x] == ' ':
                     break
                 print('Invalid move')
@@ -40,7 +45,7 @@ class Game():
     
     def win_check(self, player): # creates lists representing current board state, then checks those lists to determine if game has been won
         win_cons = []
-        # populate win_cons with true/false lists for each win condition
+        # populate win_cons with lists of winning combinations to check if combos contain only player token
         for x in range(tiles):
             win_cons.append([self.board[y][x] for y in range(tiles)]) # vertical
             win_cons.append([self.board[x][y] for y in range(tiles)]) # horizontal
