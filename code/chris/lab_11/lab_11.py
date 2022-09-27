@@ -26,7 +26,7 @@ the_body = random_q['quote']['body']
 
 print(f"""VERSION 1 ANSWER:
 Your random quote is: {the_body} 
-- {the_author}""" + '\N') # parse dictionary to show the quote and the author
+- {the_author}""") # parse dictionary to show the quote and the author
 
 # #Version 2
 
