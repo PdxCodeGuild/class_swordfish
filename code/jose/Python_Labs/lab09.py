@@ -3,20 +3,20 @@ user_balance : (0)
 
 class ATM():
 
-    def __init__(self, amount, command):
-        self.amount = amount
-        self.command = command
+    def __init__(self, balance = 0, interest = .001):
+        self.__balance = balance
+        self.__interest = interest
 
     def check_balance(self):
-            print(user_balance)
+            return self.__balance
     
     def deposit(self, amount):
-        self + user_balance
+        self.__balance += amount
         return user_balance
 
     def check_withdrawal(self, amount):
         if user_balance > self:
-            print('Valid, enough funds to withdraw requsted amount')
+            print('Valid, enough funds to withdraw requsted amount', + self.__balance)
         elif user_balance < self:
             print('Invalid, not enough funds.')
 
