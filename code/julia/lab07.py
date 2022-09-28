@@ -23,7 +23,6 @@ with open("myfile.txt") as f:
 words = 280
 characters = 1359
 sentences = 11
-#math.ceil(4.71)
 x = 4.71
 y = 21.43
 z = .5
@@ -31,4 +30,3 @@ z = .5
 score = float(x / characters / words / + z / words / sentences / - y)
 
 print("Score: ", score)
-
