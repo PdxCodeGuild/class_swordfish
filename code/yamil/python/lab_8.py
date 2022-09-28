@@ -93,7 +93,7 @@ while True:
             player_csv_print_2 = "\n".join(str(e) for e in player_csv_print)
             player_csv_print_2 = header_2 + new_line + player_csv_print_2
         with open("csv_copy.csv", "w") as f2:
-            f2.write(f"{player_csv_print_2}")
+            f2.write(player_csv_print_2)
         break
     else:
         print("Please enter a valid option.")
