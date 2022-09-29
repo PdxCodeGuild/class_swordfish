@@ -8,7 +8,8 @@ function:   > this program will pull a 'contacts list' from a CSV file.
             > the user can then update, add or delete a contact; as well as print a specific contact and their related information.
             > when the user inputs 'exit' as a command, the program will exit and the contact CSV will be updated by writing (w) to it.
 '''
-import pprint
+from numpy import ubyte
+import pytest
 
 # this function will open the csv file and split the headers and contacts.
 # the contacts will be seperated by using '\n', and the information of each contact will be seperated using ','.
