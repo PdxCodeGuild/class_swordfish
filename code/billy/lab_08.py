@@ -8,6 +8,7 @@ function:   > this program will pull a 'contacts list' from a CSV file.
             > the user can then update, add or delete a contact; as well as print a specific contact and their related information.
             > when the user inputs 'exit' as a command, the program will exit and the contact CSV will be updated by writing (w) to it.
 '''
+import pprint
 
 # this function will open the csv file and split the headers and contacts.
 # the contacts will be seperated by using '\n', and the information of each contact will be seperated using ','.
@@ -40,9 +41,11 @@ def print_contact(contact):
 
         print(contact)
 
-    for a, b in contact.items():
+    else:
 
-        print(f'{a}: {b}')
+        for k, v in contact.items():
+
+            print(f'{k}: {v}')
 
 # this will create a contact and append it to the already existing contacts dict.
 # the contact will NOT be written to the CSV until the user 'exits' the program.
@@ -62,8 +65,6 @@ def find_specific_contact(contacts, name):
         if contact['name'] == name:
 
             return index
-
-    return -1
 
 # this will utilize the find_specific_contact function.
 # this will allow the program to search all of the contacts, and return the users search.
@@ -91,11 +92,9 @@ def update_contact(contacts, name, updated_contact):
         # updates the existing contact with
         contacts[name_index].update(updated_contact)
 
-        return contacts[name_index]
+        print(contacts[name_index])
 
-    else:
-
-        print('\n> unable to locate and update contact. please ensure it exists.')
+    return contacts
 
 # this function will find a specific contact with the function of the same name.
 def delete_contact(contacts, name):
@@ -136,89 +135,86 @@ def main():
 
     headers, contacts = open_csv(file)
 
-    while True:
         #loops will run the program until the user inputs 'exit', to end the program/
-        while True:
+    while True:
             
-            print('\nWelcome! please refer to the list of commands below:')
+        print('\nWelcome! please refer to the list of commands below:')
 
-            print('\n*----------------COMMAND LIST----------------*'
-                  '\n> update - (updates contact) \t> retrieve - (retrieves contact)'
-                  '\n> delete - (deletes a contact) \t> create - (creates contact)'
-                  '\n> exit - (exits the program)')
+        print('\n*----------------COMMAND LIST----------------*'
+                '\n> update - (updates contact) \t> retrieve - (retrieves contact)'
+                '\n> delete - (deletes a contact) \t> create - (creates contact)'
+                '\n> exit - (exits the program)')
 
-            # this will determine what command is executed.
-            user_input = input()
+        # this will determine what command is executed.
+        user_input = input()
+        
+        # this will update a contact already in the folder.
+        # this if statement will list their name, favorite fruit, favorite color.
+        # the user will then determine the new values or each one (or keep some the same).
+        if user_input == 'update':
+
+            contact = {}
+
+            name = input('\n> please enter the name of the contact you would like to update: ')
             
-            # this will update a contact already in the folder.
-            # this if statement will list their name, favorite fruit, favorite color.
-            # the user will then determine the new values or each one (or keep some the same).
-            if user_input == 'update':
+            print('\n> you will be updating the following contact:')
 
-                contact = {}
+            print_contact(retrieve_contacts(contacts, name))
 
-                contact_name = input('\n> please enter the name of the contact you would like to update: ')
-                
-                print('\n> you will be updating the following contact:')
+            print('\n> only enter in values for the information you want updated, otherwise enter what was previously there.\n')
 
-                print_contact(retrieve_contacts
-            (contacts, contact_name))
+            for key in headers:
 
-                print('\n> only enter in values for the information you want updated, otherwise enter what was previously there.\n')
+                value = input(f'{key}: ')
 
-                for key in headers:
+                contact[key] = value
 
-                    value = input(f'{key}: ')
+            # this will properly create a new version of the contact by iterating over the previous values.
+            contact = {k:v for k,v in contact.items()}
 
-                    contact[key] = value
+            contacts = update_contact(contacts, name, contact)
 
-                # this will properly create a new version of the contact by iterating over the previous values.
-                contact = {k:v for k,v in contact.items() if v}
-            
-                print_contact(update_contact(contacts, contact['name'], contact))
-            
-            # this will use the retrieve_contacts
-            # and print_contact functions.
-            # the user input will determine the contact that will be printed.
-            # the contacts name, favorite fruit and color will be displayed.
-            elif user_input == 'retrieve':
+        # this will use the retrieve_contacts
+        # and print_contact functions.
+        # the user input will determine the contact that will be printed.
+        # the contacts name, favorite fruit and color will be displayed.
+        elif user_input == 'retrieve':
 
-                name = input('\nWhat is the contacts name? ')
+            name = input('\nWhat is the contacts name? ')
 
-                print_contact(retrieve_contacts
-            (contacts, name))
+            print_contact(retrieve_contacts(contacts, name))
 
-            # this will delete a contact by utilizing the delete_contact function.
-            # the user will input the name of the contact they wish to delete.
-            elif user_input == 'delete':
+        # this will delete a contact by utilizing the delete_contact function.
+        # the user will input the name of the contact they wish to delete.
+        elif user_input == 'delete':
 
-                name = input('\n> please enter the name of the contact you would like to delete: ')
+            name = input('\n> please enter the name of the contact you would like to delete: ')
 
-                print(f'\n> the contact {name} will be deleted.')
+            print(f'\n> the contact {name} will be deleted.')
 
-                print_contact(delete_contact(contacts, name))
+            print_contact(delete_contact(contacts, name))
 
-            # this command will utilize the create_contact function.
-            # a contact's name, favorite fruit and color will be grabbed via the 'for' loop.
-            elif user_input == 'create':
+        # this command will utilize the create_contact function.
+        # a contact's name, favorite fruit and color will be grabbed via the 'for' loop.
+        elif user_input == 'create':
 
-                contact = {}
+            contact = {}
 
-                for words in headers:
+            for words in headers:
 
-                    input_value = input(f'{words}: ')
+                input_value = input(f'{words}: ')
 
-                    contact[words] = input_value
+                contact[words] = input_value
 
-                create_contact(contacts, contact)     
+            create_contact(contacts, contact)     
 
-            # this will end the program, and save any changes made to the contact list.
-            # uses save_contact function to write to the csv file.
-            elif user_input == 'exit':
+        # this will end the program, and save any changes made to the contact list.
+        # uses save_contact function to write to the csv file.
+        elif user_input == 'exit':
 
-                save_contact(contacts, file, headers)
+            save_contact(contacts, file, headers)
 
-                exit()
+            exit()
 main()
 
 
