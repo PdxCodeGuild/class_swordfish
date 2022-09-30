@@ -12,28 +12,53 @@ import pprint
 # print(data['quote']['author']) #gtg
 
 """Version 2: Prompt the user for a keyword, list the quotes you get in response, and prompt the user to either show the next page or enter a new keyword."""
-keyword = input("Enter a keyword: ")
-print(f'25 words associated with {keyword}')
-#kw_response = requests.get(f'https://favqs.com/api/quotes?page=<page>&filter=+{keyword}', headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}) #this is the way: adds user input to URL string
-kw_response = requests.get(f'https://favqs.com/api/quotes?page=<page>&filter=+{keyword}', params={'format': 'json'}, headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'})
-#quote_auth = kw_response.json()
+keyword = input("Enter a keyword to search for quotes: ")
+print(f'25 quotes associated with {keyword}')
+kw_response = requests.get(f'https://favqs.com/api/quotes?filter=+{keyword}', params={'format': 'json'}, headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'})
 kw_quotes = kw_response.json()
-#print(kw_quotes.keys()) #dict_keys(['page', 'last_page', 'quotes']) --- can call a method on dicts; if last page = true)
-quotes_list = kw_quotes['quotes']
-
-All above is same!
-
+quotes_list = kw_quotes['quotes'] #extracting the quotes dictionary from the json response
 for quote in quotes_list:
     author = quote['author']
     body = quote['body']
     print(body, author)
+# def get_quote():
+#     for quote in quotes_list:
+#         author = quote['author']
+#         body = quote['body']
+#         return body, author
 #pprint.pprint(quotes_list)
 #pprint.pprint(kw_quotes) #green is class, yellow is method
-(or while is false, do this)
-    page = kw_quotes['page'] + 1
-if kw_quotes['last_page'] = 1 == True
-    quit
-else: blah
+
+while True:
+    decision = input("Enter 'next page' to see more quotes or 'done' ")
+    if decision == 'next page':
+        if kw_quotes["last_page"] == False:
+            print(f'25 more quotes associated with {keyword}')
+            page = kw_quotes['page'] + 1
+            kw_response = requests.get(f'https://favqs.com/api/quotes?page=+{page}&filter=+{keyword}', params={'format': 'json'}, headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'})
+            kw_quotes = kw_response.json()
+            quotes_list = kw_quotes['quotes']
+            for quote in quotes_list:
+                author = quote['author']
+                body = quote['body']
+                print(body, author)
+            #print(get_quote())
+        if kw_quotes["last_page"] == True:
+            print(f"Sorry, there aren't any more quotes associated with {keyword}")   
+            break
+    elif decision == 'done':
+        keyword = input("Enter a keyword to search for quotes or enter quit to quit program ")
+        if keyword == 'quit':
+            print('Thanks for visiting')
+            break
+        else:
+            kw_response = requests.get(f'https://favqs.com/api/quotes?filter=+{keyword}', params={'format': 'json'}, headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'})
+            kw_quotes = kw_response.json()
+            quotes_list = kw_quotes['quotes']
+            for quote in quotes_list:
+                author = quote['author']
+                body = quote['body']
+                print(body, author)
 
 
 
