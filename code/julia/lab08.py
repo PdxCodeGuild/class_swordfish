@@ -10,16 +10,13 @@ dictionary = {}
 with open("contacts.csv") as file:
     contact_list = []
     for line in file:
- 
      contacts = line.split(",")
  
-
      dictionary = {'Name' :contacts[0], 'Age' :contacts[1], 'Color' :contacts[2],}
      contact_list.append(dictionary)
-#print(contact_list)
+print(contact_list)
 
 def new_contact(contact_list):
-
     print("Add a new contact")
     name = input("Add name: ")
     age = input("Add an age: ")
@@ -33,7 +30,7 @@ def new_contact(contact_list):
     contact_list.append(user_dict)
     return contact_list
 
-#contact_list = new_contact(contact_list)
+contact_list = new_contact(contact_list)
 
 print(contact_list)
 keep_going = True
@@ -57,7 +54,7 @@ while keep_going:
     
 
            
-#print(contact_list)
+print(contact_list)
 
 
 
