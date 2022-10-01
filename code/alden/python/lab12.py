@@ -3,11 +3,11 @@ from PIL import Image
 import qrcode
 
 # ascii_characters = ['.',':','-','=','+','*','#','%','@'] # pos full
-ascii_characters = [' ','.',':','-','=','*','#','%','@'] # pos with empty best with black background.
-# ascii_characters = ['@','%','#','*','+','=','-',':','.'] # neg full
+# ascii_characters = [' ','.',':','-','=','*','#','%','@'] # pos with empty best with black background.
+ascii_characters = ['@','%','#','*','+','=','-',':','.'] # neg full
 # ascii_characters = ['@','%','#','*','=','-',':','.',' '] # neg with empty
 
-img = Image.open('image.jpg').convert('L')
+img = Image.open('test_image2.jpg').convert('L')
 
 #---------------------------------------------------------------#
     # Function to run through the conversion.
@@ -49,7 +49,7 @@ def pixel(img):
     # Code used for how many ascii characters you need and for how they are selected.
 
 # pixels = img.getdata()
-# a= [p//25 for p in pixels]   
+# a= [p//30 for p in pixels]   
 # # print(a)
 # a = list(set(a))
 # print(a)
@@ -69,12 +69,18 @@ def formating(new_pix):
     # Saves to a .txt file.
 
 def save(ascii_img):
-    with open("image_pos_emp.txt", "w") as f:
+    with open("test_neg.txt", "w") as f:
         f.write(ascii_img)
 
 #---------------------------------------------------------------#
     # Running the program and conversion to a qrcode.
 convert(img)
+
+#---------------------------------------------------------------#
+    # Uploading .txt file to web site.
+
+
+
 
 qr = qrcode.make("image_pos_emp.txt")
 qr.save("qrcode.png")
