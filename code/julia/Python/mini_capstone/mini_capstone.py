@@ -12,13 +12,19 @@ FPS = 60
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Mini Game!")
 
+print(os.path.join( 'images', 'space.png'))
 
-background = pygame.image.load(os.path.join( 'images', 'background.png'))
+path_to_image = pygame.image.load('/Users/juliachobu/Desktop/class_swordfish/code/julia/Python/mini_capstone/images/space.png').convert()
+# background = pygame.image.load(path_to_image).convert()
+
+print(os.path.join( 'images', 'spaceship.png'))
+#ship = pygame.image.load(path_to_image).convert()
 
 def window():
     screen.fill(color_blue)
-    screen.blit(background, (900,500) )
-    pygame.display.update
+    screen.blit(path_to_image, (900,500) )
+
+    pygame.display.update()
 
 
 def main():
@@ -37,4 +43,4 @@ def main():
 
 
 if __name__ == "__main__"  :
-    main().quit
+    main()
