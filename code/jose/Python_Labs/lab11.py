@@ -4,7 +4,7 @@ import json
 import pprint
 import time
 import re
-# response = requests.get('https://favqs.com/api/qotd', headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'})
+# response = requests.get('https://favqs.com/api/qotd/api/quotes', headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'})
 # results = response.json()
 
 # authors = results['quote']['author']
@@ -38,7 +38,7 @@ while True:
     keyword= input('What keyword would you like to search for?: ')
     response = requests.get('https://favqs.com/api/quotes/?filter='+keyword+'&type=tag', headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'})
     results = response.json()
-# print(results)
+    pprint.pprint(results)
     combined_quotes = results ['quotes']
     quotes = combined_quotes [::]
 
@@ -48,9 +48,9 @@ while True:
         print(combined_quotes[i]['author'])
         print(combined_quotes[i]['body'])
 
-    second_user_input = input('Would you like to view another page?: ')
+    second_user_input = input('Would you like to view the next page or a new keyword?: ')
 
-    if second_user_input == 'yes':
+    if second_user_input == 'new keyword':
         keyword= input('What keyword would you like to search for?: ')
         response = requests.get('https://favqs.com/api/quotes/?filter='+keyword+'&type=tag', headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'})
         results = response.json()
@@ -63,6 +63,11 @@ while True:
             print(combined_quotes[i]['body'])
     # for val in combined_quotes[i]['body']:
         # print (val)
+    elif second_user_input == 'next page':
+        for i, value in enumerate(combined_quotes):
+            print(combined_quotes[i]['author'])
+            print(combined_quotes[i]['body'])
+
     elif second_user_input == 'no':
         print('Goodbye')
 
