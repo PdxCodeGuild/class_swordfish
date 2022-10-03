@@ -10,7 +10,7 @@ class Player():
 
     def player_2(self):
         if player_1 == 'O':
-            player_2 == 'x'
+            player_2 == 'X'
         else:
             player_2 == 'O'
 
@@ -48,7 +48,7 @@ class Board():
             hori = self.board[i]        # horizonal check
             row = [s==hori[0] and s != ' ' for s in hori] # creates a list of booleans
             if all(row):           # Checks that list of booleans are all True.
-                    return f'{hori[0]} wins!'
+                return f'{hori[0]} wins!'
 
         if self.board[0][0] == self.board[1][1] == self.board[2][2] and self.board != ' ':
             return f'{self.board[0][0]} wins!'
@@ -61,7 +61,7 @@ class Board():
     def is_full(self):
         for i in self.board:
             if any(posi == ' ' for posi in i):
-                return False
+                return 'Tied game'
         else:
             True
             
@@ -72,27 +72,24 @@ class Board():
             return self.calc_winner()
 
 board = Board()
-player_1 = Player('Alden', 'X')
-player_2 = Player('Joe', 'O')
+player_1 = Player(input('Enter name: '), 'X')
+player_2 = Player(input('Enter name: '), 'O')
 round = 1
-print(player_1)
-print(player_2)
+
+# Very simple loop asking players to enter their x & y coordinates for where their play.
 while True:
-    p1_move = Board.move(input('Input x coordinate: '), input('Input y coordinate: '), player_1) # Keep getting error "TypeError: Board.move() missing 1 required positional argument: 'player'"
-    p2_move = Board.move(input('Input x coordinate: '), input('Input y coordinate: '), player_2)
-    round += 1
+    p1_move = board.move(int(input('Input x coordinate: ')), int(input('Input y coordinate: ')), player_1.token)
+    print(board) # Prints board each time so players can see the move.
+    p2_move = board.move(int(input('Input x coordinate: ')), int(input('Input y coordinate: ')), player_2.token)
+    print(board) 
 
-    if round >= 3:
-        Board.is_game_over()
-
-    if Board.is_game_over() == True:
-        print(board)
+    if round >= 3: # After there have been enough turns, starts checking for a winner.
+        if board.calc_winner() != None: # Only runs if there is a winner.
+            print(board)
+            print(board.calc_winner())
+            break
+    if round == 5:  # After 5 rounds if no one has won yet, the board will be full.
+        print('Tied game')
         break
-
-
-
-# board.move(0, 0, 'X')
-# board.move(1, 0, 'X')
-# board.move(2, 0, 'X')
-# print(board)
-# print(board.is_full())
+        
+    round += 1
