@@ -69,7 +69,7 @@ def formating(new_pix):
     # Saves to a .txt file.
 
 def save(ascii_img):
-    with open("image_pos_emp.txt", "w") as f:
+    with open("image_pos_emp.html", "w") as f:
         f.write(ascii_img)
 
 #---------------------------------------------------------------#
@@ -82,5 +82,5 @@ convert(img)
 
 
 
-qr = qrcode.make("image_pos_emp.txt")
+qr = qrcode.make("image_pos_emp.html")
 qr.save("qrcode.png")
