@@ -1,5 +1,6 @@
 import tkinter as tk
-from tkinter import * #includes messagebox
+from tkinter import messagebox
+from PIL import Image, ImageTk
 import time
 
 class Pomodoro:
@@ -7,52 +8,75 @@ class Pomodoro:
         self.root = root
         
         
-    def _time(self, timer):
+    def work_break(self, timer):
+        
         #how to display minutes & seconds on GUI
-        minutes, seconds = divmod(timer, 60) #divmod(x,y) returns values of x/y as (quotient, remainder) divmod(9,3) // (3,0)
+        minutes, seconds = divmod(timer, 60)
         self.min.set(f"{minutes:02d}")
         self.sec.set(f"{seconds:02d}")
         self.root.update()
-        time.sleep(1)
+        time.sleep(1)               #function that delays execution of program by seconds
         
-    def work_time(self):  
-        timer = 25*60 #25 minutes * 60 seconds to get total seconds   
-        while timer > 0:
-            pomo._time(timer)
+    def work(self):  
+        timer = 25*60
+        while timer >= 0:
+            pomo.work_break(timer)
             if timer == 0:
-                print("Time for your break!")
+                messagebox.showinfo("Good Job", "Take A Break! \nClick Break Button")
             timer -=1
     
-    
+    def break_(self):
+        timer = 5*60
+        while timer >= 0:
+            pomo.work_break(timer)
+            if timer == 0:
+                messagebox.showinfo("Time's Up!", "Get Back to Work! \nClick Work Button")
+            timer -=1
+            
+            
 
 #----------UI-------------------------#
     def main(self):
-        self.root = Tk()
-        self.root.geometry("365x365")       
+        
+        #main window configuration
+        self.root.geometry("450x455")
+        self.root.resizable(False, False)   
         self.root.title("Pomodoro Timer") 
-        #self.window = tk.Tk() #Creates window, but if I don't explicitly initialize it, one will be implicitly created when I create widget. But show it anyway.
+    
         
-        self.label = tk.Label(                  #Create label
-            text="Pomodoro Timer",
-            fg="white",
-            bg="green",
-            width=25,
-            height=2,
-            
-        )
-        self.label.pack() #Smacks label on window
+        #labels -- show minutes and seconds
+        self.min = tk.StringVar(self.root)
+        self.min.set("25")
+        self.sec = tk.StringVar(self.root)
+        self.sec.set("00")
 
-        self.start_button = tk.Button(
-            text="Start Timer",
-            width=25,
-            height=5,
-            bg="blue",
-            fg="white",
-            relief="groove",
-            command=Pomodoro
-        )
-        self.start_button.pack()
+        self.min_label = tk.Label(self.root, textvariable=self.min, font=("arial", 22, "bold"), bg="red", fg="black")
+        self.min_label.pack()
         
+        self.sec_label = tk.Label(self.root, textvariable=self.sec, font = ("arial", 22, "bold"), bg="black", fg="white")
+        self.sec_label.pack()
+        
+        #widget to add graphics 
+        canvas = tk.Canvas(self.root)
+        canvas.pack(expand=True, fill="both")
+        img = Image.open('pomodoro.jpg')
+        bg = ImageTk.PhotoImage(img)
+        canvas.create_image(90, 10, image=bg, anchor="nw")
+ 
+        # create three buttons with countdown function command
+        btn_work = tk.Button(self.root, text="Start",
+                             bd=5, command=self.work,
+                             bg="red", font=("arial", 15, "bold")).place(x=140, y=380)
+        btn_break = tk.Button(self.root, text="Break", bd=5, command=self.break_,
+                              bg="red", font=("arial", 15, "bold")).place(x=240, y=380)
+        
+        self.root.mainloop()
+           
+        
+if __name__ == '__main__':
+    pomo = Pomodoro(tk.Tk())
+    pomo.main()
+#boilerplate code that protects users from accidentally invoking the script when they didn't intend to.       
          
 
 
@@ -60,11 +84,4 @@ class Pomodoro:
 
 
 
-
-        self.root.mainloop() #CALL LAST -- after creating widgets! Keeps window visible on screen until I close it
-#Blocks any code that comes after it until 
-#Pomodoro timerr
-#25 minute work, 5 minute break on loop      
-if __name__ == '__main__':
-    pomo = Pomodoro(tk.Tk())
-    pomo.main()
+      
