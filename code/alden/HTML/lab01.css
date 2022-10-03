@@ -1,0 +1,25 @@
+@charset "utf-8";
+body{
+    background-color: #116f03ae;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color:black;
+    background-image: ;
+}
+
+main{
+    background-color: #d5f8cfae;
+    text-align: center;
+    padding: 5px;
+    width: 80%;
+}
+aside{
+    margin-left: 82%;
+    margin-top: -12%;
+}
+footer{
+    background-color: #e96341ae;
+    text-align: center;
+    width: 50%;
+    margin-left: 25%;
+    font-family: Chalkduster, "Comic Sans MS", san-serif;
+}
