@@ -3,11 +3,11 @@ from PIL import Image
 import qrcode
 
 # ascii_characters = ['.',':','-','=','+','*','#','%','@'] # pos full
-# ascii_characters = [' ','.',':','-','=','*','#','%','@'] # pos with empty best with black background.
-ascii_characters = ['@','%','#','*','+','=','-',':','.'] # neg full
+ascii_characters = [' ','.',':','-','=','*','#','%','@'] # pos with empty best with black background.
+# ascii_characters = ['@','%','#','*','+','=','-',':','.'] # neg full
 # ascii_characters = ['@','%','#','*','=','-',':','.',' '] # neg with empty
 
-img = Image.open('test_image2.jpg').convert('L')
+img = Image.open('image.jpg').convert('L')
 
 #---------------------------------------------------------------#
     # Function to run through the conversion.
@@ -69,7 +69,7 @@ def formating(new_pix):
     # Saves to a .txt file.
 
 def save(ascii_img):
-    with open("test_neg.txt", "w") as f:
+    with open("image_pos_emp.txt", "w") as f:
         f.write(ascii_img)
 
 #---------------------------------------------------------------#
