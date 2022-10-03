@@ -1,4 +1,4 @@
-import pandas as pd #makes the table look so much better in a df
+import pandas as pd #captures table in a df
 import matplotlib.pyplot as plt #using to visualize final results
 import numpy as np #if needed to calculate 
 
@@ -8,8 +8,12 @@ import numpy as np #if needed to calculate
 #Hypothesis: For the month of August
 #Increase in AVG DEL Time (>60min.) due to AVG Distance is leading to < 75% On Time Arrival
 
+
+#*********Pandas and Numpy*****************
 #Open a CSV as a df in Pandas
 aug_orders_df = pd.read_csv('/Users/ckeego/code-guild/class_swordfish/code/chris/pandas/Restaurant Efficiency Report (Aug).csv')
+# aug_orders_df["COMBINED"] = aug_orders_df["LOCAITON_NAME"].astype(str) + "-" + aug_orders_df["RESTAURANT_NAME"].astype(str)
+# print(aug_orders_df)
 # t = type(aug_orders_df) #validate df
 # print(t)
 # print(aug_orders_df.tail()) #understand amount of rows working with
@@ -45,37 +49,67 @@ delivery_time = number_orders.sort_values(by=['AVG_DEL_TIME'], ascending=False)
 pd.set_option('display.colheader_justify', 'center')
 # print('D.T. >60', delivery_time)
 locations = number_orders.sort_values(by=['LOCATION_NAME'], ascending=False)
-print(locations)
-print('Final Row Count:', len(number_orders.index))
+# print(locations)
+# print(type(number_orders))
 
+#Combine City and Restaurant
+number_orders["COMBINED"] = number_orders["LOCATION_NAME"].astype(str) + " " + "-" + " " + number_orders["RESTAURANT_NAME"].astype(str)
+# print(number_orders)
+print('Final Row Count:', len(number_orders.index))
+# head = number_orders.head() #see headers
+# print('Headers: ', head)
 
 #Export to new CSV
-delivery_time.to_csv('/Users/ckeego/code-guild/class_swordfish/code/chris/pandas/On_Time.csv')
-#whoa, one command to csv
-
+number_orders.to_csv('/Users/ckeego/code-guild/class_swordfish/code/chris/pandas/On_Time.csv')
 
 #***********MATPLOTLIB***************
 #Visualize data in matplotlib
-#Bar Graphs - Avg Del Time and Distance
+#Bar Graphs - Avg Distance
 #Line - On Time
 
+
 dataframe = pd.read_csv('/Users/ckeego/code-guild/class_swordfish/code/chris/pandas/On_Time.csv')
-restaurant = dataframe['RESTAURANT_NAME']
-location = dataframe['LOCATION_NAME']
+print(dataframe)
+combined = dataframe['COMBINED']
 avg_del_time = dataframe['AVG_DEL_TIME']
 avg_dist = dataframe['AVG_DISTANCE']
 on_time = dataframe['ON_TIME']
+# print(plt.style.available)
 
-print(type(restaurant))
+# print(type(combined))
 
-# plt.bar(avg_del_time, avg_dist)
-# plt.plot(on_time)
-# plt.show()
+# plt.figure(figsize=(25,10)) #width and height
+# plt.style.use('fivethirtyeight')
+# plt.bar(x=combined, height=avg_del_time, color='purple')
+# colors = ['blue' if (bar >= 5(avg_dist) else 'cyan' for bar in avg_dist]
+# plt.bar(x=combined, height=on_time, color='purple', label='on_time')
+fig, ax1 = plt.subplots()
+plt.xticks(rotation=90, fontsize=8)
+ax1.bar(combined, avg_dist, color='cyan', label='Left Y Axis: avg_dist (in miles)')
+ax2 = ax1.twinx()
+ax2.plot(on_time, color='orange', label='Right Y Axis: > Percent on_time', linewidth=1.5)
+
+
+# plt.bar(x=combined, height=avg_dist, color='cyan', label='avg_dist') #, bottom=avg_del_time
+# plt.plot(on_time, color='orange', label='on_time', linewidth=1.5)
+plt.axhline([75], color='red', label='on_time Standard', linewidth=2)
+# plt.axhline([5], color='green', label='5 miles', linewidth=2)
+# plt.xticks(rotation=90, fontsize=8)
+# plt.legend()
+plt.figlegend()
+plt.tight_layout()
+plt.show()
+
+
+
+
+
+
 
 #Lessons Learned
 #1. A lot of work on research and how to manipulate data - I need to improve on outlining steps and solving smaller pieces
 #2. pandas and numpy - more efficient. need to keep learning what i can do  #cheatsheets
 #3. I am really bad at decoding ref. guides
 #4. Google and YouTube - both inspire me - type in term I don't understand (this has given me confidence to attack).
-#5. I could have used functions better, but didn't know I needed it until it was too late
+#5. I could have used functions better, but didn't know I needed it until it was too late. built-in functions are great.
 #6. Pay attention to column names and positions
