@@ -1,0 +1,67 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: green;
+    color: white;
+}
+
+body {
+    background-color: red;
+}
+
+p {
+    color: black;
+}
+
+ol > li {
+    background-color: rgba(32, 178, 170, 0.3);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Helvetica, Arial;
+}
+
+.main-title {
+    font-size: 48px;
+    font-family: Helvetica, Arial;
+    color:aqua;
+    text-align: center;
+}
+
+.blue-text {
+    color: blue;
+}
+
+.black-background {
+    background-color: black;
+}
+
+.cool-paragraph {
+    background-color: black;
+    color: white;
+    text-align: justify;
+    padding: 32px;
+    margin: 32px 64px 128px 256px;
+    border: 5px solid whitesmoke;
+    width: 50%;
+}
+
+#title {
+    color:black;
+}
+
+ol {
+    font-size: 2em;
+    width:50%;
+}
+
+li {
+    font-size: 2em;
+    width:50%;
+    height: 100px;
+}
