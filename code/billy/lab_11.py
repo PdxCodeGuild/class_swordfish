@@ -10,6 +10,7 @@ function:   > this program will retrieve quotes off of https://favqs.com/api/qot
 
 # imports
 import time
+from wsgiref import headers
 import requests
 import json
 import pprint
@@ -26,10 +27,11 @@ print('\n\t-',quote_dict['quote']['author'])
 
 keyword = input("\n> To begin your search for quotes, please enter a keyword: ")
 
-keyword_response = requests.get(f'https://favqs.com/api/quotes?page=<page>&filter={keyword}', headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'})
+response = requests.get(f'https://favqs.com/api/quotes?page=<page>&filter={keyword}', headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'})
 
-keyword_quotes = json.loads(keyword_response.text)
+json_data = json.loads(response.text)
 
-print(keyword_quotes)
+print(json_data['quotes'])
 
-print(type(keyword_quotes))
+print('\n> you are currently on page',json_data['page'])
+
