@@ -4,17 +4,41 @@ html {
 *, *:before, *:after {
     box-sizing: inherit;
 }
-
+header {
+    text-align: center;
+    margin-top: 4em;
+}
 body {
     background-image: url(https://i.pinimg.com/originals/50/71/12/507112417926d28ff9b2255b43530ea1.jpg);
     background-size:cover;
     background-color: black;
     font-family: 'Courier New', Courier, monospace;
-    color: rgb(95, 197, 86);
+    color: rgb(141, 238, 133);
+    text-align: center;
+    padding: 4em;
 }
-
-.biography {
-    margin: 10px;
-    padding: 1px;
-    align-content: center;
+.wiki_link {
+    color:rgb(141, 238, 133);
+    font-weight: 600;
+}
+.mr_house_picture {
+    border-radius: 15px;
+    display: block;
+    max-width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+.quote {
+    padding: 3em;
+    font-style: italic;
+    font-weight: 600;
+}
+.locations {
+    list-style:">";
+    list-style-position: inside;
+    text-align: center;
+}
+.location_intro {
+    text-decoration-line: underline;
 }
