@@ -48,11 +48,11 @@ def pixel(img):
 #---------------------------------------------------------------#
     # Code used for how many ascii characters you need and for how they are selected.
 
-# pixels = img.getdata()
-# a= [p//30 for p in pixels]   
-# # print(a)
-# a = list(set(a))
+pixels = img.getdata()
+a= [p//30 for p in pixels]   
 # print(a)
+a = list(set(a))
+print(a)
 
 #---------------------------------------------------------------#
     # Formats the string of new characters to show it as the image.
@@ -69,12 +69,12 @@ def formating(new_pix):
     # Saves to a .txt file.
 
 def save(ascii_img):
-    with open("image_pos_emp.txt", "w") as f:
+    with open("image_pos_emp.html", "w") as f:
         f.write(ascii_img)
 
 #---------------------------------------------------------------#
     # Running the program and conversion to a qrcode.
-convert(img)
+# convert(img)
 
 #---------------------------------------------------------------#
     # Uploading .txt file to web site.
@@ -82,5 +82,5 @@ convert(img)
 
 
 
-qr = qrcode.make("image_pos_emp.txt")
-qr.save("qrcode.png")
+# qr = qrcode.make("image_pos_emp.html")
+# qr.save("qrcode.png")
