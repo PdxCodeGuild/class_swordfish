@@ -16,22 +16,15 @@ import pytest
 def open_csv(file):
     
     with open(file) as contact_csv:
-
         lines = contact_csv.read().split('\n')
-
-    contacts = []
-
-    headers = lines[0].split(',')
+        contacts = []
+        headers = lines[0].split(',')
 
 
     for words in range(1, len(lines)):
-
         rows = lines[words].split(',')
-
         contact = dict(zip(headers, rows))
-
         contacts.append(contact)
-
     return headers, contacts
 
 # this will properly print a contact and its related information.
