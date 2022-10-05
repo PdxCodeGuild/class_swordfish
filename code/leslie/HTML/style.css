@@ -1,0 +1,61 @@
+html{
+    box-sizing:border-box
+}
+*,*:before, *:after {
+    box-sizing:inherit;
+}
+head {
+    font-family: 'Alkalami', serif;
+    
+}
+
+body{
+    text-align: center;
+    background-color: lightgreen;
+    background-image: url(depositphotos_5442385-stock-photo-scratched-texture-see-collection.jpg);
+    font-family: 'Alkalami', serif;
+    
+}
+#intro  {
+    background-image: url(code\leslie\HTML\depositphotos_2620824-stock-photo-cream-colored-natural-background.jpg);
+    padding: 32px;
+    margin: 32px;
+    border: 5px solid greenyellow;
+    width: 50%;
+    font-size: 18px;   
+}
+.known-for, #intro {
+    background-color: whitesmoke; 
+    background-image: url(depositphotos_2620824-stock-photo-cream-colored-natural-background.jpg); 
+    padding: 32px;
+    margin: 32px;
+    
+    width: 50%;
+    font-size: 18px;
+}
+.known-for, .tv, .celebs{
+    list-style-type: circle;
+}
+
+img {
+    border-radius: 50%;
+}
+q {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: x-large;
+}
+
+p {
+    background-color: beige;
+    padding: 32px;
+    margin: 32px;
+}
+h2, h3 {
+    font-size: 32px;
+}
+ul {
+    font-size: 18px;    
+}
+a {
+    color: green;
+  }
