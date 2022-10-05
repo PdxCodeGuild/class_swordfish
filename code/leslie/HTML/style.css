@@ -14,28 +14,32 @@ body{
     background-color: lightgreen;
     background-image: url(depositphotos_5442385-stock-photo-scratched-texture-see-collection.jpg);
     font-family: 'Alkalami', serif;
+    color: #008CBA;
+    
     
 }
 #intro  {
     background-image: url(code\leslie\HTML\depositphotos_2620824-stock-photo-cream-colored-natural-background.jpg);
     padding: 32px;
     margin: 32px;
-    border: 5px solid greenyellow;
+    border: 3px solid greenyellow;
     width: 50%;
     font-size: 18px;   
 }
-.known-for, #intro {
+#known-for, #intro {
     background-color: whitesmoke; 
     background-image: url(depositphotos_2620824-stock-photo-cream-colored-natural-background.jpg); 
     padding: 32px;
     margin: 32px;
-    
     width: 50%;
     font-size: 18px;
+    border: 3px solid greenyellow;
 }
-.known-for, .tv, .celebs{
-    list-style-type: circle;
-}
+li {
+    list-style: circle;
+    display: list-item;
+    margin-left: 1em;
+    }
 
 img {
     border-radius: 50%;
@@ -53,9 +57,7 @@ p {
 h2, h3 {
     font-size: 32px;
 }
-ul {
-    font-size: 18px;    
-}
+
 a {
     color: green;
   }
