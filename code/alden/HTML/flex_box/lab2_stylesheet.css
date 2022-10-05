@@ -1,0 +1,62 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+header{
+    text-align: center;
+    background-image: url(https://wallpaperaccess.com/full/7209984.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 75%;
+    color: rgb(237, 8, 8);
+    background-color: rgba(250, 1, 1, 0.321);
+    
+}
+
+.link{
+    color: darkslategray;
+}
+
+main{
+    margin: 5px;
+    text-align: justify;
+    background-color: rgba(250, 1, 1, 0.321);;
+}
+
+footer{
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2i40KTG09p16dz5mggNoPSrr_DtSod1koQA&usqp=CAU);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+h1, h2, h3{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+ul{
+    list-style-type: square;
+}
+
+div{
+    text-align: left;
+    display: flex;
+}
+
+.pencil{
+    height:26%;
+    width: 26%;
+    border-radius: 59%;
+    margin-left: 58%;
+    
+}
+
+.footer{
+    margin: 5px;
+    color: whitesmoke;
+}
+
+
+
