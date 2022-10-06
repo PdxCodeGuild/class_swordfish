@@ -1,0 +1,37 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+h1{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    background-color: rgb(114, 151, 151);
+}
+h2, h3{
+    font-family:sans-serif;
+}
+h4{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: italic;
+}
+img{
+    display: block;
+    max-width: 100%;
+}
+main{
+    background-color: rgb(151, 133, 177);
+}
+a{
+    color:rgb(75, 106, 65);
+    font-family:'Courier New', Courier, monospace;
+    text-align: center;
+}
+p{
+    font-family: Arial, Helvetica, sans-serif;
+}
+footer{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(107, 151, 95);
+}
