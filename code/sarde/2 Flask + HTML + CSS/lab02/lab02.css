@@ -1,0 +1,31 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+    text-align: center;
+    list-style-position: inside;
+}
+nav, a, p {
+    display: inline;
+    padding: 5px;
+    margin-left: 5px;
+    margin-right: 10px;
+}
+a {
+    color: red;
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+/*
+img {
+    max-width: 100%;
+    height: auto;
+}
