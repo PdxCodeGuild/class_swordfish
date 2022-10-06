@@ -1,16 +1,17 @@
 body {
     font-family: Verdana, Tahoma, sans-serif;
-    background-color: blanchedalmond;
+    background-color: papayawhip;
     background-image: url("https://cdn.benzinga.com/files/images/story/2012/screen_shot_2022-02-09_at_7.13.38_pm.png?optimize=medium&dpr=1&auto=webp&width=640");
     background-repeat: no-repeat;
-    background-position:center;
+    background-position: top;
     border-radius: 10px, white;
-    text-align: center
+    text-align: center;
 }
 
 h1 {
     font-family: Trebuchet, sans-serif, sans-serif;
-    color: blueviolet;
+    color:chartreuse;
+    background-color: black;
 }
 
 p, pre, li, q {
@@ -19,15 +20,15 @@ p, pre, li, q {
 }
 
 .main-paragraph {
-    background-color: yellow;
+    background-color: cadetblue;
     border-radius: 30px;
     text-align: center;
-    padding: 45px;
+    padding: 5em;
     margin: 23px;
 }
 
 .wiki-para {
-    background-color: yellowgreen;
+    background-color: cadetblue;
     border-radius: 20px;
     text-align: center;
     padding: 10px;
@@ -35,11 +36,11 @@ p, pre, li, q {
 }
 
 a {
-    color: lightcoral;
+    color: yellow;
 }
 
 .image {
-    background-color: yellowgreen;
+    background-color: cadetblue;
     border-radius: 15px;
     text-align: center;
     padding: 5px;
@@ -47,13 +48,14 @@ a {
 }
 
 .actual-photo {
-    height: 400px;
-    width: 400px;
+    height: 50vh;
+    width: 30vh;
     object-fit: contain;
+    border-radius: 10em;
 }
 
 .cities {
-    background-color: yellowgreen;
+    background-color:papayawhip;
     border-radius: 15px;
     text-align: center;
     padding: 5px;
@@ -61,7 +63,6 @@ a {
 }
 
 .cities-list {
-    background-color: coral;
     color: black;
     list-style-type:lower-roman;
     list-style-position: inside;
@@ -73,7 +74,7 @@ a {
 }
 
 .quote {
-    background-color: yellowgreen;
+    background-color: cadetblue;
     border-radius: 15px;
     text-align: center;
     padding: 5px;
@@ -82,7 +83,7 @@ a {
 
 .statement {
     font-family: Georgia, sans-serif;
-    background-color: yellowgreen;
+    background-color: cadetblue;
     border-radius: 15px;
     text-align: center;
     padding: 5px;
