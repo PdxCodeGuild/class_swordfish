@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ipsum Food Blog</title>
+    <!-- <link rel="stylesheet" href="/static/style.css"> -->
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> -->
+</head>
+<body>
+    <h1>Welcome to Jose's Food Blog!</h1>
+    <h2><img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Food_for_all.jpg" alt="Picture of food"></h2>
+    <h3>You can select one of the links below regarding your favorite food to read more about it!</h3>
+        {% for post in posts %}
+        <li>{{post.title}}</li>
+        {% endfor %}
+
+    <p>Each link will give you some great key words that will ramp up your appetite!</p>
+    <p>
+        <ul>
+            <li><a href="http://www.pdxmonthly.com/eat-and-drink/2022/03/portland-food-news-march-30">Yui,</a> a Thai restuarant located in Northeast.</li> 
+            <li><a href="https://www.pdxmonthly.com/bars/paydirt">Paydirt,</a> a bar located in a restaurant complex.</li> 
+            <li><a href="https://pdx.eater.com/2020/1/2/21046938/someday-first-look-bar">Someday, </a>a cocktail lounge inside an alleyway food pod.</li> 
+            <li><a href="https://www.slightlypretentious.co/deadshot-pdx/">Deadshot,</a> a unique cocktail bar with great food.</li> 
+        </ul>
+    </p>
+    
+  
+</body>
+</html>

@@ -53,7 +53,9 @@ footer{
 
     .flex-gallery {
         display: flex;
+        flex-grow: 30%;
         flex-wrap: wrap;
+
     }
 
     .flex-gallery div {
@@ -61,20 +63,20 @@ footer{
         padding: 1em;
     }
 
-    @media (min-width: 1000px) {
-        header {
+@media (min-width: 1000px) {
+    header {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
             text-align: left;
         }
-        div {
+    div {
             max-width: 30%;
             justify-content: space-between;
         }
 
-        img{
+    img{
             max-width: 100%;
             max-height: 100%;
         }
