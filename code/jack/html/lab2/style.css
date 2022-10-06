@@ -55,6 +55,15 @@ footer {
     color: #F8B195;
 }
 
+.mission {
+    text-align: center;
+    padding: 5px
+}
+
+.mission h3 {
+    font-style: italic;
+}
+
 @media (min-width: 670px) {
     .nav {
         display: flex;
@@ -63,6 +72,12 @@ footer {
         justify-content: space-between;
         max-width: 500px;
         margin: auto;
+    }
+
+    .mission {
+        margin: auto;
+        max-width: 600px;
+        margin-bottom: 15px;
     }
 
     .flex-gallery {
