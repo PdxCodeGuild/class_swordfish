@@ -1,0 +1,28 @@
+html {
+    box-sizing: border-box;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+header {
+    text-align: center;
+}
+
+main{
+    text-align: justify;
+}
+
+header, main {
+    padding: 1.5em;
+}
+
+footer {
+    text-align: justify;
+    padding: 2em;
+}

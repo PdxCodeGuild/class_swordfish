@@ -4,11 +4,12 @@ body {
     background-image: url("https://cdn.benzinga.com/files/images/story/2012/screen_shot_2022-02-09_at_7.13.38_pm.png?optimize=medium&dpr=1&auto=webp&width=640");
     background-repeat: no-repeat;
     background-position:center;
+    border-radius: 10px, white;
     text-align: center
 }
 
 h1 {
-    font-family: Serif, sans-serif;
+    font-family: Trebuchet, sans-serif, sans-serif;
     color: blueviolet;
 }
 
@@ -26,11 +27,11 @@ p, pre, li, q {
 }
 
 .wiki-para {
-    background-color: green;
+    background-color: yellowgreen;
     border-radius: 20px;
     text-align: center;
     padding: 10px;
-    margin: 5px;
+    margin: 23px;
 }
 
 a {
@@ -38,48 +39,50 @@ a {
 }
 
 .image {
-    background-color: orchid;
+    background-color: yellowgreen;
     border-radius: 15px;
     text-align: center;
     padding: 5px;
-    margin: 1px;
+    margin: 23px;
 }
 
 .actual-photo {
-    height: 500px;
-    width: 500px;
+    height: 400px;
+    width: 400px;
     object-fit: contain;
 }
 
 .cities {
-    background-color: orchid;
+    background-color: yellowgreen;
     border-radius: 15px;
     text-align: center;
     padding: 5px;
-    margin: 1px;
+    margin: 23px;
 }
 
 .cities-list {
     background-color: coral;
     color: black;
-    list-style-type: disc;
+    list-style-type:lower-roman;
+    list-style-position: inside;
+    text-align: center;
     border-radius: 15px;
     text-align: center;
     padding: 5px;
-    margin: 1px;
+    margin: 23px;
 }
 
 .quote {
-    background-color: orchid;
+    background-color: yellowgreen;
     border-radius: 15px;
     text-align: center;
     padding: 5px;
-    margin: 1px;
+    margin: 23px;
 }
 
 .statement {
     font-family: Georgia, sans-serif;
-    background-color: orchid;
+    background-color: yellowgreen;
     border-radius: 15px;
     text-align: center;
     padding: 5px;
