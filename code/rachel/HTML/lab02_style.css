@@ -1,0 +1,68 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+header {
+    text-align: center;
+    background-color: rgb(233, 50, 17);
+    color:rgba(239, 207, 62, 0.952);
+    padding: 1em;
+    display: flex;
+}
+body {
+    max-width: 100%;
+    
+}
+main {
+    text-align: center;
+    background-color: rgba(124, 128, 151, 0.895);
+    color:rgba(102, 47, 238, 0.923);
+    padding: 1em;
+    
+}
+footer {
+    text-align: center;
+    background-color: rgb(233, 50, 17);
+    color:aliceblue;
+    padding: 1em;
+    display: flex;
+}
+a {
+    color:rgba(239, 207, 62, 0.952);
+}
+img {
+    display: block
+    max-width: 100%;
+}
+/* Use this for tablet; change to 2 pics in a row instead of all 4*/
+@media (min-width: 733px) {
+    header {
+        text-align: right;
+    }
+    h1 {
+        text-align: left;
+    }
+    .expertise_pics {
+    display: flex;
+    }
+}
+/* Use this for desktop*/
+@media (min-width: 1000px) {
+    header {
+        text-align: right;
+    }
+    h1 {
+        text-align: left;
+    }
+    .expertise_pics {
+    display: flex;
+    }
+    .expertise_pics div {
+        width: 100%;
+        justify-content: safe;
+    }
+    }
+}
+
