@@ -24,7 +24,10 @@ html{
 }
 .body-text {
     margin-left: 150px;
-    font-size: 18px;
+    
+}
+nav {
+    text-align: right;
 }
 body {
     background-color: #333;
@@ -34,8 +37,9 @@ body {
 
 header {
     display: block;
-    
+    background-color: rgba(0, 255, 255, 0.158);
     font-family: 'Itim', cursive;
+    text-align: center;
     
 }
 h1 {
