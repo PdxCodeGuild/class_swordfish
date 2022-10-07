@@ -1,0 +1,23 @@
+html{
+    box-sizing: border-box;
+    margin: 1em;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: #333;
+    color: whitesmoke;
+}
+header {
+    display: block;
+    
+}
+div {
+    text-align: center;
+
+}
+a {
+    color: whitesmoke;
+}
