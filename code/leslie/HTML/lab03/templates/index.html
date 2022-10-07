@@ -7,28 +7,40 @@
     <title>Flask</title>
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500&family=Itim&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <header>
         <h1>Leslie Naylor</h1>
-        <h2>This is my blog, not your blog</h2>
-    <div>
+        <h2>This is my blog</h2>
+    
         <nav>
             <p><a href="#">Home</a></p>
             <p><a href="#">About Me</a></p>
             <p><a href="#">Contact + Links</a></p>
-        </nav>
-    </div>
+        </nav>        
     </header>
+    <div class="sidebar">
+        <div>Thing 1</div>
+        <div>Thing 2</div>
+        <div>Thing 3</div>
+    </div>
 
-    <h1>I got enough practical jokes for one evening. Good night, future boy.</h1>
-    <p>You guys, take him in back and I'll be right there. Well c'mon, this ain't no peep show. No wait, Doc, the bruise, the bruise on your head, I know how that happened, you told me the whole story. you were standing on your toilet and you were hanging a clock, and you fell, and you hit your head on the sink, and that's when you came up with the idea for the flux capacitor, which makes time travel possible. Not a word, not a word, not a word now. Quiet, uh, donations, you want me to make a donation to the coast guard youth auxiliary? Are those my clocks I hear? Excuse me.
+    <div class="body-text">
+
     
-    <h1>Take care. It works, ha ha ha ha, it works!</h1>
-    <p>David, watch your mouth. You come here and kiss your mother before you go, come here. Marty, this may seem a little foreward, but I was wondering if you would ask me to the Enchantment Under The Sea Dance on Saturday. I said the keys are in here. Uh, look me up when you get there. Jesus, George, it's a wonder I was ever born.</p>
+    {% for dict_items in posts %}
+        <h1>{{dict_items['title']}}</h1>
+        <h3>{{dict_items['author']}}</h3>
+        <h6>{{dict_items['date']}}</h6>
+        <p>{{dict_items['body']}}</p>    
+    {% endfor %}
+    </div>
 
-    <h1>That's George McFly? I'd like you to meet my good friend George McFly.</h1>
-    <p>Excuse me. George McFly? Oh, he's kinda cute and all, but, well, I think a man should be strong, so he could stand up for himself, and protect the woman he loves. Don't you? Wow, ah Red, you look great. Everything looks great. 1:24, I still got time. Oh my god. No, no not again, c'mon, c'mon. Hey. Libyans. Uh, plutonium, wait a minute, are you telling me that this sucker's nuclear? My god, it's my mother. Put your pants back on.</p>
+    
     
 </body>
 </html>

@@ -26,7 +26,7 @@ class Pomodoro:
             timer -=1
     
     def break_(self):
-        timer = 5*60
+        timer = 1*5
         while timer >= 0:
             pomo.work_break(timer)
             if timer == 0:
@@ -50,10 +50,10 @@ class Pomodoro:
         self.sec = tk.StringVar(self.root)
         self.sec.set("00")
 
-        self.min_label = tk.Label(self.root, textvariable=self.min, font=("arial", 22, "bold"), bg="red", fg="black")
+        self.min_label = tk.Label(self.root, textvariable=self.min, font=("forte", 22, "bold"), bg="red", fg="black")
         self.min_label.pack()
         
-        self.sec_label = tk.Label(self.root, textvariable=self.sec, font = ("arial", 22, "bold"), bg="black", fg="white")
+        self.sec_label = tk.Label(self.root, textvariable=self.sec, font = ("forte", 22, "bold"), bg="black", fg="white")
         self.sec_label.pack()
         
         #widget to add graphics 
@@ -66,9 +66,9 @@ class Pomodoro:
         # create three buttons with countdown function command
         btn_work = tk.Button(self.root, text="Start",
                              bd=5, command=self.work,
-                             bg="red", font=("arial", 15, "bold")).place(x=140, y=380)
+                             bg="red", font=("forte", 15, "bold")).place(x=140, y=380)
         btn_break = tk.Button(self.root, text="Break", bd=5, command=self.break_,
-                              bg="red", font=("arial", 15, "bold")).place(x=240, y=380)
+                              bg="red", font=("forte", 15, "bold")).place(x=240, y=380)
         
         self.root.mainloop()
            
