@@ -86,8 +86,9 @@ footer img {
     }
     nav p {
         margin: 2em;
-        padding: 1em
-
+        padding: 1em;
+        display: flex;
+        align-items: center;
     }
 
     main {

@@ -1,0 +1,143 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+header {
+    color: #F79D7C;
+    background-color: #544515;
+    padding: 1px;
+    
+}
+
+header img {
+    width: 35%;
+    border: 1.5px solid rgba(160, 159, 159, .1);
+    border-radius: 80px;
+}
+
+header a {
+    color: #F2B872
+}
+
+
+main div {
+    padding: 1em;
+}
+
+body {
+    text-align: center;
+    color: #544515;
+    font-family: 'Gemunu Libre', sans-serif;;
+    background-color: #F79D7C;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    font-size: 4em;
+    font-family: 'Schoolbell', cursive;
+    margin: 4px;
+    padding-top: 20px;
+}
+
+.entry-title {
+    font-family: 'Schoolbell', cursive;
+    font-size:x-large
+}
+
+.blog-entry {
+    font-family: 'Schoolbell', cursive;
+}
+
+a:hover {
+    text-shadow: 0 0 8px #e84533;
+    transition: all ease-in-out 100ms;
+}
+
+@media (min-width: 750px) {
+
+    header {
+        
+        width: 25vw;
+        height: 100vh;
+        position: fixed;
+        padding: 1em;
+    
+    }
+
+    header a {
+        margin-bottom: 2em;
+    }
+
+    header p {
+        margin-bottom: 2em;
+    }
+
+    header img {
+        width: 100%;
+        margin-bottom: 2em
+    }
+
+    nav {
+        display: block;
+        justify-content: center;
+    }
+
+    main {
+        width: 75vw;
+        height: 100vh;
+        position: absolute;
+        left: 25vw;
+        padding: 2em
+    }
+
+    .title {
+        font-size: 3em;
+        margin-bottom: 2em;
+    } 
+}
+
+@media (min-width: 1200px) {
+    header {
+        
+        width: 25vw;
+        height: 100vh;
+        position: fixed;
+        padding: 3em;
+    
+    }
+
+    header a {
+        margin-bottom: 2em;
+    }
+
+    header p {
+        margin-bottom: 2em;
+    }
+
+    header img {
+        width: 100%;
+        margin-bottom: 2em
+    }
+
+    nav {
+        display: block;
+        justify-content: center;
+    }
+
+    main {
+        width: 75vw;
+        height: 100vh;
+        position: absolute;
+        left: 25vw;
+        padding: 4em
+    }
+
+    .title {
+        font-size: 4em;
+        margin-bottom: 1em;
+    } 
+}
