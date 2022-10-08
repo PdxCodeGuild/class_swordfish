@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Tinos&display=swap" rel="stylesheet"> 
+    <script src="https://kit.fontawesome.com/2722300059.js" crossorigin="anonymous"></script>
+    <title>jacksite </title>
+</head>
+
+<body>
+    <div class="flex-gallery all">
+        <div class="sidebar">
+            text
+        </div>
+        <div class="main">
+            <div>
+                <header class="flex-gallery">
+                    <div>
+                        <!-- invisible item -->
+                    </div>
+                    <h2>
+                        jacksite
+                    </h2>
+                    <div class="nav-icon">
+                        <!-- need to fix -->
+                        <i class="fa-solid fa-user"></i> 
+                    </div>
+                </header>
+
+                <div>
+                    <ul class="flex-gallery nav-bar">
+                        <li>FEED</li>
+                        <li>FAVORITES</li>
+                        <li>POST</li>
+                        <li>MESSAGES</li>
+                    </ul>
+                </div>
+            </div>
+
+            <br>
+            <!-- <div class=main-media>
+                <img src="https://scitechdaily.com/images/Water-Drop.gif", alt="Water drop GIF">
+            </div> -->
+            <div>
+                {% for post in posts %}
+                <div class="blogpost">
+                    <h2>{{ post['title'] }}</h2>
+                    <h5>{{ post['artist'] }}, from album {{ post['album'] }}</h5>
+                    <p>
+                        {{ post['lyrics'] }}
+                    </p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <h5>Copyright 2022</h5>
+        <p>
+            Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
+        </p>
+    </footer>
+</body>
+</html>

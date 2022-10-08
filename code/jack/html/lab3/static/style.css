@@ -1,0 +1,135 @@
+/* 
+light blue #C2D7F2
+dark blue #116091
+brown #73603D
+
+alt blues
+#369AD9
+#1B7EA6
+
+    
+
+    font-family: 'Tinos', serif;
+
+*/
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #C2D7F2;
+}
+
+header {
+    background-color: #116091;
+    color: white;
+    box-shadow: 0px 3px 3px #888888;
+    border-radius: 0 0 10px 10px;
+    width: 480px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0px;
+    font-family: 'Tinos', serif;
+}
+
+header .header-flex * {
+    margin: 5px;
+}
+
+body div:nth-child(2){
+    background-color: white;
+}
+
+.main:first-child {
+    color:red;
+}
+
+footer {
+    background: #73603D;
+    width: auto;
+    text-align: center;
+    color:white;
+    padding: 8px;
+}
+
+header * {
+    width: 30%;
+    text-align: center;
+    box-sizing: border-box;
+    margin: 4px;
+}
+
+.sidebar {
+    display: none;
+}
+
+.flex-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.nav-icon {
+    text-align: right;
+}
+
+.nav-bar {
+    list-style-type: none;
+    padding: 10px;
+    margin: 0;
+    width: 480px;
+    box-sizing: border-box;
+    margin: auto;
+    justify-content: space-around;
+    color: #6c6c6c;
+}
+
+.nav-bar * {
+    padding: 20px, 24px, 8px, 24px;
+}
+
+.main {
+    margin: auto;
+}
+
+.main:nth-child(2) {
+    background-image: src="https://scitechdaily.com/images/Water-Drop.gif" alt="water drop GIF";
+}
+
+.blogpost {
+    border-radius: 10px;
+    border: 1px solid #C2D7F2;
+    padding: 20px;
+    margin: 20px;
+    color: #116091;
+    max-width: 600px;
+}
+
+@media (min-width: 680px) {
+    .main {
+        max-width: 680px;
+        box-shadow: 0px 3px 5px #888888;
+    }
+}
+
+@media (min-width: 980px) {
+    .main {
+        margin-right: 150px;
+    }
+    
+    .all {
+        flex-wrap: nowrap;
+    }    
+
+    .sidebar {
+        height: 100vh;
+        background: #C2D7F2;
+        display: block;
+        flex-grow:1;
+    }
+
+
+
+
+}
