@@ -120,7 +120,11 @@ main .link{
     }
 
     aside{
-        padding: 0 1em;
+        padding: 0 2em;
+    }
+
+    aside h5{
+        width: 100%;
     }
 
     footer{
@@ -131,6 +135,8 @@ main .link{
         flex-direction: row-reverse;
     }
 
+   
+
 }
 
 @media (min-width: 1000px){
@@ -138,7 +144,10 @@ main .link{
     .text-body{
         display: flex;
         flex-wrap: wrap;
-        width: 50%;
     }
 
+    .loop{
+        width: 50%;
+        padding: 1em;
+    }
 }
