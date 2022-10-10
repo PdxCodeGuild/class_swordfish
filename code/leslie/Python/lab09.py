@@ -25,7 +25,7 @@ class ATM:
     def print_transactions(self, list_of_transactions):
         self.list_of_transactions = list_of_transactions
         print(transactions)
-                
+                                      
 atm = ATM()
 transactions = []
 while True:
