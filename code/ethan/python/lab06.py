@@ -1,9 +1,8 @@
 # ROT Cipher
 
+
 word = input('Enter a word to encrypt: ')
-
 word = list(word)
-
 letters = {
     'a':0,
     'b':1,
@@ -32,7 +31,6 @@ letters = {
     'y':24,
     'z':25
     }
-
 element_number = len(word)
 
 code = []
@@ -44,6 +42,7 @@ for x in range(element_number):
     x = 0
     letter = word.pop(x)
     number = letters.get(letter)
+    number = number + 13
     number = number + aor
     if number > 25:
         number = number - 26
@@ -52,16 +51,12 @@ for x in range(element_number):
     else:
         code.append(number)
         x += 1
-
 letters = list(letters)
-
 for x in range(element_number):
     x = 0
     letter = code.pop(x)
     letter = letters[letter]
     code.append(letter)
     x += 1
-
 encrypted_word = ''.join(code)
-
 print(f'Your encrypted word is: {encrypted_word}')

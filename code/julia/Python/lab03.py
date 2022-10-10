@@ -12,6 +12,7 @@ print(dict[card_type3])
 
 results = dict[card_type1] + dict[card_type2] + dict[card_type3]
 
+
 if results < 17:
     print(results, "Hit")
 
@@ -21,5 +22,5 @@ elif results >= 17 and results < 21:
 elif results == 21:
     print(results, "Blackjack!")
 
-else: 
+else:
     print(results, "Already Busted!")   

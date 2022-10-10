@@ -1,0 +1,113 @@
+html {
+    box-sizing: border-box;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: Helvetica;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    border: solid, 10px, black;
+}
+
+header {
+    text-align: center;
+    background-color: lightblue;
+    background-position: center;
+    color: crimson;
+    font-family: sans-serif;
+    padding: 0.5em;
+}
+
+.head-photo {
+    width: 45vw;
+    margin: auto;
+}
+
+header a {
+    color: crimson;
+}
+
+main{
+    text-align: justify;
+    background-color: lightgoldenrodyellow;
+    color: dodgerblue;
+    padding: 1.0em;
+}
+
+footer {
+    text-align: center;
+    background-color: lightblue;
+    color: crimson;
+    padding: 2em;
+}
+
+.thefoot {
+    text-align: center;
+    list-style-type: none;
+}
+
+@media (min-width: 700px) {
+    img{
+        height: 30vh;
+        width: auto;
+        object-fit: cover;
+    }
+    
+    nav{
+        display: flex;
+        justify-content: center;
+    }
+
+    nav p {
+        margin: 1em;
+    }
+
+    .flexboxes {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content:space-around;
+    }
+
+    .flexboxes h3 {
+        height: 3vh;
+    }
+
+    .flexboxes div {
+        width: 30%;
+        padding: 0.5;
+    }
+}
+
+@media (min-width: 1000px) {
+    /* .head-photo {
+        width: 45vw;
+        margin: auto;
+    } */
+
+    img{
+        height: 50vh;
+        width: auto;
+        object-fit: cover;
+        border-radius: 1em;
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        text-align: left;
+        padding-top: 1em;
+        padding-left: 1em;
+        padding-right: 1em;
+        padding-bottom: 0.25em;
+    }
+
+    .flexboxes div {
+        justify-content:space-around;
+    }
+}

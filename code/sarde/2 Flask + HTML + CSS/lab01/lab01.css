@@ -1,0 +1,53 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    text-align: center;
+    list-style-position: inside;
+}
+
+p {
+    padding-top: 5px;
+    padding-bottom: 5px; 
+    margin: 10px;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url(https://scwcontent.affino.com/AcuCustom/Sitename/DAM/011/news-energy-jan18-seoul.jpg);
+    background-color: yellow;
+    background-size: cover;
+    color:yellow;
+}
+q {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+   font-size: x-large; 
+   font-style: italic;
+}
+img {
+    border: 2px solid yellow;
+    border-radius: 10px;
+}
+a {
+    color: yellow;
+}
+li {
+    display: list-item;
+    list-style-type: circle;
+    /*
+    list-style-image: url('https://img.icons8.com/color/72/south-korea-circular.png');
+    */
+    list-style-image: url(https://img.icons8.com/color/32/south-korea-circular.png);
+    padding-inline-start: 1ch;
+    text-align: left;
+
+}
+ol {
+    width: 300px;
+    margin: 0 auto;
+}
+/*padding-used to create space around an element's content, inside of any defined borders
+  margins-
