@@ -34,6 +34,20 @@ img {
 a {
     color: yellow;
 }
+li {
+    display: list-item;
+    list-style-type: circle;
+    /*
+    list-style-image: url('https://img.icons8.com/color/72/south-korea-circular.png');
+    */
+    list-style-image: url(https://img.icons8.com/color/32/south-korea-circular.png);
+    padding-inline-start: 1ch;
+    text-align: left;
+
+}
+ol {
+    width: 300px;
+    margin: 0 auto;
+}
 /*padding-used to create space around an element's content, inside of any defined borders
   margins-
-
