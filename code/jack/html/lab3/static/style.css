@@ -7,7 +7,7 @@ alt blues
 #369AD9
 #1B7EA6
 
-    
+    https://scitechdaily.com/images/Water-Drop.gif
 
     font-family: 'Tinos', serif;
 
@@ -23,7 +23,7 @@ header {
     color: white;
     box-shadow: 0px 3px 3px #888888;
     border-radius: 0 0 10px 10px;
-    width: 480px;
+    width: 440px;
     margin: auto;
     margin-bottom: 20px;
 }
@@ -33,24 +33,17 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Tinos', serif;
 }
 
-header .header-flex * {
-    margin: 5px;
-}
-
 body div:nth-child(2){
     background-color: white;
 }
 
-.main:first-child {
-    color:red;
-}
-
 footer {
-    background: #73603D;
+    background: #116091;
     width: auto;
     text-align: center;
     color:white;
     padding: 8px;
+    margin-top: 20px;
 }
 
 header * {
@@ -58,6 +51,10 @@ header * {
     text-align: center;
     box-sizing: border-box;
     margin: 4px;
+}
+
+header .header-flex * {
+    margin: 5px;
 }
 
 .sidebar {
@@ -74,19 +71,24 @@ header * {
     text-align: right;
 }
 
-.nav-bar {
+.nav-bar-top {
     list-style-type: none;
     padding: 10px;
     margin: 0;
-    width: 480px;
+    min-width: 400px;
     box-sizing: border-box;
     margin: auto;
     justify-content: space-around;
     color: #6c6c6c;
 }
 
-.nav-bar * {
-    padding: 20px, 24px, 8px, 24px;
+.nav-bar-top * {
+    padding: 20px, 16px, 8px, 16px;
+}
+
+.blog-title {
+    color:#C2D7F2;
+    margin-left: 20px;
 }
 
 .main {
@@ -106,6 +108,14 @@ header * {
     max-width: 600px;
 }
 
+.blogpost p {
+    color: black;
+}
+
+.blogpost h5 {
+    font-weight: normal;
+}
+
 @media (min-width: 680px) {
     .main {
         max-width: 680px;
@@ -115,7 +125,7 @@ header * {
 
 @media (min-width: 980px) {
     .main {
-        margin-right: 150px;
+        margin-right: 80px;
     }
     
     .all {
@@ -123,13 +133,39 @@ header * {
     }    
 
     .sidebar {
-        height: 100vh;
         background: #C2D7F2;
         display: block;
         flex-grow:1;
     }
+    .nav-bar-top {
+        display: none;
+    }
 
+    header.flex-gallery {
+        padding-bottom: 0;
+    }
 
+    .nav-bar-side {
+        background-color: white;
+        border-radius: 0 10px 10px 0;
+        display: block;
+        /* min-height: 312px; */
+        width: 160px;
+        list-style-type: none;
+        padding: 10px;
+        margin: 0;
+        margin-top: 200px;        
+        color: #6c6c6c;
+        text-align: right;
+        box-shadow: 0px 3px 5px #888888;       
+        position: fixed;
+    }
 
+    .hr-top { 
+        display: none;
+    }
 
+    .nav-bar-side * {
+        margin:28px;
+    }
 }
