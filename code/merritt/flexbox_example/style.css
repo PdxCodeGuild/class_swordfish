@@ -66,6 +66,46 @@ a:hover {
     box-shadow: 0 0 8px black;
 } */
 
+form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#phone {
+    color: cornflowerblue;
+    background-color: coral;
+    width: 500px;
+    height: 200px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 3em;
+    border-radius: 2em;
+}
+
+#phone:hover {
+    background-color: #915649;
+}
+
+#phone:focus {
+    background-color: #F2E0D5;
+    color:#5A758C;
+}
+
+#phone:active {
+    background-color: black;
+}
+
+#phone::placeholder {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#phone:hover::placeholder {
+    color: black;
+}
+
+input[type="email"] {
+    background-color: green;
+}
+
 @media (min-width: 750px) {
     nav {
         display: flex;
