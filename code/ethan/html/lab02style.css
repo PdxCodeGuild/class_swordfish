@@ -86,8 +86,9 @@ footer img {
     }
     nav p {
         margin: 2em;
-        padding: 1em
-
+        padding: 1em;
+        display: flex;
+        align-items: center;
     }
 
     main {
@@ -108,7 +109,7 @@ footer img {
     .flex-gallery div {
         display:block;
         margin-left: auto;
-        margin-left: auto;
+        margin-right: auto;
         width: 33%;
         padding: 1em;
     }
