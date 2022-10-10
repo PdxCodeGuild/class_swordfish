@@ -11,8 +11,7 @@
 -You can then use the .json() method on the response to get a dictionary
 -Get the joke out of the dictionary and show it to the user.
 
--https://github.com/PdxCodeGuild/class_swordfish/blob/main/1%20Python/docs/15%20Requests.md
--https://github.com/PdxCodeGuild/class_swordfish/blob/main/1%20Python/labs/10%20Dad%20Joke%20API.md
+
 '''
 '''
 Part 2(optional)
