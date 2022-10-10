@@ -70,6 +70,12 @@ background-color: whitesmoke;
 
 /* } */
 .background{
-   
-    opacity: .05;
+    min-height: 100%;
+    min-width: 100%;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: .25;
 }

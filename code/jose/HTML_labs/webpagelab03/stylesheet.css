@@ -1,0 +1,22 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body{
+    background-color: aliceblue;
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+}
+li {
+    font-family: 'Open Sans', sans-serif;
+
+}
+h1{
+    font-family: 'Lato', sans-serif;
+     
+}
