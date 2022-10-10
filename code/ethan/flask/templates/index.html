@@ -26,13 +26,15 @@
         </nav>
     </header>
     <main>
-        <div>
+        <div class="flex-box">
             {% for dict in posts %}
+            <div>
             <P class="date">{{ dict['date'] }}</p>
             <p class="entry-title">{{ dict['title'] }}</p>
             <P class="author">{{ dict['author'] }}</p>
             <p class="blog-entry">{{ dict['body'] }}</p>
             <hr/>
+            </div>
             {% endfor %}
         </div>
     </main>

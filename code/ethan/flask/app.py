@@ -19,6 +19,11 @@ def index():
             'author': "Nazdakka Boomsnik",
             'date': "april 30th, 40210",
             'body': "Da best shoota I eva made, dat iz. Loadza barrulz, so dat its ded shooty. Sept dat wun, cos dats da skorcha, dats burny insted. Yeah, good an propa. An da bullitz iz splosiv...dey goez boom inna fings wot youz shootin. An dat button dere...dats da best bit. Wot it duz, see, iz...iz...oh, zog. Nah, its nuffin boss. Nah, youz dont need ta see wot dat button duz...onist. Dont push it!"
+        }, {
+            'title': "pioneering the dethkopta",
+            'author': "Kog da Flymek",
+            'date': "Jan 6th, 41585",
+            'body': "Wot's faster than a warbuggy, more killy than a warbike, and flies through da air like a bird? I got no bleedin' idea, but I'm gonna find out."
         }
     ]
     return render_template('index.html', posts=posts)

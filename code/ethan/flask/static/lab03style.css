@@ -128,12 +128,21 @@ a:hover {
         justify-content: center;
     }
 
-    main {
-        width: 75vw;
-        height: 100vh;
-        position: absolute;
+    .flex-box {
+        width: 70vw;
+        display:flex;
+        margin: 1em;
         left: 25vw;
-        padding: 4em
+        padding: 2em;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .flex-box div {
+        display:block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+        padding: 1em;
     }
 
     .title {
