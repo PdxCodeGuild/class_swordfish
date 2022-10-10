@@ -9,6 +9,39 @@
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    
+    <header>
+        <h1>Welcome to Phil's Blog</h1>
+        <h3>Please follow my Blog - <br>
+        Go Bears!</h3>
+        <nav>
+            <p><a href="#">About Phil</a></p>
+            <p><a href="#">How Phil fell in love with Da Bears</a></p>
+        </nav>
+        <div>
+            <img class="actual-photo"src="https://pbs.twimg.com/profile_images/1551595044754407425/glenmoSf_400x400.jpg">
+        </div>
+    </header>
+    <main>
+        {% for post in posts %}
+        <div class=flextitle>
+            <h3>Blog Title: {{ post['title'] }}</h3><br/>
+        </div>
+        <div class=flexstats>
+            <h4>Author: {{ post['author'] }}<br/>
+            Entry Date: {{ post['date'] }}
+            </h4>
+            </div>
+        <div class=flexbody>
+            <p><h4>The Bear Down:</h4> {{ post['body'] }}<p/>
+            <hr>
+        </div>
+        {% endfor %}
+    </main>
+    <footer>
+        <h4>Phil's Venmo Account</h4>
+        <nav>
+            <p><a href="#">Click Here</a></p>
+        </nav>
+    </footer>
 </body>
 </html>
