@@ -9,32 +9,10 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>You're home</h1>
-    <p>Welcome to the home page</p>
-    <p>The time is {{ current_time }} and the temperature is {{ temperature }}</p>
-    {% if temperature < 50 %}
-        <p>cold</p>
-    {% elif temperature < 80 %}
-        <p>warm</p>
-    {% else %}
-        <p>hot</p>
-    {% endif %}
-    <ul>
-        {% for num in nums %}
-        <li>{{num}}</li>
-        {% endfor %}
-    </ul>
-
-    <form action="" method="post">
-        <input type="text" name="text" placeholder="enter text here">
-        <input type="submit" value="Submit">
-    </form>
-
-    <ul>
-        {% for text in texts %}
-        <li>{{ text }}</li>
-        {% endfor %}
-    </ul>
+    
+    {% for dict in x %}
+    
+    {% endfor %}
 
 </body>
 </html>
