@@ -15,21 +15,28 @@ def get_temperature():
 texts = []
 
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
     
     db = JsonDB('db.json')
     db.load()
     list_of_dicts = db.get('todos', 0)
     # list_of_dicts += 1
-    y = db.set('x', list_of_dicts)
+    # y = db.set('x', list_of_dicts)
     the_string = {'key': 'value'}
     print(list_of_dicts)
-    print(y)
+    # print(y)
     if request.method == 'POST':
-        db.save('db.json')
+        response = dict(request.form)
+        full_list = list_of_dicts.append(response)
+        print(list_of_dicts)
+        db.save()
+        print(response)
+
+        # db.set("todo-item", )
         return redirect('/')
-    return render_template('todo.html', list_of_dicts=list_of_dicts, the_strings=y)
+    
+    return render_template('todo.html', list_of_dicts=list_of_dicts)
 
 
 app.run(debug=True)
