@@ -21,17 +21,26 @@ for quote in quotes_list:
     author = quote['author']
     body = quote['body']
     print(body, author)
-# def get_quote():
-#     for quote in quotes_list:
-#         author = quote['author']
-#         body = quote['body']
-#         return body, author
+def get_quote():
+    for quote in quotes_list:
+        author = quote['author']
+        body = quote['body']
+        return body, author
 #pprint.pprint(quotes_list)
 #pprint.pprint(kw_quotes) #green is class, yellow is method
 
 while True:
-    decision = input("Enter 'next page' to see more quotes or 'done' ")
-    if decision == 'next page':
+    decision = input("Enter 'next page' to see more quotes, 'done' to select a new search term, or exit to exit ")
+    if decision == 'exit':
+        print('Thanks for visiting')
+        break
+    elif decision == 'done':
+        keyword = input("Enter a keyword to search for quotes: ")
+        for quote in quotes_list:
+            author = quote['author']
+            body = quote['body']
+            print(body, author)
+    elif decision == 'next page':
         if kw_quotes["last_page"] == False:
             print(f'25 more quotes associated with {keyword}')
             page = kw_quotes['page'] + 1
@@ -43,22 +52,19 @@ while True:
                 body = quote['body']
                 print(body, author)
             #print(get_quote())
-        if kw_quotes["last_page"] == True:
-            print(f"Sorry, there aren't any more quotes associated with {keyword}")   
-            break
-    elif decision == 'done':
-        keyword = input("Enter a keyword to search for quotes or enter quit to quit program ")
-        if keyword == 'quit':
-            print('Thanks for visiting')
-            break
-        else:
-            kw_response = requests.get(f'https://favqs.com/api/quotes?filter=+{keyword}', params={'format': 'json'}, headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'})
-            kw_quotes = kw_response.json()
-            quotes_list = kw_quotes['quotes']
-            for quote in quotes_list:
-                author = quote['author']
-                body = quote['body']
-                print(body, author)
+        #if kw_quotes["last_page"] == True:
+        elif kw_quotes["last_page"] == True:
+            print(f"Sorry, there aren't any more quotes associated with {keyword}")
+            keyword = input("Enter a keyword to search for quotes or exit to exit ")
+            if keyword == 'exit':
+                print('Thanks for visiting')
+                break
+            else:
+                for quote in quotes_list:
+                    author = quote['author']
+                    body = quote['body']
+                    print(body, author)
+
 
 
 
