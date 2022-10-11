@@ -9,10 +9,23 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    
+    <ul>
     {% for dict in x %}
+    <li> {{dict["text"]}} ({{dict['priority']}})</li>
     
     {% endfor %}
+    </ul>
 
+    <form action="" method="post">
+        <input type="text" name="input_text" id="task"/>
+        <label for="task">Task</label><br>
+        <input type="radio" name="priority" id="high" value="high" checked>
+        <label for="high">High</label><br>
+        <input type="radio" name="priority" id="medium" value="medium">
+        <label for="medium">Medium</label><br>
+        <input type="radio" name="priority" id="low" value="low">
+        <label for="low">Low</label><br>
+        <button type="submit">submit</button>
+    </form>    
 </body>
 </html>
