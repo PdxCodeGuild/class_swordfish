@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello from Flask</title>
+    <!--<link rel="stylesheet" href="/static/style.css">-->
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> -->
+</head>
+<body>
+    <h1>You're home</h1>
+    <p>Here is the to do list:</p>
+    {{the_string}}
+
+    <form action="/receive_form/" method="post">
+        <input type="text" name="todo-item" value=""/>
+        <label for="todo-item">New to-do item</label>
+        <input type="text" name="priority" value=""/>
+        <label for="priority">Priority Label</label>
+        <button type="submit">submit</button>
+    </form>
+    <ul>
+        {% for dict in list_of_dicts %}
+        <li>{{ dict ['text'] }} {{ dict['priority'] }}</li>
+        {% endfor %}
+    </ul>
+
+
+
+</body>
+</html>
