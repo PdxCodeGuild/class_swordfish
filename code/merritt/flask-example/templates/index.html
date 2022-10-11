@@ -23,6 +23,18 @@
         {% for num in nums %}
         <li>{{num}}</li>
         {% endfor %}
-      </ul>
+    </ul>
+
+    <form action="" method="post">
+        <input type="text" name="text" placeholder="enter text here">
+        <input type="submit" value="Submit">
+    </form>
+
+    <ul>
+        {% for text in texts %}
+        <li>{{ text }}</li>
+        {% endfor %}
+    </ul>
+
 </body>
 </html>
