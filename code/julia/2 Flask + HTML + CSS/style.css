@@ -1,14 +1,22 @@
 html {
     box-sizing: border-box;
+  
 }
 *, *:before, *:after {
     box-sizing: inherit;
 }
 
-body {
-    background-color: green;
-    color: white;
+.quote {
+    text-align:center;
 }
+
+blockquote {
+    padding:10px 10px;
+    border:3px 3px 6px 6px solid #ccc; 
+    display:inline-block;
+    color:#666;
+}
+
 
 body {
     background-color: grey;
@@ -17,14 +25,10 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
-}
-p {
-    color: black;
+
 }
 
-ol > li {
-    background-color: rgba(32, 178, 69, 0.3);
-}
+
 
 h1, h2, h3, h4, h5, h6 {
     font-family: Helvetica, Arial;
@@ -35,6 +39,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: Arial, Helvetica, sans-serif;
     color:greenyellow;
     text-align: center;
+    text-decoration: underline;
 
 
 }
@@ -48,18 +53,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .cool-paragraph {
-    background-color: darkgoldenrod;
-    color: whitesmoke;
+    background-color: #4C7049;
+    color: #D9EBD5;
     text-align: justify;
     padding: 32px;
-    margin: 32px 64px;
-    border: 5px solid whitesmoke;
-    width: 70%;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 32px;
+    border: 5px solid #D9EBD5;
+    width: 80%;
+    font-family: sans-serif;
     font-size: 20px;
-    
-}
 
+
+}
+  
 #title {
     color: black;
 }

@@ -1,22 +1,25 @@
 #ARI
 import math
 import pprint
+
+file_name = "some.txt"
 #number of characters
-file = open("myfile.txt", "r")
+file = open(file_name, "r")
 myfile = file.read().replace(" ","")
 characters = len(myfile)
 #print('Number of characters in text file: ', characters)
 
 #number of words
-file = open("myfile.txt", "r")
+file = open(file_name, "r")
 myfile = file.read()
-words = myfile.split()
+words = myfile.split(" ")
 #print('Number of words in text file: ', len(words))
 
 #number of sentences
-with open("myfile.txt") as f:
+with open(file_name) as f:
     data = f.read()
-    #print ("total stops: ", data.count("."))
+    sentence_count = data.count(".")
+    #print ("sentence count: ", sentence_count)
 
 ari_scale = {
      1: {'ages':   '5-6', 'grade_level': 'Kindergarten'},
@@ -41,30 +44,27 @@ ari_scale = {
 # print(ari_scale[1]['ages'])
 # print(ari_scale[1].keys())
 # print(ari_scale[1].values())
-print(ari_scale[1].items())
-
+#print(ari_scale[1].items())
 # print(ari_scale[9]['grade_level'])
 #===================================================================================
-words = 280
-characters = 1359
-sentences = 11
 x = 4.71
 y = 21.43
 z = .5
 
-score = math.ceil(x * (characters / words) + z * (words / sentences) - y)
+score = math.ceil(x * (characters / len(words)) + z * (len(words) / sentence_count) - y)
+
 
 if score > 14:
     score = 14
 
+
 # print("The age range is", ari_scale[score]['ages'], "for the",ari_scale[score]['grade_level'])
 # print(ari_scale[score]['grade_level'])
-
 # print("Score: ", score)
 
 ages = ari_scale[score]['ages']
 level = ari_scale[score]['grade_level']
 
 
-ari_string = f'The age range is {ages} for the {level} level'
-print(ari_string)
+
+print("The ARI for " +file_name+ " is " +str(score)+"\nthis corresponds to a "+str(level)+ " level of difficulty\nthat is suitable for an average person "+str(ages)+" years old.")
