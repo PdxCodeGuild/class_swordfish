@@ -1,0 +1,38 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+header{
+    text-align: center;
+    background-image: url(https://wallpaper.dog/large/987385.jpg);
+    background-size: 100% 100%;
+    padding: 1em;
+}
+
+/* main{
+    background-image: url(https://wallpaper.dog/large/987385.jpg);
+} */
+
+
+h1{
+    /* background-color: #7d3b02ac; */
+    color: #F2D649;
+    background-size: 50%;
+    text-shadow: #000000 0 0 30px;
+    font-family: 'Peralta';
+}
+
+img{
+    width: 100%;
+}
+
+form{
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNhp_MP_wpjRDcajHCr0uwtdhulvT1pbP0Og&usqp=CAU);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    text-align: center;
+    padding: 6em 0 10em;
+}
