@@ -14,12 +14,13 @@ app = Flask(__name__)
 def index():
     db = JsonDB('db.json')
     db.load()
-    todos = db.get('todos')
-
+    todos = db.get('todos', 0)
     if request.method=='POST':
       text = request.form['text']
-      text.append(text[0])
-      db.set('todos', text)
+      priority = request.form['priority']
+      new_do = {'text':text, 'priority':priority}
+      todos.append(new_do)
+      db.set('todos', todos) # we were sacing 'todos' as text - should save 'todos' as todos
       db.save() 
       return redirect('/')
     return render_template('index.html', todos = todos)
