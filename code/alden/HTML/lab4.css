@@ -12,6 +12,7 @@ header{
     padding: 1em;
 }
 
+
 /* main{
     background-image: url(https://wallpaper.dog/large/987385.jpg);
 } */
@@ -23,6 +24,7 @@ h1{
     background-size: 50%;
     text-shadow: #000000 0 0 30px;
     font-family: 'Peralta';
+
 }
 
 img{
@@ -36,6 +38,7 @@ form{
     text-align: center;
     padding: 6em 0 10em;
 }
+
 
 footer{
     text-align: center;
@@ -74,3 +77,4 @@ footer{
         max-width: 800px;
     }
 }
+

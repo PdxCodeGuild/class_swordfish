@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre&family=Schoolbell&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="static/lab03style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div>
+            <h1 class="title">Ork Thoughts</h1>
+            <p>Da place for da orkiest ork thoghts in da 'universe</p>
+            <img src="https://i.pinimg.com/originals/75/68/61/756861b3079676cabac5ad913e5ea65d.png">
+        </div>
+        <nav>
+            <p><a href="#">'Ome</a></p>
+            <p><a href="https://warhammer40k.fandom.com/wiki/Orks">Click ta lern more</a></p>
+            <p><a href="https://wh40k.lexicanum.com/mediawiki/images/a/a5/OrkActivity8th.jpg">WAAAGHS neer u</a></p>
+            <p><a href="https://warhammer40k.fandom.com/wiki/Ghazghkull_Mag_Uruk_Thraka">About DA Boss</a></p>
+        </nav>
+    </header>
+    <main>
+        <div class="flex-box">
+            {% for dict in posts %}
+            <div>
+            <P class="date">{{ dict['date'] }}</p>
+            <p class="entry-title">{{ dict['title'] }}</p>
+            <P class="author">{{ dict['author'] }}</p>
+            <p class="blog-entry">{{ dict['body'] }}</p>
+            <hr/>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+</body>
+</html>
