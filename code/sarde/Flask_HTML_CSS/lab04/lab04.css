@@ -1,0 +1,14 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+header {
+    background-color: white;
+    text-align: center;
+}
+a {
+    color:black;
+
+}
