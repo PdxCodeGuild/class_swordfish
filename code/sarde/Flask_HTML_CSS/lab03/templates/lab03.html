@@ -1,0 +1,71 @@
+<!--Lab03: Blog
+-Let's make the template of a blog with a 
+    -title, top-nav, side-nav, and multiple posts
+-->
+<!--Step 1
+-Install the Flask framework
+    -build a route that returns a "Hello World!" message.
+    -pip install flask
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='lab03.css') }}">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <header>
+        <a>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnQwrWwUEGbtP5a1VIv21mMDSE3EDtej0CPw&usqp=CAU"
+                alt="cherry-blossom">
+        </a>
+        <div class="desktop-fixed-width">
+            <div>
+                <h1>Sardé Essilfie</h1>
+                <h3>Software Engineer</h3>
+            </div>
+            <nav>
+                <a href="#">home</a>
+                <a href="#">about</a>
+                <a href="#">tech</a>
+                <a href="#">travel</a>
+            </nav>
+            <div class="social-media">
+                <a href="#" class="fa fa-linkedin"></a>
+                <a href="#" class="fa fa-github"></a>
+                <a href="#" class="fa fa-youtube"></a>
+            </div>
+        </div>
+    </header>
+    <div class="main-content">
+        <main>
+            <div class="desktop-fixed-width">
+                <div class="flex-gallery">
+                    {% for post in blog_posts %}
+                    <div class="blog-post">
+                        <h2>{{ post['title'] }}</h2>
+                        <br>
+                        <h6>{{ post['author'] }}</h6>
+                        <h6>{{ post['date']}}</h6>
+                        <p>{{ post['body'] }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="desktop-fixed-width">
+                <p>Sardé Essilfie 2022.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
