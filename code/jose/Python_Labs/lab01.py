@@ -60,21 +60,36 @@ user_distance = int(user_distance)
 user_units = input ('What is the units of the original distance?: ')
 desired_units = input('What do you want the new unit of measurment to be?: ')
 
-if user_units == 'feet':
-    userunits_meters = user_distance * conversion_values['feet']
-elif user_units == 'miles':
-    userunits_meters = user_distance * conversion_values['miles']
-elif user_units == 'kilometers':
-    userunits_meters = user_distance * conversion_values['kilometers']
-elif user_units == 'yards':
-    userunits_meters = user_distance * conversion_values['yards']
-elif user_units == 'inches':
-    userunits_meters = user_distance * conversion_values['inches']
-elif user_units == 'meters':
-    userunits_meters = user_distance * conversion_values['meters']
+def unit_conversion():
+    conversion_values = { 'feet': 0.3048,
+    'miles': 1609.34, 
+    'meters': 1, 
+    'kilometers': 1000,
+    'yards': 0.9144,
+    'inches': 0.0254 
+    }
 
-final_converted_units = userunits_meters * conversion_values_meters[desired_units]
-print ('Your new units are ' + str(final_converted_units) + str(desired_units))
+    conversion_values_meters = {'feet': 3.2808399,
+    'miles': .00621,
+    'kilometers': .001,
+    'yards': 1.0936133,
+    'inches': 39.3700787
+    }
+    if user_units == 'feet':
+        userunits_meters = user_distance * conversion_values['feet']
+    elif user_units == 'miles':
+        userunits_meters = user_distance * conversion_values['miles']
+    elif user_units == 'kilometers':
+        userunits_meters = user_distance * conversion_values['kilometers']
+    elif user_units == 'yards':
+        userunits_meters = user_distance * conversion_values['yards']
+    elif user_units == 'inches':
+        userunits_meters = user_distance * conversion_values['inches']
+    elif user_units == 'meters':
+        userunits_meters = user_distance * conversion_values['meters']
+
+    final_converted_units = userunits_meters * conversion_values_meters[desired_units]
+    print ('Your new units are ' + str(final_converted_units) + str(desired_units))
 
 
 
