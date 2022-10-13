@@ -1,0 +1,67 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+body {
+    background-color: #E8642C;
+    font-family: 'Passion One', cursive;
+    
+}
+header {
+    font-family: 'Lilita One', cursive;
+    text-align: center;
+    font-size: 60px;
+    color: whitesmoke;
+    padding: 5px;
+    background-color: #FF8C30
+}
+
+#customer {
+    display: flex;
+    justify-content: center;
+
+}
+main {
+    font-family: 'Passion One', cursive;
+    color: whitesmoke
+}
+h1 {
+    font-size: 44px;
+    text-align: center;
+}
+h2 {
+    font-size: 38px;
+    text-align: center;
+}
+div {
+    text-align: center;
+    font-size: 32px;
+}
+#tortilla #rice #beans {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: ;
+}
+.delivery {
+    font-size: 28px;
+    text-align: center;
+}
+img {
+    text-align: center;
+}
+
+
