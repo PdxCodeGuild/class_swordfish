@@ -1,0 +1,18 @@
+/* Dorado #5F514B
+Bone #E6CABF
+Quicksand #C2A193
+Santas Gray #9294AE */
+
+html {
+    box-sizing: border-box;
+}
+*, *: :before, *:after {
+    box-sizing: inherit;
+}
+img {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+    text-align: justify;
+    ;
+}
