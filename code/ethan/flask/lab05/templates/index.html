@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="static/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Unit Converter<h1>
+    </header>
+    <main>
+        <form class="form" action="" method="post">
+            <input type="number" name="value" id="value"><br>
+            <label for="value">Value to be Converted</label><br>
+            <p>Unit to be Converted</p>
+            <input type="radio" name="start-unit" value="feet">
+            <label for="start-unit">Feet</label><br>
+            <input type="radio" name="start-unit" value="meters">
+            <label for="start-unit">Meters</label><br>
+            <input type="radio" name="start-unit" value="miles">
+            <label for="start-unit">Miles</label><br>
+            <input type="radio" name="start-unit" value="kilometers">
+            <label for="start-unit">Kilometers</label><br>
+            <p>Desired conversion Unit</p>
+            <input type="radio" name="end-unit" value="feet">
+            <label for="end-unit">Feet</label><br>
+            <input type="radio" name="end-unit" value="meters">
+            <label for="end-unit">Meters</label><br>
+            <input type="radio" name="end-unit" value="miles">
+            <label for="end-unit">Miles</label><br>
+            <input type="radio" name="end-unit" value="kilometers">
+            <label for="end-unit">Kilometers</label><br>
+            <input type="submit" value="Submit">
+        </form>
+    <h3>Converted value</h3>
+    <p>{{conversion}}</p>
+    </main>
+</body>
+</html>
