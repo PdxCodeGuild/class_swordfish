@@ -5,10 +5,24 @@ html {
     box-sizing: inherit;
 }
 header {
-    background-color: white;
+    background-color:rgb(211, 158, 211);
+    padding: 0.5em; 
     text-align: center;
-}
-a {
-    color:black;
 
 }
+h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+img {
+    /* padding: 1em; */
+    display: block;
+    height: auto;
+    width: auto;
+    max-width: 300px;
+    max-height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+}
+
+
