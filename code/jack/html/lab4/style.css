@@ -1,0 +1,73 @@
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin:0px;
+    padding:0px;
+    font-family: 'Bebas Neue', cursive;
+}
+
+img {
+    max-width: 500px;
+}
+
+.banner {
+    background-color:papayawhip;
+    padding:30px;
+    text-align: center;
+    box-shadow: 5px 5px 5px gray;
+}
+
+.banner * {
+    background-color: WHITE;
+    border-radius: 60px;
+    padding:10px;
+    margin:auto;
+    max-width: 450px;
+}
+
+.banner * * {
+    background-color: white;
+    border-style: none;
+    border-color:seagreen;
+    border-style:groove;
+    border-radius: 60px;
+    color: rgb(172, 46, 0)
+}
+
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 30px;
+    max-width: 700px;
+    margin: auto;
+    padding: 30px;
+}
+
+.main * {
+    max-width: 300px;
+    margin: 10px;
+}
+
+.login {
+    max-height: 200px;
+}
+
+.burrito {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    background-color: papayawhip;
+    border-style: solid;
+    border-color:  rgb(172, 46, 0);
+}
+
+.burrito * {
+    margin:16px;
+
+}
+
+.burrito * * {
+    margin: 0px;
+}
