@@ -1,0 +1,52 @@
+html {
+    box-sizing: bprder-box;
+}
+*, *:before, *after {
+    box-sizing: inherit;
+}
+
+body {
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(148, 213, 213);
+    color-scheme: dark;
+    color: rgb(24, 72, 113);
+}
+
+p {
+    padding: 32px;
+    margin: 16px;
+}
+
+h1, h2 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color:blueviolet;
+}
+a {
+    color:darkmagenta;
+}
+img {
+    border-radius: 25px;
+    background: url(paper.gif);
+    background-position: left top;
+    background-repeat: repeat;
+    padding: 20px; 
+    width: 300px;
+    height: 350px;
+}
+ul {
+    list-style-type: square;
+    margin-top: -16px;
+    margin-bottom: 64px; 
+}
+q{
+    font-family: fantasy;
+    margin-top: 64px;
+    margin-bottom: 16px;
+    padding-top: 64px;
+}
+.intro {
+    background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.IEJgl82Ygrrfb9VLKv3mZAHaEK%26pid%3DApi&f=1&ipt=ffe6356e2bdd0a9c22a2c7f38c07b7e1b96c9803a7f1f726efea780274aabfe7&ipo=images");
+    color:aliceblue;
+    border-block-end-style: ;
+}
