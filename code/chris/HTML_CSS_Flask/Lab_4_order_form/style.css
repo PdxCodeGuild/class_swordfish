@@ -1,0 +1,104 @@
+html {
+    box-sizing: border-box;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+header {
+    font-family: Verdana, Tahoma, sans-serif;
+    color: whitesmoke;
+    background-color: maroon;
+    background-position: center;
+    border-radius: 55px;
+    text-align: center;
+    padding: 0.01em;
+    margin: 2em;
+}
+
+body {
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/6/60/Burrito.JPG");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: whitesmoke;
+    padding: 4em;
+    font-family: 'Times New Roman', Times, serif
+}
+
+.name_pass {
+    background-color: maroon;
+    height: auto;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 35%;
+}
+
+.tortilla {
+    background-color: maroon;
+    background-position: left;
+    border-radius: 10px;
+    height: auto;
+    width: 20em;
+    padding-top: 0.01em;
+    padding-bottom: 0.5em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+.rice {
+    background-color: maroon;
+    background-position: left;
+    border-radius: 10px;
+    height: auto;
+    width: 20em;
+    padding-top: 0.01em;
+    padding-bottom: 0.5em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+.beans {
+    background-color: maroon;
+    background-position: left;
+    border-radius: 10px;
+    height: auto;
+    width: 20em;
+    padding-top: 0.01em;
+    padding-bottom: 0.5em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+.protein {
+    background-color: maroon;
+    background-position: left;
+    border-radius: 10px;
+    height: auto;
+    width: 20em;
+    padding-top: 0.01em;
+    padding-bottom: 0.5em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+.additional {
+    background-color: maroon;
+    background-position: left;
+    border-radius: 10px;
+    height: auto;
+    width: 20em;
+    padding-top: 0.01em;
+    padding-bottom: 0.5em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+#delivery_i {
+    background-color: white;
+    color: maroon;
+    width: 60%;
+    height: auto;
+    box-sizing: border-box;
+    border-radius: 10px;
+    vertical-align: top;
+}
