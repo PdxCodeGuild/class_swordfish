@@ -14,6 +14,7 @@
 -Height-entered in inches
 '''
 # --> TKINTER
+
 import os
 import tkinter as tk
 from tkinter import ttk
@@ -26,9 +27,10 @@ main_window.geometry("350x350+40+40")
 # window-title
 main_window.title('BMI Calculator')
 
+'''
 # --> icon photo
 main_window.iconbitmap("tk-0.1.0/icons8-heart-health-50.png")
-
+'''
 
 # image
 image = Image.open("tk-0.1.0/balloon_bmi.jpg")

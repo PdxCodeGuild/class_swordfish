@@ -36,19 +36,19 @@ author = json_dict['quote']['author']
 '''
 
 
-# def get_quotes():
-#     response = requests.get(f'https://favqs.com/api/quotes?page={page}&filter={keyword}',
-#                             headers={'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'})
-#     # print(response.text)
-#     quotes_dict = response.json()
-#     # print(type(quotes_dict))  # --> class dict
-#     quotes_list = quotes_dict['quotes']
-#     # print(type(quotes_list))  # --> class list
+def get_quotes(page, keyword):
+    response = requests.get(f'https://favqs.com/api/quotes?page={page}&filter={keyword}',
+                            headers={'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'})
+    # print(response.text)
+    quotes_dict = response.json()
+    # print(type(quotes_dict))  # --> class dict
+    quotes_list = quotes_dict['quotes']
+    # print(type(quotes_list))  # --> class list
 
-#     for quote in quotes_list:
-#         author = quote['author']
-#         quote = quote['body']
-#         print(f'Author: {author}\nQuote: {quote}\n')
+    for quote in quotes_list:
+        author = quote['author']
+        quote = quote['body']
+        print(f'Author: {author}\nQuote: {quote}\n')
 
 
 keyword = input('Enter a keyword to search for quotes: ')
@@ -102,15 +102,4 @@ while True:
 
     print('next page', page)
 
-    response = requests.get(f'https://favqs.com/api/quotes?page={page}&filter={keyword}',
-                            headers={'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'})
-    # print(response.text)
-    quotes_dict = response.json()
-    # print(type(quotes_dict))  # --> class dict
-    quotes_list = quotes_dict['quotes']
-    # print(type(quotes_list))  # --> class list
-
-    for quote in quotes_list:
-        author = quote['author']
-        quote = quote['body']
-        print(f'Author: {author}\nQuote: {quote}\n')
+    get_quotes(page, keyword)
