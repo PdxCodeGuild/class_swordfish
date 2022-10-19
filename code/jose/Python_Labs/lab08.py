@@ -93,7 +93,7 @@ for contact in split_lines: # loop over contacts
     
 
   
-print(new_lines)
+# print(new_lines)
     
 
 
