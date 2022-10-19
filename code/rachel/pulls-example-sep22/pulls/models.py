@@ -6,10 +6,11 @@ from django.utils import timezone
 
 class Question(models.Model): #note lack of 's' at end of Question and Choice; blueprint for each separate question / choice
     question_text = models.CharField(max_length=200) #most of the time, better to use charfield vs just text so that user can't put in unlimited text; .CharField requires a max_length; .TextField doesn't require option (i.e. max-length) but still requires ()
+
     pub_date = models.DateTimeField() #enables entries to be sorted according to time
 
     def was_published_recently(self):
-        return self.pub_date >= timezone.now() - datetime.timedelta(days=1) #>= makes this a comparison that will return true or false whether question has been published within the past 24 hours
+        return timezone.now() >= self.pub_date >= timezone.now() - datetime.timedelta(days=1) #>= makes this a comparison that will return true or false whether question has been published within the past 24 hours
     
     def __str__(self):
         return self.question_text

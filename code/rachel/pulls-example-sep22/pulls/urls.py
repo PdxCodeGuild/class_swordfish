@@ -2,6 +2,8 @@ from django.urls import path
 
 from . import views 
 
+app_name = "pulls"
+
 urlpatterns = [ #must use this name
     path('', views.index, name='index'),
     path('<int:question_id>/', views.detail, name='detail'),
