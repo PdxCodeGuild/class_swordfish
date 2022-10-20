@@ -41,7 +41,7 @@ class IndexViewTests(TestCase):
     def test_future_test(self):
         question = create_question("future question", days=+7)
         response = self.client.get(reverse('polls:index'))
-        self.assertContains(response,  )
+        self.assertContains(response,"no polls are available.")
         self.assertQuerysetEqual(response.context['latest_question_list'], [])
 
     def test_future_question_and_past_question(self):
@@ -58,3 +58,15 @@ class IndexViewTests(TestCase):
         self.assertQuerysetEqual(response.context['latest_question_list'], [question1, question2])
         self.assertContains(response, question1.question_text)
         self.assertContains(response, question2.question_text)
+
+class DetilViewTests(TestCase):
+    def test_future_question(self):
+        question = create_question("future question?", days=7)
+        response = self.client.get(reverse('polls:detail', args=(question.id,)))
+        self.assertEqual(response.status_code, 404)
+
+    def test_past_question(self):
+        question = create_question("past question?", days=-7)
+        response = self.client.get(reverse('polls:detail', args=(question.id,)))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, question.question_text)
