@@ -1,0 +1,22 @@
+{% comment %} 
+
+this page should contain:
+list of grocery items, with 'complete' checkbox
+submit
+
+add item line
+submit
+
+{% endcomment %}
+
+{% comment %} <form action="{% url grocery_list:index %}" method="post">
+    {% csrf_token %}
+    {% endcomment %}
+    <h1>Grocery List</h1>
+    <ul>
+    {% for item in items_list %}
+        <li>
+            {{ item.item_text }}
+        </li>
+    {% endfor %}
+    </ul>
