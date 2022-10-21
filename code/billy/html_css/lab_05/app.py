@@ -1,48 +1,38 @@
-import requests
+from flask import Flask, json, render_template, request
 import json
+import string
+import random
 
-from flask import Flask, render_template, request
 app = Flask(__name__)
 
-@app.route('/qotd/')
-def qotd():
-    response = requests.get('https://favqs.com/api/qotd')
-    data = response.json()
-    print(data)
-    author = data['quote']['author']
-    quote = data['quote']['body']
-    return render_template('index.html', author=author, quote=quote)
+
+@app.route('/')
+def home():
+    app.logger.info(f'request /')
+    return render_template("index.html")
 
 
-@app.route('/search/')
-def search():
-    if 'term' not in request.args:
-        return render_template('search.html', term='', page=1)
-    else:
-        term = request.args['term']
-        page = request.args['page']
-        page = int(page)
-        # print(request.method)
-        # print(request.form)
-        params = {
-            'filter': term,
-            'page': page
-        }
-        headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}
-        response = requests.get('https://favqs.com/api/quotes', params=params, headers=headers)
-        data = response.json()
-        # print(json.dumps(data, indent=4))
+def GeneratePassword(pass_len):
+    printable_chars = string.printable[:-2]
+    for r in ['\t','\n','\r',' ']:
+        printable_chars = printable_chars.replace(r,'')
+    random_chars = random.sample(printable_chars, pass_len)
+    return ''.join(random_chars)
 
-        last_page = data['last_page']
-        print(last_page)
-        quotes = []
-        for quote_data in data['quotes']:
-            quotes.append({
-                'author': quote_data['author'],
-                'body': quote_data['body']
-            })
 
-        return render_template('search.html', term=term, page=page, last_page=last_page, quotes=quotes)
-
+@app.route('/generated_password', methods=["POST"])
+def GenerateRequest():
+    if request.method == "POST":
+        try:
+            pasword_length = int(request.json['length'])
+            password = GeneratePassword(pasword_length)
+            data = {
+                "password" : password
+            }
+        except:
+            data = {
+                'password' : False,
+            }
+        return json.dumps(data)
 
 app.run(debug=True)
