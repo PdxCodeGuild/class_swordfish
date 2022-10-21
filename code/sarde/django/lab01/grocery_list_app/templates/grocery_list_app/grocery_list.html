@@ -1,0 +1,6 @@
+<h1>Grocery List</h1>
+<ul>
+    {% for grocery_item in grocery_item_text.all %}
+        <li>{{ grocery_item.grocery_item_text }} -- {{ grocery_item.created_date}}</li>
+    {% endfor %}
+</ul>
