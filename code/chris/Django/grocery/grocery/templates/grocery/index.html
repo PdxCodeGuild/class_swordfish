@@ -1,0 +1,14 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'grocery/style.css'%}">
+
+<h3>The List</h3>
+{% if grocery_list  %}
+<ul>
+    {% for item in grocery_list %}
+        <li>{{ item.description }}: {{ item.created_date }}</li>
+    {% endfor %}
+</ul><br>
+{% else %}
+<p>Get back and build that Grocery List!</p>
+{% endif %}
