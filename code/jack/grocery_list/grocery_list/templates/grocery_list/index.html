@@ -1,22 +1,56 @@
 {% comment %} 
+need to do:
+add 'incomplete' button
+add 'delete' button
 
-this page should contain:
-list of grocery items, with 'complete' checkbox
-submit
-
-add item line
-submit
-
+want to do:
+allow for multiple entries at once, parse by line?
+style nice
 {% endcomment %}
 
-{% comment %} <form action="{% url grocery_list:index %}" method="post">
-    {% csrf_token %}
-    {% endcomment %}
-    <h1>Grocery List</h1>
-    <ul>
-    {% for item in items_list %}
-        <li>
-            {{ item.item_text }}
-        </li>
-    {% endfor %}
-    </ul>
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Grocery List</title>
+        <link rel="stylesheet" href="{% static 'grocery_list/style.css' %}">
+    </head>
+    <body>
+        <h1>Grocery List</h1>
+        <ul>
+            {% for item in incomplete_items %}
+                <li>
+                    {{ item.item_text }} 
+                    <form action="{% url 'grocery_list:complete' item.id %}" method="post">
+                        {% csrf_token %}
+                        <input type="submit" name="complete" value="Complete">
+                    </form>
+                    
+                    {% comment %} <input type="submit" name="{{ item.id }} delete" value="Delete"> {% endcomment %}
+                </li>
+            {% endfor %}
+            <form action="{% url 'grocery_list:add' %}" method="post">
+                {% csrf_token %}
+                <li>
+                    <input type="text" id="new_item" name="new_item" placeholder="Add item">
+                    <input type="submit" value="Add item">
+                </li>
+            </form>
+        </ul>    
+        <br>
+        <div class=completed>
+            <h3>Completed items</h3>
+            <ul>
+                {% for item in completed_items %}
+                <li>{{ item.item_text }}, completed on {{ item.complete_date }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        
+    </body>
+</html>
