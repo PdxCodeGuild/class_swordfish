@@ -29,7 +29,11 @@ style nice
                         {% csrf_token %}
                         <input type="submit" name="complete" value="Complete">
                     </form>
-                    
+                    <form action="{% url 'grocery_list:delete' item.id %}" method="post">
+                        {% csrf_token %}
+                        <input type="submit" name="delete" value="Delete">
+                    </form>
+                    <br>
                     {% comment %} <input type="submit" name="{{ item.id }} delete" value="Delete"> {% endcomment %}
                 </li>
             {% endfor %}
@@ -44,13 +48,22 @@ style nice
         <br>
         <div class=completed>
             <h3>Completed items</h3>
+            {% comment %} {% if len(completed_items) == 0 %} not sure why doesnt work
+                <p>none</p>
+            {% endif %} {% endcomment %}
             <ul>
                 {% for item in completed_items %}
                 <li>{{ item.item_text }}, completed on {{ item.complete_date }}</li>
+                <form action="{% url 'grocery_list:incomplete' item.id %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" name="incomplete" value="Incomplete">
+                </form>
+                <form action="{% url 'grocery_list:delete' item.id %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" name="delete" value="Delete">
+                </form>
                 {% endfor %}
             </ul>
         </div>
-
-        
     </body>
 </html>
