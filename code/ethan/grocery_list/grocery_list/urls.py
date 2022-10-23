@@ -6,6 +6,6 @@ app_name = 'grocery_list' # for namespacing
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path("complete/<item_id>", views.completeItem, name = "complete"),
-    path('deleteItem/<int:item_id>', views.deleteItem, name = "deleteitem"),
+    path('complete/<int:item_id>', views.complete, name = 'complete'),
+    path('delete/<int:item_id>', views.delete, name = 'delete'),
 ]

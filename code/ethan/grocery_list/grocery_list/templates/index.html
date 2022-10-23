@@ -15,29 +15,32 @@
         {{ form }}
         <input type="submit" value="Submit" />
     </form>
-    <div class="grocery_list">
-        <h3>Completed Items</h3>
-        {% for item in grocery_list %}
-            {% if item.complete == 1 %}
-                <p>{{ item }}</p>
-                <p>{{ item.created_date }}</p>
-            {% endif %}
-        {% endfor %}
-        <h3>Incomplete Items</h3>
-        {% for item in grocery_list %}
-            {% if item.complete == 0 %}
-                <p>{{ item }}</p>
-                <p>{{ item.created_date }}</p>
-            {% endif %}
-        {% endfor %}
-    </div>
+    <h3>Incomplete Items</h3>
     <ul>
         {% for item in grocery_list %}
-            <li>{{item}}
-                <form action="{/deleteItem/{{item.id}}/}" method="post">{% csrf_token %}
-                    <input type="submit" value="Delete"/>
-                </form>
-            </li>
+            {% if item.complete == 0 %}
+                <li>{{item}}
+                    <form action="{% url 'grocery_list:delete' item.id %}" method="post">{% csrf_token %}
+                        <input type="submit" name="delete" value="Delete"/>
+                    </form>
+                    <form action="{% url 'grocery_list:complete' item.id %}" method="post">{% csrf_token %}
+                        <input type="submit" name="completed" value="Completed"/>
+                    </form>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+    <h3>Completed Items</h3>
+    <ul>
+        {% for item in grocery_list %}
+            {% if item.complete == 1 %}
+                <li>{{item}}
+                    <p>completed on {{ item.complete_date }}</p>
+                    <form action="{% url 'grocery_list:delete' item.id %}" method="post">{% csrf_token %}
+                        <input type="submit" name="delete" value="Delete"/>
+                    </form>
+                </li>
+            {% endif %}
         {% endfor %}
     </ul>
 </html>
