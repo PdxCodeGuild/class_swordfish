@@ -5,9 +5,27 @@ html {
     box-sizing: inherit;
 }
 h1 {
-    color: black;
+    color:rosybrown;
 }
 nav, a {
-    color: black;
+    color:black;
 }
+body {
+    background-color: grey;
+    
+}
+.skills {
+    color: rosybrown;
+}
+
+.socialmedia {
+    color: rosybrown;
+
+}
+
+/* nav {
+    width: 100%;
+    position: absolute;
+    top: 0;
+} */
 
