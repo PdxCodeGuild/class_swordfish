@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <title>Grocery List</title>
+</head>
+<body>
+    <form action="{% url 'grocery_list:complete' GroceryItem.id %}" method = "post">
+        {% csrf_token %}
+        <fieldset>
+            <legend><h1>Grocery List</h1></legend>
+            {% if latest_grocery_list %}
+                {% for item in latest_grocery_list %}
+                    <input type="checkbox" name="complete" value="{{ item.id}}" id="{{ item.id }}">
+                    <label for="{{item.id}}">{{ item.item_text }}</label><br>
+                {% endfor %}
+            {% else %}
+                <p>All caught up! Add more to list when you run out of something</p>
+            {% endif %}
+        </fieldset>
+        <input type="submit" value="Complete">
+    </form>
+</body>
+</html>
+
+{% comment %} {% for choice in question.choices.all %}
+    <input type="radio" name="choice" value="{{ choice.id }}" id="choice{{ forloop.counter }}">
+    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+{% endfor %} {% endcomment %}
