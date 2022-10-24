@@ -4,10 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sports!</title>
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
   </head>
 <body>
-
+  <div class="screen">
+    <div class="topnav">
+        <a class="active" href="#home">Home</a>
+        <a href="#news">News</a>
+        <a href="#about">About</a>
+        <a href="#new_signings">New Signings</a>
+    </div>
+    <div class="row">
+      {% for post in posts %}
+      <div class="blogs">
+          <div class="card">
+              <div class="card-image">
+                  <img src="{{url_for('static',filename='dolphins_tua.jpg')}}" style = "width:20em"/>
+                  <br>
+                  <span class="card-title">{{post.title}}</span>
+              </div>
+              <div class="card-content">
+                  <p>{{ post.body }}</p>
+              </div>
+              <div class="card-action">
+                  <a href="#">View Post</a>
+              </div>
+          </div>
+      </div>
+      {% endfor %}
+</div> 
+<footer> Sports Stuff 2022 </footer>
 </body>
 </html>

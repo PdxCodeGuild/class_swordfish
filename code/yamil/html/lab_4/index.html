@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <title>Burrito Heaven!</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <div class="header"><h1>Burrito Heaven Order Form!</h1></div>
+    <h2>Customize your burrito:</h2>
+    <div class="columns">
+        <div class="column">
+            <img src='burritos.jpg' style=width:15em;height:20em/>
+        </div>
+        <div class="column">
+            <h3>What would you like in your burrito?</h3>
+            <form action="https://webhook.site/0a7b5be8-8584-40c1-9ec7-005acfd2a691" method="post">
+                <input type="text" name="user_name"/> Name<br><br>
+                <input type="password"/> Password<br><br>
+                Tortilla: <input type="radio" name="tortilla" value="white_flour" checked>White Flour
+                <input type="radio" name="tortilla" value="wheat_flour">Wheat Flour
+                <input type="radio" name="tortilla" value="spinach">Spinach
+                <input type="radio" name="tortilla" value="corn">Corn
+                <br><br>
+                Meat:<input type="radio" name="meat" value="carnitas" checked>Carnitas
+                <input type="radio" name="meat" value="chicken">Chicken
+                <input type="radio" name="meat" value="sofritas">Sofritas
+                <br><br>
+                Extras:<input type="checkbox" name="extras" value="guacamole" checked>Guac
+                <input type="checkbox" name="extras" value="beans">Beans
+                <input type="checkbox" name="extras" value="cheese">Cheese
+                <input type="checkbox" name="extras" value="sour_cream">Sour Cream
+                <br><br>
+                <textarea>Delivery Instructions:</textarea><br><br>
+                <button type="submit">Submit</button>
+            </form>
+            </div>
+    </div>
+</body>
+</html>

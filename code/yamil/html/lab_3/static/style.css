@@ -1,1 +1,58 @@
+@media screen and (max-width:640px) {
+    div.screen {
+      font-size: 10px;
+    }
+  }
+  @media screen and (min-width:640px) and (max-width:959px) {
+      div.screen {
+        font-size: 12px;
+      }
+    }
+    @media screen and (min-width:960px) {
+      div.screen {
+        font-size: 15px;
+      }
+    }
+ 
+.topnav {
+        background-color: black;
+        overflow: hidden;
+}
+  
+    .topnav a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+  
 
+    .topnav a:hover {
+    background-color: white;
+    color: black;
+  }
+  
+    .topnav a.active {
+    background-color: blue;
+    color: white;
+  }
+.card {
+    text-align: center;
+    margin: 5em
+    }
+
+.card-content {
+    padding-left: 20em;
+    padding-right: 20em;
+}
+
+.blog {
+    border-top: 20em;
+    border-bottom: 20em
+}
+
+.footer {
+    text-align: center;
+}
