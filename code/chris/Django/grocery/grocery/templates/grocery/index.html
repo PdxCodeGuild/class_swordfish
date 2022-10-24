@@ -2,28 +2,46 @@
 
 <link rel="stylesheet" href="{% static 'grocery/style.css'%}">
 
-<h3>The Incomplete List</h3>
-<ul>
-    {% for item in incomplete %}
+<h3>The Grocery List</h3>
+{% for item in incomplete %}
+    <form action="{% url 'grocery:complete' item.id %}" method="post">
+        {% csrf_token %}
         <li>{{ item.description }}: {{ item.created_date }}</li>
-    {% endfor %}
-</ul><br>
+        <input type="submit" value="Completed">
+    </form>
+    <form action="{% url 'grocery:delete' item.id %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Delete">
+    </form>
+{% endfor %}
 
-<h3>Add an Item to the List</h3>
+    
+{% comment %} <form action="{% url 'grocery:complete'item.id %}" method="post"
+    {% comment %} {% csrf token %} {% endcomment %}
+    {% comment %} <ul>
+        {% for item in incomplete %}
+            <li>{{ item.description }}: {{ item.created_date }}</li>
+            <input type="checkboxes" name="description" value="{{ description.id }}" id="description{{ forloop.counter }}">
+            <label for="description{{ for loop counter }}">{{ description.description_text }}</label><br>
+        {% endfor %}
+        <input type="submit" value="Completed">
+    </ul><br>
+</form> {% endcomment %} 
+
+<h3>Add an Item to the Grocery List</h3>
 <form action="{% url 'grocery:add' %}" method="post">
     {% csrf_token %}
-    {{form.description}} 
-    {% comment %} <input type="text" name="item" value="{{form.id}}">
-    <label for="item"></label><br>
-    <br> {% endcomment %}
+    {% comment %} {{form.description}}  {% endcomment %}
+    <input type="text" name="item" id="item">
+    <label for="item">Add Item</label><br>
+    <br>
     <input type="submit" value="Add Item"><br>
 </form>
 
 <br>
-<h3>The Completed List</h3>
+<h3>The Completed Grocery List</h3>
 <ul>
     {% for item in complete %}
         <li>{{ item.description }}: {{ item.completed_date }}</li>
     {% endfor %}
 </ul><br>
-
