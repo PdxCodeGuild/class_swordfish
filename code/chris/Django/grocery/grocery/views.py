@@ -1,16 +1,30 @@
-from django.http import HttpResponse
-from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import redirect, render
+from django.urls import reverse 
 from.models import GroceryItem
+from .forms import CreateForm
 
 def index(request):
-    grocery_list = GroceryItem.objects.order_by('-created_date')
-    return render(request, 'grocery/index.html', {'grocery_list':grocery_list})
+    incomplete = GroceryItem.objects.filter(task_completed=False).order_by('-created_date')
+    complete = GroceryItem.objects.filter(task_completed=True).order_by('-completed_date')
+    context = {
+        'incomplete':incomplete,
+        'complete':complete,
+        }
+    return render(request, 'grocery/index.html', context=context)
 
-def form(request, grocery_item):
-    return HttpResponse(f'Please enter in a grocery item {grocery_item}')
+def add(request):
+    # item = GroceryItem.objects.all()
+    form = CreateForm()
+    if request.method == 'POST':
+        form = CreateForm(request.POST)
+        if form.is_valid():
+            form.save()
+        # return HttpResponseRedirect(reverse('grocery:index', args=(form.id,))) #standard practice to redirect when POST
+        return render(request, 'grocery/index.html', {'form': form})
 
-def complete(request, grocery_item):
-    return HttpResponse(f'Check-off what is completed {grocery_item}')
+def update(request):
+    return HttpResponse(f'Which item would you like to update?')
 
-def delete(request, grocery_item):
-    return HttpResponse(f'Which item would you like to delete {grocery_item}')
+def delete(request):
+    return HttpResponse(f'Which item would you like to delete?')

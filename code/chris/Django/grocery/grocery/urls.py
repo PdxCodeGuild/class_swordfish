@@ -1,9 +1,11 @@
 from django.urls import path 
 from . import views
 
+app_name = 'grocery'
+
 urlpatterns = [
     path('', views.index, name='index'),
-    path('<str:grocery_item>/form', views.form, name='form'),
-    path('<str:grocery_item>/complete/', views.complete, name='complete'),
-    path('<str:grocery_item>/delete/', views.delete, name='delete'),
+    path('create', views.add, name='add'),
+    path('update/', views.update, name='update'),
+    path('delete/', views.delete, name='delete'),
 ]

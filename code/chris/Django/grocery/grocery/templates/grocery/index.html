@@ -2,13 +2,28 @@
 
 <link rel="stylesheet" href="{% static 'grocery/style.css'%}">
 
-<h3>The List</h3>
-{% if grocery_list  %}
+<h3>The Incomplete List</h3>
 <ul>
-    {% for item in grocery_list %}
+    {% for item in incomplete %}
         <li>{{ item.description }}: {{ item.created_date }}</li>
     {% endfor %}
 </ul><br>
-{% else %}
-<p>Get back and build that Grocery List!</p>
-{% endif %}
+
+<h3>Add an Item to the List</h3>
+<form action="{% url 'grocery:add' %}" method="post">
+    {% csrf_token %}
+    {{form.description}} 
+    {% comment %} <input type="text" name="item" value="{{form.id}}">
+    <label for="item"></label><br>
+    <br> {% endcomment %}
+    <input type="submit" value="Add Item"><br>
+</form>
+
+<br>
+<h3>The Completed List</h3>
+<ul>
+    {% for item in complete %}
+        <li>{{ item.description }}: {{ item.completed_date }}</li>
+    {% endfor %}
+</ul><br>
+
