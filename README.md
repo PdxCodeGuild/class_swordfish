@@ -30,7 +30,7 @@ Presentation Day: December 16th, 2022
 | Lab   | Name                   | Date Assigned | Due By Start Of Class | Hard Due Date |
 | ----- | ---------------------- | ------------- | --------------------- | ------------- |
 | 00    | Polls                  | Oct 17th      | Oct 20th              |               |
-| 01    | Todo List              | Oct 20th      | Oct 27th              | Nov 3rd       |
+| 01    | Grocery List           | Oct 20th      | Oct 27th              | Nov 3rd       |
 | 02    | URL Shortener          | Oct 24th      | Oct 27th              | Nov 7th       |
 | 03    | Chirp                  | Oct 28th      | Nov 2nd               | Nov 16th      |
 | 04    | Students API           | Nov 22nd      | Nov 30th              | Dec 6th       |
