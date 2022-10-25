@@ -17,9 +17,11 @@ def index(request):
         #     url = 'http://' + url
 
         code = ''.join([random.choice(chars) for _ in range(6)])
-        
+
+        creation_ip = request.META.get('REMOTE_ADDR')
+
         # create and save object
-        link = Url(url=url, code=code)
+        link = Url(url=url, code=code, creation_ip=creation_ip, clicks=0)     
         link.save()
 
         return render(request, 'short_url/index.html', {'link':link})
@@ -29,5 +31,7 @@ def index(request):
 
 def redirect(request, code):
     x = get_object_or_404(Url.objects.filter(code=code))
+    x.clicks = int(x.clicks) + 1
+    x.save()
     url = x.url
     return HttpResponseRedirect(url)
