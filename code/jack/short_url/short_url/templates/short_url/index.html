@@ -8,7 +8,7 @@
     </head>
     <body>
         <h1>Short Url</h1>
-        <form action="{% url 'short_url:create' %}" method="post">
+        <form action="{% url 'short_url:index' %}" method="post">
             {% csrf_token %}
             <input type="url" id="url" name="url" placeholder="enter url">
             <input type="submit" value="get short url">
