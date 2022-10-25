@@ -5,7 +5,6 @@
     #print(lines)
 
 
-
 dictionary = {}
 with open("contacts.csv") as file:
     contact_list = []
@@ -55,6 +54,12 @@ while keep_going:
         contact = input('Enter a name')
         print(retrieve(contact, contact_list))
 
+    elif response == "u":
+        contact = input('Enter a name you would like to update: ')
+        contact_list.update(contact)
+        print(contact_list)
+       
+       
 
 
 
