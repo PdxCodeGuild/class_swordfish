@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Random Password Generator</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Random Password Generator</h1>
+        <div class="password_form">
+                <div class="password_items">
+                    <label for="">Enter the Desired Length of the Random Password</label>
+                    <br>
+                    <input type="text" name="length" id="length">
+                </div>
+                <br>
+                <button type="submit" id="generated_password_button">Generate Random Password</button>
+        </div>
+        <div class="password">
+            <h3></h3>
+            <br>
+            <p></p>
+        </div>
+    </div>
+    <script>
+        document.getElementById('generated_password_button').addEventListener('click',function(){
+            var password = document.getElementsByClassName("password")[0]
+            var length = document.getElementById("length").value
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST","{{ url_for('GenerateRequest')}}")
+            xhr.setRequestHeader("Content-Type", "application/json")
+            xhr.onload = function(){
+                if (this.status == 200){
+                    const rjson = JSON.parse(this.responseText)
+                    if (rjson.password){
+                        password.innerHTML = "<h3>Your Random Password is:</h3><p>"+ rjson.password +"</p4>"
+                    }else{
+                    }
+                }
+            }
+            data = {
+                'length': length
+            }
+            xhr.send(JSON.stringify(data))
+        })
+    </script>
+    <img src="/static/password_meme.jpg">
+</body>
+</html>
