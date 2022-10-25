@@ -25,30 +25,28 @@ M-F 9:30 am – 4:30 pm (Pacific Time)
 Capstone proposal due: November 28th, 2022  
 Presentation Day: December 16th, 2022
 
-<!--
 ## Django Labs Assigned:
 
 | Lab   | Name                   | Date Assigned | Due By Start Of Class | Hard Due Date |
 | ----- | ---------------------- | ------------- | --------------------- | ------------- |
-| 00    | Polls                  | Jun 8th       | Jun 13th              |               |
-| 01    | Todo List              | Jun 13th      | Jun 20th              | Jun 27th      |
-| 02    | URL Shortener          | Jun 15th      | Jun 20th              | Jun 27th      |
-| 03    | Chirp                  | Jun 21st      | Jun 27th              | Jul 5th       |
-| 04    | Students API           | Jul 14th      | Jul 20th              | Jul 28th      |
-| 05    | Pokedex                | Jul 15th      | Jul 20th              | Jul 29th      |
+| 00    | Polls                  | Oct 17th      | Oct 20th              |               |
+| 01    | Todo List              | Oct 20th      | Oct 27th              | Nov 3rd       |
+| 02    | URL Shortener          | Oct 24th      | Oct 27th              | Nov 7th       |
+| 03    | Chirp                  | Oct 28th      | Nov 2nd               | Nov 16th      |
+| 04    | Students API           | Nov 22nd      | Nov 30th              | Dec 6th       |
+| 05    | Pokedex                | Nov 23rd      | Nov 30th              | Dec 7th       |
 
 ## JavaScript Labs Assigned:
 
 | Lab   | Name                   | Date Assigned | Due By Start Of Class | Hard Due Date |
 | ----- | ---------------------- | ------------- | --------------------- | ------------- |
-| 01    | Pick 3                 | Jun 27th      | Jul 5th               | Jul 11th      |
-| 02    | Pick 3                 | Jun 27th      | Jul 5th               | Jul 11th      |
-| 03    | Pick 3                 | Jun 27th      | Jul 5th               | Jul 11th      |
-| Group | Todo List              | Jul 1st       | Jul 5th               | Jul 15th      |
-| 04    | Vue Todos              | Jul 5th       | Jul 11th              | Jul 19th      |
-| 05    | Quotes in Vue          | Jul 7th       | Jul 11th              | Jul 21st      |
-| 06    | Mini-Capstone          | Jul 11th      | Jul 14th              | Jul 25th      |
--->
+| 01    | Pick 3                 | Nov 2nd       | Nov 14th              | Nov 16th      |
+| 02    | Pick 3                 | Nov 2nd       | Nov 14th              | Nov 16th      |
+| 03    | Pick 3                 | Nov 2nd       | Nov 14th              | Nov 16th      |
+| Group | Todo List              | Nov 9th       | Nov 14th              | Nov 23rd      |
+| 04    | Vue Todos              | Nov 10th      | Nov 21st              | Nov 24th      |
+| 05    | Quotes in Vue          | Nov 15th      | Nov 21st              | Nov 29th      |
+| 06    | Mini-Capstone          | Nov 17th      | Nov 22nd              | Dec 1st       |
 
 ## HTML/CSS Labs Assigned:
 
