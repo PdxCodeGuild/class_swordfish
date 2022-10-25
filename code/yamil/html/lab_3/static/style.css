@@ -1,16 +1,16 @@
 @media screen and (max-width:640px) {
     div.screen {
-      font-size: 10px;
+      font-size: 12px;
     }
   }
   @media screen and (min-width:640px) and (max-width:959px) {
       div.screen {
-        font-size: 12px;
+        font-size: 14px;
       }
     }
     @media screen and (min-width:960px) {
       div.screen {
-        font-size: 15px;
+        font-size: 18px;
       }
     }
  
@@ -45,10 +45,14 @@
     margin: 5em
     }
 
-.card-content {
-    padding-left: 20em;
-    padding-right: 20em;
-}
+/* .card-content {
+  border: 1px solid red;
+  color: white;
+  margin: 0 auto;
+  max-width: 600px;
+  position: absolute;
+  bottom: 0;
+} */
 
 .blog {
     border-top: 20em;
@@ -58,5 +62,9 @@
 .footer {
     text-align: center;
     font-weight: bold;
+}
+
+img {
+  width: 50vw;
 }
 
