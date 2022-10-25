@@ -1,0 +1,14 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'url_app/style.css'%}">
+
+<div>
+    <h3>Please enter in a URL to convert!</h3>
+    <form action="{% url 'url_app:index' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="long_url" id="long_url">
+        <label for="long_url">URL Entry</label><br>
+        <br>
+        <input type="submit" value="URL Entry">
+    </form>
+</div>
