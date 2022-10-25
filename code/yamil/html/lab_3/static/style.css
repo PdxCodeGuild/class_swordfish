@@ -38,6 +38,8 @@
     background-color: blue;
     color: white;
   }
+
+  
 .card {
     text-align: center;
     margin: 5em
@@ -55,4 +57,6 @@
 
 .footer {
     text-align: center;
+    font-weight: bold;
 }
+
