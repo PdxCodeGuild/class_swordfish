@@ -3,8 +3,9 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 
 import random, string
+from datetime import datetime
 
-from .models import Url
+from .models import Url, Click
 
 def index(request):
     if request.method == 'POST':
@@ -30,8 +31,15 @@ def index(request):
 
 
 def redirect(request, code):
-    x = get_object_or_404(Url.objects.filter(code=code))
-    x.clicks = int(x.clicks) + 1
-    x.save()
-    url = x.url
+    url_object = get_object_or_404(Url.objects.filter(code=code))
+    url = url_object.url
+
+    # update Url data
+    url_object.clicks = int(url_object.clicks) + 1
+    url_object.save()
+
+    # create Click data
+    click = Click(client_ip=request.META.get('REMOTE_ADDR'), url=url_object)
+    click.save()
+    
     return HttpResponseRedirect(url)
