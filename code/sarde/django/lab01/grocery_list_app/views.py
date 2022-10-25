@@ -1,3 +1,4 @@
+import datetime
 from django.shortcuts import render,  get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 
@@ -25,18 +26,36 @@ def add(request):
     return HttpResponseRedirect(reverse('grocery_list_app:grocerylist'))
 
 def complete(request, item_id):
-    #incomplete to complete
-    print('item_id', item_id)
+    # print('item_id', item_id)
     item = get_object_or_404(GroceryItem, pk=item_id)
-    print(item) #Apples
+    # print(item) #Apples
+    # print('item completed', item.completed)
+    item.completed = True
+    # print('item completed', item.completed)
+    item.save()
     return HttpResponseRedirect(reverse('grocery_list_app:grocerylist'))
 
-# def incomplete(request):
-    #complete to incomplete
-    #item = 
+def incomplete(request, item_id):
+    print('item_id', item_id)
+    item = get_object_or_404(GroceryItem, pk=item_id)
+    # print(item) #Apples
+    # print('item incomplete', item.completed)
+    item.completed = False
+    item.completed_date = datetime.datetime.now()
+    # print('item incomplete') 
+    # print(f'item was completed on: {item.completed_date}')
+    # print(f'item was completed on {item.completed_date}')
+    item.save()
+    return HttpResponseRedirect(reverse('grocery_list_app:grocerylist'))
+     
+
+def delete(request, item_id):
+#The view function will accept the grocery item id 
+# and get the actual grocery item for that id from the database.
+    item = get_object_or_404(GroceryItem, pk=item_id)
+#The view function will then delete that grocery item from the database.
+    deleted_item = GroceryItem.objects.filter(id=item_id).delete()
+#The view function will then redirect user back to the home type list page.
+    return HttpResponseRedirect(reverse('grocery_list_app:grocerylist'))
 
 
-
-
-# def complete(request):
-# item = get_object_or_404(GroceryItem.objects.filter())
