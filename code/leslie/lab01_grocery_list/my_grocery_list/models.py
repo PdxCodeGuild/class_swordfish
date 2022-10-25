@@ -6,6 +6,7 @@ class GroceryItem(models.Model):
     date_created = models.DateField(auto_now_add=True)
     date_completed = models.DateField(auto_now_add=True)
     item_completed = models.BooleanField(default=False)
+    item_deleted = models.BooleanField(default=False)
 
-def __str__(self):
-    return self.item_description
+    def __str__(self):
+        return self.item_description

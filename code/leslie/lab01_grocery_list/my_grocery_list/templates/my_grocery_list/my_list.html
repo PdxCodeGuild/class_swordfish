@@ -16,13 +16,25 @@
     </form>
     <div class="items">
         {% for item in items %}
-            <div class="items">
+            
                 <h2><a href="#">{{ item.item_description }}</a></h2>
                 <p>added: {{ item.date_created }}</p>
-                <p>completed: {{ item.item_completed }}</p>
+                <form action="{% url 'my_grocery_list:complete' item.id %}" method="POST">
+                    {% csrf_token %}
+                    <input type="submit" value="complete"><br>
+                </form>
+                <form action="{% url 'my_grocery_list:delete' item.id %}" method="POST">
+                    {% csrf_token %}
+                    <input type="submit" value="delete">
+                </form>   
                 <p>completed: {{ item.date_completed }}</p>
-            </div>
         {% endfor %}
-    </div>
+                
+            
+               
+              
+            
+        
+      
 </body>
 </html>
