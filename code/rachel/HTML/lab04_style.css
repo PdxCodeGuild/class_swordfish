@@ -7,10 +7,11 @@ html {
 body {
     background-image: url('https://cdn.abcotvs.com/dip/images/4236887_091318kabccheetoburritoimg.jpg'); /*Set image as background*/
     background-blend-mode: color-dodge;
-    /*background-blend-mode: luminosity;*/
+    /* background-blend-mode: luminosity; */
     background-color: gray;
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: center right;
+    background-size: 50%;
   }
 
 header {
@@ -19,8 +20,8 @@ header {
 }
 
 main {
-    color:aliceblue;
-    text-align: center;
+    color: rgb(75, 3, 3);
+    text-align: justify;
     padding: 4em;
 }
 
@@ -28,9 +29,6 @@ main {
     text-align: center;
 } */
 .user_info {
-    /* border: 1px solid #000; */
-    /* width: 50%; */
-    /* margin-bottom: 20px; */
     color:  rgb(75, 3, 3);
     font-family:'Noto Serif Gujarati', serif;text-align: center;
 }
@@ -40,43 +38,26 @@ main {
     padding-top: -2em;
     padding-bottom: -1em;
 }
-/* .user {
-    display: grid;
-    justify-content: row;
-    align-items: center;
-} */
+
 input {
     background-color: rgb(222, 228, 236);
     width: 100px;
     height: 25px;
     font-family:'Courier New', Courier, monospace
 }
-.username {
+#username {
     padding: .5em;
     text-align: center;
+    color: rgb(75, 3, 3);
 }
-.password {
-    /* padding: .5em; */
+#password {
+    text-align: center;
+    color: rgb(75, 3, 3);
+}
+.submit {
     text-align: center;
 }
-/* body p {
-    background-repeat: repeat;
-    background-image: url('https://cdn.abcotvs.com/dip/images/4236887_091318kabccheetoburritoimg.jpg'); /*Set image as background*/
-    /*background-blend-mode: lighten;
-  } */
-/* h1 span {
-    font-family: 'Noto Serif Gujarati', serif;
-    /* font-size: x-large; */
-    /* font-weight: 800;
-    color: rgb(177, 8, 8);
-    transform-origin: bottom;
-    /* height: 300px;
-    width: 50px;
-    left: 50;
-    top: 50; 
-    position: absolute;
-    text-align: center;
-} */
+
 h1 span {
     font-size: 32px ;
     transform-origin: bottom;
@@ -87,7 +68,6 @@ h1 span {
     left: 50;
     top: 50;
     position: absolute;
-    text-align: center;
 }
 
 .c1 {
@@ -152,30 +132,4 @@ h1 span {
 }
 .c21 {
     transform: rotate(60deg);
-}
-.order_form {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    grid-auto-rows: minmax(100px, auto);
-}
-.tortilla {
-    grid-column: 1;
-    grid-row: 1;
-}
-.rice {
-    grid-column: ;
-    grid-row: 1;
-} 
-.beans {
-    grid-column: 1;
-    grid-row: 2;
-}
-.protein {
-    grid-column: 3;
-    grid-row: 2;
-}
-.additional {
-    grid-column: 2;
-    grid-row: 3;
 }
