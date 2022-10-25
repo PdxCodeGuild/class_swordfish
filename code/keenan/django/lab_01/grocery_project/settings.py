@@ -125,7 +125,7 @@ STATIC_URL = 'static/'
 # Note: This code is looking for 3 specific static folders and isn't required for this project
 # STATICFILES_DIRS = (
 #     os.path.join(BASE_DIR, 'static'),
-#     os.path.join(os.path.dirname(__file__),'static',),
+#     os.path.join(os.path.dirname(__file__),
 #     'static',
 # )
 
