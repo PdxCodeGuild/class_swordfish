@@ -7,6 +7,6 @@ app_name = 'url_app'
 
 urlpatterns = [
     path('', views.index, name='index'),
-    # path('url_final/<int:pk>/', 'url_final', views.url_final, name='final'),
-    # path('redirect/<int:pk>/', 'redirect', views.redirect, name='redirect'),
+    path('shortcode/', views.shortcode, name='shortcode'),
+    path('redirect/<str:long_url>/', views.redirect, name='redirect'),
 ]

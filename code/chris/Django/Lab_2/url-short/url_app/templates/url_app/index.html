@@ -4,7 +4,7 @@
 
 <div>
     <h3>Please enter in a URL to convert!</h3>
-    <form action="{% url 'url_app:index' %}" method="post">
+    <form action="{% url 'url_app:shortcode' %}" method="post">
         {% csrf_token %}
         <input type="text" name="long_url" id="long_url">
         <label for="long_url">URL Entry</label><br>
@@ -12,3 +12,13 @@
         <input type="submit" value="URL Entry">
     </form>
 </div>
+
+<h3>The Short Code</h3>
+<ul>
+    {% for code in urls %}
+        <li> 
+        <a href="{% url "url_app:redirect" code.long_url %}"> {{ code.long_url_text }} <p>{{ code.short_url }}</p></a>
+        </li>
+        {% comment %} {{ code.long_url }} {% endcomment %}
+    {% endfor %}
+</ul><br>
