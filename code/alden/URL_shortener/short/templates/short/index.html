@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link type="text/css" rel="stylesheet" href="{% static 'short/materialize.css' %}">
+    <link rel="stylesheet" href="{% static 'short/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <main class='main_field'>
+        <h1> URL Shortener </h1>
+        <div class='row'>
+            <form class='col s12' action="{% url 'short:submit' %}" method = "post">
+                <div class='row'>
+                    <div class='input-field'>
+                        {% csrf_token %}
+                        <i class="material-icons prefix">transform</i>
+                        <input id='icon_prefix2' type="url", name="long_url", id="long_url", placeholder="Enter url"><br>
+                        <input type='submit', value="Switch">
+                    </div>
+                </div>
+            </form>
+        </div><br>
+        <div class="switch">
+            {% if n_url %}
+                <p> Shortened url:<br>
+                <a href="http://localhost:8000/short/{{ n_url.code }}">http://localhost:8000/short/{{ n_url.code }}</a>
+                </p>
+            {% endif %}
+        </div>
+        <script type="text/javascript" src="{% static 'short/materialize.js' %}"></script>
+        <footer>
+            <p>Copyright &copy; Alden Addor 2022</p>
+        </footer>
+    </main>
+</body>
+</html>
