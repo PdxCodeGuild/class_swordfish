@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My list</title>
+</head>
+<body>
+    <h1>My Shopping List</h1>    
+    <form action={% url "my_grocery_list:add" %} method="POST">
+        {% csrf_token %}
+        <label for="item_description">add item</label><br>
+        <input type="text" id="item_description" name="item_description">
+        <input type="submit" value="add">
+    </form>
+    
+    <h2>Still Need</h2>
+    <ul>
+    {% for item in incomplete_items %}
+        <li>{{ item.item_description }}
+            <form action="{% url 'my_grocery_list:complete' item.id %}" method="POST">
+                {% csrf_token %}
+                <input type="submit" value="complete">
+            </form>
+            <form action="{% url 'my_grocery_list:delete' item.id %}" method="POST">
+                {% csrf_token %}
+                <input type="submit" value="delete">
+            </form>
+        </li>
+    {% endfor %}
+    </ul>
+
+    <h2>Completed Items</h2>
+    <ul>
+    {% for item in completed_items %}
+        <li>{{item.item_description}}
+            <form action="{% url 'my_grocery_list:complete' item.id %}" method="POST">
+                {% csrf_token %}
+                <input type="submit" value="incomplete"><br>
+            </form>
+            <form action="{% url 'my_grocery_list:delete' item.id %}" method="POST">
+                {% csrf_token %}
+                <input type="submit" value="delete"><br>
+            </form> 
+        </li>
+    {% endfor %}
+    </ul>
+               
+</body>
+</html>
+                
+            
+               
+              
+            
+        
+      
