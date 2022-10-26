@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Short Url</title>
+        {% comment %} <link rel="stylesheet" href="{% static 'short_url/style.css' %}"> {% endcomment %}
+    </head>
+    <body>
+        <h1>Short Url</h1>
+        <form action="{% url 'short_url:index' %}" method="post">
+            {% csrf_token %}
+            <input type="url" id="url" name="url" placeholder="enter url">
+            <input type="submit" value="get short url">
+        </form>
+        {% if link %}
+        <p>
+            short url: <a href="http://localhost:8000/short_url/{{ link.code }}">http://localhost:8000/short_url/{{ link.code }}</a>
+        </p>
+        {% endif %}
+    </body>
+</html>
