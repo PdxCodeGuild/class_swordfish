@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>URL Shortener</title>
+  </head>
+  <body>
+	<h1>URL Shortener</h1>
+    <form action="{% url 'url_app:long_url' %}" method='post'>
+        {% csrf_token %}
+        <input type="text" name="url_in_template">
+        <input type="submit" value="shorten">
+    </form>
+  </body>
+</html>
