@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Form Cipher</title>
+    <!--<link rel="stylesheet" href="/static/style.css">-->
+    {% comment %} <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> {% endcomment %}
+</head>
+<body>
+    <h1>Flask Form Cypher</h1>
+    {% comment %} <p>Welcome to the home page</p>
+    <p>The time is {{ current_time }} and the temperature is {{ temperature }}</p>
+    {% if temperature < 50 %}
+        <p>cold</p>
+    {% elif temperature < 80 %}
+        <p>warm</p>
+    {% else %}
+        <p>hot</p>
+    {% endif %}
+    <ul>
+        {% for num in nums %}
+        <li>{{num}}</li>
+        {% endfor %}
+    </ul> {% endcomment %}
+
+    <form action="" method="post">
+        <input type="text" name="user_word" placeholder="enter word here">
+        <label for="user_word">What do you want to encode?</label>
+        <input type="submit" value="Submit">
+    </form>
+
+    {% comment %} <ul>
+        {% for text in texts %}
+        <li>{{ text }}</li>
+        {% endfor %}
+    </ul> {% endcomment %}
+
+    <ul>
+        {% for answer in answers %}
+        <li>{{ answers }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
