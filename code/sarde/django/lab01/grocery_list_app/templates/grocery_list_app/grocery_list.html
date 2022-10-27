@@ -9,11 +9,11 @@
     {% for grocery_item in grocery_item_list %}
     {% if  grocery_item.completed %}
         <li>{{grocery_item.grocery_item_text}}</li>
-        <form action="{% url 'grocery_list_app:incomplete' grocery_item.id %}" >
+        <form action="{% url 'grocery_list_app:incomplete' grocery_item.id %}" method='post'>
             {% csrf_token %}
             <input type="submit" value="InComplete">
         </form>
-        <form action="{% url 'grocery_list_app:delete' grocery_item.id %}" >
+        <form action="{% url 'grocery_list_app:delete' grocery_item.id %}" method='post'>
             {% csrf_token %}
             <input type="submit" value="Delete">
         </form>
@@ -25,11 +25,11 @@
     {% for grocery_item in grocery_item_list %}
     {% if not grocery_item.completed %}
         <li>{{grocery_item.grocery_item_text}}</li>
-        <form action="{% url 'grocery_list_app:complete' grocery_item.id %}" >
+        <form action="{% url 'grocery_list_app:complete' grocery_item.id %}" method='post'>
             {% csrf_token %}
             <input type="submit" value="Complete">
         </form>
-        <form action="{% url 'grocery_list_app:delete' grocery_item.id %}" >
+        <form action="{% url 'grocery_list_app:delete' grocery_item.id %}" method='post'>
             {% csrf_token %}
             <input type="submit" value="Delete">
         </form>
