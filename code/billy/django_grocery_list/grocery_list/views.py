@@ -25,6 +25,12 @@ def complete(request, pk):
     item.save()
     return HttpResponseRedirect(reverse('grocery_list:index'))
 
+def incomplete(request, pk):
+    item = get_object_or_404(GroceryItems, pk=pk)
+    item.item_completed = False
+    item.save()
+    return HttpResponseRedirect(reverse('grocery_list:index'))
+
 def delete(request, pk):
     item = get_object_or_404(GroceryItems, pk=pk)
     item.delete()

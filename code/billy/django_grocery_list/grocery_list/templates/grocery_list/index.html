@@ -34,7 +34,7 @@
   <ul id='complete'>
   {% for item in completed_items %}
     <li>{{ item.item_name }}
-      <form action="{% url 'grocery_list:complete' item.id %}" method="post">
+      <form action="{% url 'grocery_list:incomplete' item.id %}" method="post">
         {% csrf_token %}
         <input type="submit" value="incomplete">
       </form>
