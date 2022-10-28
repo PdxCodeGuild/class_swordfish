@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chirp</title>
+</head>
+     <h1> Chirp away!</h1>
+<body>
+    {% for chirp in object_list %}
+        <p> 
+            {{ chirp.chirp }} -{{chirp.chirper }}
+            {{chir.created}} {{chirp.edited}}
+        </p>
+
+    {% endfor %}
+    
+    <h1>New post</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_chirp }}
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
