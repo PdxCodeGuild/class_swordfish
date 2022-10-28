@@ -17,7 +17,7 @@
 <ul>
     {% for code in urls %}
         <li> 
-        <a href="{% url "url_app:redirect" code.long_url %}"> {{ code.long_url_text }} <p>{{ code.short_url }}</p></a>
+        <a href="{% url "url_app:redirect" code.pk %}" target="_blank"> {{ code.short_url }}</a> <p>{{ code.long_url }}</p>
         </li>
         {% comment %} {{ code.long_url }} {% endcomment %}
     {% endfor %}
