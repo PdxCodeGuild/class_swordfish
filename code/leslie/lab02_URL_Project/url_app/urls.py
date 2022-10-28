@@ -5,6 +5,7 @@ app_name = "url_app"
 
 urlpatterns = [
     path('', views.index, name="index"),
-    # path('long_url/<str:pk>/', views.long_url, name="long_url")
+    path('shorten_url', views.shorten_url, name='shorten_url'),
+    
 
 ]

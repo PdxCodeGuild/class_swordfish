@@ -8,10 +8,15 @@
   </head>
   <body>
 	<h1>URL Shortener</h1>
-    <form action="{% url 'url_app:long_url' %}" method='post'>
+    <form action="{% url 'url_app:shorten_url' %}" method='post'>
         {% csrf_token %}
-        <input type="text" name="url_in_template">
-        <input type="submit" value="shorten">
+        <label for="shorten_url">URL Here</label>
+        <input type="text" name="shorten_url">
+        <input type="submit" value="submit">
     </form>
+    {% for url in all_urls%}
+    <p>{{ url }}</p>
+    <p>{{ short_url }}</p>
+    {% endfor %}
   </body>
 </html>

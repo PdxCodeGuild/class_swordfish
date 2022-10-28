@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import URLApp
+from .models import UrlApp
 
-admin.site.register(URLApp)
+admin.site.register(UrlApp)
 
 # Register your models here.
