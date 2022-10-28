@@ -1,0 +1,35 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'url_shortener/style.css' %}">
+
+<body>
+    <div>
+        <h2>URL Shortener</h2>
+        <form>
+            {% csrf_token %}
+        <input type = 'text' id = 'URL', name = 'url_link' placeholder="Enter the URL">
+        <input type = 'submit' id = 'submit_button' value = 'Shorten URL'>
+        </form>
+        <div id = 'shortened_url_link'></div>
+    </div>
+
+    <script>
+        let form = document.getElementById('myform')
+        let shortened_link = document.getElementById('shortened_link')
+        form.('submit', shortenUrl)
+        function shortened_url_link{
+            e.preventDefault()
+            $.ajax({
+                type: 'POST',
+                url: "{% url 'create' %}",
+                data: $('#myform').serialize(),
+                datatype: "json",
+                success: function(data){
+                    shortened_url_link.innerText = 'localhost:8000/' + data
+                }
+            })
+        }
+    </script>
+
+</body>
+</html>
