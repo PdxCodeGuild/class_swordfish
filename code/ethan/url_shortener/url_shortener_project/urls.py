@@ -18,5 +18,5 @@ from django.contrib import admin
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('url_shortener.urls')), # Note: all your app urls will start with this path
+    path('url-shortener/', include('url_shortener.urls')), # Note: all your app urls will start with this path
 ]
