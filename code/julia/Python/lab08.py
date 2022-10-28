@@ -32,10 +32,6 @@ def retrieve(contact, c_list):
         print(person)
 
 
-
-
-
-
 print(contact_list)
 keep_going = True
 while keep_going:
@@ -57,7 +53,7 @@ while keep_going:
     elif response == "u":
         contact = input('Enter a name you would like to update: ')
         contact_list.update(contact)
-        print(contact_list)
+        print((contact))
        
        
 
