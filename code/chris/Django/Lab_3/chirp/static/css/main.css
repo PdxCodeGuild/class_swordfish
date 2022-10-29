@@ -1,0 +1,19 @@
+body {
+    background-color: #DB554C;
+    padding: 2em;
+}
+
+header {
+    border: 2px solid #F5F5F5;
+    padding: 1em;
+}
+
+h1 {
+    font-family: 'Roboto Serif', serif;
+    color: #F5F5F5;
+}
+
+h3, h4, h5 {
+    font-family: 'Lato', sans-serif;
+    color: #F5F5F5;
+}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block chirp %}
+
+    {% for peep in object_list %}
+        <div class="chirp-entry">
+            <h4>{{peep.chirper.username }} {{ peep.created }}</h4> 
+            <h3>{{peep.chirp}}</h3>
+        </div>
+    {% endfor %}
+
+{% endblock chirp %}
