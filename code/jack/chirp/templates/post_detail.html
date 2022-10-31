@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="post-detail">
+        <h3>{{ post.title }}</h2>
+        <h4><a href="{% url 'users:profile' post.author.username %}">{{ post.author.username }}</a></h4>
+        <h4>{{ post.creation_date }}</h4>
+        <p>{{ post.body|linebreaksbr }}</p>
+        <br>
+        {% if user == post.author %}
+            <p><a href="{% url 'posts:edit' post.pk %}">Edit</a></p>
+            <p><a href="{% url 'posts:delete' post.pk %}">Delete Post</a></p>
+        {% endif %}
+    </div>
+{% endblock content %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h3>Create post</h3>
+    <form action="{% url 'posts:create' %}" method="post">
+        {% csrf_token %}
+        <label for="title">Title</label>
+        <br>
+        <input type="text" name="title" id="title" maxlength="30" required>
+        <br>
+        <label for="body">Body</label>
+        <br>
+        <input type="text" name="body" id="body" maxlength="200" size="50" required>
+        <br>
+        <input type="submit" value="Post">
+    </form>
+{% endblock content%}

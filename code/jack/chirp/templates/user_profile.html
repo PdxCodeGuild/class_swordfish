@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h3>{{ profile.username }}</h3>
+    <h5><em>joined {{ profile.date_joined }}</em></h5>
+
+    {% for post in profile.posts.all %}
+        <div class="post-entry">
+            <h2><a href="{% url 'posts:detail' post.id %}">{{ post.title }}</a></h2>
+            <h4><em>{{ post.author.username }}</em></h4>
+            <p>{{ post.body|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+{% endblock content %}
