@@ -10,4 +10,4 @@ class ChirpListView(ListView):
 class ChirpCreateView(CreateView):
     model = ChirpApp
     template_name = 'create.html'
-    fields = ['chirp', 'chirper']
+    fields = ['chirper', 'chirp']

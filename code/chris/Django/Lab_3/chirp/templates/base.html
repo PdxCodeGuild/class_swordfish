@@ -16,7 +16,12 @@
 </head>
 <body>
     <header>
-        <h1>Chirper</h1>
+        <div class="home-link">
+            <h1><a href="{% url 'chirp:home' %}">Chirper</a></h1>
+        </div>
+        <div class="create-link">
+            <h1><a href="{% url 'chirp:create' %}">Chirp</a></h1>
+        </div>
     </header>
     <div class="chirp">
         {% block chirp %}

@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "chirp.apps.ChirpConfig"
+    "chirp.apps.ChirpConfig",
+    "django.contrib.admindocs",
 ]
 
 MIDDLEWARE = [

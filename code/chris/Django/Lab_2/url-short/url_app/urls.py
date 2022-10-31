@@ -8,5 +8,5 @@ app_name = 'url_app'
 urlpatterns = [
     path('', views.index, name='index'),
     path('shortcode/', views.shortcode, name='shortcode'),
-    path('redirect/<int:pk>/', views.redirect, name='redirect'),
+    path('redirect/<str:code>/', views.redirect, name='redirect'),
 ]

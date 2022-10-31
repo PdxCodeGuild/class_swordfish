@@ -35,8 +35,8 @@ def generator():
     short_string_url = "".join(short_url_list)
     return short_string_url
 
-def redirect(request, pk):
-    new_url = get_object_or_404(CodeStorage, pk=pk)
+def redirect(request, code):
+    new_url = get_object_or_404(CodeStorage, short_url=code)
     # print(long_url)
     # print("------")
     # print(new_url.long_url)

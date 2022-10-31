@@ -2,8 +2,8 @@
 
 {% block chirp %}
 
-    <h1> New Chirp </h1>
-    <form action="" mehtod="post">
+    <h1>Chirp</h1>
+    <form action="" method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="Chirp">
