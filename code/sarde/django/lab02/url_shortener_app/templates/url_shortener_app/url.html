@@ -1,0 +1,12 @@
+<h2>URL Shortener</h2>
+<form action="{% url 'url_shortener_app:create' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="url" id="url">
+    <label for="url"></label>
+    <input type="submit" value="Submit">
+</form>
+<ul>
+{% for url_shortener_object in url_shortener_objects %}
+<li><a href="{% url 'url_shortener_app:redirect' url_shortener_object.short_code %}" target="_blank">{{ url_shortener_object.short_code }}</a><br></li>
+{% endfor %}
+</ul>
