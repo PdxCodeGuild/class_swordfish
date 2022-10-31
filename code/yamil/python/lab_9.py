@@ -21,7 +21,7 @@ class ATM:
         return self.balance
 
     def calc_interest(self):
-        return round(self.balance * self.interest + self.interest)
+        return round(self.balance * self.interest + self.interest,2)
 
     def print_transactions(self):
         for transaction in self.transaction:

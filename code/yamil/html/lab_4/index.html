@@ -18,21 +18,21 @@
         <div class="column">
             <h3>What would you like in your burrito?</h3>
             <form action="https://webhook.site/0a7b5be8-8584-40c1-9ec7-005acfd2a691" method="post">
-                <input type="text" name="user_name"/> Name<br><br>
-                <input type="password"/> Password<br><br>
-                Tortilla: <input type="radio" name="tortilla" value="white_flour" checked>White Flour
-                <input type="radio" name="tortilla" value="wheat_flour">Wheat Flour
-                <input type="radio" name="tortilla" value="spinach">Spinach
-                <input type="radio" name="tortilla" value="corn">Corn
+                <label for="user_name">User Name</label><input type="text" name="user_name"/><br><br>
+                <label for="password">Password</label><input type="password" name="password"/><br><br>
+                Tortilla:  <label for="wheat_flour">White Flour</label><input type="radio" name="tortilla" value="white_flour" checked>
+                <label for="wheat_flour">Wheat Flour</label><input type="radio" name="tortilla" value="wheat_flour">
+                <label for="wheat_flour">Spinach</label><input type="radio" name="tortilla" value="spinach">
+                <label for="wheat_flour">Corn</label><input type="radio" name="tortilla" value="corn">
                 <br><br>
-                Meat:<input type="radio" name="meat" value="carnitas" checked>Carnitas
-                <input type="radio" name="meat" value="chicken">Chicken
-                <input type="radio" name="meat" value="sofritas">Sofritas
+                Meat:  <label for="carnitas">Carnitas</label><input type="radio" name="meat" value="carnitas">
+                <label for="chicken">Chicken</label><input type="radio" name="meat" value="chicken">
+                <label for="sofritas">Sofritas</label><input type="radio" name="meat" value="sofritas">
                 <br><br>
-                Extras:<input type="checkbox" name="extras" value="guacamole" checked>Guac
-                <input type="checkbox" name="extras" value="beans">Beans
-                <input type="checkbox" name="extras" value="cheese">Cheese
-                <input type="checkbox" name="extras" value="sour_cream">Sour Cream
+                Extras:  <label for="guacamole">Guacamole</label> <input id="guacamole" type="checkbox" name="guacamole" value="guacamole">
+                <label for="beans">Beans</label><input id="beans" type="checkbox" name="beans" value="beans">
+                <label for="cheese">Cheese</label><input id ="cheese" type="checkbox" name="cheese" value="cheese">
+                <label for="sour_cream">Sour Cream</label><input id="sour_cream" type="checkbox" name="sour_cream" value="sour_cream">
                 <br><br>
                 <textarea>Delivery Instructions:</textarea><br><br>
                 <button type="submit">Submit</button>

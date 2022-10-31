@@ -28,6 +28,9 @@ def operation_result():
     "inches" : 0.0254
     }
     total = Distance * metrics[Units]
+    total_2 = total / metrics[Output]
+
+    
     
     return render_template(
     'index.html',
@@ -35,7 +38,8 @@ def operation_result():
     Units=Units,
     Output=Output,
     metrics=metrics,
-    total=total
+    total=total,
+    total_2=total_2
     )
 
 app.run(debug=True)

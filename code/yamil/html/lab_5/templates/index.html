@@ -26,8 +26,12 @@
             <input type="submit" value="Submit"/>
             <input type="reset" value="RESET" style="color: red;"/>
         </form>
-        <p>{{Distance}} {{Units}} is equal to {{total}} {{Output}}.
 
+        {% if Output != Units %}
+            <p>{{Distance}} {{Units}} is equal to {{total_2}} {{Output}}.</p>
+        {% else %}
+            <p>{{Distance}} {{Units}} is equal to {{total}} {{Output}}.</p>
+        {% endif %}
 
 </body>
 
