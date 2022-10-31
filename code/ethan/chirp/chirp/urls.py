@@ -3,5 +3,7 @@ from . import views
 
 app_name = 'chirp' # for namespacing
 urlpatterns = [
-    path('', views.BlogListView.as_view, name='index'),
+    path('', views.ChirpListView.as_view(), name='index'),
+    path('chirp/<int:pk>/', views.ChirpDetailView.as_view(), name='detail'),
+    path('chirp/new/', views.ChirpCreateView.as_view(), name='new_post')
 ]

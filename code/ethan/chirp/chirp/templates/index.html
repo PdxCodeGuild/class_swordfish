@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% for chirp in chirp_list %}
+        <div>
+            <h2>{{ chirp.title }}</h2>
+            <h5>{{ chirp.author.username }}</h5>
+            <p>{{ chirp.body|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+
+{% endblock content %}
