@@ -17,7 +17,7 @@
         </div>
         <div class="column">
             <h3>What would you like in your burrito?</h3>
-            <form action="https://webhook.site/0a7b5be8-8584-40c1-9ec7-005acfd2a691" method="post">
+            <form action="https://webhook.site/0a7b5be8-8584-40c1-9ec7-005acfd2a691" method="post" id="burritoform">
                 <label for="user_name">User Name</label><input type="text" name="user_name"/><br><br>
                 <label for="password">Password</label><input type="password" name="password"/><br><br>
                 Tortilla:  <label for="wheat_flour">White Flour</label><input type="radio" name="tortilla" value="white_flour" checked>
@@ -34,7 +34,7 @@
                 <label for="cheese">Cheese</label><input id ="cheese" type="checkbox" name="cheese" value="cheese">
                 <label for="sour_cream">Sour Cream</label><input id="sour_cream" type="checkbox" name="sour_cream" value="sour_cream">
                 <br><br>
-                <textarea>Delivery Instructions:</textarea><br><br>
+                <label for="textarea">Delivery Instructions:</label><textarea placeholder="Delivery instructions:" id="burritoform" name="delivery_instructions"></textarea><br><br>
                 <button type="submit">Submit</button>
             </form>
             </div>
