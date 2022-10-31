@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block chirp %}
+
+    <div class="profile">
+        <h3>{{ user_profile.user }}</h3>
+        <h3>{{ user_profile.username }} posts - Chirping since {{ user_profile.date_joined}}</h3>
+
+        {% for peep in user_profile.chirps.all %}
+            <div class="chirp-entry">
+                <h4>{{ peep.chirper.user }} - {{ peep.created }} :</h4> 
+                <h3>{{peep.chirp}}</h3>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock chirp %}

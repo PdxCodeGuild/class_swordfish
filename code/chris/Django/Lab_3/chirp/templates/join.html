@@ -2,12 +2,13 @@
 
 {% block chirp %}
 
-    <div class="create-chirp">
+    <div class="join-link">
+        <h1>Join Chirper</h1>
         <form action="" method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <input type="submit" value="Chirp">
+            <input type="submit" value="Join">
         </form>
     </div>
-
+    
 {% endblock chirp %}
