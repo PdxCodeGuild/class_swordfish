@@ -1,14 +1,24 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponseRedirect
 from .models import Shortener
-from .forms import ShortenerForm
+import string, random
+from django.urls import reverse
 
 def index(request):
     urls = Shortener.objects.all()
-    form = ShortenerForm()
-    if request.method == 'POST':
-        form = ShortenerForm(request.POST)
-        if form.is_valid():
-            form.save()
-    context = {"urls": urls, 'form': form}
+    context = {'urls': urls}
     return render(request, 'index.html', context)
+
+def addurl(request):
+    long_url = request.POST.get('url', False)
+    code = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(6))
+    new_url = Shortener(url = long_url, code = code)
+    new_url.save()
+    return HttpResponseRedirect(reverse('url_shortener:index'))
+
+def redirect(request, url_code):
+    print(url_code)
+    object = get_object_or_404(Shortener, code = url_code)
+    return HttpResponseRedirect(object.url)
+
+
