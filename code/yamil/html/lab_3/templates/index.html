@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Stuff!</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
+  </head>
+<body>
+  <div class="screen">
+    <div class="topnav">
+      <a class="active" href="#home">Home</a>
+      <a href="#news">News</a>
+      <a href="#about">About</a>
+      <a href="#new_signings">New Signings</a>
+    </div>
+    <h1 style="text-align: center">Welcome to Sports Stuff Blog page!</h1>
+    <div class="row">
+      {% for post in posts %}
+      <div class="blogs">
+          <div class="card">
+              <div class="card-image">
+                <a href="#">
+                    <img src="static/{{ post.image }}"/>
+                </a>
+                  <br>
+                  <span class="card-title">{{post.title}}</span>
+              </div>
+              <div class="card-content">
+                  <p>{{ post.body }}</p>
+              </div>
+          </div>
+      </div>
+      {% endfor %}
+</div> 
+<footer class="footer"> Sports Stuff 2022 </footer>
+</body>
+</html>
+
