@@ -43,5 +43,9 @@
 <ul>
     {% for item in complete %}
         <li>{{ item.description }}: {{ item.completed_date }}</li>
+            <form action="{% url 'grocery:complete' item.id %}" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Incomplete">
+            </form>
     {% endfor %}
 </ul><br>

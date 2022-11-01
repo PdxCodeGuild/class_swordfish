@@ -24,9 +24,13 @@ def add(request):
 
 def complete(request, pk):
     selected_item = get_object_or_404(GroceryItem, pk=pk)
-    print(selected_item)
-    selected_item.task_completed = True
-    selected_item.completed_date = timezone.now()
+    if selected_item.task_completed: 
+        selected_item.task_completed = False
+        selected_item.completed_date = None
+    else:
+    # print(selected_item)
+        selected_item.task_completed = True
+        selected_item.completed_date = timezone.now()
     selected_item.save()
     # return render(request, 'grocery:index', completed_item=completed_item)
     return HttpResponseRedirect(reverse('grocery:index'))
