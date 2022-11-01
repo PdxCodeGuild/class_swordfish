@@ -16,19 +16,15 @@
 </head>
 <body>
     <header>
-        <div class="nav-left">
-            <h1><a href="{% url 'posts:home' %}">jacksite</a></h1>
-        </div>
-        <div class="nav-right">
-            {% if user.is_authenticated %}
-                <p>Hey, <a href="{% url 'users:profile' user.username %}">{{ user.username}}</a>!</p>
-                <p><a href="{% url 'logout' %}">Logout</a></p>
-                <p><a href="{% url 'posts:create' %}">Post Something</a></p>
-            {% else %}
-                <p><a href="{% url 'login' %}">Login</a></p>
-                <p><a href="{% url 'users:register' %}">Create an Account</a></p>
-            {% endif %}
-        </div>
+        <h1><a href="{% url 'posts:home' %}">jacksite</a></h1>
+        {% if user.is_authenticated %}
+            <p>Hey, <a href="{% url 'users:profile' user.username %}">{{ user.username}}</a>!</p>
+            <p><a href="{% url 'logout' %}">Logout</a></p>
+            <p><a href="{% url 'posts:create' %}">Post Something</a></p>
+        {% else %}
+            <p><a href="{% url 'login' %}">Login</a></p>
+            <p><a href="{% url 'users:register' %}">Create an Account</a></p>
+        {% endif %}
     </header>
     <div class="main-container">
         {% block content %}
