@@ -1,36 +1,27 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 app = Flask(__name__)
 
 keys = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
-answers = []
 
-def index_value():
-    position1 = keys.index(i)
-    return(position1)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method =="POST":
-        response = user_word
+        user_word = request.form["user_word"]
+        #print(user_word)
+        working_string = ""
         for i in user_word:
-            position1 = index_value()
-
+            position1 = keys.index(i) #i has to be inside loop or it will return an "i is not defined" error
             if position1 >= 13:
-
                 position2 = position1 - 13
-
                 new_letter = keys[position2]
-
             else:
-
                 position2 = position1 + 13 
-
                 new_letter = keys[position2]
-
-        answers = new_letter.append(i)
-
-    return render_template('lab05.html', answers=answers)
+            working_string += new_letter
+        return render_template('lab05.html', answer=working_string) 
+    return render_template('lab05.html')
 
 app.run(debug=True)
 
