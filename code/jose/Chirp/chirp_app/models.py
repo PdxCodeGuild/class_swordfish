@@ -11,7 +11,7 @@ class Chirp(models.Model):
         return self.chirp
     
     def get_absolute_url(self):
-        return reverse('home')
+        return reverse('chirp')
 
 
     

@@ -10,14 +10,14 @@
 <body>
     <header>
         <div class= "nav_right">
-            {% if user.is_authenticated %}
-            <p>Hello, <a href="{% url 'user:profile' user.username %}">{{ user.username }}</a>!</p>
-            <p><a href="{% url 'logout' %}">Logout</a></p>
+             {% if user.is_authenticated %} 
+             <p>Hello, <a href="{% url 'users:profile' user.username %}">{{ user.username }}</a>!</p> 
+             <p><a href="{% url 'logout' %}">Logout</a></p> 
             <p><a href="{% url 'chirp_app:new' %}"> New Chirp</a></p>
-            {% else %}
+             {% else %} 
                 <p><a href="{% url 'login' %}">Login</a></p>
                 <p><a href="{% url 'users:signup' %}">Sign Up</a></p>
-            {% endif %} 
+             {% endif %}  
 
 
 

@@ -1,11 +1,11 @@
-{% extends 'home.html' %}
+{% extends 'chirp.html' %}
 
 {% block content %}
 
     <h1>Delete Chirp</h1>
     <form action="" method="post">
         {% csrf_token %}
-        <p>Are you sure you want to delete your chirp, "{{ post.title }}"?</p>
+        <p>Are you sure you want to delete your chirp, "{{ chirp.title }}"?</p>
         <input type="submit" value="Confirm">
     </form>
 
