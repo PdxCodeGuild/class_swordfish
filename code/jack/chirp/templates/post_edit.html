@@ -2,16 +2,18 @@
 
 {% block content %}
     <h3>Edit post</h3>
-    <form action="{% url 'posts:edit' post.pk %}" method="post">
-        {% csrf_token %}
-        <label for="title">Title</label>
-        <br>
-        <input type="text" name="title" id="title" maxlength="30" value="{{ post.title }}" required>
-        <br>
-        <label for="body">Body</label>
-        <br>
-        <input type="text" name="body" id="body" maxlength="200" size="50" value="{{ post.body }}" required>
-        <br>
-        <input type="submit" value="Update">
-    </form>
+    <div class="block">
+        <form action="{% url 'posts:edit' post.pk %}" method="post">
+            {% csrf_token %}
+            <label for="title">Title</label>
+            <br>
+            <input type="text" name="title" id="title" maxlength="30" value="{{ post.title }}" required>
+            <br>
+            <label for="body">Body</label>
+            <br>
+            <input type="text" name="body" id="body" maxlength="200" size="50" value="{{ post.body }}" required>
+            <br>
+            <input type="submit" value="Update">
+        </form>
+    </div>
 {% endblock content%}

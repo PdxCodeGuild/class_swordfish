@@ -1,0 +1,59 @@
+/* 
+light blue #C2D7F2
+dark blue #116091
+brown #73603D
+alt blues
+#369AD9
+#1B7EA6
+    https://scitechdaily.com/images/Water-Drop.gif
+    font-family: 'Tinos', serif;
+*/
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #e9ffec;
+}
+
+header {
+    font-family: 'Roboto', sans-serif;
+    background-color: white;
+    color: black;
+    
+    box-shadow: 0px 3px 3px #888888;
+    margin: auto;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+}
+
+a:link, a:visited {
+    color: black;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+  }
+
+.block {
+    margin:auto;
+    width:300px;
+}
+
+.main-container {
+    margin:auto;
+    
+}
+
+.blogpost {
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 20px;
+    margin: 20px;
+    width:auto;
+    max-width: 600px;
+    margin:auto;
+    margin-top: 24px;
+
+}

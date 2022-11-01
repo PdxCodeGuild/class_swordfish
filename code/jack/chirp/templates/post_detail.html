@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="post-detail">
+    <div class="block">
         <h3>{{ post.title }}</h2>
         <h4><a href="{% url 'users:profile' post.author.username %}">{{ post.author.username }}</a></h4>
         <h4>{{ post.creation_date }}</h4>
