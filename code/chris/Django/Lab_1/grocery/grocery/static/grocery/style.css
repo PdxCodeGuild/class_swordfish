@@ -1,0 +1,13 @@
+html {
+    box-sizing: border-box;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: chartreuse;
+    color: blueviolet;
+    font-family: Helvetica, sans-serif;
+    padding: 2em;
+}

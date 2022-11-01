@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chirper</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Roboto+Serif:opsz,wght@8..144,500&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="{% static 'css/main.css' %}"
+</head>
+<body>
+    <header>
+        <div class="home-link">
+            <h1><a href="{% url 'chirp:home' %}">Chirper</a></h1>
+        </div>
+        <div class="create-link">
+            {% if user.is_authenticated %}
+                <h3>Welcome, {{ user.username }}</h3>
+                <h3><a href="{% url 'logout' %}">Logout</a></h3>
+                <div class="chirp">
+                    <h3><a href="{% url 'chirp:create' %}">Chirp</a></h3>
+                </div>
+            {% else %}
+                <h3><a href="{% url 'login' %}">Login</a></h3>
+                <h3><a href="{% url 'users:join' %}">Join Chirper</a></h3>
+            {% endif %}
+        </div>
+    </header>
+    <div class="chirp">
+        {% block chirp %}
+        {% endblock chirp %}
+    </div>
+    <footer>
+        <h3>Chief Chirp: Chris K.</h3>
+        <h4>Support at support@chirper.com</h4>
+</body>
+</html>

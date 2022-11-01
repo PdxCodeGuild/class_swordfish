@@ -2,7 +2,7 @@ import random
 from typing import Counter
 
 #Version 1
-numbers_range = list(range(100))
+numbers_range = list(range(70))
 
 def pick6():
     counter = 0 #this is base number (can start at zero or ten or whatever)
@@ -14,7 +14,7 @@ def pick6():
 
 winning_numbers = pick6()
 ticket_numbers = pick6()
-
+print(ticket_numbers)
 def num_matching(lotto_numbers, winning_ticket):
     matching = 0
     if lotto_numbers[0] == winning_ticket[0]:
