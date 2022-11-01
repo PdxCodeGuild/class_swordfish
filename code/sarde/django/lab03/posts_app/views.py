@@ -1,10 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Post
 
 
 def greeting(request):
     greeting = 'Hi'
     return HttpResponse(greeting)
 
-# ability to post chirps of some constrained length(e.g 128 characters)
-# public profile page that shows all the users chirps
+
+def index(request):
+    posts = Post.objects.all()
+    return render(request, 'posts_app/posts.html', {'posts': posts})
