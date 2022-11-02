@@ -66,6 +66,8 @@ elif x > 99 and x % 100 == 0:
     print(f"You have entered {hundreds_digit[hundreds]}.")
 elif x > 99 and x % 100 < 10:
     print(f"You have entered {hundreds_digit[hundreds]} and {second_digit[ones]}.")
+elif x > 99 and x % 100 != 0 and isinstance(x/10,int) == True:
+    print(f"You have entered {hundreds_digit[hundreds]} and {second_digit[ones]}.")
 elif x > 99 and x % 100 != 0:
     print(f"You have entered {hundreds_digit[hundreds]} and {first_digit[hundreds_4]}-{second_digit[ones]}.")
 else:
