@@ -1,9 +1,7 @@
 from django.db import models
+class UrlData(models.Model):
+    original_url = models.CharField(max_length=300)
+    short_url = models.CharField(max_length=13)
 
-# Create your models here.
-class OriginalURL(models.Model):
-    url_link = models.CharField(max_length=1000)
-    url_link_id = models.CharField(max_length = 7)
-
-    def __str__(self):
-        return self.url_link_id
+def __str__(self):
+        return f"Your shortened URL for: {self.original_url} is {self.short_url}"
