@@ -1,5 +1,5 @@
 from django.views.generic import ListView, DetailView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from chirp.models import Chirp
 
 class ChirpListView(ListView):
@@ -14,3 +14,8 @@ class ChirpCreateView(CreateView):
     model = Chirp
     template_name = 'new_post.html'
     fields = ['title', 'author', 'body']
+
+class ChirpEditView(UpdateView):
+    model = Chirp
+    template_name = 'edit_post.html'
+    fields = ['title', 'body']
