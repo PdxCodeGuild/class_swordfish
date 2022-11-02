@@ -1,0 +1,1 @@
+let x = parseInt(prompt("Enter a number: "))
