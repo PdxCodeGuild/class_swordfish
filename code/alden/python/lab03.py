@@ -31,14 +31,14 @@ second_in = input('Pick your second card: ').upper()
 third_in = input('Pick your third card: ').upper()
 
 total = value(first_in, second_in, third_in)            # Creating the total for the cards.
-best = list(reversed(total))                           # Reverse list to make it easier to determine which si the better option
-if len(best) > 1:
+best = list(reversed(total))                            # Reverse list to make it easier to determine which si the better option
+if len(best) > 1:                                       # Checks to see if the best list is more then one index long.
     for i in range(len(best)):
         if best[i] <=21:
             best = best[i]
             break
 else:
-    best = best[0]
+    best = best[0]                                      # If not, sets 0 index as the value.
 
 if best < 17:                                           # if, elif, else to determine the printed outcome.
     print(f'{best} Hit')
