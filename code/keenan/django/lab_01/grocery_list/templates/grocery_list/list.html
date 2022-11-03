@@ -29,7 +29,10 @@
     {% for item in incomplete_items %}
         <li>
             {{ item.item_text }}
-
+                <form action="{% url 'grocery_list:complete' item.pk %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="Complete">
+                </form>
         </li>
     {% endfor %}
     </ul>
@@ -38,7 +41,8 @@
     <ul>
     {% for item in complete_items %}
         <li>
-            {{ item.item_text }} 
+            {{ item.item_text }}
+            {% comment %} {{ item.item_text }} - Purchased on {{ item.completed_date}} {% endcomment %}
         </li>
     {% endfor %}
     </ul>

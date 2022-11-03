@@ -1,8 +1,10 @@
-from django.shortcuts import HttpResponseRedirect, render
+from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
+from django.utils import timezone
 from django.urls import reverse
+
 from .models import GroceryItem
 
 
@@ -14,7 +16,7 @@ def index(request):
         'incomplete_items': incomplete_items,
         'complete_items': complete_items 
     }
-    return render(request, 'grocery_list/list.html', context)
+    return render(request, 'grocery_list/list.html', context)   
 
 def add(request):
     description = request.POST["item_text"]
@@ -26,11 +28,14 @@ def add(request):
     # after generating the item, we need to send the user somewhere (ie the refreshed page, a confirm redirect etc.)
     return HttpResponseRedirect(reverse('grocery_list:index'))
 
-# def complete(request, pk):
-# get object, change boolean, save, redirect
-# item = get_object_or404(GroceryItem, pk=pk)
-# item.completed = True
-# item.completed.date=
+def complete(request, pk):
+# get object, change boolean, save, redirect, make sure to update URL links after this
+    item = get_object_or_404(GroceryItem, pk=pk)
+    item.completed_field = True
+    item.completed_date = timezone.now() if item.completed_field else None
+    print(item)
+    item.save()
+    return HttpResponseRedirect(reverse('grocery_list:index'))
 
 
     
