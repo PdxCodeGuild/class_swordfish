@@ -6,7 +6,7 @@ class ATM():
         self.transactions = []
 
     def calc_interest(self):
-        ret = round(self.balance + self.balance * self.interest, 2)
+        ret = round(self.balance * self.interest, 2)
         self.transactions.append(f'User calculated interest: ${ret}')
         return ret
 
@@ -59,7 +59,7 @@ while True:
             print('Insufficient funds')
     elif command == 'interest':
         amount = atm.calc_interest() # call the calc_interest() method
-        atm.deposit(amount)
+        # atm.deposit(amount)
         print(f'Accumulated ${amount} in interest')
     elif command == 'help':
         print('Available commands:')
