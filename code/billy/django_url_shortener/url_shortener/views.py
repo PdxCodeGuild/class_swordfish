@@ -1,29 +1,31 @@
-import random, string
-from django.shortcuts import redirect, render
-from .forms import Url
-from .models import UrlData
+from django.shortcuts import render, get_object_or_404, reverse
+from django.http import HttpResponse, HttpResponseRedirect
+from .models import UrlShortener
+import random
+import string
 
-
-def urlShort(request):
-    if request.method == 'POST':
-        form = Url(request.POST)
-        if form.is_valid():
-            slug = ''.join(random.choice(string.ascii_letters)
-                           for x in range(10))
-            url = form.cleaned_data["url"]
-            new_url = UrlData(url=url, slug=slug)
-            new_url.save()
-            request.user.urlshort.add(new_url)
-            return redirect('/')
-    else:
-        form = Url()
-    data = UrlData.objects.all()
+def index(request):
+    urls = UrlShortener.objects.all()
     context = {
-        'form': form,
-        'data': data
+        'urls': urls
     }
-    return render(request, 'index.html', context)
+    return render(request, 'url_shortener/index.html', context)
 
-def urlRedirect(request, slugs):
-    data = UrlData.objects.get(slug=slugs)
-    return redirect(data.url)
+def shorten(request):
+    print(request.POST)
+    long_url = request.POST['long_url']
+    print(long_url)
+    code = ''
+    for i in range(6):
+        code += random.choice(string.ascii_letters + string.digits)
+    print(code)
+    shortened_url = UrlShortener(code=code, url=long_url)
+    shortened_url.save()
+    return HttpResponseRedirect(reverse('url_shortener:index'))
+
+
+def redirect(request, code):
+    shortened_url = get_object_or_404(UrlShortener, code=code)
+    shortened_url.clicks += 1
+    shortened_url.save()
+    return HttpResponseRedirect(shortened_url.url)

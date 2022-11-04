@@ -4,32 +4,35 @@
 
 <body>
     <div>
-        <h2>URL Shortener</h2>
-        <form>
-            {% csrf_token %}
-        <input type = 'text' id = 'URL', name = 'url_link' placeholder="Enter the URL">
-        <input type = 'submit' id = 'submit_button' value = 'Shorten URL'>
-        </form>
-        <div id = 'shortened_url_link'></div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Short URL</th>
+                    <th>Long URL</th>
+                    <th>Clicks</th>
+                </tr>
+            </thead>
+
+            <form action="{% url 'url_shortener:shorten' %}" method="post" class="row">
+                {% csrf_token %}
+                <div class="input_field">
+                    <input id="input_url" type="url" name="long_url" placeholder='Enter URL' class="validate">
+                    <label for="input_url"></label>
+                </div>
+                <div class="input_field">
+                    <button type="submit">Shorten URL</button>
+                </div>
+            </form>
+            
+            <tbody class="url_field">
+                {% for url in urls %}
+                <tr>
+                    <td><a href="{{ url.code }}">{{ url.code }}</a></td>
+                    <td>{{ url.long_url_domain }}</td>
+                    <th>{{ url.clicks }}</th>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
-
-    <script>
-        let form = document.getElementById('myform')
-        let shortened_link = document.getElementById('shortened_link')
-        form.('submit', shortenUrl)
-        function shortened_url_link{
-            e.preventDefault()
-            .ajax({
-                type: 'POST',
-                url: "{% url 'create' %}",
-                data: $('#myform').serialize(),
-                datatype: "json",
-                success: function(data){
-                    shortened_url_link.innerText = 'localhost:8000/' + data
-                }
-            })
-        }
-    </script>
-
 </body>
-</html>

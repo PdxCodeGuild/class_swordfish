@@ -14,11 +14,11 @@ const face_cards = {
     ace: 1,
 }
 
-let card_one = prompt("what is your first card?")
+let card_one = prompt("what is your first card? (acceptable cards: king, queen, jack, 10, 9, 8, 7, 6, 5, 4, 3, 2, ace)")
 
-let card_two = prompt("what is your second card?")
+let card_two = prompt("what is your second card? (acceptable cards: king, queen, jack, 10, 9, 8, 7, 6, 5, 4, 3, 2, ace)")
 
-let card_three = prompt("what is your third card?")
+let card_three = prompt("what is your third card? (acceptable cards: king, queen, jack, 10, 9, 8, 7, 6, 5, 4, 3, 2, ace)")
 
 let card_total = face_cards[card_one] + face_cards[card_two] + face_cards[card_three]
 
