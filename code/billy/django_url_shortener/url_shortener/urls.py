@@ -1,8 +1,7 @@
 from django.urls import path
 from . import views
-
+app_name = "url"
 urlpatterns = [
-    path('', views.index, name = 'index'),
-    path('create', views.add_url, name = 'create'),
-    path('<str:pk>', views.url_shortener, name = 'shorten')
+    path("", views.urlShort, name="home"),
+    path("u/<str:slugs>", views.urlRedirect, name="redirect")
 ]

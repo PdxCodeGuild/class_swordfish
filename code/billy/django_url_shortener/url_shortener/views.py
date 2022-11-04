@@ -1,19 +1,29 @@
-from django.shortcuts import render, redirect
-import uuid
-from .models import OriginalURL
-from django.http import HttpResponse
+import random, string
+from django.shortcuts import redirect, render
+from .forms import Url
+from .models import UrlData
 
-def index(request):
-    return render(request, 'url_shortener/index.html')
 
-def add_url(request):
+def urlShort(request):
     if request.method == 'POST':
-        url_link = request.POST['link']
-        url_link_id = str(uuid.uuid4())[:7]
-        shortened_link = OriginalURL(link=url_link, link_id = url_link_id)
-        shortened_link.save()
-        return HttpResponse(url_link_id)
+        form = Url(request.POST)
+        if form.is_valid():
+            slug = ''.join(random.choice(string.ascii_letters)
+                           for x in range(10))
+            url = form.cleaned_data["url"]
+            new_url = UrlData(url=url, slug=slug)
+            new_url.save()
+            request.user.urlshort.add(new_url)
+            return redirect('/')
+    else:
+        form = Url()
+    data = UrlData.objects.all()
+    context = {
+        'form': form,
+        'data': data
+    }
+    return render(request, 'index.html', context)
 
-def url_shortener(request, pk):
-    url_link = OriginalURL.objects.get(url_link_id = pk)
-    return redirect(url_link.link)
+def urlRedirect(request, slugs):
+    data = UrlData.objects.get(slug=slugs)
+    return redirect(data.url)

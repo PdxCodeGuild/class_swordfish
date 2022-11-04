@@ -19,7 +19,7 @@
         form.('submit', shortenUrl)
         function shortened_url_link{
             e.preventDefault()
-            $.ajax({
+            .ajax({
                 type: 'POST',
                 url: "{% url 'create' %}",
                 data: $('#myform').serialize(),
