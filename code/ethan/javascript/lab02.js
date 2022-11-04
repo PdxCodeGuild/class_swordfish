@@ -21,9 +21,9 @@ const card_values = {
     'K' : 10
 }
 
-let first_card = console.log(card_values[card_one])
-let second_card = console.log(card_values[card_two])
-let thrid_card = console.log(card_values[card_three])
+let first_card = card_values[card_one]
+let second_card = card_values[card_two]
+let thrid_card = card_values[card_three]
 
 let total = first_card + second_card + thrid_card
 
