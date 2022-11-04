@@ -33,9 +33,21 @@ def complete(request, pk):
     item = get_object_or_404(GroceryItem, pk=pk)
     item.completed_field = True
     item.completed_date = timezone.now() if item.completed_field else None
-    print(item)
     item.save()
     return HttpResponseRedirect(reverse('grocery_list:index'))
+
+def incomplete(request, pk):
+    item = get_object_or_404(GroceryItem, pk=pk)
+    item.completed_field = False
+    item.completed_date = None
+    item.save()
+    return HttpResponseRedirect(reverse('grocery_list:index'))
+
+def delete(request, pk):
+    item = get_object_or_404(GroceryItem, pk=pk)
+    item.delete()
+    return HttpResponseRedirect(reverse('grocery_list:index'))
+
 
 
     

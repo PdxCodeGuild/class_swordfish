@@ -33,6 +33,10 @@
                     {% csrf_token %}
                     <input type="submit" value="Complete">
                 </form>
+                <form action="{% url 'grocery_list:delete' item.pk %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="Delete">
+                </form>
         </li>
     {% endfor %}
     </ul>
@@ -42,7 +46,14 @@
     {% for item in complete_items %}
         <li>
             {{ item.item_text }}
-            {% comment %} {{ item.item_text }} - Purchased on {{ item.completed_date}} {% endcomment %}
+                <form action="{% url 'grocery_list:incomplete' item.pk %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="Mark as not Complete">
+                </form>
+                <form action="{% url 'grocery_list:delete' item.pk %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="Delete">
+                </form>
         </li>
     {% endfor %}
     </ul>
