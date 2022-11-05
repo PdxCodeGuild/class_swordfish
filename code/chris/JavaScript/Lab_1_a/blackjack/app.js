@@ -22,11 +22,11 @@ let card_total = card_combos[card_1] + card_combos[card_2] + card_combos[card_3]
 // alert(card_total)
 
 if (card_total > 0 && card_total < 17) {
-    alert('Hit')
+    alert(card_total + "-" + 'Hit')
 } else if (card_total >= 17 && card_total < 21) {
-    alert('Stay')
+    alert(card_total + "-" + 'Stay')
 } else if (card_total === 21) {
-    alert('Blackjack!!!')
+    alert(card_total + "-" + 'Blackjack!!!')
 } else {
     alert('Busted!')
 }
