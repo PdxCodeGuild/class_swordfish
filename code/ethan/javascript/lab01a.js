@@ -30,15 +30,15 @@ if (inputunit === 'feet') {
     let conversion = meters/output
     alert(distance + " ft is " + conversion + " " + outputunit)
 } else if (inputunit === 'miles') {
-    let meters = distance * ft
+    let meters = distance * mi
     let conversion = meters/output
     alert(distance + " mi is " + conversion + " " + outputunit)
 } else if (inputunit === 'meters') {
-    let meters = distance * ft
+    let meters = distance * m
     let conversion = meters/output
     alert(distance + " m is " + conversion + " " + outputunit)
 } else if (inputunit === 'kilometers') {
-    let meters = distance * ft
+    let meters = distance * km
     let conversion = meters/output
     alert(distance + " km is " + conversion + " " + outputunit)
 }
