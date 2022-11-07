@@ -1,0 +1,9 @@
+body {
+    background-image: url(calming_fog_mountains.jpg);
+    background-size: cover;
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(55, 86, 87);
+}
+.input_field {
+    padding: .5em;
+}

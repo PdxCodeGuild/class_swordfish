@@ -1,7 +1,15 @@
 from django.db import models
-class UrlData(models.Model):
-    original_url = models.CharField(max_length=300)
-    short_url = models.CharField(max_length=13)
+import re
 
-def __str__(self):
-        return f"Your shortened URL for: {self.original_url} is {self.short_url}"
+class UrlShortener(models.Model):
+    code = models.CharField(max_length=11)
+    url = models.URLField(max_length=350)
+    clicks = models.IntegerField(default=0)
+
+    def long_url_domain(self):
+        pattern = r'^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n?]+)'
+        domain = re.search(pattern, self.url, re.IGNORECASE)
+        return domain.group(1)
+    
+    def __str__(self):
+        return self.code + self.url

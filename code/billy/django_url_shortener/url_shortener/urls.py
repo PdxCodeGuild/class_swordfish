@@ -1,7 +1,9 @@
 from django.urls import path
 from . import views
-app_name = "url"
+
+app_name = 'url_shortener'
 urlpatterns = [
-    path("", views.urlShort, name="home"),
-    path("u/<str:slugs>", views.urlRedirect, name="redirect")
+    path('', views.index, name='index'),
+    path('shorten/', views.shorten, name='shorten'),
+    path('<str:code>/', views.redirect, name='redirect'),
 ]
