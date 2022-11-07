@@ -10,17 +10,19 @@ const units = {
     ft:0.3048,
     km:1000,
     yd:0.9144,
-    inches:0.0254,
+    in:0.0254,
 }
 
-// input_unit = 'ft'
+// input_unit = 'ft'  
 // let length = units[input_unit]
-// alert(length)
+// alert(length)  // dictionary is working
 
 convert.addEventListener('click', function() {
-    console.log(distance.value)
+    // console.log(distance.value)
+    // console.log(units[input_unit.value])
+    // console.log(units[output_unit.value])
     let conversion = parseInt(distance.value) * units[input_unit.value] / units[output_unit.value]
-    // conversion = parseInt(conversion.toFixed(2)) + output_unit.value
-    console.log(conversion)
+    conversion = parseInt(conversion.toFixed(2)) + output_unit.value
+    // console.log(conversion)
     answer.innerText = conversion
 })
