@@ -18,8 +18,6 @@ let first = document.getElementById('first')
 let second = document.getElementById('second')
 let third = document.getElementById('third')
 
-// console.log(first, second, third)
-
 function values(first, second, third) {
     let totals = [0]
     let selections = [first, second, third]
@@ -35,11 +33,8 @@ function values(first, second, third) {
 }
 
 
-// console.log(total)
-
-// let best = total.reverse()
-function blackjack(top){
-    top = total.reverse()
+function blackjack(total){
+    let top = total.reverse()
     for (let i=0; i<top.length; ++i){
         if (top[i] <= 21){
             top = top[i]
@@ -49,20 +44,19 @@ function blackjack(top){
     return top
 }
 
+advise.addEventListener('click', function(){
+    let total = values(first.value, second.value, third.value)
+    let best = blackjack(total)
+    if (best < 17) {
+        result.innerText = (best + ' Hit')
 
-// console.log(best)
-result.addEventListener('click', function())
-let total = values(first.value, second.value, third.value)
-let best = blackjack(total)
-if (best < 17) {
-    alert(best + ' Hit')
+    } else if (best < 21) {
+        result.innerText = (best + ' Stay')
 
-} else if (best < 21) {
-    alert(best + ' Stay')
-
-} else if (best === 21) {
-    alert(best + ' BlackJack!!')
-    
-} else if (best > 21) {
-    alert(best + ' Already Busted. :(')
-}
+    } else if (best === 21) {
+        result.innerText = (best + ' BlackJack!!')
+                
+    } else if (best > 21) {
+        result.innerText = (best + ' Already Busted. :(')
+    }
+})
