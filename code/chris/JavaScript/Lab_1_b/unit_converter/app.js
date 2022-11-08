@@ -22,7 +22,7 @@ convert.addEventListener('click', function() {
     // console.log(units[input_unit.value])
     // console.log(units[output_unit.value])
     let conversion = parseInt(distance.value) * units[input_unit.value] / units[output_unit.value]
-    conversion = (conversion.toFixed(2))
+    conversion = (conversion.toFixed(2)) + output_unit.value
     // console.log(conversion)
     answer.innerText = conversion
 })
