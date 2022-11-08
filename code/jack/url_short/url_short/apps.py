@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class ChirpConfig(AppConfig):
+class UrlShortConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'chirp'
+    name = 'url_short'

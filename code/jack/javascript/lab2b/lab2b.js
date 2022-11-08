@@ -15,17 +15,20 @@ converstions = { // no let?
 let calculate = document.getElementById('calculate')
 let length_output = document.getElementById('length_output')
 
+let length_input = document.getElementById('length_input')
+let unit_input = document.getElementById('unit_input')
+let unit_output = document.getElementById('unit_output')
 
 calculate.addEventListener('click', function() {
-    let length_input = Number(document.getElementById('length_input').value)
-    let unit_input = document.getElementById('unit_input').value
-    let unit_output = document.getElementById('unit_output').value
+    length_input_value = Number(length_input.value)
+    unit_input_value = unit_input.value
+    unit_output_value = unit_output.value
 
-    let length_m = length_input * converstions[unit_input]
+    let length_m = length_input_value * converstions[unit_input_value]
 
     let result
     for (let unit of Object.getOwnPropertyNames(converstions)) {
-        if (unit_output == unit) {
+        if (unit_output_value == unit) {
             result = length_m / converstions[unit]
             length_output.innerText = result.toString()
         }

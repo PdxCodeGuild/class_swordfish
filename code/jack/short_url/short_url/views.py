@@ -17,7 +17,6 @@ def index(request):
         all_urls = Url.objects.all().values_list('url', flat=True)
         if url in all_urls:
             link = get_object_or_404(Url.objects.filter(url=url))
-            code = link.code
             return render(request, 'short_url/index.html', {'link':link})
 
         # ensure code is not already in use (x/56800235584 chance, but still...)
