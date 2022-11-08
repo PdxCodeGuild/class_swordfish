@@ -1,10 +1,10 @@
 const unit_converter = {
-    'ft': 0.3048,
-    'mi': 1609.34,
-    'm': 1,
-    'km': 1000,
-    'y': 0.9144,
-    'in': 0.0254
+    'feet': 0.3048,
+    'mile': 1609.34,
+    'meter': 1,
+    'kilometer': 1000,
+    'yard': 0.9144,
+    'inch': 0.0254
 }
 
 let distance = prompt("what is the distance? (enter the numerical amount)")

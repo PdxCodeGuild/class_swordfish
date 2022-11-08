@@ -1,4 +1,4 @@
-const face_cards = {
+let face_cards = {
     king: 10,
     queen: 10,
     jack: 10,
@@ -13,26 +13,6 @@ const face_cards = {
     2: 2,
     ace: 1,
 }
+let submit = document.getElementById('submit')
+let card_score = document.getElementById('card_score')
 
-let card_one = prompt("what is your first card? (acceptable cards: king, queen, jack, 10, 9, 8, 7, 6, 5, 4, 3, 2, ace)")
-
-let card_two = prompt("what is your second card? (acceptable cards: king, queen, jack, 10, 9, 8, 7, 6, 5, 4, 3, 2, ace)")
-
-let card_three = prompt("what is your third card? (acceptable cards: king, queen, jack, 10, 9, 8, 7, 6, 5, 4, 3, 2, ace)")
-
-let card_total = face_cards[card_one] + face_cards[card_two] + face_cards[card_three]
-
-alert(card_total)
-
-if (card_total < 17) {
-    alert("Card total: " + card_total + " Advised action: Hit!")
-}
-else if (card_total > 17 && card_total < 21) {
-    alert("Card total: " + card_total + " Advised action: Stay!")
-}
-else if (card_total == 21) {
-    alert("Card total: " + card_total + " Advised action: Winner!")
-}
-else if(card_total > 21) {
-    alert("Card total: " + card_total + " Advised action: Bust! You LOSE!!!!!!!!")
-}
