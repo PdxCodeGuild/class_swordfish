@@ -2,19 +2,22 @@
 
 //contact Array of Objects
 let contacts = [
-    { name: 'Sarde', favoritefruit: 'Pineapple', favoritecolor: 'Pink' },
-    { name: 'Eryan', favoritefruit: 'Strawberries', favoritecolor: 'Green' },
-    { name: 'Salena', favoritefruit: 'Blueberries', favoritecolor: 'Purple' },
-    { name: 'Eryn', favoritefruit: 'Apples', favoritecolor: 'Magenta' },
-    { name: 'Slade', favoritefruit: 'Raspberries', favoritecolor: 'Blue' }
+    { name: 'Eryan', favoriteFruit: 'Strawberries', favoriteColor: 'Green' },
+    { name: 'Salena', favoriteFruit: 'Blueberries', favoriteColor: 'Purple' },
+    { name: 'Eryn', favoriteFruit: 'Apples', favoriteColor: 'Magenta' },
+    { name: 'Slade', favoriteFruit: 'Raspberries', favoriteColor: 'Blue' },
+    { name: 'Sarde', favoriteFruit: 'Pineapple', favoriteColor: 'Pink' },
 ]
 console.log(contacts) //typeof Array
 
 let theFirstPerson = contacts[0]
 let theKeys = Object.keys(theFirstPerson)
 //OBJECTS
-console.log(theFirstPerson)//{name: 'Sarde', favoritefruit: 'Pineapple', favoritecolor: 'Pink'}
-console.log(theKeys)//['name', 'favoritefruit', 'favoritecolor']
+// console.log(theFirstPerson)//{name: 'Sarde', favoriteFruit: 'Pineapple', favoriteColor: 'Pink'}
+// console.log(theKeys)//['name', 'favoriteFruit', 'favoriteColor']
+
+
+
 
 
 /*
@@ -30,24 +33,68 @@ Version2
     -remove the contact with the given name from the contact list
 
 */
-function createContact(theKeys, contacts) {
-    //create a record
-    // ask the user for name, favorite fruit, favorite color
-    let userName = prompt('Enter your name')
-    let userFavoriteFruit = prompt('Enter your favortie fruit')
-    let userFavoriteColor = prompt('Enter your favorite color')
-    // add what the user inputs to contacts
-    let newContact = {
-        'theKeys[0]': userName,
-        'theKeys[1]': userFavoriteFruit,
-        'theKeys[2]': userFavoriteColor
+
+//create a function that allows the user to create a contact
+//add the created contact contacts
+// function createContact(theKeys, contacts) {
+//     //create a record
+//     // ask the user for name, favorite fruit, favorite color
+//     let userName = prompt('Enter your name')
+//     let userfavoriteFruit = prompt('Enter your favortie fruit')
+//     let userfavoriteColor = prompt('Enter your favorite color')
+//     // add what the user inputs to contacts
+//     let newContact = {
+//         name: userName,
+//         favoriteFruit: userfavoriteFruit,
+//         favoriteColor: userfavoriteColor
+//     }
+//     //use some method to add the newContact to contacts
+//     contacts.push(newContact)
+//     console.log(newContact)
+//     // alert(newContact)
+//     console.log(contacts)
+
+//     return contacts
+
+// }
+// createContact(theKeys, contacts)
+// // console.log(contacts)
+
+// //create a function where the user enters a contacts name, and then that name is logged for the user
+// function retrieveContact(contacts) {
+//     //ask the user for the name to search for
+//     let nameToSearchFor = prompt('Enter contact\'s name')
+//     //iterate over contacts
+//     contacts.forEach(function (contact) {
+//         // console.log(contact)
+//         let name = contact['name']
+//         //if the name entered by the user is in contacts
+//         //print that contact 
+//         if (name == nameToSearchFor) {
+//             // console.log(name)
+//             console.log(contact)
+//         }
+//         return contact
+//     });
+// }
+// retrieveContact(contacts)
+
+//create a function where the user can update a contact
+function updateContact(contacts) {
+    //ask the user for the contacts name
+    let nameToUpdate = prompt('Enter contact\'s name')
+
+    //iterate over the length of the contacts list
+    for (let i = 0; i < contacts.length; i++) {
+        console.log(i, contacts[i])
+        if (contacts[i]['name'] == nameToUpdate) {
+            let inputAttribute = prompt('What do you want to update? "name", "favoriteFruit", "favoriteColor" ')
+            let inputValue = prompt('What do you want to update it to?')
+            contacts[i][inputAttribute] = inputValue
+            // console.log(contacts)
+        }
     }
-    //use some method to add the newContact to contacts
-    contacts.push(newContact)
-    console.log(newContact)
-    // alert(newContact)
 
     return contacts
-
 }
-createContact(theKeys, contacts)
+updateContact(contacts)
