@@ -7,7 +7,8 @@ let task = document.getElementById('task')
 
 addTask.addEventListener('click', function() {
     let newTask = document.createElement('li')
-    newTask.innerText = task.value
+    let currentTask = task.value
+    newTask.innerText = currentTask
     console.log(newTask)
     console.log(task)
     taskList.append(newTask)
@@ -19,6 +20,8 @@ addTask.addEventListener('click', function() {
         newTask.previousSibling.remove()
         newTask.remove()
         newTaskStatus.remove()
+        completedStatus.remove()
+
     })
     
     taskList.append(newTaskStatus)
@@ -26,20 +29,22 @@ addTask.addEventListener('click', function() {
 
     let completedStatus = document.createElement("button")
     completedStatus.innerText = "complete"
-    completedStatus.addEventListener('click', function() {
-        let completeTask = document.createElement('s')
-        console.log(task.value)
-        completeTask.innerText = task.value
-        console.log(completeTask)
-        let listItem = document.createElement("li")
-        console.log("List Item ",listItem)
-        listItem.append(completeTask)
-        completed.append(listItem)
 
-        // newTask.previousSibling.remove()
-        newTask.remove()
-        newTaskStatus.remove()
-        completedStatus.remove()
+
+completedStatus.addEventListener('click', function() {
+    let completeTask = document.createElement('s')
+    console.log(task.value)
+    completeTask.innerText = currentTask
+    console.log(completeTask)
+
+    let listItem = document.createElement("li")
+    console.log("List Item ",listItem)
+    listItem.append(completeTask)
+    completed.append(listItem)
+    // newTask.previousSibling.remove()
+    newTask.remove()
+    newTaskStatus.remove()
+    completedStatus.remove()
     
     })
 
