@@ -1,0 +1,126 @@
+/* 
+blue #5A758C
+cream #F2E0D5
+brick #BF7160
+brick w/ contrast #915649
+*/
+
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+body {
+    font-family: 'Noto Serif', serif;
+}
+
+header {
+    text-align: center;
+    background-color: #5A758C;
+    color:#F2E0D5;
+}
+
+header a {
+    color:whitesmoke;
+}
+
+main {
+    text-align: justify;
+    background-color: #F2E0D5;
+    color:#915649;
+}
+
+footer {
+    background-color: #915649;
+    color:#F2E0D5;
+}
+
+header, main, footer {
+    padding: 1em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+}
+
+a {
+    transition: all ease-in-out 100ms;
+}
+
+a:hover {
+    /* font-size: 4em;
+    background-color: black; */
+    text-shadow: 0 0 8px #F2E0D5;
+    transition: all ease-in-out 100ms;
+}
+
+/* .flex-gallery div:hover {
+    text-shadow: 0 0 8px black;
+    box-shadow: 0 0 8px black;
+} */
+
+@media (min-width: 750px) {
+    nav {
+        display: flex;
+        justify-content: center;
+    }
+
+    nav p {
+        margin: 1em;
+    }
+
+    header, main, footer {
+        padding-left: 2em;
+        padding-right: 2em;
+    }
+
+    .flex-gallery {
+        display: flex;
+        /* flex-direction: row; */
+        flex-wrap: wrap;
+        /* justify-content: space-around; */
+        /* align-items: stretch; */
+        margin: 0 -1em;
+    }
+
+    .flex-gallery div {
+        width: 50%;
+        padding: 1em;
+        /* background-color: aquamarine; */
+    }
+}
+
+@media (min-width: 1100px) {
+    header .desktop-fixed-width {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+    }
+
+    header h1 {
+        margin-bottom: .333em;
+    }
+
+    header h3 {
+        margin-top: 0;
+    }
+
+    .desktop-fixed-width {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-left: 4em;
+        padding-right: 4em;
+    }
+
+    .flex-gallery div {
+        width: 33.333%
+    }
+}

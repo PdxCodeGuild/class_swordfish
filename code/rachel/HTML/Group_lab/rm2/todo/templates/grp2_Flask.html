@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <!--<link rel="stylesheet" href="/static/style.css">-->
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> -->
+</head>
+<body>
+    <h1>Welcome</h1>
+    <p>Here is today's do list:</p>
+    {{the_string}}
+    <p></p>
+
+    <form action="" method="post">
+        <input type="text" name="text" placeholder="enter text here">
+        <input type="submit" value="Submit">
+    </form>
+
+    <ul>
+        {% for dict in list_of_dicts %}
+        <li>{{ dict ['text'] }} {{dict ['priority']}}</li>
+        <!-- {% text = dicts ['text'] %}
+        {% prior = dicts ['priority'] %}
+        <li>{{text + prior}}</li> -->
+        {% endfor %}
+      </ul>
+</body>
+</html>
