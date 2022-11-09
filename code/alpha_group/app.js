@@ -10,7 +10,7 @@ addButton.addEventListener('click', function() {
     // for (let i=0; i < todoList.length; i++) {
     //     todoList[i].innerText = adds.value
     //     }
-    
+    let listInnertext = listElement.innerText
 
 
     let newTextRemove = document.createElement("button")
@@ -22,15 +22,15 @@ addButton.addEventListener('click', function() {
     })
 
     listElement.appendChild(newTextRemove)
-    console.log(listElement)
-    console.log(listElement.innerText)
+    // console.log(listElement)
+    // console.log(listElement.innerText)
     let completeButton = document.createElement("button")
     completeButton.innerText = "C"
     completeButton.addEventListener('click', function() {
         let strike = document.createElement("s")
-        strike.innerText = listElement.value
-        console.log(strike.innerText)
-        listElement.strike()
+        strike.innerText = listInnertext
+        console.log(strike)
+        listElement.append(strike)
     })
     
     listElement.appendChild(completeButton)
