@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter</title>
+</head>
+<body>
+    <input type="number" id="distance">
+    <select id="input_unit">
+        <option value="m">m</option> <!-- can a value ever be a number? -->
+        <option value="mi">mi</option>
+        <option value="ft">ft</option>
+        <option value="km">km</option>
+        <option value="yd">yd</option>
+        <option value="in">in</option>
+    </select>
+    <p> to </p>
+    <select id="output_unit">
+        <option value="m">m</option>
+        <option value="mi">mi</option>
+        <option value="ft">ft</option>
+        <option value="km">km</option>
+        <option value="yd">yd</option>
+        <option value="in">in</option>
+    </select>
+    <button id="convert">Convert</button>
+    <p id="answer"></p>
+    <script src="app.js"></script>
+</body>
+</html>
