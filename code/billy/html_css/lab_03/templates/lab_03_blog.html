@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='./lab_03_style.css')}}">
+    <title>Creed Thoughts</title>
+</head>
+<body>
+  <header>
+      <h1>Creed Thoughts</h1>
+  </header>
+      <div class="left_column">
+
+        {% for about_me in about_me_template %}
+        <div class="info">
+          <h2>{{about_me['header']}}</h2>
+          <div class="img">
+            <img src="{{about_me['image_url']}}" alt="{{about_me['alt_text']}}">
+          </div>
+          <p>{{about_me['body']}}</p>
+        {% endfor %}
+
+        {% for top_posts in top_posts_template %}
+        <div class="info">
+          <h3>{{top_posts['header']}}</h3>
+          <div class="img">
+            <img src="{{top_posts['post_one']}}" alt="{{top_posts['alt_text_one']}}">
+            <img src="{{top_posts['post_two']}}" alt="{{top_posts['alt_text_two']}}">
+            <img src="{{top_posts['post_three']}}" alt="{{top_posts['alt_text_three']}}">
+        </div>
+        {% endfor %}
+
+        {% for follow_me in follow_me_template %}
+        <div class="info">
+          <h3>{{follow_me['header']}}</h3>
+          <p>{{follow_me['body']}}</p>
+        </div>
+        {% endfor %}
+      </div>
+
+      <div class="right_column">
+
+        {% for blog_posts in list_in_template %}
+        <div class="info">
+          <h2>{{blog_posts['title']}}</h2>
+          <h3>{{blog_posts['author']}} - {{blog_posts['date']}}</h3>
+          <div class="img">
+            <img src="{{blog_posts['image_url']}}" alt="{{blog_posts['alt_text']}}">
+          </div>
+          <p>{{blog_posts['body']}}</p>
+        </div>
+        {% endfor %}
+      </div>
+
+      <div class="footer">
+        <h2>If my parents see this, I'm toast.</h2>
+      </div>
+    </div>
+</body>
+</html>

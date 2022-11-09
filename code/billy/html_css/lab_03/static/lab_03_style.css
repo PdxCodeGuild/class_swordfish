@@ -1,0 +1,123 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    border-radius: 2em;
+    padding: 1em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: rgb(205, 209, 205);
+    text-align: center;
+}
+
+header {
+    text-align: center;
+    font-size: larger;
+    color: black;
+}
+
+.left_column {
+    text-align: center;
+    margin-top: 1em;
+    margin-left: 1em;
+    margin-right: 1em;
+    width: auto;
+    background-color:rgb(165, 151, 207);
+    padding: 1em;
+    word-wrap: break-word;
+    border-style: groove;
+    border-color: black;
+}
+
+.right_column {
+    text-align:center;
+    width: auto;
+    background-color:khaki;
+    padding: 1em;
+    border-style: groove;
+    border-color: black;
+    word-wrap: break-word;
+}
+
+@media (min-width: 800px) {
+
+    img {
+        max-width: 75%;
+        border-radius: 2em;
+        margin-left: 0em;
+    }
+    
+    body {
+        font-family: 'Courier New', Courier, monospace;
+        background-color: rgb(205, 209, 205);
+    }
+    
+    header {
+        text-align: center;
+        font-size:larger;
+        color: black;
+    }
+    
+    .left_column {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        text-align: left;
+        width: auto;
+        background-color:rgb(165, 151, 207);
+        padding: 1em;
+        word-wrap: break-word;
+        border-style: groove;
+        border-color: black;
+        font-size: larger;
+    }
+    
+    .right_column {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        text-align:left;
+        width: auto;
+        background-color:khaki;
+        padding: 1em;
+        border-style: groove;
+        border-color: black;
+        word-wrap: break-word;
+        font-size: larger;
+    }
+
+    .footer {
+        text-align: center;
+        font-size: 2em
+    }
+}
+
+@media (min-width: 1000px){
+    .left_column {
+        float: left;
+        margin: auto;
+        padding: auto;
+        columns: 2;
+        column-width: 75%;
+    }
+    .right_column {
+        float: left;
+        margin: auto;
+        padding: auto;
+        columns: 2;
+        column-width: 25%;
+    }
+
+    img {
+        width: auto;
+    }
+    .footer {
+        font-size: small;
+    }
+}

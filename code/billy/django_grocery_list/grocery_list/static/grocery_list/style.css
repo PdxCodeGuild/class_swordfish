@@ -1,0 +1,19 @@
+body {
+    background-image: url(https://th.bing.com/th/id/R.f53850b806aae3c893f166aa591665c9?rik=%2bH9oCfdIyDHhMA&riu=http%3a%2f%2fwww.publicdomainpictures.net%2fpictures%2f130000%2fvelka%2fgrocery-bag.jpg&ehk=fNZXPDS%2brNJB73ndlNgcVhQvDNNFkt2NbdoPgcXcMpw%3d&risl=&pid=ImgRaw&r=0);
+    background-size:cover;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(75, 75, 75);
+}
+h2 {
+    margin-top: 15em;
+}
+ul {
+    list-style-type: circle;
+}
+ul li {
+    list-style-position: inside;
+}
+input {
+    box-shadow: 0 0 .7em rgba(30, 61, 78, 0.84);
+}

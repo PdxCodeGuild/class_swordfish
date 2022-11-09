@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="static/style.css">
+  <title>Burritos</title>
+</head>
+<body>
+  <h1>Welcome to the best digital burrito you can eat!</h1>
+  <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/17931b45-c022-4089-a7ec-b12405c43fc1/dbncnhm-41eda56c-5298-400c-941b-a80a333298d5.png/v1/fill/w_1024,h_1122,q_75,strp/_cm__super_akko_burrito_by_iryanic-dbncnhm.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwic3ViIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl0sIm9iaiI6W1t7InBhdGgiOiIvZi8xNzkzMWI0NS1jMDIyLTQwODktYTdlYy1iMTI0MDVjNDNmYzEvZGJuY25obS00MWVkYTU2Yy01Mjk4LTQwMGMtOTQxYi1hODBhMzMzMjk4ZDUucG5nIiwid2lkdGgiOiI8PTEwMjQiLCJoZWlnaHQiOiI8PTExMjIifV1dfQ.I-rsOEpKmZP2xq6ecjVf1fupJXNPL5kUWzpS3T5hgbY">
+  <br>
+  <form action='https://webhook.site/7e0b0579-787a-4f17-8254-02ee890fed01' method='POST'>
+    <h2>Please enter your valid information:</h2>
+      <label for="fname">First name:</label>
+      <input type="text" id="fname" name="fname"><br><br>
+      <label for="lname">Last name:</label>
+      <input type="text" id="lname" name="lname"><br><br>
+      <label for="pwd">Password:</label>
+      <input type="password" id="pwd" name="pwd">
+
+    <h2>Please select your tortilla:</h2>
+      <input type="radio" id="white" name="tortilla_choice" value="white flour">
+      <label for="white">white flour</label><br>
+      <input type="radio" id="wheat" name="tortilla_choice" value="wheat flour">
+      <label for="wheat">wheat flour</label><br>
+      <input type="radio" id="spinach" name="tortilla_choice" value="spinach">
+      <label for="spinach">spinach</label><br>
+      <input type="radio" id="corn" name="tortilla_choice" value="corn">
+      <label for="white">corn</label><br>
+
+    <h2>Please select your rice:</h2>
+      <input type="radio" id="white" name="rice_choice" value="white rice">
+      <label for="white">white rice</label><br>
+      <input type="radio" id="brown" name="rice_choice" value="brown rice">
+      <label for="brown">brown rice</label><br>
+
+    <h2>Please select your beans:</h2>
+      <input type="radio" id="black" name="bean_choice" value="black beans">
+      <label for="black">black beans</label><br>
+      <input type="radio" id="pinto" name="bean_choice" value="pinto beans">
+      <label for="pinto">pinto beans</label><br>
+
+    <h2>Please select your protien:</h2>
+      <input type="radio" id="carnitas" name="protien_choice" value="carnitas">
+      <label for="carnitas">carnitas</label><br>
+      <input type="radio" id="chicken" name="protien_choice" value="chicken">
+      <label for="chicken">chicken</label><br>
+      <input type="radio" id="sofritas" name="protien_choice" value="sofritas">
+      <label for="sofritas">sofritas</label><br>
+      <input type="radio" id="none" name="protien_choice" value="none">
+      <label for="none">none</label><br>
+
+    <h2>Select any additional toppings you would like:</h2>
+      <input type="checkbox" id="cheese" name="cheese" value="cheese">
+      <label for="cheese">cheese</label><br>
+      <input type="checkbox" id="sour_cream" name="sour cream" value="sour cream">
+      <label for="sour_cream">sour cream</label><br>
+
+    <h2>Please enter any specific delivery instructions:</h2>
+      <label for="delivery">delivery instructions:</label><br>
+      <textarea id="delivery" name="delivery" rows="5" cols="25"></textarea>
+    <br>
+    <button type="submit">submit order</button>
+    
+  </form>
+</body>
+</html>
