@@ -1,4 +1,4 @@
-first_digit = {
+let first_digit = {
     1 : "ten",
     2 : "twenty",
     3 : "thirty",
@@ -10,7 +10,7 @@ first_digit = {
     9 : "ninety"
     }
 
-second_digit = {
+let second_digit = {
     0 : "zero",
     1 : "one",
     2 : "two",
@@ -33,7 +33,7 @@ second_digit = {
     19 : "nineteen"
     }
 
-hundreds_digit = {
+let hundreds_digit = {
     1 : "one-hundred",
     2 : "two-hundred",
     3 : "three-hundred",
@@ -62,13 +62,16 @@ convert.addEventListener('click', function() {
     let tens = Math.floor(x/10)
     let ones = x % 10
     let answer
+    console.log(tens)
 
     if (x <= 19) {
-        answer =(`You have entered ${second_digit[x]}`)
+        answer =(`You have entered ${second_digit[x]}.`)
     } else if (99 > x > 19 && x % 10 === 0) {
         answer =(`You have entered ${first_digit[tens]}.`)
+    } else if (100 > x && Math.floor(x/10) === 0) {
+        answer =(`You have entered ${first_digit[tens]}.`)
     } else if (100 > x && Math.floor(x/10) !== 0) {
-        answer =(`You have entered ${first_digit[tens]}-${second_digit[ones]}.`)
+        answer =(`You have entered ${first_digit[tens]}-${second_digit[ones]}.!!!`)
     } else if (x > 99 && x % 100 === 0) {
         answer =(`You have entered ${hundreds_digit[hundreds]}.`)
     } else if (x > 99 && x % 100 < 10) {

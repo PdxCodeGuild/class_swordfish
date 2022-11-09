@@ -37,3 +37,5 @@ advice.addEventListener('click', function() {
     }
     result.innerText = answer
 })
+
+let text = "hello world".strike()
