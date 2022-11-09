@@ -28,14 +28,12 @@ advice.addEventListener('click', function() {
 
     if (total < 17) {
         answer = `${total}, Hit.`
-    } else if (21 > total > 17) {
+    } else if (total <= 21 && total >= 17) {
         answer = `${total}, Stand.`
     } else if (total === 21) {
-        answer = `${total}, Winner winner chicken dinner!`
+        answer = `${total}, Blackjack!`
     } else if (21 < total) {
         answer = `${total}, You have busted.`
     }
     result.innerText = answer
 })
-
-let text = "hello world".strike()
