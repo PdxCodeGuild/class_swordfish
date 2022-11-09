@@ -1,6 +1,7 @@
 let toDoList = document.getElementById('todo')
 let addTask = document.getElementById('add_task')
 let taskList = document.getElementById('task_list')
+let completed = document.getElementById("completed")
 let task = document.getElementById('task')
 
 
@@ -22,12 +23,26 @@ addTask.addEventListener('click', function() {
     
     taskList.append(newTaskStatus)
 
-    let completedStatus = document.createElement("input")
-    completedStatus.type = "checkbox"
-    
+
+    let completedStatus = document.createElement("button")
+    completedStatus.innerText = "complete"
     completedStatus.addEventListener('click', function() {
-        completedStatus.value = True
+        let completeTask = document.createElement('s')
+        console.log(task.value)
+        completeTask.innerText = task.value
+        console.log(completeTask)
+        let listItem = document.createElement("li")
+        console.log("List Item ",listItem)
+        listItem.append(completeTask)
+        completed.append(listItem)
+
+        // newTask.previousSibling.remove()
+        newTask.remove()
+        newTaskStatus.remove()
+        completedStatus.remove()
+    
     })
+
     
     taskList.append(completedStatus)
 })
