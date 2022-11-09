@@ -21,7 +21,7 @@ let total = card_values[first_card]+card_values[second_card]+card_values[third_c
 
 if (total < 17) {
     alert(`${total}, Hit.`)
-} else if (21 > total > 17) {
+} else if (total <= 21 && total >= 17) {
     alert(`${total}, Stand.`)
 } else if (total === 21) {
 alert(`${total}, Winner winner chicken dinner!`)
