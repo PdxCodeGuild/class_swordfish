@@ -2,6 +2,7 @@ let adds = document.getElementById("add_list")
 let addButton = document.getElementById("add")
 let textDiv = document.getElementById("text-div")
 let todoUL = document.getElementById("element")
+let completedTask = document.getElementById("completed")
 
 addButton.addEventListener('click', function() {
     let listElement = document.createElement("li")
@@ -27,10 +28,15 @@ addButton.addEventListener('click', function() {
     let completeButton = document.createElement("button")
     completeButton.innerText = "C"
     completeButton.addEventListener('click', function() {
+        
+        let completedList = document.createElement("li")
+        // completedList.innerText = listInnertext
         let strike = document.createElement("s")
         strike.innerText = listInnertext
-        console.log(strike)
-        listElement.append(strike)
+        completedList.append(strike)
+        completedTask.append(completedList)
+        listElement.remove()
+        newTextRemove.remove()
     })
     
     listElement.appendChild(completeButton)
