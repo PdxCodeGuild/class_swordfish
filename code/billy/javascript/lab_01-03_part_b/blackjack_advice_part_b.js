@@ -13,26 +13,24 @@ const face_cards = {
     2: 2,
     ace: 1,
 }
+let submit = document.getElementById('submit')
 
-let card_one = prompt("what is your first card? (acceptable cards: king, queen, jack, 10, 9, 8, 7, 6, 5, 4, 3, 2, ace)")
+submit.addEventListener('click', function() {
+    let card_one = document.getElementById('card_one').value.toUpperCase()
+    let card_two = document.getElementById('card_two').value.toUpperCase()
+    let card_three = document.getElementById('card_three').value.toUpperCase()
+    let card_selection = [card_one, card_two, card_three]
 
-let card_two = prompt("what is your second card? (acceptable cards: king, queen, jack, 10, 9, 8, 7, 6, 5, 4, 3, 2, ace)")
-
-let card_three = prompt("what is your third card? (acceptable cards: king, queen, jack, 10, 9, 8, 7, 6, 5, 4, 3, 2, ace)")
-
-let card_total = face_cards[card_one] + face_cards[card_two] + face_cards[card_three]
-
-alert(card_total)
-
-if (card_total < 17) {
-    alert("Card total: " + card_total + " Advised action: Hit!")
-}
-else if (card_total > 17 && card_total < 21) {
-    alert("Card total: " + card_total + " Advised action: Stay!")
-}
-else if (card_total == 21) {
-    alert("Card total: " + card_total + " Advised action: Winner!")
-}
-else if(card_total > 21) {
-    alert("Card total: " + card_total + " Advised action: Bust! You LOSE!!!!!!!!")
-}
+    let card_score = [0]
+    for (let card of card_selection) {     
+        for (let key of Object.getOwnPropertyNames(face_cards)) { // cycles through all options to try to match
+            if (key == card) {
+                for (let i in total) { // increments each total score scenario, aka number in list
+                    card_score[i] += face_cards[key]
+                }
+            }
+        }
+        
+    }
+    console.log(card_score)
+})
