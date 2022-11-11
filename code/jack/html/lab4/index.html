@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="style.css">
+    
+    <title>Burrito Order</title>
+</head>
+<body>
+    <header class="banner">
+        <div>
+            <h1>JACK'S BIG BURRITO PLACE</h1>
+        </div>
+    </header>
+    
+    <div class="main">
+        <div class="login">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/60/Burrito.JPG">
+            <h3>Login</h3>
+            <form action="https://webhook.site/5d056d77-ee17-4efc-b622-33fa3c7487c9" method="post">
+                <label for="name">Enter your name:</label>
+                <input type="text" name="name" id="name" placeholder="name"><br>
+                <label for="password">Enter your password:</label>
+                <input type="password" name="password" id="password"><br>
+                <input type="submit" value="Login">   
+            </form>
+        </div>
+
+        <div class="burrito">
+            <h3>Customize Your Burrito</h3>
+                <form action="https://webhook.site/5d056d77-ee17-4efc-b622-33fa3c7487c9" method="post">
+                <div>
+                    <h4>Tortilla</h4>
+                    <input type="radio" id="flour" name="tortilla" value="flour">
+                    <label for="flour">Flour</label><br>
+                    <input type="radio" id="whole-wheat" name="tortilla" value="whole-wheat">
+                    <label for="whole-wheat">Whole Wheat</label><br>
+                    <input type="radio" id="corn" name="tortilla" value="corn">
+                    <label for="corn">Corn</label><br>
+                    <br>
+                </div>
+                <div>
+                    <h4>Rice</h4>
+                    <input type="radio" id="white" name="rice" value="white">
+                    <label for="white">White</label><br>
+                    <input type="radio" id="brown" name="rice" value="brown">
+                    <label for="brown">Brown</label><br>
+                    <br> 
+                </div>
+                <div>
+                    <h4>Beans</h4>
+                    <input type="radio" id="pinto" name="beans" value="pinto">
+                    <label for="pinto">Pinto</label><br>
+                    <input type="radio" id="black" name="beans" value="black">
+                    <label for="black">Black</label><br>
+                    <br>
+                </div>
+                <div>
+                    <h4>Meat</h4>
+                    <input type="radio" id="carnitas" name="meat" value="carnitas">
+                    <label for="carnitas">Carnitas</label><br>
+                    <input type="radio" id="chicken" name="meat" value="chicken">
+                    <label for="chicken">Chicken</label><br>
+                    <input type="radio" id="sofritas" name="meat" value="sofritas">
+                    <label for="sofritas">Sofritas</label><br>
+                    <input type="radio" id="none" name="meat" value="none">
+                    <label for="none">None</label><br>
+                    <br>
+                </div>
+                <div>
+                    <h4>Additional Options</h4>
+                    <input type="checkbox" id="guacamole" name="guacamole" value="guacamole">
+                    <label for="guacamole">Guacamole</label><br>
+                    <input type="checkbox" id="cheese" name="cheese" value="cheese">
+                    <label for="cheese">Cheese</label><br>
+                    <input type="checkbox" id="sour-cream" name="sour-cream" value="sour-cream">
+                    <label for="sour-cream">Sour Cream</label><br>
+                </div>
+                <div>
+                    <label for="instructions">
+                        <h4>Delivery Instructions</h4>
+                    </label>
+                    <input type="text" id="instructions" name="instructions">
+                    
+                </div>
+                <input type="submit" value="Submit">    
+            </form>
+            
+        </div>
+
+    </div>
+</body>
+</html>

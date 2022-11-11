@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500&family=Itim&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/417ce41406.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Leslie Naylor</h1>
+        <h2>This is my blog</h2>
+    
+        <nav>
+            <p><a href="#">Home | </a><a href="#">About Me |  </a><a href="#">Contact + Links</a></p>   
+        </nav>        
+    </header>
+   
+    <main>
+        <div class="flex-gallery">
+    
+            {% for dict_items in posts %}
+                <h2>{{dict_items['title']}}</h2>
+                <h3>{{dict_items['author']}}</h3>
+                <h6>{{dict_items['date']}}</h6>
+                <p>{{dict_items['body']}}</p>    
+            {% endfor %}
+        </div>  
+
+        <div class="sidebar">
+            <div>Thing One</div> 
+            <div>Thing Two</div>
+            <div>Thing Three</div> 
+        </div>  
+<footer>
+      2022
+</footer>   
+    
+</body>
+</html>

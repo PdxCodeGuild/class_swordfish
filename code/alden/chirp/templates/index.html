@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class='form'>
+    <h3>Make Posts</h3>
+    <form action="{% url 'posts:add' %}" method="post">
+        {% csrf_token %}
+        <input type='text' name='post'>
+        <input type='submit' value='Post'>
+    </form>
+</div>
+    {% comment %} {% if user.is_authenticated %}
+        Hello {{user.username}}
+    {% endif %} {% endcomment %}
+<div class='content'>
+    <div  class='posts'>
+    {% for post in post_list %}
+        <h4><a href="{% url 'users:profile' post.author.username %}" >{{ post.author.username }}</a></h4>{{post.pub_date}}
+        <p>{{ post.post }}</p>
+    {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}

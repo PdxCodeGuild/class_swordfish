@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>{{ user_profile.username }}</h1>
+    <h5><em>Member since {{ user_profile.date_joined }}!</em></h5>
+
+    {% for post in user_profile.posts.all %}
+            
+            <p>{{post.pub_date }}<br>{{ post.post }}</p>
+
+    {% endfor %}
+
+{% endblock content %}

@@ -1,0 +1,28 @@
+body {
+    background-image: url(background.jpg);
+}
+
+.columns {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    text-align: center;
+}
+
+.column {
+    flex: 33.33%;
+}
+
+.header {
+    padding: 20px;
+    text-align: center;
+    background: green;
+    color: white;
+    font-size: 30px;
+}
+
+h2 {
+    text-align: center;
+    color: black
+}

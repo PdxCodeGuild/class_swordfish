@@ -1,0 +1,25 @@
+body {
+    color: white;
+    text-align: center;
+    background-image: url("background.jpg");
+    background-size: cover;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 5%;
+    padding: 5%;
+    color-scheme: dark;
+}
+
+.cities {
+    list-style-position: inside;
+    list-style-type: square;
+    text-align: center;
+}
+
+q {
+    color: red;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.dwadepic {
+    border-radius: 50%;
+}

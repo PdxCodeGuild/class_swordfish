@@ -1,0 +1,179 @@
+/* 
+light blue #C2D7F2
+dark blue #116091
+brown #73603D
+
+alt blues
+#369AD9
+#1B7EA6
+
+    https://scitechdaily.com/images/Water-Drop.gif
+
+    font-family: 'Tinos', serif;
+
+*/
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #C2D7F2;
+}
+
+header {
+    background-color: #116091;
+    color: white;
+    box-shadow: 0px 3px 3px #888888;
+    border-radius: 0 0 10px 10px;
+    width: 440px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0px;
+    font-family: 'Tinos', serif;
+}
+
+body div:nth-child(2){
+    background-color: white;
+}
+
+footer {
+    background: #116091;
+    width: auto;
+    text-align: center;
+    color:white;
+    padding: 8px;
+    margin-top: 20px;
+}
+
+header * {
+    width: 30%;
+    text-align: center;
+    box-sizing: border-box;
+    margin: 4px;
+}
+
+header .header-flex * {
+    margin: 5px;
+}
+
+.sidebar {
+    display: none;
+}
+
+.flex-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.nav-icon {
+    text-align: right;
+}
+
+.nav-bar-top {
+    list-style-type: none;
+    padding: 10px;
+    margin: 0;
+    min-width: 400px;
+    box-sizing: border-box;
+    margin: auto;
+    justify-content: space-around;
+    color: #6c6c6c;
+    text-align: center;
+}
+
+.nav-bar-top * {
+    padding: 20px, 16px, 8px, 16px;
+}
+
+.blog-title {
+    color:#C2D7F2;
+    margin-left: 20px;
+}
+
+.main {
+    margin: auto;
+}
+
+.main:nth-child(2) {
+    background-image: src="https://scitechdaily.com/images/Water-Drop.gif" alt="water drop GIF";
+}
+
+.blogpost {
+    border-radius: 10px;
+    border: 1px solid #C2D7F2;
+    padding: 20px;
+    margin: 20px;
+    color: #116091;
+    max-width: 600px;
+}
+
+.blogpost p {
+    color: black;
+}
+
+.blogpost h5 {
+    font-weight: normal;
+}
+
+@media (min-width: 680px) {
+    .main {
+        max-width: 680px;
+        box-shadow: 0px 3px 5px #888888;
+    }
+
+    .nav-bar-top {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}
+
+@media (min-width: 980px) {
+    .main {
+        margin-right: 80px;
+    }
+    
+    .all {
+        flex-wrap: nowrap;
+    }    
+
+    .sidebar {
+        background: #C2D7F2;
+        display: block;
+        flex-grow:1;
+    }
+    .nav-bar-top {
+        display: none;
+
+    }
+
+    header.flex-gallery {
+        padding-bottom: 0;
+    }
+
+    .nav-bar-side {
+        background-color: white;
+        border-radius: 0 10px 10px 0;
+        display: block;
+        /* min-height: 312px; */
+        width: 160px;
+        list-style-type: none;
+        padding: 10px;
+        margin: 0;
+        margin-top: 200px;        
+        color: #6c6c6c;
+        text-align: right;
+        box-shadow: 0px 3px 5px #888888;       
+        position: fixed;
+    }
+
+    .hr-top { 
+        display: none;
+    }
+
+    .nav-bar-side * {
+        margin:28px;
+    }
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+</head>
+<body>
+    <h1>Welcome to the Unit Converter App!</h1>
+    <br>
+    <h2>Here you can type in the distance that you'd like to convert into another unit of measurement!</h2>
+    <h3>Conversion Table:</h3>
+    <input type="number" id="distance">
+    <select id="input_unit">
+        <option value="feet">Feet</option>
+        <option value="miles">Miles</option>
+        <option value="meters">Meters</option>
+        <option value="kilometers">Kilometers</option>
+        <option value="yards">Yards</option>
+        <option value="inches">Inches</option>
+    </select>
+    to:
+    <select id="output_unit">
+        <option value="feet">Feet</option>
+        <option value="miles">Miles</option>
+        <option value="meters">Meters</option>
+        <option value="kilometers">Kilometers</option>
+        <option value="yards">Yards</option>
+        <option value="inches">Inches</option>
+    </select>
+    <button id="convert">Convert</button>
+    <p id="result"></p>
+    <script src="lab_1b.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        <p class="block">You do not have access to that.</p>
+        <p><a href="{% url 'posts:home' %}">Return Home</a></p>
+    </div>
+{% endblock content %}

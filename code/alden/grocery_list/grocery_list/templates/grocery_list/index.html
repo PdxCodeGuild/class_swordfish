@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <title>Grocery List</title>
+</head>
+<body>
+        
+        <fieldset>
+            <legend><h1>Grocery List</h1></legend>
+            {% if latest_grocery_list %}
+                {% for item in latest_grocery_list %}
+                    {% if item.completed_check == False %}
+                        <h3>{{ item.item_text }}</h3>
+                    {% else %}
+                        <h3><s>{{ item.item_text }}</s></h3>
+                    {% endif %}
+                    {% comment %} <input type="checkbox" name="complete" value="{{ item.id }}" id="{{ item.id }}"> {% endcomment %}
+                    {% comment %} <label for="{{item.id}}">{{ item.item_text }}</label><br> {% endcomment %}
+                <form action="{% url 'grocery_list:complete' item.id %}" method = "post">
+                    {% csrf_token %}
+                    <input type="submit" value="Complete">
+                </form>
+                <form action="{% url 'grocery_list:incomplete' item.id %}" method = "post">
+                    {% csrf_token %}
+                    <input type="submit" value="Incomplete">
+                </form>
+                <form action="{% url 'grocery_list:delete' item.id %}" method = "post">
+                    {% csrf_token %}
+                    <input type="submit" value="Delete">
+                </form>
+                {% endfor %}
+            {% else %}
+                <p>All caught up! Add more to list when you run out of something</p>
+            {% endif %}
+        </fieldset>
+        <fieldset>
+            <legend><h2>Add item</h2></legend>
+            <form action="{% url 'grocery_list:add' %}" method = "post">
+                {% csrf_token %}
+                <input type="text", name="new_item", id="new_item", placeholder='Enter New Item'><br>
+                <input type="submit", value="Add Item">
+            </form>
+</body>
+</html>
+
+{% comment %} {% for choice in question.choices.all %}
+    <input type="radio" name="choice" value="{{ choice.id }}" id="choice{{ forloop.counter }}">
+    <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+{% endfor %} {% endcomment %}

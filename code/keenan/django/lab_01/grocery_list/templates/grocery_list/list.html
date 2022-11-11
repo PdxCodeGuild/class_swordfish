@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% load static %}
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X=UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'grocery_list/style.css' %}">
+
+    <title> Grocery List </title>
+
+</head>
+
+
+<body>
+    <h1>Grocery List</h1>
+    <form action="{% url 'grocery_list:add' %}" method="post">
+        {% csrf_token %}
+        <label for="item_text">New Grocery Item</label>
+        <input type="text" name="item_text" id="item_text">
+        <input type="submit" value="Add">
+    </form>
+
+
+    <h2>Incomplete Items</h2>
+    <ul>
+    {% for item in incomplete_items %}
+        <li>
+            {{ item.item_text }}
+                <form action="{% url 'grocery_list:complete' item.pk %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="Complete">
+                </form>
+                <form action="{% url 'grocery_list:delete' item.pk %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="Delete">
+                </form>
+        </li>
+    {% endfor %}
+    </ul>
+
+    <h2>Complete Items</h2>
+    <ul>
+    {% for item in complete_items %}
+        <li>
+            {{ item.item_text }}
+                <form action="{% url 'grocery_list:incomplete' item.pk %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="Mark as not Complete">
+                </form>
+                <form action="{% url 'grocery_list:delete' item.pk %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="Delete">
+                </form>
+        </li>
+    {% endfor %}
+    </ul>
+
+
+    {% comment %} form to add a new item {% endcomment %}
+</body>
+
+</html>

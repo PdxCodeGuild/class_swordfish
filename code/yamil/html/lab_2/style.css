@@ -1,0 +1,67 @@
+@media screen and (max-width:640px) {
+  div.screen {
+    font-size: 10px;
+  }
+}
+@media screen and (min-width:640px) and (max-width:959px) {
+    div.screen {
+      font-size: 12px;
+    }
+  }
+  @media screen and (min-width:960px) {
+    div.screen {
+      font-size: 15px;
+    }
+  }
+html {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+.pic1,.pic2,.pic3,.pic4 {
+    position: relative;
+    text-align: center;
+    color:white;
+    padding: 30px
+}
+
+.bottom-centered {
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.row {
+    display: flex;
+  }
+  
+  .column {
+    flex: 25%;
+    padding: 10px;
+  }
+
+.topnav {
+    background-color: black;
+    overflow: hidden;
+  }
+  
+  .topnav a {
+    float: right;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+
+  .topnav a:hover {
+    background-color: white;
+    color: black;
+  }
+  
+  .topnav a.active {
+    background-color: red;
+    color: white;
+  }

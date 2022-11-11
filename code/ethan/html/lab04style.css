@@ -1,0 +1,44 @@
+body {
+    font-family: 'Work Sans', sans-serif;
+    color: #BF1304;
+    background-color: #5BA67C;
+}
+
+body h1,h3 {
+    font-family: 'Frijole', cursive;
+}
+
+header {
+    text-align: center;
+    font-size: 2em;
+    background-color: #D9FFE9;
+    padding: 1px;
+}
+
+main {
+    display: flex;
+}
+
+main img {
+
+    justify-content: center;
+    display:block;
+    margin-right: auto;
+    margin-left: auto;
+    float: left;
+    width: 28%;
+    border: 2px solid #BF1304;
+    border-radius: 20px;
+    margin-top: 1em;
+    
+}
+
+main form {
+    justify-content: center;
+    display:block;
+    margin-right: auto;
+    margin-left: auto;
+    float: right;
+    width: 40%;
+    padding: 2em;
+}

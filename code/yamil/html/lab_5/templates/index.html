@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
+
+    <title>Unit Converter App</title>
+</head>
+<body>
+    <h1>Welcome to Unit Converter App!</h1>
+        <h2>Here you can type in your distance in your desired unit, and we'll convert it into your desired output unit!</h2>
+     
+        <form action="{{ url_for('operation_result') }}" method = "POST" id="conversion_form">
+            <label for="Distance">Distance:</label>
+            <input type="text" name="Distance" id="Distance">
+            <br/>
+            <label for="Units">Units:</label>
+            <input type="text" name="Units" id="Units">
+            <br>
+            <label for="Output">Output</label>
+            <input type="text" name="Output" id="Output"
+            <br>
+            <input type="submit" value="Submit"/>
+            <input type="reset" value="RESET" style="color: red;"/>
+        </form>
+
+        {% if Output != Units %}
+            <p>{{Distance}} {{Units}} is equal to {{total_2}} {{Output}}.</p>
+        {% else %}
+            <p>{{Distance}} {{Units}} is equal to {{total}} {{Output}}.</p>
+        {% endif %}
+
+</body>
+
+</html>

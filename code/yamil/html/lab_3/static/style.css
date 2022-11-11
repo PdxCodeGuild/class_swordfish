@@ -1,0 +1,70 @@
+@media screen and (max-width:640px) {
+    div.screen {
+      font-size: 12px;
+    }
+  }
+  @media screen and (min-width:640px) and (max-width:959px) {
+      div.screen {
+        font-size: 14px;
+      }
+    }
+    @media screen and (min-width:960px) {
+      div.screen {
+        font-size: 18px;
+      }
+    }
+ 
+.topnav {
+        background-color: black;
+        overflow: hidden;
+}
+  
+    .topnav a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+  
+
+    .topnav a:hover {
+    background-color: white;
+    color: black;
+  }
+  
+    .topnav a.active {
+    background-color: blue;
+    color: white;
+  }
+
+  
+.card {
+    text-align: center;
+    margin: 5em
+    }
+
+/* .card-content {
+  border: 1px solid red;
+  color: white;
+  margin: 0 auto;
+  max-width: 600px;
+  position: absolute;
+  bottom: 0;
+} */
+
+.blog {
+    border-top: 20em;
+    border-bottom: 20em
+}
+
+.footer {
+    text-align: center;
+    font-weight: bold;
+}
+
+img {
+  width: 50vw;
+}
+

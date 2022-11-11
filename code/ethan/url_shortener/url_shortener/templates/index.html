@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+</head>
+<body>
+    <h1>URL Shortener</h1>
+    <form action="{% url 'url_shortener:addurl' %}" method="post">
+        {% csrf_token %}
+        <label for="long_url">Long URL</label>
+        <input type="text" name="url" id="url" placeholder"URL">
+        <input type="submit" value="Submit" />
+    </form>
+    
+    <h3> Shortened URLs </h3>
+    {% for url in urls %}
+    {{url.url}}
+    <p>New url: <a target='_blank' href="http://localhost:8000/url-shortener/{{ url.code }}">{{ url.code }}</a></p>
+    <br>
+    {% endfor %}
+</body>
+</html>
