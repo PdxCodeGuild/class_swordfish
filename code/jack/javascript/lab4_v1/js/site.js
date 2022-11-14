@@ -10,14 +10,15 @@ let vm = new Vue({
         ]
     },
     methods: {
-        remove: function(todo, todos) {
-            this.todos.splice(todos.indexOf(todo), 1);
+        remove: function() {
+            this.todos.splice(this.todos.indexOf(this.todo), 1);
         },
-        markComplete: function(todo, todos) {
+        markComplete: function(todo) {
             todo.completed = !todo.completed
         },
         createTodo: function() {
             this.todos.push({ text: this.newTodo, completed: false})
+            this.newTodo = ''
         }
     },
 

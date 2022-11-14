@@ -14,21 +14,21 @@
         <template v-for="todo in todos">
             <li v-if="todo.completed">
                 <s>{{ todo.text }}</s>
-                <button v-on:click="remove(todo, todos)">delete</button>
-                <button v-on:click="markComplete(todo, todos)">toggle</button>
+                <button v-on:click="remove()">delete</button>
+                <button v-on:click="markComplete(todo)">toggle</button>
             </li>
         </template>
         <h1>incomplete</h1>
         <template v-for="todo in todos">
             <li v-if="!todo.completed">
                 {{ todo.text }}
-                <button v-on:click="remove(todo, todos)">delete</button>
-                <button v-on:click="markComplete(todo, todos)">toggle</button>
+                <button v-on:click="remove()">delete</button>
+                <button v-on:click="markComplete(todo)">toggle</button>
             </li>
         </template>
         <h1>add item</h1>
         <input v-model="newTodo" v-on:keyup.enter="createTodo()" placeholder="new item" />
-        
+        <button v-on:click="createTodo()">add</button>
     </div>
 
     <!-- Include Vue from a CDN of your choice, I chose unpkg -->
