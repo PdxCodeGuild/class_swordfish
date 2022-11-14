@@ -23,17 +23,22 @@
         <input type="submit" value="Submit">
     </form>
 
-    <h2>List of URL's that have been shortened</h2>
+    <h2>Redirects</h2>
     <ul>
-    {% for item in url_items %}
+        {% for item in url_items %}
         <li>
-            {{ item.long_text }}
-            {% comment %} {{ item.shortened_code}} {% endcomment %}
+            {% comment %} the target='blank' attribute opens the link in a new page {% endcomment %}
+            <a href={% url 'url_shortener_app:redirect' item.shortened_code %} target='_blank'> 
+            short.n/{{ item.shortened_code }} 
+            </a>            
+            {% comment %} {{ item.long_text }}
+            <br>
+            {{ item.shortened_code}} {% endcomment %}
         </li>
-    {% endfor %}
+        {% endfor %}
     </ul>
 
 
-</body>
+</body> 
 
 </html>

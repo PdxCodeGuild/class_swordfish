@@ -28,5 +28,12 @@ def add(request):
     item = Url.objects.create(long_text=description, shortened_code=random_code)
     item.save()
     return HttpResponseRedirect(reverse('url_shortener_app:index'))
+    # this could just return the url?
+
+
+def redirect_view(request,short):
+    shortened_url = get_object_or_404(Url, shortened_code=short)
+    return HttpResponseRedirect(shortened_url.long_text)
+
 
 #  currently no check to see if the item already has a code associated with it. could reassign a new code if there was one already?
