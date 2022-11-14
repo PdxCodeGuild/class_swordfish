@@ -15,7 +15,7 @@
             <li v-if="todo.completed">
                 <s>{{ todo.text }}</s>
                 <button v-on:click="remove()">delete</button>
-                <button v-on:click="markComplete(todo)">toggle</button>
+                <button v-on:click="markComplete(todo)">mark incomplete</button>
             </li>
         </template>
         <h1>incomplete</h1>
@@ -23,7 +23,7 @@
             <li v-if="!todo.completed">
                 {{ todo.text }}
                 <button v-on:click="remove()">delete</button>
-                <button v-on:click="markComplete(todo)">toggle</button>
+                <button v-on:click="markComplete(todo)">mark complete</button>
             </li>
         </template>
         <h1>add item</h1>

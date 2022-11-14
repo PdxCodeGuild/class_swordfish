@@ -2,16 +2,11 @@ let vm = new Vue({
     el: '#app',
     data: {
         newTodo: '',
-        todos: [
-          { text: 'Learn JavaScript', completed: false },
-          { text: 'Learn Vue', completed: true },
-          { text: 'Build something awesome', completed: false },
-          { text: 'rule the world', completed: true },
-        ]
+        todos: []
     },
     methods: {
-        remove: function() {
-            this.todos.splice(this.todos.indexOf(this.todo), 1);
+        remove: function(todo) {
+            this.todos.splice(this.todos.indexOf(todo), 1);
         },
         markComplete: function(todo) {
             todo.completed = !todo.completed
@@ -20,6 +15,12 @@ let vm = new Vue({
             this.todos.push({ text: this.newTodo, completed: false})
             this.newTodo = ''
         }
+    },
+    beforeMount: function() {
+        this.todos = JSON.parse(localStorage.getItem('todos'))
+    },
+    updated: function() {
+        localStorage.setItem('todos', JSON.stringify(this.todos))
     },
 
 })
