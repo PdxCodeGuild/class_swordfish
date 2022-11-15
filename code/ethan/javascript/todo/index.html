@@ -9,8 +9,23 @@
     <link rel="stylesheet" href="css/site.css" />
 </head>
 <body>
+    <h1>Todo List</h1>
     <div id="app">
-        {{ todos }}
+        <h3>Incomplete Todos</h3>
+        <template v-for="todo in incompleteTodos">
+            {{ todo }}
+            <button v-on:click="deleteTodo(todo, incompleteTodos)">Delete</button>
+            <button v-on:click="completeTodo(todo, incompleteTodos)">Complete</button>
+            <br>   
+        </template>
+        <br>
+        <h3>Complete Todos</h3>
+        <template v-for="todo in completeTodos">
+            {{ todo }}
+            <button v-on:click="deleteCompleteTodo(todo, completeTodos)">Delete</button>
+            <br>   
+        </template>
+        <br>
         <input type="'text" v-model="message"/>
         <button v-on:click="addTodo">Add Todo</button>
     </div>
