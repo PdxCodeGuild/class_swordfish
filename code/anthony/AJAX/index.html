@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AJAX</title>
+</head>
+<body>
+  <!-- <button id="get-data">Get Data</button> -->
+  <div id="response"></div>
+  <div id="app">
+    <button @click="getTodos">Get Todos</button>
+    <ul>
+      <li v-for="todo in todos">{{todo.title}}</li>
+    </ul>
+  </div>
+
+
+
+  <!-- Vue -->
+  <script src="https://unpkg.com/vue@2"></script>
+  <!-- Axios -->
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
