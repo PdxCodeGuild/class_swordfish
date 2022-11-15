@@ -5,7 +5,8 @@ new Vue({
         selectedTodoIndex: null,
         isEditing: false,
         todo: '',
-        todoListArray: []
+        todoListArray: [],
+        todoCompleteArray: []
     },
 
     methods: {
@@ -26,7 +27,20 @@ new Vue({
         },
 
         deleteTodoItem(index){
-            this.todoListArray.splice(index, 1) // passes index and removes 1 item.
+            this.todoListArray.splice(index) // passes index and removes 1 item.
+        },
+
+        completeTodoItem(index){
+            this.selectedTodoIndex = index
+            this.isComplete = true
+            this.todoCompleteArray.push(this.selectedTodoIndex)
+            this.todoListArray.splice(this.selectedTodoIndex, 1)
+
+             
+        },
+
+        deleteCompletedTodo(index) {
+            this.todoCompleteArray.splice(index, 1)
         }
     }
 })

@@ -34,12 +34,7 @@ submit.addEventListener('click', function() {
 
     console.log(cardScore)
     
-    let totalCardScore
-    for(let score of cardScore) {
-        if (score <= 21) {
-            totalCardScore = score
-        }
-    }
+    let totalCardScore = cardScore
     if (totalCardScore <= 17){
         blackJackAdvice = 'Advice for your next move: Hit!'
     }

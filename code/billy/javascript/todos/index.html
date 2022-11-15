@@ -11,8 +11,6 @@
 <body>
     <div id="app">
         <div class="container">
-            <h1>To-do List</h1>
-
             <div v-if="!isEditing"> 
                 <input type="text" v-model="todo">
                 <input type="submit" value="add" @click="storeTodoItem">
@@ -23,15 +21,21 @@
                 <input type="submit" value="update" @click="updateTodoItem">
             </div>
 
+            <h1>To-do List</h1>
             <ol>
                 <li v-for="(todo, index) in todoListArray">
                     {{ todo }}
-                    <select name=" id="status>
-                        <option>Incomplete</option>
-                        <option>Complete</option>
-                    </select>
+                    <button @click="completeTodoItem(todo)">Complete</button>
                     <button @click="editTodoItem(index, todo)">Edit</button>
                     <button @click="deleteTodoItem(index)">Delete</button>
+                </li>
+            </ol>
+            <br>
+            <h1>Completed To-Dos</h1>
+            <ol>
+                <li v-for="(todo, index) in todoCompleteArray">
+                    {{ todo }}
+                    <button @click="deleteCompletedTodo(index)">Delete</button>
                 </li>
             </ol>
         </div>
