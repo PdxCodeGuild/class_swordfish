@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Todo List</title>
+    <!-- Add your styles here! -->
+    <link rel="stylesheet" href="css/site.css" />
+</head>
+
+<body>
+    <div id="app">
+        <p>{{ message }}</p>
+        <input v-model="newToDoText" v-on:keyup.enter="addToDo">
+        <button v-on:click="addToDo">Add</button>
+
+        <h2>Incomplete</h2>
+        <ol>
+            <li v-for="todo in incompleteTodos" :key="todo.id">
+                {{ todo.text }}
+                <button v-on:click="removeToDo(todo)">remove</button>
+                <button v-on:click="toggleToDo(todo)">complete</button>
+            </li>
+        </ol>
+        <h2>Completed</h2>
+        <ol>
+            <li v-for="todo in completeTodos" :key="todo.id">
+                <s>{{ todo.text }}</s>
+                <button v-on:click="removeToDo(todo)">remove</button>
+                <button v-on:click="toggleToDo(todo)">incomplete</button>
+            </li>
+        </ol>
+        <!-- <button v-on:click="toggleToDo" v-if="">Complete</button>
+        <button v-on:click="toggleToDo">Incomplete</button> -->
+    </div>
+
+    <!-- Include Vue from a CDN of your choice, I chose unpkg -->
+    <script src="https://unpkg.com/vue@2"></script>
+    <!-- Include your code here... -->
+    <script src="js/site.js"></script>
+</body>
+
+</html>
