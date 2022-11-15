@@ -1,6 +1,12 @@
 new Vue({
-    el: '#app',
-    data: {
+	el: "#app",
+	data:{
         message: 'Hello world!'
-    }
+	},
+	methods{
+
+	},
+	computed{
+
+	}
 })
