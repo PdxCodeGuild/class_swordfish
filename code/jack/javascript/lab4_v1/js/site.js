@@ -17,7 +17,9 @@ let vm = new Vue({
         }
     },
     beforeMount: function() {
-        this.todos = JSON.parse(localStorage.getItem('todos'))
+        if (localStorage.getItem('todos') !== null) {
+            this.todos = JSON.parse(localStorage.getItem('todos'))
+        }
     },
     updated: function() {
         localStorage.setItem('todos', JSON.stringify(this.todos))
