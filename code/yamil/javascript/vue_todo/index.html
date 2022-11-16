@@ -18,7 +18,7 @@
     <div class="unfinished-todos">
       <h3>To Do:</h3>
       <ul>
-        <li v-for="todo in todos">
+        <li v-for="todo in unfinishedTodos">
           {{ todo.text }}
           <button v-on:click="completeTodo(todo)">✓</button>
           <button v-on:click="delTodo(todo)">×</button>

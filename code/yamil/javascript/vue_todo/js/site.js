@@ -5,17 +5,16 @@ const todoListVue = new Vue({
     data: {
       newTask : "",
       todos: [],
-      nextId : 1
+      nextId : 0
     },
-
     methods: {
       addTodo: function() {
-        this.todos.push({text: this.newTask, id : this.nextId, finished: false}),
+        this.todos.push({text: this.newTask, id : this.nextId, completed: false}),
         this.newTask = ""
         this.nextId++
       },
       completeTodo: function(todo) {
-        todo.finished = !todo.finished      
+        todo.completed = !todo.completed   
         },
 
       delTodo: function(todo) {
@@ -24,17 +23,16 @@ const todoListVue = new Vue({
         })
       }
     },
-
     computed: {
-        finishedTodos: function () {
-          return this.todos.filter(function(todo){
-            return todo.completed === true
+      unfinishedTodos: function(){
+        return this.todos.filter(function(todo){
+          return todo.completed === false
+        })
+      }, 
+      finishedTodos: function (){
+        return this.todos.filter(function(todo){
+          return todo.completed === true
           })
         },
-        unfinishedTodos: function() {
-          return this.todos.filter(function(todo){
-            return todo.completed === false
-          })
-        }, 
       }
     })
