@@ -20,15 +20,15 @@ let app = new Vue({
         deleteTodo: function(liIndex){          // Removes for list based off index possition.
             this.todos.splice(liIndex, 1)
         },
-        completeTodo: function(liIndex){
+        completeTodo: function(liIndex){        // Pushs the item on the to do list to completed and removes from todos.
             this.completed.push(this.todos[liIndex])
             this.todos.splice(liIndex, 1)
         },
-        redoTodo: function(liIndex){
+        redoTodo: function(liIndex){            // Allows to toggle completed items back to the todos.
             this.todos.push(this.completed[liIndex])
             this.completed.splice(liIndex, 1)
         },
-        completeDeleteTodo: function(liIndex){
+        completeDeleteTodo: function(liIndex){  // Allows to delete from completed list.
             this.completed.splice(liIndex, 1)
         }
     }
