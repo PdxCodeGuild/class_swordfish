@@ -2,12 +2,15 @@ var app4 = new Vue({
     el: '#app',
     data: {
       message: 'Todo text',
-      incompleteTodos: [],
+      incompleteTodos: [{text: 'walk the dog', completed:false}],
       completeTodos: [],
     },
     methods: {
         addTodo: function() {
-          this.incompleteTodos.push(this.message)
+          let newTodo = {
+            text: this.message}
+          this.incompleteTodos.push(newTodo),
+          this.message = ''
         },
         deleteTodo: function(index) {
           this.incompleteTodos.splice(index, 1)
@@ -16,7 +19,9 @@ var app4 = new Vue({
           this.completeTodos.splice(index, 1)
         },
         completeTodo: function(index) {
-          this.completeTodos.push(this.message)
+          let newTodo = {
+            text: this.incompleteTodos[index]}
+          this.completeTodos.push(newTodo)
           this.incompleteTodos.splice(index, 1)
         }
     }

@@ -13,7 +13,7 @@
     <div id="app">
         <h3>Incomplete Todos</h3>
         <template v-for="todo in incompleteTodos">
-            {{ todo }}
+            {{ todo.text }}
             <button v-on:click="deleteTodo(todo, incompleteTodos)">Delete</button>
             <button v-on:click="completeTodo(todo, incompleteTodos)">Complete</button>
             <br>   
@@ -21,7 +21,7 @@
         <br>
         <h3>Complete Todos</h3>
         <template v-for="todo in completeTodos">
-            {{ todo }}
+            {{ todo.text }}
             <button v-on:click="deleteCompleteTodo(todo, completeTodos)">Delete</button>
             <br>   
         </template>
