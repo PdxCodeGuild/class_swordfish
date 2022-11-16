@@ -26,7 +26,8 @@ const toDo = new Vue({
       newId = this.nextId
       this.nextId++
       console.log(lenTodos)
-      this.todos.push({id: newId, text: this.task, complete: false})
+      this.todos.push({id: newId, text: this.task, complete: false}) 
+      this.task = ""
     },
     removeButton: function(payload) {
       this.todos.indexOf(payload)
