@@ -2,50 +2,34 @@ new Vue({
     el: '#app',
 
     data: {
-        selectedTodoIndex: null,
-        isEditing: false,
-        todo: '',
-        todoListArray: [],
-        todoCompleteArray: []
+        todoText: '',
+        todoArray: [
+        { id: 0, text: 'walk the pugs, before they overthrow me.' },
+        { id: 1, text: "give the cat treats, before he attacks from the shadows." },
+      ],
+        todoId: 2,
+        completedTodoArray: []
     },
-
     methods: {
-        storeTodoItem(){
-            this.todoListArray.push(this.todo) // pushes users todo into todos
-            this.todo = '' // this will reset the input box to be blank when a todo is added.
+        storeTodoItem: function(){
+            let todo = {id: this.todoId, text:this.todoText}
+            this.todoId++
+            // console.log(todo)
+            this.todoArray.push(todo)
         },
-
-        editTodoItem(index, todo) {
-            this.todo = todo
-            this.selectedTodoIndex = index // replaces null index with the user selected todo task.
-            this.isEditing = true
-        },
-
-        updateTodoItem(){
-            this.todoListArray.splice(this.selectedTodoIndex, 1, this.todo) // splices selected index when the user wants to update a todo item.
-            this.isEditing = false
-        },
-
         deleteTodoItem(index){
-            this.todoListArray.splice(index) // passes index and removes 1 item.
+            this.todoArray.splice(index, 1)
         },
-
         completeTodoItem(index){
-            this.selectedTodoIndex = index
-            this.isComplete = true
-            this.todoCompleteArray.push(this.selectedTodoIndex)
-            this.todoListArray.splice(this.selectedTodoIndex, 1)
+            this.completedTodoArray.push(this.todoArray[index])
+            this.todoArray.splice(index, 1)
         },
-
-        redoTodoItem(index) {
-            this.selectedTodoIndex = index
-            this.isComplete = false
-            this.todoListArray.push(this.selectedTodoIndex)
-            this.todoCompleteArray.splice(this.selectedTodoIndex, 1)
+        redoTodoItem(index){
+            this.todoArray.push(this.completedTodoArray[index])
+            this.completedTodoArray.splice(index, 1)
         },
-
-        deleteCompletedTodo(index) {
-            this.todoCompleteArray.splice(index, 1)
+        deleteCompletedTodo(index){
+            this.completedTodoArray.splice(index, 1)
         }
     }
 })
