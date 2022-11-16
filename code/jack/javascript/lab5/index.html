@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 5: FavQs in Vue</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="searchText" placeholder="Enter search term">
+        <select v-model="searchType">
+            <option value="keyword" selected>Keyword</option>
+            <option value="author">Author</option>
+            <option value="tag">Tag</option>
+        </select>
+        <button v-on:click="searchQuotes">Search</button>
+        <ul>
+            <quote-card v-for="quote in responseData.quotes" v-bind:quote="quote">{{quote.body}}</quote-card>
+        </ul>
+        
+        <button @click="previousPage" v-if="responseData.page - 1">previous page ({{responseData.page - 1}})</button>
+        <button @click="nextPage" v-if="!responseData.last_page">next page ({{responseData.page + 1}})</button>
+        <button @click="new25">refresh</button>
+        <button @click="clearSearch">clear search</button>
+    </div>
+    
+    <!-- Vue -->
+    <script src="https://unpkg.com/vue@2"></script>
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="./app.js"></script>
+</body>
+</html>
