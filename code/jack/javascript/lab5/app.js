@@ -21,9 +21,11 @@ let vm = new Vue({
         responseData: {},
         parameters: {},
         searchCheck: false,
+        loading: true,
     },
     methods: {
         getQuotes: function() {
+            this.loading = true
             axios({
                 method: "GET",
                 url: "https://favqs.com/api/quotes",
@@ -31,6 +33,7 @@ let vm = new Vue({
                 params: this.parameters
 
             }).then((response) => {
+                this.loading = false
                 this.responseData = response.data
                 if (this.responseData.quotes[0].body === "No quotes found") {
                     this.responseData.last_page = true

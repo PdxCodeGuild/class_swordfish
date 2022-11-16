@@ -4,26 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lab 5: FavQs in Vue</title>
+    <style>
+        img {
+
+            width: 100px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+
 </head>
 <body>
+    
     <div id="app">
+        <div v-if="loading">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Gray_circles_rotate.gif" alt="loading">
+        </div>
+        <div v-else>
+            <input type="text" v-model="searchText" placeholder="Enter search term">
+            <select v-model="searchType">
+                <option value="keyword">Keyword</option>
+                <option value="author">Author</option>
+                <option value="tag">Tag</option>
+            </select>
+            <button v-on:click="searchQuotes">Search</button>
+            <ul>
+                <quote-card v-for="quote in responseData.quotes" v-bind:quote="quote">{{quote.body}}</quote-card>
+            </ul>
+            <p v-if="responseData.last_page">end of results</p>
+            
+            <button @click="previousPage" v-if="responseData.page - 1">previous page ({{responseData.page - 1}})</button>
+            <button @click="nextPage" v-if="!responseData.last_page&&searchCheck" >next page ({{responseData.page + 1}})</button>
+            <button @click="new25" v-if="!searchCheck">refresh</button>
+            <button @click="clearSearch" v-if="searchCheck">clear</button>
+        </div>
         
-        <input type="text" v-model="searchText" placeholder="Enter search term">
-        <select v-model="searchType">
-            <option value="keyword">Keyword</option>
-            <option value="author">Author</option>
-            <option value="tag">Tag</option>
-        </select>
-        <button v-on:click="searchQuotes">Search</button>
-        <ul>
-            <quote-card v-for="quote in responseData.quotes" v-bind:quote="quote">{{quote.body}}</quote-card>
-        </ul>
-        <p v-if="responseData.last_page">end of results</p>
-        
-        <button @click="previousPage" v-if="responseData.page - 1">previous page ({{responseData.page - 1}})</button>
-        <button @click="nextPage" v-if="!responseData.last_page&&searchCheck" >next page ({{responseData.page + 1}})</button>
-        <button @click="new25" v-if="!searchCheck">refresh</button>
-        <button @click="clearSearch" v-if="searchCheck">clear</button>
     </div>
     
     <!-- Vue -->
