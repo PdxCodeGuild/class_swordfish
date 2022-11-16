@@ -17,13 +17,13 @@ let vm = new Vue({
     el: "#app",
     data: {
         searchText: "",
-        searchType: null,
+        searchType: "keyword",
         responseData: {},
         parameters: {},
+        searchCheck: false,
     },
     methods: {
         getQuotes: function() {
-            console.log(this.parameters)
             axios({
                 method: "GET",
                 url: "https://favqs.com/api/quotes",
@@ -32,6 +32,9 @@ let vm = new Vue({
 
             }).then((response) => {
                 this.responseData = response.data
+                if (this.responseData.quotes[0].body === "No quotes found") {
+                    this.responseData.last_page = true
+                }
             })
         },
         nextPage: function() {
@@ -43,14 +46,21 @@ let vm = new Vue({
             this.getQuotes()
         },
         searchQuotes: function() {
-            this.parameters = {page:1, filter:this.searchText, type:this.searchType}
-            this.getQuotes()
+            let checkString = this.searchText
+            if (this.searchText.replace(/\s+/g, '') != "") { // checks that search input isn't empty or spaces
+                this.parameters = {page:1, filter:this.searchText, type:this.searchType}
+                this.searchCheck = true
+                this.getQuotes()
+            }
+            
         },
         new25: function() {
             this.getQuotes()
         },
         clearSearch: function() {
             this.parameters = {}
+            this.searchCheck = false
+            this.searchText = ''
             this.getQuotes()
         }
     },

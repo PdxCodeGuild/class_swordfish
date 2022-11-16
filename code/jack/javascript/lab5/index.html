@@ -7,9 +7,10 @@
 </head>
 <body>
     <div id="app">
+        
         <input type="text" v-model="searchText" placeholder="Enter search term">
         <select v-model="searchType">
-            <option value="keyword" selected>Keyword</option>
+            <option value="keyword">Keyword</option>
             <option value="author">Author</option>
             <option value="tag">Tag</option>
         </select>
@@ -17,11 +18,12 @@
         <ul>
             <quote-card v-for="quote in responseData.quotes" v-bind:quote="quote">{{quote.body}}</quote-card>
         </ul>
+        <p v-if="responseData.last_page">end of results</p>
         
         <button @click="previousPage" v-if="responseData.page - 1">previous page ({{responseData.page - 1}})</button>
-        <button @click="nextPage" v-if="!responseData.last_page">next page ({{responseData.page + 1}})</button>
-        <button @click="new25">refresh</button>
-        <button @click="clearSearch">clear search</button>
+        <button @click="nextPage" v-if="!responseData.last_page&&searchCheck" >next page ({{responseData.page + 1}})</button>
+        <button @click="new25" v-if="!searchCheck">refresh</button>
+        <button @click="clearSearch" v-if="searchCheck">clear</button>
     </div>
     
     <!-- Vue -->
