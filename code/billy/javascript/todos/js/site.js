@@ -35,8 +35,13 @@ new Vue({
             this.isComplete = true
             this.todoCompleteArray.push(this.selectedTodoIndex)
             this.todoListArray.splice(this.selectedTodoIndex, 1)
+        },
 
-             
+        redoTodoItem(index) {
+            this.selectedTodoIndex = index
+            this.isComplete = false
+            this.todoListArray.push(this.selectedTodoIndex)
+            this.todoCompleteArray.splice(this.selectedTodoIndex, 1)
         },
 
         deleteCompletedTodo(index) {
