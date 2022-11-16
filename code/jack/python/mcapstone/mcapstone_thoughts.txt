@@ -1,0 +1,43 @@
+to do:
+
+preserve html layout? or adjust text to standard layout
+save and retrieve to file functionality
+improve keywords - learn from recipes? save all ingredient lists to file and loop back for most common
+test short recipes
+make pdf?
+remove 'recipe' from titles
+if no keywords found?  
+
+----
+
+Problems with V1:
+recipe text pulled from all_text is not very clean.
+sometimes it pulls too much at the beginning, and it always chops the last bit off.
+recipe text is in whatever format all_text is; sometimes all on one
+line, sometimes each ingredient has its own line, sometimes there are multiple
+new lines between each ingredient.
+sometimes there are non-ascii letter characters such as checkboxes
+
+potential iterations:
+save as pdf, visually analyze layout/text
+
+possible solution:
+case 1: program check to see if recipe is on one or two line
+    if so, break up each ingredient with a new line. no idea how to accomplish this
+case 2: program check to see if recipe is broken up in multiple lines
+    clear all new lines and delineate ingredient and instructions
+once the pattern is determined, collect the rest of text immediately following the
+    pattern in order to capture the rest of the ingredients/instructions
+refine the ingredient keyword list to contain only measurement nouns. this would
+    make ingredient delineation more clear
+
+
+
+V2 thoughts:
+should check for all bold tags, aka headers - list headers, then pull sections with keyword hits
+header tag?
+soup.find_all(re.compile('^h[1-6]$'))
+
+merrit:
+user agent header in requests 'python' ... change user agent to something else
+gets around websites blocking me

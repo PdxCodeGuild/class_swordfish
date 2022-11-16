@@ -3,12 +3,12 @@
 let options = {'A': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, '10': 10, 'J': 10, 'Q': 10, 'K': 10}
 let submit = document.getElementById('submit')
 let result = document.getElementById('result')
-
-
-submit.addEventListener('click', function() {
-    let card1 = document.getElementById('card1').value.toUpperCase()
+let card1 = document.getElementById('card1').value.toUpperCase()
     let card2 = document.getElementById('card2').value.toUpperCase()
     let card3 = document.getElementById('card3').value.toUpperCase()
+
+submit.addEventListener('click', function() {
+    
     let cards = [card1, card2, card3]
 
     let total = [0]
