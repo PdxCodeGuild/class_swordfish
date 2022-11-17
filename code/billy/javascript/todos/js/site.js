@@ -16,6 +16,7 @@ new Vue({
             this.todoId++
             // console.log(todo)
             this.todoArray.push(todo)
+            this.todoText = ''
         },
         deleteTodoItem(index){
             this.todoArray.splice(index, 1)
