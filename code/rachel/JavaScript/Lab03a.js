@@ -2,26 +2,37 @@
 let keys = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 let inputPhrase = prompt ("Enter a string of letters to encypher: ");
-let working_string = "";
-// var position2;
+let workingString = "";
+var indexPos;
+var position2;
 // console.log(inputPhrase);
 
 // let indexPos = keys.indexOf(inputPhrase);
+function getIndex(inputPhrase) {
+    indexPos = keys.indexOf(inputPhrase);
+    return indexPos;
+}
 
 // console.log(indexPos);
 
 for (let i in inputPhrase) {
-    let indexPos = keys.indexOf(i);
+// for (let i = 0; i < inputPhrase.length; i++) {
+// for (let i = 0; i <= inputPhrase.length; i++) {
+    indexPos = getIndex(inputPhrase);
     if (indexPos >= 13) {
         let position2 = indexPos - 13;
-        let new_letter = keys[position2];
+        let newLetter = keys[position2];
+        console.log (newLetter);
     } else {
-        positition2 = indexPos + 13;
-        new_letter = keys[position2];
+        position2 = indexPos + 13;
+        newLetter = keys[position2];
+        console.log (newLetter);
     }
-    working_string += new_letter;
+    workingString += newLetter;
+    // workingString.push(newLetter);
+    break;
 }
-console.log (working_string);
+console.log (workingString);
 
 // for (let i = position1; i = i+13;) {
 //     let position1 = indexValue()
