@@ -19,10 +19,12 @@ var app4 = new Vue({
           this.completeTodos.splice(index, 1)
         },
         completeTodo: function(index) {
-          let newTodo = {
-            text: this.incompleteTodos[index]}
-          this.completeTodos.push(newTodo)
+          this.completeTodos.push(index)
           this.incompleteTodos.splice(index, 1)
+        },
+        incompleteTodo: function(index) {
+          this.incompleteTodos.push(index)
+          this.completeTodos.splice(index, 1)
         }
     }
   })

@@ -23,6 +23,7 @@
         <template v-for="todo in completeTodos">
             {{ todo.text }}
             <button v-on:click="deleteCompleteTodo(todo, completeTodos)">Delete</button>
+            <button v-on:click="incompleteTodo(todo, completeTodos)">Incomplete</button>
             <br>   
         </template>
         <br>
