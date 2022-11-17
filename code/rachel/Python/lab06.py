@@ -15,27 +15,21 @@ input_phrase = input("Enter a string of letters to encypher: ")
 
 def index_value():
     position1 = keys.index(i)
-    return(position1)
+    return position1
 
+
+working_string = ""
 for i in input_phrase:
     position1 = index_value()
-
     if position1 >= 13:
-
         position2 = position1 - 13
-
         new_letter = keys[position2]
-
     else:
-
         positition2 = position1 + 13 
-
         new_letter = keys[positition2]
+    working_string += new_letter
 
-    print(new_letter, end='')
-
-
-
+print(working_string)
 
 
  
