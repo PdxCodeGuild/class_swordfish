@@ -20,14 +20,21 @@
         <div class="incomplete-todos">
             <h2>Incomplete Todos</h2>
             <ul>
-                <li v-for="item in incompleteTodos">{{ item.text }}</li>
+                <li v-for="item in incompleteTodos">
+                    {{ item.text }}
+                    <button v-on:click="toggleTodo(item)">&check;</button>
+                </li>
+
             </ul>
         </div>
 
         <div class="completed-todos">
             <h2>Completed Tasks</h2>
             <ul>
-                <li v-for="item in completeTodos">{{item.text}}</li>
+                <li v-for="item in completeTodos">
+                    {{item.text}}
+                    <button v-on:click="toggleTodo(item)">&curvearrowleft;</button>
+                </li>  
             </ul>
         </div>
     </div>
