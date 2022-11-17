@@ -7,11 +7,22 @@
     <title>Favorite Quotes</title>
     <link rel="stylesheet" href="css/site.css" />
 </head>
+<h2>Welcome to the Quoter</h2>
+
 <body>
     <div id="favQapp">
-        {{ message }}
+        <button v-on:click="getQuotes">Home</button>
+        <!-- <div v-if="randomQuotes.length"> -->
+        <quote-block v-for="quote in randomQuotes" v-bind:quote="quote"></quote-block>
+        <!-- </div> -->
+        <!-- <div v-if="keywordQuoteslist.length"> -->
+        <quote-block v-for="quote in keywordQuoteslist" v-bind:quote="quote"></quote-block>
+        <!-- </div> -->
+        <input type="text" v-model="search">
+        <button v-on:click="keywordQuotes">Search Keyword</button><br>
+        <br>
+        <button @click="nextPage">Next Page</button>
     </div>
-
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
