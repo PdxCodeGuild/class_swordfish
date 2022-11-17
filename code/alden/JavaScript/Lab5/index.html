@@ -15,11 +15,11 @@
         <button v-on:click="searchTag">Tag</button>
 
         <quote-content 
-            class-name="quote-list" 
+            className="quote-list" 
             :header= "heading" 
             :quotes="quotes">
         </quote-content>
-        <p>Page {{ data.page }}</p>
+        <p>Page  {{ data.page }}</p>
         <button v-if="data.page>1" v-on:click="previousPage">&LeftArrow;</button>
         <button v-if="data.last_page == false" v-on:click="nextPage">&RightArrow;</button>
     </div>

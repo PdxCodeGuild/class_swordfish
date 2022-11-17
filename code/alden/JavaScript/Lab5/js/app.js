@@ -59,6 +59,7 @@ new Vue({
         searchKeyword: function(){
             this.param.filter = this.newParam
             this.heading = this.newParam
+            this.param.type = ''
             this.newParam =''
             this.getQuotes()
         },
