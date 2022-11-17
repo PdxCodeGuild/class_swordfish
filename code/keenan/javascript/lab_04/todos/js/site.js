@@ -6,13 +6,19 @@ const vm = new Vue({
             { id: 1, text: "walk the dog", completed: false, createdDate: new Date(), },
 		    { id: 2, text: "learn vue", completed: true, createdDate: new Date(), },
 		    { id: 3, text: "drink water", completed: true, createdDate: new Date(), }
-        ]
+        ],
+        // need to create an empty variable here to allow us to reference the input text
+        inputText: '', 
 	},
 	methods:{
         addTodo: function() {
             let newItem = {
-
+                id: 4,
+                text: this.inputText,
+                completed: false,
+                createdDate: new Date(),
             }
+            console.log(newItem)
         }
 	},
 	computed:{

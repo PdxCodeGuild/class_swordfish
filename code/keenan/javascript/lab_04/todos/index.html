@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,25 +12,27 @@
 
 <body>
     <div id="app">
-	<input type="text" placeholder="Enter todo...">
-	<button>Add New Todo</button>
-    
-    <div class="incomplete-todos">
-        <h2>Incomplete Todos</h2>
-        <ul>
-            <li v-for="item in incompleteTodos">{{ item.text }}</li>
-        </ul>
-    </div>
+        <div>
+            <input type="text" v-model="inputText" placeholder="Enter todo...">
+            <button v-on:click="addTodo" input type="submit">Add New Todo</button>
+        </div>
 
-    <div class="completed-todos">
-        <h2>Completed Tasks</h2>
-        <ul>
-            <li v-for="item in completeTodos">{{item.text}}</li>
-        </ul>
-    </div>
-    
+        <div class="incomplete-todos">
+            <h2>Incomplete Todos</h2>
+            <ul>
+                <li v-for="item in incompleteTodos">{{ item.text }}</li>
+            </ul>
+        </div>
+
+        <div class="completed-todos">
+            <h2>Completed Tasks</h2>
+            <ul>
+                <li v-for="item in completeTodos">{{item.text}}</li>
+            </ul>
+        </div>
     </div>
     <script src="https://unpkg.com/vue@2"></script>
     <script src="js/site.js"></script>
 </body>
+
 </html>
