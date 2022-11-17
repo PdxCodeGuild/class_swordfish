@@ -27,7 +27,13 @@ const vm = new Vue({
         },
         toggleTodo: function(todos){
             todos.completed = !todos.completed
+        },
+        removeTodo: function(todos) {
+            this.todos = this.todos.filter(function(remaining) {
+                return remaining.id !== todos.id
+            })
         }
+
 	},
 	computed:{
         incompleteTodos: function() {

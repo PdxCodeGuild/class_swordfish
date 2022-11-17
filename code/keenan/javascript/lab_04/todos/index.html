@@ -23,6 +23,7 @@
                 <li v-for="item in incompleteTodos">
                     {{ item.text }}
                     <button v-on:click="toggleTodo(item)">&check;</button>
+                    <button v-on:click="removeTodo(item)">&xopf;</button>
                 </li>
 
             </ul>
@@ -34,6 +35,7 @@
                 <li v-for="item in completeTodos">
                     {{item.text}}
                     <button v-on:click="toggleTodo(item)">&curvearrowleft;</button>
+                    <button v-on:click="removeTodo(item)">&xopf;</button>
                 </li>  
             </ul>
         </div>
@@ -43,3 +45,6 @@
 </body>
 
 </html>
+
+<!-- i could add on enter keyup or similar functionality. -->
+<!-- also the completed list and incomplete will always be ordered on index, not on completion/created/updated date -->
