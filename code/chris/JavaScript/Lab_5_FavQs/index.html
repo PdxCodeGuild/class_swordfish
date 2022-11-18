@@ -7,11 +7,61 @@
     <title>Favorite Quotes</title>
     <link rel="stylesheet" href="css/site.css" />
 </head>
+<h2>Welcome to the Quoter</h2>
+
 <body>
     <div id="favQapp">
-        {{ message }}
+        <button v-on:click="getQuotes">Home</button>
+        <br>
+        <br>
+        <input type="text" v-model="inputText">
+        <button v-on:click="keywordQuotes">Search Keyword</button>
+        <button v-on:click="authorQuotes">Author Keyword</button>
+        <button v-on:click="taggingQuotes">Tag Keyword</button>
+        <br>
+        <button @click="backPage" 
+            v-if="!theRandomQuotes.length">Back Page</button>
+        <button @click="nextPage" 
+            v-if="!theRandomQuotes.length">Next Page</button>
+        
+        <!-- <select v-model="searchType">
+            <option disabled value=''>Select a Type</option>
+            <option v-for="typeOption in searchType" v-bind:value="typeOption">{{ typeOption }}
+            </option>
+        </select> -->
+        <br>
+        <div v-if="theRandomQuotes.length">
+            <h3>Here are Five Random Quotes:</h3>
+            <quote-block 
+            v-for="quote in theRandomQuotes" 
+            v-bind:quote="quote" 
+            v-bind:key="quote.id"></quote-block>
+        </div>
+        <div v-if="keywordQuoteslist.length">
+            <h3>This is your search term: {{ currentSearch }}</h3>
+            <h4>Page: {{ page }}</h4>
+            <quote-block 
+            v-for="quote in keywordQuoteslist" 
+            v-bind:quote="quote" html property must be bind
+            v-bind:key="quote.id"></quote-block>
+        </div>
+        <div v-if="authorQuoteslist.length">
+            <h3>This is your author: {{ currentSearch }}</h3>
+            <h4>Page: {{ page }}</h4>
+            <quote-block 
+            v-for="quote in authorQuoteslist" 
+            v-bind:quote="quote" 
+            v-bind:key="quote.id"></quote-block>
+        </div>
+        <div v-if="tagQuoteslist.length">
+            <h3>This is your tag term: {{ currentSearch }}</h3>
+            <h4>Page: {{ page }}</h4>
+            <quote-block 
+            v-for="quote in tagQuoteslist" 
+            v-bind:quote="quote" 
+            v-bind:key="quote.id"></quote-block>
+        </div>
     </div>
-
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
