@@ -12,16 +12,53 @@
 <body>
     <div id="favQapp">
         <button v-on:click="getQuotes">Home</button>
-        <!-- <div v-if="randomQuotes.length"> -->
-        <quote-block v-for="quote in randomQuotes" v-bind:quote="quote"></quote-block>
-        <!-- </div> -->
-        <!-- <div v-if="keywordQuoteslist.length"> -->
-        <quote-block v-for="quote in keywordQuoteslist" v-bind:quote="quote"></quote-block>
-        <!-- </div> -->
-        <input type="text" v-model="search">
-        <button v-on:click="keywordQuotes">Search Keyword</button><br>
         <br>
-        <button @click="nextPage">Next Page</button>
+        <br>
+        <input type="text" v-model="inputText">
+        <button v-on:click="keywordQuotes">Search Keyword</button>
+        <button v-on:click="authorQuotes">Author Keyword</button>
+        <button v-on:click="taggingQuotes">Tag Keyword</button>
+        <br>
+        <button @click="nextPage" 
+            v-if="!theRandomQuotes.length">Next Page</button>
+        
+        <!-- <select v-model="searchType">
+            <option disabled value=''>Select a Type</option>
+            <option v-for="typeOption in searchType" v-bind:value="typeOption">{{ typeOption }}
+            </option>
+        </select> -->
+        <br>
+        <div v-if="theRandomQuotes.length">
+            <h3>Here are Five Random Quotes</h3>
+            <quote-block 
+            v-for="quote in theRandomQuotes" 
+            v-bind:quote="quote" 
+            v-bind:key="quote.id"></quote-block>
+        </div>
+        <div v-if="keywordQuoteslist.length">
+            <h3>This is your search term: {{ search }}</h3>
+            <h4>Page: {{ page }}</h4>
+            <quote-block 
+            v-for="quote in keywordQuoteslist" 
+            v-bind:quote="quote" html property must be bind
+            v-bind:key="quote.id"></quote-block>
+        </div>
+        <div v-if="authorQuoteslist.length">
+            <h3>This is your author: {{ currentSearch }}</h3>
+            <h4>Page: {{ page }}</h4>
+            <quote-block 
+            v-for="quote in authorQuoteslist" 
+            v-bind:quote="quote" 
+            v-bind:key="quote.id"></quote-block>
+        </div>
+        <div v-if="tagQuoteslist.length">
+            <h3>This is your tag term: {{ currentSearch }}</h3>
+            <h4>Page: {{ page }}</h4>
+            <quote-block 
+            v-for="quote in tagQuoteslist" 
+            v-bind:quote="quote" 
+            v-bind:key="quote.id"></quote-block>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
