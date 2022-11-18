@@ -1,4 +1,4 @@
-const face_cards = {
+const cardValues = {
     king: 10,
     queen: 10,
     jack: 10,
@@ -14,23 +14,38 @@ const face_cards = {
     ace: 1,
 }
 let submit = document.getElementById('submit')
+let advice = document.getElementById('advice')
 
 submit.addEventListener('click', function() {
-    let card_one = document.getElementById('card_one').value.toUpperCase()
-    let card_two = document.getElementById('card_two').value.toUpperCase()
-    let card_three = document.getElementById('card_three').value.toUpperCase()
-    let card_selection = [card_one, card_two, card_three]
-
-    let card_score = [0]
-    for (let card of card_selection) {     
-        for (let key of Object.getOwnPropertyNames(face_cards)) { // cycles through all options to try to match
+    let cardOne = document.getElementById('cardOne').value.toLowerCase()
+    let cardTwo = document.getElementById('cardTwo').value.toLowerCase()
+    let cardThree = document.getElementById('cardThree').value.toLowerCase()
+    let cardSelection = [cardOne, cardTwo, cardThree]
+    let cardScore = [0]
+    for (let card of cardSelection) {     
+        for (let key of Object.getOwnPropertyNames(cardValues)) {
             if (key == card) {
-                for (let i in total) { // increments each total score scenario, aka number in list
-                    card_score[i] += face_cards[key]
+                for (let i in cardScore) {
+                    cardScore[i] += cardValues[key]
                 }
             }
         }
-        
     }
-    console.log(card_score)
+
+    console.log(cardScore)
+    
+    let totalCardScore = cardScore
+    if (totalCardScore <= 17){
+        blackJackAdvice = 'Advice for your next move: Hit!'
+    }
+    else if (totalCardScore > 17 && cardScore < 21){
+        blackJackAdvice = 'Advice for your next move: Stay!'
+    }
+    else if (totalCardScore <= 21){
+        blackJackAdvice = 'Winner!!!'
+    }
+    else if(totalCardScore > 21){
+        blackJackAdvice = 'Bust! LOSER!!'
+    }
+    advice.innerText = blackJackAdvice
 })
