@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,10 +9,42 @@
 
     <link rel="stylesheet" href="css/site.css" />
 </head>
+
 <body>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
-    <!-- above was from our example, the below unpkg link was from the lab description -->
+    <div id="app">
+        <div>
+            <input type="text" v-model="inputText" placeholder="Enter todo...">
+            <button v-on:click="addTodo" input type="submit">Add New Todo</button>
+        </div>
+
+        <div class="incomplete-todos">
+            <h2>Incomplete Todos</h2>
+            <ul>
+                <li v-for="item in incompleteTodos">
+                    {{ item.text }}
+                    <button v-on:click="toggleTodo(item)">&check;</button>
+                    <button v-on:click="removeTodo(item)">&xopf;</button>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="completed-todos">
+            <h2>Completed Tasks</h2>
+            <ul>
+                <li v-for="item in completeTodos">
+                    {{item.text}}
+                    <button v-on:click="toggleTodo(item)">&curvearrowleft;</button>
+                    <button v-on:click="removeTodo(item)">&xopf;</button>
+                </li>  
+            </ul>
+        </div>
+    </div>
     <script src="https://unpkg.com/vue@2"></script>
     <script src="js/site.js"></script>
 </body>
+
 </html>
+
+<!-- i could add on enter keyup or similar functionality. -->
+<!-- also the completed list and incomplete will always be ordered on index, not on completion/created/updated date -->
