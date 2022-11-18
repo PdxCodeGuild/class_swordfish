@@ -19,6 +19,8 @@
         <button v-on:click="authorQuotes">Author Keyword</button>
         <button v-on:click="taggingQuotes">Tag Keyword</button>
         <br>
+        <button @click="backPage" 
+            v-if="!theRandomQuotes.length">Back Page</button>
         <button @click="nextPage" 
             v-if="!theRandomQuotes.length">Next Page</button>
         
@@ -29,14 +31,14 @@
         </select> -->
         <br>
         <div v-if="theRandomQuotes.length">
-            <h3>Here are Five Random Quotes</h3>
+            <h3>Here are Five Random Quotes:</h3>
             <quote-block 
             v-for="quote in theRandomQuotes" 
             v-bind:quote="quote" 
             v-bind:key="quote.id"></quote-block>
         </div>
         <div v-if="keywordQuoteslist.length">
-            <h3>This is your search term: {{ search }}</h3>
+            <h3>This is your search term: {{ currentSearch }}</h3>
             <h4>Page: {{ page }}</h4>
             <quote-block 
             v-for="quote in keywordQuoteslist" 

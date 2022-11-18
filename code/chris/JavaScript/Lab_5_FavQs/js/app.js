@@ -22,7 +22,6 @@ const favQ = new Vue ({
         authorQuoteslist: [],
         page: 1,
         inputText: "",
-        search: "",
         tags: "",
         author: "",
         currentType: "",
@@ -51,16 +50,18 @@ const favQ = new Vue ({
             }
         }, 
         keywordQuotes: function() {
-            this.search = this.inputText
+            this.currentSearch = this.inputText
             this.inputText = ""
             this.theRandomQuotes = []
             this.keywordQuoteslist = []
+            this.authorQuoteslist = []
+            this.tagQuoteslist = []
             this.page = 1
                 axios({
                     method: "GET",
                     url: "https://favqs.com/api/quotes",
                     params: {
-                        filter: this.search,
+                        filter: this.currentSearch,
                     },
                     headers: {
                         'Authorization': `Token token="855df50978dc9afd6bf86579913c9f8b"`
@@ -74,7 +75,9 @@ const favQ = new Vue ({
             this.currentType = "author"
             this.inputText = ""
             this.theRandomQuotes = []
+            this.keywordQuoteslist = []
             this.authorQuoteslist = []
+            this.tagQuoteslist = []
             this.page = 1
                 axios({
                     method: "GET",
@@ -96,6 +99,8 @@ const favQ = new Vue ({
             this.currentType = "tag"
             this.inputText = ""
             this.theRandomQuotes = []
+            this.keywordQuoteslist = []
+            this.authorQuoteslist = []
             this.tagQuoteslist = []
             this.page = 1
                 axios({
@@ -116,8 +121,8 @@ const favQ = new Vue ({
             this.page++
             this.theRandomQuotes = []
             this.keywordQuoteslist = []
-            this.tagQuoteslist = []
             this.authorQuoteslist = []
+            this.tagQuoteslist = []
                 axios({
                     method: "GET",
                     url: "https://favqs.com/api/quotes",
@@ -140,7 +145,34 @@ const favQ = new Vue ({
                     this.page = response.data.page
                 })
         },
-        
+        backPage: function() { 
+            this.page--
+            this.theRandomQuotes = []
+            this.keywordQuoteslist = []
+            this.authorQuoteslist = []
+            this.tagQuoteslist = []
+                axios({
+                    method: "GET",
+                    url: "https://favqs.com/api/quotes",
+                    params: {
+                        filter: this.currentSearch,
+                        type: this.currentType,
+                        page: this.page
+                    },
+                    headers: {
+                        'Authorization': `Token token="855df50978dc9afd6bf86579913c9f8b"`
+                    }
+                }).then((response) => { //arrow Function!!!
+                    if(this.currentType === 'author') {
+                        this.authorQuoteslist = response.data.quotes
+                    } else if(this.currentType === 'tag') {
+                        this.tagQuoteslist = response.data.quotes
+                    } else {
+                        this.keywordQuoteslist = response.data.quotes
+                    }
+                    this.page = response.data.page
+                })
+        },
     },
     computed: {
     
