@@ -7,6 +7,16 @@
     <title>Favorite Quotes</title>
 </head>
 <body>
+    <div id="app">
+        <input type="text" v-model="search" placeholder="Enter Quote topic">
+        <button v-on:click="getQuotes">Get Quotes</button>
+        <quotes v-for="quote in quotes.quotes" v-bind:quote="quote">{{quote.body}}</quotes>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- Include your code here... -->
+    <script src="js/site.js"></script>
     
 </body>
 </html>
