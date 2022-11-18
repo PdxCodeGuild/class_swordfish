@@ -17,7 +17,7 @@ const weatherApp = new Vue ({
     data: {
         token: "3f5c584b1dc94e1ec5e88f43d5d6cc1e",
         inputText: "",
-        searchLocation: "",
+        searchLocation: "Chicago",
         locationObject: [],
         weatherObject: {},
     },
