@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Finder!</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+    <h1> Yamil's Ticket Finder</h1><br>
+
+    <div id="response"></div>
+    <div id="app">
+        <div>
+            <select v-model="selected">
+                <option value="zip-code-option">Zip Code</option>
+                <option value="city-option">City</option>
+                <option value="state-option">State</option>
+                <option value="country-option">Country</option>
+            </select>
+            <input v-if="selected" type="text" placeholder="Works" v-model.lazy="selectedText">
+            <!-- <input type="text" placeholder="Enter your location" v-model.lazy="selectedText">
+            <input type="text" placeholder="Enter your location" v-model.lazy="selectedText">
+            <input type="text" placeholder="Enter your location" v-model.lazy="selectedText"> -->
+
+            <input type="text" placeholder="Enter Your Artist, Event, or Sport" v-model.lazy="keyword">
+            <button v-on:click="eventSearch">Search!</button>
+        </div>
+
+        <h3>Events related to your search:</h3>
+        <ul v-for="event in eventsList">
+            <ul>
+                <li>
+                    {{event.name}}
+                </li>
+                <li>
+                    {{event.dates.start.localDate}}
+                </li>
+                <li v-for="clsf in event.classifications">
+                    {{clsf.genre.name}}
+                </li>
+                <li v-for="price in event.priceRanges">
+                    Lowest price starting at: {{price.min+" "+price.currency}} and ranging up to: {{price.max+" "+price.currency}}
+                </li>
+                <li v-for="venue in event._embedded.venues">
+                    {{venue.name}} {{venue.city.name}}
+                </li>
+                <li>
+                    {{event.url}}
+                </li>
+            </ul><br>
+
+        </ul>
+    </div>
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <!-- Vue -->
+    <script src="https://unpkg.com/vue@2"></script>
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>

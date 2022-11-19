@@ -24,9 +24,37 @@ const quotesApiVue = new Vue({
     // },
     nextPage: function() {
       this.page++
+      author = `?filter=${this.newSearch}&type=author${this.page}`,
+      keyword = `?filter=${this.newSearch}`,
+      tag = `?filter=${this.newSearch}&type=tag`,
+      axios({
+        method: "GET",
+        url: `https://favqs.com/api/quotes/`+`${author}`,
+        headers: {
+        'Authorization': `Token token="3b3e469abc960df09cbcc8ab225ea0f0"`
+        }
+      }).then((response) => {
+        this.quotes = response.data
+        this.page = response.data.page
+      })
+      // this.newSearch = ""
     },
     previousPage: function() {
       this.page = this.page - 1
+      author = `?filter=${this.newSearch}&type=author${this.page}`,
+      keyword = `?filter=${this.newSearch}`,
+      tag = `?filter=${this.newSearch}&type=tag`,
+      axios({
+        method: "GET",
+        url: `https://favqs.com/api/quotes/`+`${author}`,
+        headers: {
+        'Authorization': `Token token="3b3e469abc960df09cbcc8ab225ea0f0"`
+        }
+      }).then((response) => {
+        this.quotes = response.data
+        this.page = response.data.page
+      })
+      // this.newSearch = ""
     },
 // ----------------------------------------------------------------------------------------------------
     authorSearch: function() {
@@ -43,7 +71,7 @@ const quotesApiVue = new Vue({
         this.quotes = response.data
         this.page = response.data.page
       })
-      this.newSearch = ""
+      // this.newSearch = ""
     },
 
     tagSearch: function() {
@@ -58,7 +86,7 @@ const quotesApiVue = new Vue({
         this.quotes = response.data
         this.page = response.data.page
       })
-      this.newSearch = ""
+      // this.newSearch = ""
     },
 
     keywordSearch: function() {
@@ -73,7 +101,7 @@ const quotesApiVue = new Vue({
         this.quotes = response.data
         this.page = response.data.page
       })
-      this.newSearch = ""
+      // this.newSearch = ""
     },
 
     getQuotes: function() {
