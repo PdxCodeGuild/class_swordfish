@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chirp Base</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+    <h1><a href="{% url 'posts:home'%}">The Funny Farm Chirp Fest</a></h1>
+    <div class="admin">
+        {% if user.is_authenticated %}
+            <p>Welcome back {{ user.username }}!</p>
+            <p><a href="{% url 'posts:new' %}">New Posts</a></p>
+            <p><a href="{% url 'logout'%}">Log Out</a></p>
+        {% else %}
+            <p><a href="{% url 'login'%}">Log In</a></p>
+            <p><a href="{% url 'users:signup' %}">New User Sign Up</a></p>
+        {% endif %}
+    </div>
+    <div class="container">
+        {% block content %}
+        {% endblock content %}
+    </div>
+</body>
+</html>
