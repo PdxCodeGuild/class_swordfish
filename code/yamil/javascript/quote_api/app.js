@@ -5,65 +5,45 @@ const quotesApiVue = new Vue({
   data: {
     newSearch: "",
     quotes: [],
-    searchParameter: ""
+    searchParameter: "",
+    searchType: ""
   },
   computed: {
   
   },
   methods: {
-    // searchParameterFunction: function() {
-    //   if (this.searchParameter === "keyword") {
-    //     this.keywordSearch()
-    //   }
-    //   else if (this.searchParameter === "author") {
-    //     this.authorSearch()
-    //   }
-    //   else if (this.searchParameter === "tag") {
-    //     this.tagSearch()
-    //   }
-    // },
     nextPage: function() {
       this.page++
-      author = `?filter=${this.newSearch}&type=author${this.page}`,
-      keyword = `?filter=${this.newSearch}`,
-      tag = `?filter=${this.newSearch}&type=tag`,
-      axios({
-        method: "GET",
-        url: `https://favqs.com/api/quotes/`+`${author}`,
-        headers: {
-        'Authorization': `Token token="3b3e469abc960df09cbcc8ab225ea0f0"`
-        }
-      }).then((response) => {
-        this.quotes = response.data
-        this.page = response.data.page
-      })
-      // this.newSearch = ""
+      console.log(this.page)
+      if (this.searchType === "author") {
+        this.authorSearch()
+      } else if (this.searchType === "tag") {
+        this.tagSearch()
+      } else if (this.searchType === "keyword") {
+        this.keywordSearch()
+      } else {
+        console.log("La cagaste")
+      }
     },
     previousPage: function() {
       this.page = this.page - 1
-      author = `?filter=${this.newSearch}&type=author${this.page}`,
-      keyword = `?filter=${this.newSearch}`,
-      tag = `?filter=${this.newSearch}&type=tag`,
-      axios({
-        method: "GET",
-        url: `https://favqs.com/api/quotes/`+`${author}`,
-        headers: {
-        'Authorization': `Token token="3b3e469abc960df09cbcc8ab225ea0f0"`
-        }
-      }).then((response) => {
-        this.quotes = response.data
-        this.page = response.data.page
-      })
-      // this.newSearch = ""
+      if (this.searchType === "author") {
+        this.authorSearch()
+      } else if (this.searchType === "tag") {
+        this.tagSearch()
+      } else if (this.searchType === "keyword") {
+        this.keywordSearch()
+      } else {
+        console.log("La cagaste")
+      }
     },
 // ----------------------------------------------------------------------------------------------------
     authorSearch: function() {
-      console.log(this.quotes.page, "quotes.page")
-      console.log(this.quotes.last_page, "last page")
+      this.searchType = "author"
       author = `?filter=${this.newSearch}&type=author`,
       axios({
         method: "GET",
-        url: `https://favqs.com/api/quotes/`+`${author}`,
+        url: `https://favqs.com/api/quotes/`+`${author}`+`&page=${this.page}`,
         headers: {
         'Authorization': `Token token="3b3e469abc960df09cbcc8ab225ea0f0"`
         }
@@ -75,10 +55,11 @@ const quotesApiVue = new Vue({
     },
 
     tagSearch: function() {
+      this.searchType = "tag"
       tag = `?filter=${this.newSearch}&type=tag`,
       axios({
         method: "GET",
-        url: `https://favqs.com/api/quotes/`+`${tag}`,
+        url: `https://favqs.com/api/quotes/`+`${tag}`+`&page=${this.page}`,
         headers: {
         'Authorization': `Token token="3b3e469abc960df09cbcc8ab225ea0f0"`
         }
@@ -90,10 +71,11 @@ const quotesApiVue = new Vue({
     },
 
     keywordSearch: function() {
+      this.searchType = "keyword"
       keyword = `?filter=${this.newSearch}`,
       axios({
         method: "GET",
-        url: `https://favqs.com/api/quotes/`+`${keyword}`,
+        url: `https://favqs.com/api/quotes/`+`${keyword}`+`&page=${this.page}`,
         headers: {
         'Authorization': `Token token="3b3e469abc960df09cbcc8ab225ea0f0"`
         }
