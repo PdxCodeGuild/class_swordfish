@@ -3,6 +3,7 @@
 const eventSearchApi = new Vue({
     el: "#app",
     data: {
+      searchElementView: false,
       eventsList: [],
       keyword: "",
       city: "",                
@@ -18,12 +19,30 @@ const eventSearchApi = new Vue({
       postalCodeMod: "&postalCode=",
       stateMod: "&stateCode=",
       genreMod: "&classificationName=",
+      testDict: {
+        "city" : function() {
+          this.city = this.selectedText
+        }
+       }
     },
     computed: {
 
     },
     methods: {
         eventSearch: function() {
+          if (this.selected === "zip-code-option") {
+            this.postalCode = this.selectedText
+          }
+          else if (this.selected === "city-option") {
+            this.city = this.selectedText
+          }
+          else if (this.selected === "state-option") {
+            this.state = this.selectedText
+          }
+          else if (this.selected === "country-option") {
+            this.country = this.selectedText
+          }
+            this.searchElementView = true
             axios({
               method: "GET",
               url: `https://app.ticketmaster.com/discovery/v2/events.json?apikey=pFu9Kj7Vv81m3dt87AVF3GK79yGaJKBy&size=5`
@@ -38,6 +57,4 @@ const eventSearchApi = new Vue({
     //   this.eventSearch()
     // }
 })
-
-
 

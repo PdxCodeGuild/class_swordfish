@@ -19,16 +19,16 @@
                 <option value="state-option">State</option>
                 <option value="country-option">Country</option>
             </select>
-            <input v-if="selected" type="text" placeholder="Works" v-model.lazy="selectedText">
-            <!-- <input type="text" placeholder="Enter your location" v-model.lazy="selectedText">
-            <input type="text" placeholder="Enter your location" v-model.lazy="selectedText">
-            <input type="text" placeholder="Enter your location" v-model.lazy="selectedText"> -->
+            <input v-if="selected == 'zip-code-option'" type="text" placeholder="Please enter your location here:" v-model="selectedText">
+            <input v-if="selected == 'city-option'" type="text" placeholder="Please enter your location here:" v-model="selectedText">
+            <input v-if="selected == 'state-option'" type="text" placeholder="Please enter your location here:" v-model="selectedText">
+            <input v-if="selected == 'country-option'" type="text" placeholder="Please enter your location here:" v-model="selectedText">
 
             <input type="text" placeholder="Enter Your Artist, Event, or Sport" v-model.lazy="keyword">
             <button v-on:click="eventSearch">Search!</button>
         </div>
 
-        <h3>Events related to your search:</h3>
+        <h3 v-if="searchElementView">Events related to your search:</h3>
         <ul v-for="event in eventsList">
             <ul>
                 <li>
@@ -47,7 +47,7 @@
                     {{venue.name}} {{venue.city.name}}
                 </li>
                 <li>
-                    {{event.url}}
+                    <a v-bind:href=event.url>Link</a>
                 </li>
             </ul><br>
 
