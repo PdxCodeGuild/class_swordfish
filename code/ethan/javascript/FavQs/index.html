@@ -7,11 +7,21 @@
     <title>Favorite Quotes</title>
 </head>
 <body>
+    <h1>Quotes</h1>
     <div id="app">
-        <input type="text" v-model="search" placeholder="Enter Quote topic">
-        <button v-on:click="getQuotes">Get Quotes</button>
+        <input type="text" v-model="keywordSearch" placeholder="Search Quotes by Keyword">
+        <button v-on:click="getQuotesKeyword">Get Quotes</button>
+        <br>
+        <input type="text" v-model="authorSearch" placeholder="Search Quotes by Author">
+        <button v-on:click="getQuotesAuthor">Get Quotes</button>
+        <br>
+        <input type="text" v-model="tagSearch" placeholder="Search Quotes by tag">
+        <button v-on:click="getQuotesTag">Get Quotes</button>
+        <br>
         <quotes v-for="quote in quotes.quotes" v-bind:quote="quote">{{quote.body}}</quotes>
+        <button v-on:click="nextPage">Next Page</button>
     </div>
+    
 
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
