@@ -28,7 +28,7 @@
                             <input type="submit" value="delete">
                         </form>
                     </li>    
-                {% end for %}
+                {% endfor %}
             </ul>
             <h2>Incomplete Items</h2>
             <ul>
@@ -43,7 +43,7 @@
                             <input type="submit" value="delete">
                         </form>
                     </li>
-                {% end for %}
+                {% endfor %}
             </ul>
             <form action="{% url 'grocerylist_lab01:add' %}" method="post">
                 {% csrf_token %} {% comment %} this is the extra form item! {% endcomment %}
