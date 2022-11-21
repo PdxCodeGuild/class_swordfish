@@ -15,7 +15,7 @@
         <template v-for="todo in incompleteTodos">
             {{ todo.text }}
             <button v-on:click="deleteTodo(todo)">Delete</button>
-            <button v-on:click="completeTodo(todo, incompleteTodos)">Complete</button>
+            
             <button v-on:click="toggleTodo(todo)">✓</button>
             <br>   
         </template>
@@ -24,12 +24,12 @@
         <template v-for="todo in completeTodos">
             {{ todo.text }}
             <button v-on:click="deleteTodo(todo)">Delete</button>
-            <button v-on:click="incompleteTodo(todo, completeTodos)">Incomplete</button>
-            <button v-on:click="toggleTodo(todo)">✗</button>
+            
+            <button v-on:click="toggleTodo(todo)">incomplete</button>
             <br>   
         </template>
         <br>
-        <input type="'text" v-model="message"/>
+        <input type="'text" v-model="todoText"/>
         <button v-on:click="addTodo">Add Todo</button>
     </div>
         

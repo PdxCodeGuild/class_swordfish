@@ -26,18 +26,6 @@ var app4 = new Vue({
           console.log("index to delete", indexToDelete)
           this.todos.splice(indexToDelete, 1)
         },
-        completeTodo: function(index) {
-          let completeTodo = {
-            text: index.text,
-            completed: true
-          }
-          this.completeTodos.push(completeTodo)
-          this.incompleteTodos.splice(index, 1)
-        },
-        incompleteTodo: function(index) {
-          this.incompleteTodos.push(index)
-          this.completeTodos.splice(index, 1)
-        },
         toggleTodo: function(todo) {
           console.log("Toggling,", todo)
           todo.completed = !todo.completed
