@@ -1,26 +1,30 @@
 var app4 = new Vue({
     el: '#app',
     data: {
-      message: 'Todo text',
+      todoText: 'Todo text',
       todos: [
-        {text: 'walk the dog', completed: false},
-        {text: 'brush teeth', completed: false},
-        {text: 'do homework', completed: true},
+        {id: 1, text: 'walk the dog', completed: false},
+        {id: 2, text: 'brush teeth', completed: false},
+        {id: 3, text: 'do homework', completed: true},
       ],
+      nextId: 4
     },
     methods: {
         addTodo: function() {
           let newTodo = {
-            text: this.message,
+            id: this.nextId,
+            text: this.todoText,
             completed: false}
-          this.incompleteTodos.push(newTodo),
-          this.message = ''
+          this.todos.push(newTodo)
+          this.todoText = ''
+          this.nextId++
+
         },
-        deleteTodo: function(index) {
-          this.incompleteTodos.splice(index, 1)
-        },
-        deleteCompleteTodo: function(index) {
-          this.completeTodos.splice(index, 1)
+        deleteTodo: function(todo) {
+          console.log("deleteing",todo)
+          let indexToDelete = this.todos.indexOf(todo)
+          console.log("index to delete", indexToDelete)
+          this.todos.splice(indexToDelete, 1)
         },
         completeTodo: function(index) {
           let completeTodo = {
@@ -34,6 +38,10 @@ var app4 = new Vue({
           this.incompleteTodos.push(index)
           this.completeTodos.splice(index, 1)
         },
+        toggleTodo: function(todo) {
+          console.log("Toggling,", todo)
+          todo.completed = !todo.completed
+        }
     
     },
     computed: {

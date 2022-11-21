@@ -11,20 +11,21 @@
 <body>
     <h1>Todo List</h1>
     <div id="app">
-        {{ todos }}
         <h3>Incomplete Todos</h3>
         <template v-for="todo in incompleteTodos">
             {{ todo.text }}
-            <button v-on:click="deleteTodo(todo, incompleteTodos)">Delete</button>
+            <button v-on:click="deleteTodo(todo)">Delete</button>
             <button v-on:click="completeTodo(todo, incompleteTodos)">Complete</button>
+            <button v-on:click="toggleTodo(todo)">✓</button>
             <br>   
         </template>
         <br>
         <h3>Complete Todos</h3>
         <template v-for="todo in completeTodos">
             {{ todo.text }}
-            <button v-on:click="deleteCompleteTodo(todo, completeTodos)">Delete</button>
+            <button v-on:click="deleteTodo(todo)">Delete</button>
             <button v-on:click="incompleteTodo(todo, completeTodos)">Incomplete</button>
+            <button v-on:click="toggleTodo(todo)">✗</button>
             <br>   
         </template>
         <br>
