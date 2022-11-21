@@ -1,0 +1,32 @@
+faction,subfaction,name,point value
+imperium,imperial knights,armiger helverin,155
+imperium,imperial knights,armiger warglave,145
+imperium,imperial knights,canis rex,440
+imperium,imperial knights,knight castellan,595
+imperium,imperial knights,knight crusader,485
+imperium,imperial knights,knight errant,425
+imperium,imperial knights,knight gallant,400
+imperium,imperial knights,knight paladin,425
+imperium,imperial knights,knight preceptor,420
+imperium,imperial knights,knight valliant,585
+imperium,space marines,primaris captain,90
+imperium,space marines,primaris chaplain,85
+imperium,space marines,primaris chaplain on bike,125
+imperium,space marines,primaris librarian,95
+imperium,space marines,primaris lieutenant,75
+imperium,space marines,primaris techmarine,80
+imperium,space marines,captain in gravis armor,115
+imperium,space marines,intercessor,20
+imperium,space marines,assault intercessor,19
+imperium,space marines,heavy intercessor,28
+imperium,space marines,aggressor,40
+imperium,space marines,bladeguard veteran,35
+imperium,space marines,invictor tactical warsuit,160
+imperium,space marines,primaris apothecary,80
+imperium,space marines,redemptor-dreadnought,185
+imperium,space marines,leviathan-dreadnought,220
+imperium,space marines,inceptor,40
+imperium,space marines,outrider,45
+imperium,space marines,eradicator,45
+imperium,space marines,hellblaster,33
+imperium,space marines,repulsor executioner,300

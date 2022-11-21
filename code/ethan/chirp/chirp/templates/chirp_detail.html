@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <article class="media">
+        <div class="media-content">
+        <div class="content">
+            <h2 class="title is-4">{{ chirp.title }}</h2>
+            <p>
+            <strong>{{ chirp.author.username }}</strong>
+            <br>
+            {{ chirp.body|linebreaksbr }}
+            </p>
+        </div>
+        {% if user == chirp.author %}
+        <nav class="level is-mobile">
+            <div class="level-left">
+                <a class="button is-light" href="{% url 'chirp:edit_post' chirp.pk %}">
+                    Edit
+                </a>
+            </div>
+        </nav>
+        </div>
+        <div class="media-right">
+            <a class="button is-danger is-light" href="{% url 'chirp:delete_post' chirp.pk %}">
+                Delete
+            </a>
+        </div>
+        {% endif %}
+    </article>
+
+{% endblock content %}

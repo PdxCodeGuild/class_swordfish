@@ -1,0 +1,38 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'url_shortener/style.css' %}">
+
+<body>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Short URL</th>
+                    <th>Long URL</th>
+                    <th>Clicks</th>
+                </tr>
+            </thead>
+
+            <form action="{% url 'url_shortener:shorten' %}" method="post" class="row">
+                {% csrf_token %}
+                <div class="input_field">
+                    <input id="input_url" type="url" name="long_url" placeholder='Enter URL' class="validate">
+                    <label for="input_url"></label>
+                </div>
+                <div class="input_field">
+                    <button type="submit">Shorten URL</button>
+                </div>
+            </form>
+            
+            <tbody class="url_field">
+                {% for url in urls %}
+                <tr>
+                    <td><a href="{{ url.code }}">{{ url.code }}</a></td>
+                    <td>{{ url.long_url_domain }}</td>
+                    <th>{{ url.clicks }}</th>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>

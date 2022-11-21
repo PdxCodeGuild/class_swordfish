@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/45c8fc6d95.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet.css') }}">
+    <title>Blog Nation</title>
+</head>
+<body>
+    
+        <header>
+            <h1>Blogetties?</h1>
+            <nav>
+                <a class="link" href="#">Past Blogs</a>
+                <a class="link" href="#">Future Blogs</a>
+                <a class="link" href="#">Existential Blogs</a>
+            </nav>
+        </header>
+        <div>
+            <img class="img" src="https://media.istockphoto.com/vectors/continuous-line-drawing-plant-with-heart-shaped-leaves-vector-id1276783451?k=20&m=1276783451&s=612x612&w=0&h=E6PpHsOxC0oAbCeNxutwME6KG7i-vr2yNefauv06Knw=" alt="Ivy Line">
+        </div>
+    <div class="aside">
+        <main>
+            <div class="text-body">
+                {% for post in posts%}
+                <div class="loop">
+                <h3>{{ post['title'] }}</h3>
+                <p>Author: -{{ post['author'] }}</p>
+                <p>{{ post['date'] }}</p>
+                <p>{{ post['body'] }}</p>
+                <a class="link" href="#">Read More</a>
+                </div>
+                {%endfor%}
+            </div>
+        </main>
+        <aside>
+            <h5><i class="fa-solid fa-explosion"></i>Links to other blog catigories<i class="fa-solid fa-explosion"></i></h5>
+            <nav>
+                <ul class="fa-ul">
+                    <li><span class="fa-li"><i class="fa-solid fa-user-astronaut"></i></span><a class="alien" href="#">Alien Blogs</a></li>
+                    <li><span class="fa-li"><i class="fa-brands fa-space-awesome"></i></span><a href="#">Roman Blogs</a></li>
+                    <li><span class="fa-li"><i class="fa-solid fa-user-astronaut"></i></span><a href="#">19th Century Blogs</a></li>
+                    <li><span class="fa-li"><i class="fa-brands fa-space-awesome"></i></span><a href="#">Repeating Blogs</a></li>
+                    <li><span class="fa-li"><i class="fa-solid fa-user-astronaut"></i></span><a href="#">Repeating Blogs</a></li>
+                    <li><span class="fa-li"><i class="fa-brands fa-space-awesome"></i></span><a href="#">Repeating Blogs</a></li>
+                    <li><span class="fa-li"><i class="fa-solid fa-user-astronaut"></i></span><a href="#">Repeating Blogs</a></li>
+                    <li><span class="fa-li"><i class="fa-brands fa-space-awesome"></i></span><a href="#">Repeating Blogs</a></li>
+                    <li><span class="fa-li"><i class="fa-solid fa-user-astronaut"></i></span><a href="#">Repeating Blogs</a></li>
+                    <li><span class="fa-li"><i class="fa-brands fa-space-awesome"></i></span><a href="#">Blog Blogs</a></li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+
+    <footer>
+        <p>Copyright <span><i class="fa-solid fa-infinity"></i></span>     Copyright <span><i class="fa-solid fa-infinity"></i></span>     Copyright <span><i class="fa-solid fa-infinity"></i></span>     Copyright <span><i class="fa-solid fa-infinity"></i></span>     Copyright <span><i class="fa-solid fa-infinity"></i></span>     Copyright <span><i class="fa-solid fa-infinity"></i></span>     Copyright <span><i class="fa-solid fa-infinity"></i></span>     Copyright <span><i class="fa-solid fa-infinity"></i></span>     Copyright <span><i class="fa-solid fa-infinity"></i></span>     Copyright <span><i class="fa-solid fa-infinity"></i></span>     Copyright <span><i class="fa-solid fa-infinity"></i></span>     Copyright <span><i class="fa-solid fa-infinity"></i></span>     Copyright <span><i class="fa-solid fa-infinity"></i></span>     Copyright <span><i class="fa-solid fa-infinity"></i></span>     Copyright <span><i class="fa-solid fa-infinity"></i></span>     Copyright <span><i class="fa-solid fa-infinity"></i></span>     Copyright <span><i class="fa-solid fa-infinity"></i></span>     Copyright <span><i class="fa-solid fa-infinity"></i></span>     Copyright <span><i class="fa-solid fa-infinity"></i></span>     Copyright <span><i class="fa-solid fa-infinity"></i></span>     </p> 
+    </footer>
+</body>
+</html>

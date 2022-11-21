@@ -1,0 +1,81 @@
+<!--Lab 4: Burrito Order Form-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,, initial-scale=1.0">
+    <title>EL PURPLE BURRITO</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="lab04.css">
+</head>
+
+<body>
+    <header>
+        <div class="desktop-fixed-width">
+            <div>
+                <h1>EL PURPLE BURRITO</h1>
+                <!-- <img src="https://jimboystacos.com/wp-content/uploads/2017/12/Logo-test.png"> -->
+            </div>
+            <!-- <nav>
+                <a href="#">Menu</a>
+                <a href="#">Locations</a>
+                <a href="#">About</a>
+                <a href="#">Careers</a>
+                <a href="#">Order</a>
+            </nav> -->
+        </div>
+    </header>
+    <main>
+        <!-- <img src="https://jimboystacos.com/wp-content/themes/twentyseventeen/assets/images/menu-tacos/burritos.png"> -->
+        <img src="images/purple-burrito.jpeg">
+
+    </main>
+    <form action="https://webhook.site/0886ec77-e66b-4494-94c6-54827b37ce01" method="post">
+        <h2>Burrito Order Form:</h2>
+        <input type="text" name="name" id="first" placeholder="enter your name" required>
+        <label for="full">Name</label><br>
+        <input type="password" name="password" id="password" placeholder="enter your password" required>
+        <label for="password">Password</label><br>
+        <h3>Tortilla:</h3>
+        <input type="radio" id="html" name="White Flour">
+        <label for="html">White Flour</label><br>
+        <input type="radio" id="html" name="Wheat Flour">
+        <label for="html">Wheat Flour</label><br>
+        <input type="radio" id="html" name="Spinach">
+        <label for="html">Spinach</label><br>
+        <input type="radio" id="html" name="Corn">
+        <label for="html">Corn</label><br>
+        <h3>Rice:</h3>
+        <input type="radio" id="html" name="White Rice">
+        <label for="html">White Rice</label><br>
+        <input type="radio" id="html" name="Brown Rice">
+        <label for="html">Brown Rice</label><br>
+        <h3>Beans:</h3>
+        <input type="radio" id="html" name="Black Beans">
+        <label for="html">Black Beans</label><br>
+        <input type="radio" id="html" name="Pinto Beans">
+        <label for="html">Pinto Beans</label><br>
+        <h3>Protein:</h3>
+        <input type="radio" id="html" name="Carnitas">
+        <label for="html">Carnitas</label><br>
+        <input type="radio" id="html" name="Chicken">
+        <label for="html">Chicken</label><br>
+        <input type="radio" id="html" name="Sofritas">
+        <label for="html">Sofritas</label><br>
+        <input type="radio" id="html" name="None">
+        <label for="html">None</label><br>
+        <h3>Additional Ingredients:</h3>
+        <input type="checkbox" id="cheese" name="cheese" value="Cheese">
+        <label for="cheese">Cheese</label><br>
+        <input type="checkbox" id="sourcream" name="sourcream" value="Sour Cream">
+        <label for="cheese">Sour Cream</label><br>
+        <h3>Delivery Instructions:</h3>
+        <textarea id="deliveryinstructions" name="deliveryinstructions"></textarea>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>

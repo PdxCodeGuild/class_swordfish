@@ -1,0 +1,119 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+img {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+}
+
+a {
+    color:rgba(239, 207, 62, 0.952);
+}
+
+header {
+    text-align: center;
+    background-color: rgb(233, 50, 17);
+    color:rgba(239, 207, 62, 0.952);
+    /*padding: 1em; #these make the header run all the way to edges and to gray (no white around it)
+    display: flex;*/
+}
+
+main {
+    text-align: center;
+    background-color: rgba(124, 128, 151, 0.895);
+    color:rgba(4, 41, 155, 0.923);
+    /*padding: 1em;*/ 
+}
+
+footer {
+    text-align: center;
+    background-color: rgb(233, 50, 17);
+    color:aliceblue;
+    /*padding: 1em;
+    display: flex;*/
+}
+
+footer div a {
+    color:aliceblue;
+}
+
+header, main, footer {
+    padding: 1em;
+}
+
+h3, h4, h5, h6 {
+    font-size: large;
+}
+
+/* Use this for tablet; change to 2 pics in a row instead of all 4*/
+@media (min-width: 733px) {
+    /* nav & nav p put all the links in a row and seperates them */
+    nav {
+        display: flex;
+        justify-content: center;
+    }
+    nav p {
+        margin: 1em;
+    }
+    /* See above note */
+
+    header {
+        /*text-align: right;*/
+    }
+    h1 {
+        /*text-align: left;*/
+    }
+    img {
+        width: 300px;
+        height: 200px;
+    }
+    
+    /* Need to change this for desktop version (get rid of it? do opposite of it??)*/
+    .flex-gallery {
+        display: flex; /*puts all the expertise divs in a line*/
+        flex-wrap: wrap; /*takes them back out of row and back into column*/
+        align-items: flex-start;
+    }
+    .flex-gallery div {
+        width: 50%; /*for tablet, makes 2 rows w/ 2 expertise each (out of 4 pics)*/
+        padding: 1em;
+    }
+}
+/* Use this for desktop*/
+@media (min-width: 1000px) {
+    nav {
+        display: flex;
+        justify-content:right;
+    }
+    h1 {
+        display: flex;
+        justify-content: flex-start;
+    }
+    
+    .flex-gallery {
+        display: flex;
+        flex-wrap: wrap; 
+        align-items: flex-start;
+        /*flex-flow: row wrap;
+        justify-content: flex-end;
+        /*align-content: center;*/
+    }
+    .flex-gallery div {
+        width: 50%;
+        /*justify-content: center;*/
+        padding: 1em;
+    }
+    }
+
+/*img {
+    display: block;
+    text-align: center;
+    width: 336px;
+    height: 200px;
+}*/
+

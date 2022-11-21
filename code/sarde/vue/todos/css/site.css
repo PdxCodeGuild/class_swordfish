@@ -1,0 +1,13 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+h2 {
+    color: rosybrown;
+    border: 5px solid black;
+}
+button {
+    color: rosybrown;
+}

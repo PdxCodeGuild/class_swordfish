@@ -1,0 +1,91 @@
+body {
+    font-family: Verdana, Tahoma, sans-serif;
+    background-color: papayawhip;
+    background-image: url("https://cdn.benzinga.com/files/images/story/2012/screen_shot_2022-02-09_at_7.13.38_pm.png?optimize=medium&dpr=1&auto=webp&width=640");
+    background-repeat: no-repeat;
+    background-position: top;
+    border-radius: 10px, white;
+    text-align: center;
+}
+
+h1 {
+    font-family: Trebuchet, sans-serif, sans-serif;
+    color:chartreuse;
+    background-color: black;
+}
+
+p, pre, li, q {
+    font-family: Helvetica, Times, serif; 
+    color: blue;
+}
+
+.main-paragraph {
+    background-color: cadetblue;
+    border-radius: 30px;
+    text-align: center;
+    padding: 5em;
+    margin: 23px;
+}
+
+.wiki-para {
+    background-color: cadetblue;
+    border-radius: 20px;
+    text-align: center;
+    padding: 10px;
+    margin: 23px;
+}
+
+a {
+    color: yellow;
+}
+
+.image {
+    background-color: cadetblue;
+    border-radius: 15px;
+    text-align: center;
+    padding: 5px;
+    margin: 23px;
+}
+
+.actual-photo {
+    height: 50vh;
+    width: 30vh;
+    object-fit: contain;
+    border-radius: 10em;
+}
+
+.cities {
+    background-color:papayawhip;
+    border-radius: 15px;
+    text-align: center;
+    padding: 5px;
+    margin: 23px;
+}
+
+.cities-list {
+    color: black;
+    list-style-type:lower-roman;
+    list-style-position: inside;
+    text-align: center;
+    border-radius: 15px;
+    text-align: center;
+    padding: 5px;
+    margin: 23px;
+}
+
+.quote {
+    background-color: cadetblue;
+    border-radius: 15px;
+    text-align: center;
+    padding: 5px;
+    margin: 23px;
+}
+
+.statement {
+    font-family: Georgia, sans-serif;
+    background-color: cadetblue;
+    border-radius: 15px;
+    text-align: center;
+    padding: 5px;
+    margin: 1px;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X=UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% comment %} placeholder if i want to add a stylesheet link <link rel="stylesheet" type="text/css" href="{% static 'url_shortener/style.css' %}"> {% endcomment %}
+
+    <title> URL Shortener </title>
+
+</head>
+
+<body>
+    <h1>URL Shortener</h1>
+    <form action="{% url 'url_shortener_app:add' %}" method="post">
+        {% csrf_token %}
+        <label for="item_text">URL to Shorten</label>
+        <input type="text" name="long_text" id="long_text">
+        <input type="submit" value="Submit">
+    </form>
+
+    <h2>Redirects</h2>
+    <ul>
+        {% for item in url_items %}
+        <li>
+            {% comment %} the target='blank' attribute opens the link in a new page {% endcomment %}
+            <a href={% url 'url_shortener_app:redirect' item.shortened_code %} target='_blank'> 
+            short.n/{{ item.shortened_code }} 
+            </a>            
+            {% comment %} {{ item.long_text }}
+            <br>
+            {{ item.shortened_code}} {% endcomment %}
+        </li>
+        {% endfor %}
+    </ul>
+
+
+</body> 
+
+</html>
