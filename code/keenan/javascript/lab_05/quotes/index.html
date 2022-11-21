@@ -9,12 +9,22 @@
 </head>
 
 <body>
-   <div id="app">{{message}}
-        <div>Quotes Placeholder</div>
+   <div id="app">
+        <div>Quotes Title Placeholder</div>
+        <div v-if="Object.keys(quotes).length">
+            <div v-for="quote in quotes.quotes" :key="quote.id">
+                <p>{{ quote.body }}</p>
+                <p>{{ quote.author }}</p>
+                <hr>
+            </div>
 
    </div>
     
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vue@2"></script>
     <script src="js/site.js"></script>
 </body>
 </html> 
+
+<!-- https://favqs.com/api/ -->
+<!-- https://favqs.com/api/qotd -->

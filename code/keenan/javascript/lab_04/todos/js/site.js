@@ -23,7 +23,7 @@ const vm = new Vue({
             this.todos.push(newItem)
             this.nextTodoId++
             // console.log(this.nextTodoId)
-            this.inputText = "" // this resets the textfield to an empty string when the function is executed
+            this.inputText = "" // this resets the textfield to an empty     string when the function is executed
         },
         toggleTodo: function(todos){
             todos.completed = !todos.completed
