@@ -1,7 +1,7 @@
 var app4 = new Vue({
     el: '#app',
     data: {
-      todoText: 'Todo text',
+      todoText: '',
       todos: [
         {id: 1, text: 'walk the dog', completed: false},
         {id: 2, text: 'brush teeth', completed: false},
