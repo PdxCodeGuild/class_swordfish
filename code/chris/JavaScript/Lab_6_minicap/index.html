@@ -7,16 +7,32 @@
     <title>Weather App</title>
     <link rel="stylesheet" href="css/site.css" />
 </head>
-<h2>Weather App</h2>
 <body>
-    <div id="weatherApp">
-        <h3>Please enter a City</h3>
-        <input type="text" v-model="inputText">
-        <button v-on:click="getLocation">Get Weather</button>
-        <city-block> </city-block> 
-        {{ weatherObject.name }}
-    </div>
+    <div class="bg">
+        <h2>World City Weather App</h2>
+        <div id="weatherApp">
+            <div class="home">
+                <button onclick="window.location.href='http://127.0.0.1:5500/code/chris/JavaScript/Lab_6_minicap/index.html';">Home</button>
+            </div>
+            <br>
+            <br>
+            <h3>Please enter a name of a city: </h3>
+            <input type="text" v-model="inputText">
+            <button v-on:click="getLocation">Get Current Weather</button>
+            <button v-on:click="getForecastLocation">Get Daily 24hr Forecast</button>
 
+            <div v-if="Object.keys(weatherObject).length">
+                <city-block v-bind:weather="weatherObject"> </city-block> 
+            </div>
+
+            <div v-if="Object.keys(forecastObject).length">
+                <h4>{{ forecastObject.city.name }} - Next 24hr Forecast:</h4>
+                <forecast-block v-for="forecast in forecastObject.list" v-bind:forecast="forecast"> 
+                </forecast-block>
+            </div>
+        </div>
+    <h5>Who is going to win the World Cup?</h5>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <script src="js/app.js"></script>
