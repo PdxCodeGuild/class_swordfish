@@ -1,0 +1,32 @@
+.app{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 2rem;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    font-weight: 200;
+}
+
+.list{
+    margin-top: .5rem;
+}
+body{
+    background-color: beige;
+}
+.header1{
+    font-size: 3rem;
+    justify-content: center;
+    text-align: center;
+}
+.explanation{
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    justify-content: center;
+}
+
+.backgroundimage{
+    opacity: .7;
+    background-size: cover;
+    border: 1rem;
+    border-color: black;
+}
