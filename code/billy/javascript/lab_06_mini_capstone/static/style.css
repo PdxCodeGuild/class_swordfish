@@ -1,0 +1,17 @@
+/* @font-face {
+    font-family: 'Breath_of_the_Wild_Font';
+    src: url('HYLIASERIFBETA-REGULAR.OTF');
+} */
+body {
+    background-image: url(botw_background.jpg);
+    background-size: cover;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:rgb(36, 20, 20);
+}
+#images{
+    max-width: 15em;
+    max-height: 15em;
+    float: right;
+    margin-top: 1em;
+    margin-right: 2em;
+}
