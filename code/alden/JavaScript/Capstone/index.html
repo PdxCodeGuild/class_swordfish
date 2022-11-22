@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <title>Grounder</title>
+</head>
+<body>
+    <div class="cyan lighten-5" id = 'app'>
+        <h1 class="teal lighten-2">Let's get Grounded</h1>
+
+        <input type="text" v-model="searchText" placeholder="Enter Search Here...">
+        <div class="input-field col s12">
+            <select v-model="searchingBy">
+                <option value="s">By Name</option>
+                <option value="i">By Alcohol</option>
+            </select>
+        </div>
+        <div class="row">
+            <button class="col s4" v-on:click="searchDrinks">Search Drinks</button>
+            <button class="col s4" v-on:click="randomDrink">Random Drink</button>
+            <button class="col s4" v-on:click="naDrink">Non-alcoholic Drinks</button>
+        </div>
+        <div class="row">
+            <div class="col s12 m6 l6 offset-m3 offset-l3" >
+                <div v-for="drink in data">
+                    <!-- <div class="card medium"> -->
+                        <div class="card">
+                            <div class="card-image">
+                                <img :src= 'drink.strDrinkThumb'>
+                                <span class="card-title">{{ drink.strDrink }}</span>
+                            </div>
+                            <div class="card-tabs">
+                                <ul class="tabs tabs-fixed width">
+                                    <li class="tab"><a href="#ingredients">Ingredients</a></li>
+                                    <li class="tab"><a class="active" href="#directions">Directions</a> </li>
+                                </ul>
+                            </div>
+                            <div class="card-content teal lighten-5">
+                                <div id="ingredients">  
+                                    <ol v-if="drink.measurements.length > 0">
+                                        <li v-for="(ingredient, i) in drink.ingredients">
+                                            {{ ingredient }} -- {{ drink.measurements[i] }}
+                                        </li>
+                                    </ol>
+                                </div>
+                                <div id="directions">
+                                    {{ drink.strInstructions }}
+                                </div>
+                            </div>
+                        </div>
+                    <!-- </div> -->
+                </div>
+            </div>
+        </div>
+
+
+        <!-- <ul>
+            <li v-for="drink in data">
+                <img class="image" :src= 'drink.strDrinkThumb'><br>
+                {{ drink.strDrink }}
+                <ol v-if="drink.measurements.length > 0">
+                    <li v-for="(ingredient, i) in drink.ingredients">
+                        {{ ingredient }} -- {{ drink.measurements[i] }}
+                    </li>
+                </ol>
+                {{ drink.strInstructions }}
+            </li>
+        </ul> -->
+    </div>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="js/app.js"></script>
+    
+</body>
+</html>
