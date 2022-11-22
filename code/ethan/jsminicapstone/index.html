@@ -4,22 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Favorite Quotes</title>
+    <title>Javascript Mini Capstone</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 <body>
-    <h1>Quotes</h1>
     <div id="app">
-        <input type="text" v-model="keywordSearch" placeholder="Search Quotes by Keyword">
-        <button v-on:click="getQuotesKeyword">Get Quotes</button>
-        <br>
-        <input type="text" v-model="authorSearch" placeholder="Search Quotes by Author">
-        <button v-on:click="getQuotesAuthor">Get Quotes</button>
-        <br>
-        <input type="text" v-model="tagSearch" placeholder="Search Quotes by tag">
-        <button v-on:click="getQuotesTag">Get Quotes</button>
-        <br>
-        <quotes v-for="quote in quotes.quotes" v-bind:quote="quote">{{quote.body}}</quotes>
-        <button v-on:click="nextPage">Next Page</button>
+        <div class="container-sm">
+            <br>
+            <br>
+            <figure class="text-center">
+                <blockquote class="blockquote">
+                  <p class="display-1">Astronomy Photo of the Day</p>
+                </blockquote>
+            </figure>
+            <br>
+            <h4>Photos by date</h4>
+            <input type="date"v-model='searchDate'>            
+            <button class="btn btn-secondary btn-sm" v-on:click="getPhoto">Get Photo</button>
+            <br>
+            <br>
+
+            <h4>Random photo of the day</h4>
+            <button class="btn btn-secondary btn-sm" v-on:click="getRandomPhoto">Get random photo</button>
+            <br>
+            <br>
+
+        </div>
+        <div class="container-sm"> 
+            <figure class="figure">
+                <h4 class="display-6">{{photoInfo.title}}</h4>
+                <p>Date: {{photoInfo.date}}</p>
+                <img v-bind:src="photoInfo.hdurl" class="figure-img img-fluid rounded"/>
+                <figcaption class="figure-caption">{{photoInfo.explanation}}</figcaption>
+            </figure>
+        </div>
+
     </div>
     
 

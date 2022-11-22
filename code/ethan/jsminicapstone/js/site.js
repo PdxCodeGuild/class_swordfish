@@ -1,48 +1,40 @@
-Vue.component('quotes', {
-    data: function() {
-        return {
-        }
-    },
-    props: ['quote'],
-    template: 
-    `
-    <div>
-        <ul>
-            <li>{{quote.body}}<br>
-             - {{quote.author}}</li>
-        </ul>
-    </div>
-    `
-  })
-  
-  var app = new Vue({
-    el: '#app',
-    data: {
-      keywordSearch: "",
-      authorSearch: "",
-      tagSearch: "",
-      quotes: {},
-      parameters:{},
-  
-    },
-    methods: {
-      getQuotes: function() {
-        axios({
-            method: "GET",
-            url: "https://favqs.com/api/quotes/",
-            headers: {
-                'Authorization': 'Token token="9daa8830e1b3e3a7b44eda726857db04"'
-            },
-        }).then((response) => {
-            this.quotes = response.data
-        }) 
-      },
 
+var app = new Vue({
+  el: '#app',
+  data: {
+    photoInfo: {},
+    randomPhotoInfo: {},
+    searchDate: '',
+  },
+  methods: {
+    getPhoto: function() {
+      axios({
+          method: "GET",
+          url: 'https://api.nasa.gov/planetary/apod?api_key=wTsEGeI7sDZUbINg9RJiPLHEXgOh8bM0FsGlkbrL', 
+          params: {
+            date: this.searchDate 
+          }          
+      }).then((response) => {
+          this.photoInfo = response.data
+      }) 
     },
-    computed: {
-  
+    getRandomPhoto: function() {
+      axios({
+          method: "GET",
+          url: 'https://api.nasa.gov/planetary/apod?api_key=wTsEGeI7sDZUbINg9RJiPLHEXgOh8bM0FsGlkbrL', 
+          params: {
+            count: 1
+          }          
+      }).then((response) => {
+          this.randomPhotoInfo = response.data
+          this.photoInfo = this.randomPhotoInfo[0]
+      }) 
     },
-    beforeMount: function () {
-        this.getQuotes()
-    }
-  })
+  },
+  computed: {
+
+  },
+  beforeMount: function () {
+      this.getPhoto()
+  }
+})
