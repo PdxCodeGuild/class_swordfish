@@ -1,0 +1,27 @@
+
+
+.incomplete-todos {
+    text-decoration: underline;
+
+}
+.completed-todos{
+    text-decoration: underline;
+}
+body {
+    padding: 1cm;
+    width: 300px;
+    margin: auto;
+    border: 10px solid #5694D6;
+    border-style: groove;
+    background-color: aliceblue;
+    
+  }
+div {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;  
+}
+button {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.5rem;
+  }
