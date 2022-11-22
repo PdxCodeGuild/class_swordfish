@@ -5,7 +5,8 @@ let vm = new Vue({
         loading: false,
         geojson: {},
         points: [],
-        testPoints: [[-122.6784,45.5152],]
+        testPoints: [[-122.6784,45.5152],],
+        // const fileSelector = document.getElementById('file-selector');
     },
     methods: {
         loadMap: function(points = [], geojson = {}) {
@@ -85,6 +86,7 @@ let vm = new Vue({
                         const blob = new Blob([JSON.stringify(geojson)], {
                             type: "application/json"
                         })
+                        console.log(JSON.stringify(geojson))
 
                         const url = URL.createObjectURL(blob)
 
@@ -110,13 +112,26 @@ let vm = new Vue({
             })
         },
         showGeoJSON: function() {
-            fetch('Drinking_Fountains.geojson')
+            fetch('load.geojson')
             .then(res => res.json())
             .then(json => {
                 this.loadMap(points = [], geojson = json)
             })
 
+        },
+        readFile(event) {
+            const file = event.target.files[0]
+            const reader = new FileReader()
+            reader.onload = e => {
+                let contents = e.target.result
+                console.log(contents)
+                geojson = JSON.parse(contents)
+                this.loadMap(points = [], geojson = geojson)
+            }
+            reader.readAsText(file)
+            
         }
+        
     },
 
     beforeMount: function() {
