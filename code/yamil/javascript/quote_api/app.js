@@ -22,7 +22,7 @@ const quotesApiVue = new Vue({
       } else if (this.searchType === "keyword") {
         this.keywordSearch()
       } else {
-        console.log("La cagaste")
+        console.log("Error")
       }
     },
     previousPage: function() {
@@ -34,7 +34,7 @@ const quotesApiVue = new Vue({
       } else if (this.searchType === "keyword") {
         this.keywordSearch()
       } else {
-        console.log("La cagaste")
+        console.log("Error")
       }
     },
 // ----------------------------------------------------------------------------------------------------
