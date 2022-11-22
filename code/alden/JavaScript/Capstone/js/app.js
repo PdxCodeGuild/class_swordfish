@@ -1,28 +1,37 @@
-Vue.component('', {
-    template:`
+// Vue.component('', {
+//     template:`
     
-    `,
-    props: [],
-    methods: {}
-})
+//     `,
+//     props: [],
+//     methods: {}
+// })
 
 let grounder = new Vue({
     el: '#app',
     data: {
         searchText:'',
+        searchingBy: 's',
         params: {},
         data:[],
-        ingredients: [],
-        measurements: []
+        // ingredients: [],
+        // measurements: []
     },
     methods: {
         drinkSearch: function(){
+            if (this.searchingBy === 's'){
+                urlOptions = "https://www.thecocktaildb.com/api/json/v1/1/search.php"
+            } else if (this.searchingBy === 'i') {
+                urlOptions = "https://www.thecocktaildb.com/api/json/v1/1/filter.php"
+            }
             axios({
                 method: "GET",
-                url: "https://www.thecocktaildb.com/api/json/v1/1/",
+                url: urlOptions,
                 params: this.params
             }).then((response) => {
                 this.data = response.data.drinks
+                console.log(this.data)
+                this.ingredientsAndMeasurements()
+                
             })
         },
         initialDrink: function(){
@@ -32,38 +41,62 @@ let grounder = new Vue({
                 params: this.params
             }).then((response) => {
                 this.data = response.data.drinks
-                this.ingredientList()
-                this.measurementList()
-                console.log(this.data)
-                console.log(this.ingredients)
-                console.log(this.measurments)
+                this.ingredientsAndMeasurements()
+                // console.log(this.data)
+                // console.log(this.ingredients)
+                // console.log(this.measurments)
             })
-            
         },
-        ingredientList: function(){
-            let i=0
-            // let ingre = ''
-            // let measure = ''
-            while (i < this.data.length){
-                for (let key in this.data[i]){
-                    if (key.includes('Ingredient') && this.data[i][key] !== null){
-                        this.ingredients.push(this.data[i][key])}
-                    // }else if (key.includes('Measure')){
-                    //     measure = this.data[i][key]
-                    // }    
-                    // this.ingredients.push(ingre + measure)
-                }    
-                i++
-            }
+        randomDrink: function(){
+            axios({
+                method: "GET",
+                url: "https://www.thecocktaildb.com/api/json/v1/1/random.php",
+            }).then((response) => {
+                this.data = response.data.drinks
+                this.ingredientsAndMeasurements()
+            })
         },
-        measurementList: function(){
+        naDrink: function(){
+            axios({
+                method: "GET",
+                url: "https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic",
+                params: this.params
+            }).then((response) => {
+                this.data = response.data.drinks
+                this.ingredientsAndMeasurements()
+                console.log(this.data)
+            })
+        },
+        searchDrinks: function(){
+            this.params[this.searchingBy]= this.searchText
+            this.drinkSearch()
+            // this.ingredientList()
+            // this.measurementList()
+            this.params = {}
+            this.searchText = ''
+        },
+        ingredientsAndMeasurements: function(){             // Loop through each drink, saves the ingredient and measurements, and appends it as an array on to the drink data.
             let i=0
-            while (i < this.data.length){
-                for (let key in this.data[i]){
-                    if (key.includes('Measure') && this.data[i][key] !== null){
-                        this.measurements.push(this.data[i][key])}}
-                i++
+                while (i < this.data.length){                                   
+                    this.data[i].ingredients=this.ingredientList(this.data[i]) 
+                    this.data[i].measurements=this.measurementList(this.data[i])
+                    i++
+                }
+        },
+        ingredientList: function(drink){
+            let ingredients =[]
+                for (let key in drink){
+                    if (key.includes('Ingredient') && drink[key] !== null){
+                        ingredients.push(drink[key])}
             }
+            return ingredients
+        },
+        measurementList: function(drink){
+            let measurements = []
+                for (let key in drink){
+                    if (key.includes('Measure') && drink[key] !== null){
+                        measurements.push(drink[key])}}
+            return measurements
         }
     },
     computed: {
