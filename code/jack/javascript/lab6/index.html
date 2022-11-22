@@ -3,21 +3,38 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>ArcGIS API for JavaScript Tutorials: Add a point, line, and polygon</title>
-    <style>
-        html, body, #viewDiv {
-            padding: 0;
-            margin: 0;
-            height: 100%;
-            width: 100%;
-        }
-    </style>
+    <title>jack site</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <!-- to do: add header bar -->
+</head>
+<body>
+    
+    <div id="app">
+        
+        <div v-if="loading">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Gray_circles_rotate.gif" alt="loading">
+        </div>
+        <div id="main" v-else>
+            <div class="main-header">
+                jack site
+            </div>
+            <div id="viewDiv"></div>
+        </div>
+        <div>
+            <!-- to do: add buttons to change data input -->
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </div>
+        
+    </div>
+    
+    <!-- Vue -->
+    <script src="https://unpkg.com/vue@2"></script>
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/light/main.css">
     <script src="https://js.arcgis.com/4.25/"></script>
     
     <script src="./app.js"></script>
-</head>
-<body>
-  <div id="viewDiv"></div>
 </body>
 </html>
