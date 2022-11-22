@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Ticket</title>
+    <link rel="icon" href="css/doc logo.png" type="image/icon type">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="top_nav">
+            <div class="left">
+                <div class="logo">
+                    <img class="logo" src="css/doc logo.png">
+                </div>
+                <h1>The Golden Ticket</h1>
+            </div> 
+        <div class="right">
+            <ul>
+              <li><a href="#">Events Near Me</a></li>
+              <li><a href="#">LogIn</a></li>
+              <li><a href="#">SignUp</a></li>
+            </ul>
+        </div>
+        </div>
+    </div>
+    <br><br>
+    <br><br>
+    <h1 style="text-align:center;color:black">Your #1 Stop for sports, concerts and shows!</h1>
+    <div id="response"></div>
+    <div id="app">
+        <div class="page-input">
+            <select v-model="selected">
+                <option value="zip-code-option">Zip Code</option>
+                <option value="city-option">City</option>
+                <option value="state-option">State</option>
+                <option value="country-option">Country</option>
+            </select>
+            <input v-if="selected == 'zip-code-option'" type="text" placeholder="Zip Code:" v-model="selectedText">
+            <input v-if="selected == 'city-option'" type="text" placeholder="City:" v-model="selectedText">
+            <input v-if="selected == 'state-option'" type="text" placeholder="State:" v-model="selectedText">
+            <input v-if="selected == 'country-option'" type="text" placeholder="Country:" v-model="selectedText">
+            
+            <select v-model="selection">
+                <option value="keyword-option">Keyword</option>
+                <option value="genre-option">Genre</option>
+            </select>
+            <input v-if="selection == 'keyword-option'" type="text" placeholder="Enter Your Artist or Event:" v-model.lazy="keyword">
+            <input v-if="selection == 'genre-option'" type="text" placeholder="Enter Your Genre" v-model.lazy="genre">
+            <button v-on:click="eventSearch">Search!</button>
+        </div>
+        <div class="results">
+            <h3 v-if="searchElementView">Events related to your search:</h3>
+            <br>
+            <ul v-for="event in eventsList">
+                <ul>
+                    <li>
+                        {{event.name}}
+                    </li>
+                    <li>
+                        {{event.dates.start.localDate}}
+                    </li>
+                    <li v-for="(clsf,index) in event.classifications.slice(0,1)">
+                        {{clsf.genre.name}}
+                    </li>
+                    <li v-for="price in event.priceRanges">
+                        Lowest price starting at: {{price.min+" "+price.currency}} and ranging up to: {{price.max+" "+price.currency}}
+                    </li>
+                    <li v-for="venue in event._embedded.venues">
+                        {{venue.name}} {{venue.city.name}}
+                    </li>
+                    <li>
+                        <a v-bind:href=event.url>Get Tickets!</a>
+                    </li>
+                    <li v-for="(image,index) in event.images.slice(0,1)">
+                        <img v-bind:src=image.url style="height:427px;width:640px">
+                    </li>
+                </ul><br>
+            </ul>
+        </div>
+    </div>
+    <div class="row" v-if="bannerElementView">
+        <div class="column" >
+          <img src="css/0x0.jpg" alt="World Cup" style="width:100%">
+        </div>
+        <div class="column">
+            <img src="css/FiHK163UUAAh9aa.jfif" alt="Weah" style="width:100%">
+        </div>
+        <div class="column">
+          <img src="css/221205_BRSOCCER_illo.webp" alt="USMNT" style="width:100%">
+        </div>
+      </div>
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <!-- Vue -->
+    <script src="https://unpkg.com/vue@2"></script>
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>
