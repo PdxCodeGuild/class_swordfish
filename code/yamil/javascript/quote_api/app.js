@@ -1,5 +1,24 @@
 // python -m http.server
 
+Vue.component('key-word-search', {
+  data: function() {
+    return {
+      userInput: ""
+    }
+  },
+  methods: {
+    keywordComponentSearch: function(userInput) {
+      this.$emit('component-search', userInput)
+    }
+  },
+  template:`
+  <div>
+  <input type="text" v-model="userInput" placeholder="Search by keyword" id="user_input">
+  <button v-on:click="keywordComponentSearch(userInput)">Keyword</button>
+  </div>
+  `
+})
+
 const quotesApiVue = new Vue({
   el: '#app',
   data: {
@@ -70,16 +89,22 @@ const quotesApiVue = new Vue({
       // this.newSearch = ""
     },
 
-    keywordSearch: function() {
+    keywordSearch: function(payload) {
+      console.log(payload)
       this.searchType = "keyword"
-      keyword = `?filter=${this.newSearch}`,
       axios({
         method: "GET",
-        url: `https://favqs.com/api/quotes/`+`${keyword}`+`&page=${this.page}`,
+        url: `https://favqs.com/api/quotes/`,
+        params: {
+          filter: payload,
+          page: this.page,
+          type: this.searchType
+        },
         headers: {
         'Authorization': `Token token="3b3e469abc960df09cbcc8ab225ea0f0"`
         }
       }).then((response) => {
+        console.log("This is the response", response)
         this.quotes = response.data
         this.page = response.data.page
       })
