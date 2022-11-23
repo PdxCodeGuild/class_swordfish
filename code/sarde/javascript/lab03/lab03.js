@@ -86,7 +86,7 @@ function updateContact(contacts) {
 
     //iterate over the length of the contacts list
     for (let i = 0; i < contacts.length; i++) {
-        console.log(i, contacts[i])
+        //console.log(i, contacts[i])
         if (contacts[i]['name'] == nameToUpdate) {
             let inputAttribute = prompt('What do you want to update? "name", "favoriteFruit", "favoriteColor" ')
             let inputValue = prompt('What do you want to update it to?')
@@ -121,19 +121,20 @@ while (!stop) {
         let stop = true
     } else if (response == 'c') {
         console.log('Person wants to create')
-        let contacts = createContact(theKeys, contacts)
-        //console.log(contacts)
+        let contact = createContact(theKeys, contacts)
+        console.log(contact)
     } else if (response == 'r') {
         console.log('Person wants to retrieve')
         let contact = retrieveContact(contacts)
         console.log(contact)
     } else if (response == 'u') {
         console.log('Person wants to update')
-        let contacts = updateContact(contacts)
-        //console.log(contacts)
+        let contact = updateContact(contacts)
+        console.log(contact)
     } else if (response == 'd') {
         console.log('Person wants to delete')
-        let contacts = deleteContact(contacts)
+        let contact = deleteContact(contacts)
+        console.log(contact)
     }
 }
-    //console.log(contacts)
+console.log(contacts)
