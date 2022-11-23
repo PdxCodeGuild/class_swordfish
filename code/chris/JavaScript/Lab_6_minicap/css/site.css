@@ -1,0 +1,42 @@
+html {
+    box-sizing: border-box;
+    height: 100%;
+    margin: 0;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+h2 {
+    text-align: center;
+    text-decoration: underline;
+}
+
+h5 {
+    position: fixed;
+    text-align: center;
+    bottom: 0;
+}
+.home {
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    /* background-size: cover; */
+    /* background-color: #4CBD51; */
+    height: 100%;
+    margin: 0;
+    font-family: 'Poppins', helvetica, sans-serif;
+    color: #FCFFFD;
+    
+}
+
+.bg {
+    height: 100%;
+    background-image: url("https://libreshot.com/wp-content/uploads/2013/11/rainbow-mongolia.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 2em;
+}
