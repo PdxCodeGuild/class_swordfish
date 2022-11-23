@@ -1,0 +1,21 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+    background-image: url("https://thumbs.dreamstime.com/b/fall-side-border-dusty-rose-white-pumpkins-eucalyptus-leaves-over-white-wood-background-top-view-copy-space-fall-160250856.jpg");
+    background-size: cover;
+    
+}
+h1, h2 {
+    font-family: 'Courier New', Courier, monospace;
+    color: rosybrown;
+    text-align: center;
+}
+li {
+    font-size: x-large;
+    text-align: center;
+    color: rosybrown;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel='stylesheet' href="static/style.css">
+  <title>Quotes API</title>
+</head>
+<body>
+  <div id="app">
+
+    <div id="quoteOfTheDay">
+      <h2>Random Quote:</h2>
+      <test-component v-bind:variable-in-props="randomQuote"></test-component>
+    </div>
+
+    <div id="userInput">
+      <h2>Search for Quotes:</h2>
+      <p>Select Search Type:<select v-model="inputType">
+        <option value="author">author</option>
+        <option value="keyword">keyword</option>
+        <option value="tag">tag</option>
+      </select>
+      <br><br>
+        <p>Enter Search Term:<input v-model="inputTerm" placeholder="author, keyword or tag">
+        <button @click="searchQuotes">Search</button>
+    </div>
+
+    <div id="searchResults">
+      <h3>Quote Search Results (quotes will be loaded in by default):</h3>
+      <ol>
+        <li v-for= 'quote in responseData.quotes' :key='quote.id'>
+          {{ quote.body }}
+          <br>
+          -{{ quote.author }}
+        </li>
+      </ol>
+    </div>
+
+    <div id="pageNavigationButtons">
+      <button @click="previousPage" v-if="responseData.page > 1">Previous Page</button>
+      <button @click="nextPage" v-if="!responseData.last_page">Next Page</button>
+    </div>
+
+  </div> 
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+  <script src='https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js'></script>
+  <script src='js/app.js'></script>
+</body>
+</html>

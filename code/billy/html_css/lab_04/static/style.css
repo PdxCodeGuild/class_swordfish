@@ -1,0 +1,13 @@
+body {
+    text-align: center;
+    color:azure;
+    margin: 1em;
+    padding: .5em;
+    font-family: 'Courier New', Courier, monospace;
+    background-image: url(https://th.bing.com/th/id/R.c0700e7cb6bf97d87369b1859e843ba5?rik=g5RKkphmB4X2lw&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f04%2fFree-download-minimalist-backgrounds.jpg&ehk=FC%2bSEU27LMhbF%2bNXqA%2fwMnvuQS7AjA%2fCLl9AZDqWQ6A%3d&risl=&pid=ImgRaw&r=0);
+    background-size: cover;
+}
+img {
+    max-width: 25%;
+    max-height: 25%;
+}

@@ -1,0 +1,97 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+    color: whitesmoke;
+    background-color: rgb(238, 196, 202);
+    font-family: sans-serif;
+    text-align: center;
+}
+nav {
+    padding: 2em;
+} 
+a {
+    color: whitesmoke;
+    font-family: sans-serif;
+}
+header {
+    text-align: center;
+    background-color: grey;
+
+}
+h1, h3 {
+    font-family: serif;
+}
+ p {
+    color: grey;
+}
+h6, h4, h2 {
+    color: grey;
+    display: inline;
+}
+
+img {
+    display: block;
+    height: auto;
+    width: auto;
+    max-width: 250px;
+    max-height: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    /* border-radius: 20%; */
+}
+.social-media {
+    padding: 1em;
+}
+.fa {
+    padding: 15px;
+    font-size: 50px;
+    text-align: center;
+    text-decoration: none; 
+}
+.fa:hover {
+    opacity: 0.7;
+}
+.fa-linkedin  {
+    background: rgb(238, 196, 202);
+    color: whitesmoke;
+}
+.fa-github {
+    background: rgb(238, 196, 202);
+    color: whitesmoke;
+}
+.fa-youtube {
+    background: rgb(238, 196, 202);
+    color: whitesmoke;
+}
+/* header {
+    float: left;
+} */
+@media (min-width: 750px) {
+    .flex-gallery {
+        display: flex;
+        flex-wrap: wrap;   
+    }
+    body {
+        display: flex;
+        flex-direction: row;
+    } 
+}
+@media (min-width: 1100px) {
+    .flex-gallery div {
+        width: 50%;
+        padding: 1em;
+    }
+}
+
+footer {
+    background-color: grey;  
+    color: whitesmoke;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

@@ -1,0 +1,37 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+html{
+    padding: 1em
+}
+
+header{
+    background-color: rgb(187, 247, 187);
+}
+
+h3{
+    text-align: center;
+}
+
+.nav{
+    margin-top: 5em;
+    text-align: right;
+}
+
+.content{
+    background-color: rgb(206, 206, 244);
+}
+
+.form{
+    background-color: rgb(250, 250, 219);
+}
+
+.posts{
+    border-color: black;
+    border: 5px;
+    border-radius: 30%;
+}

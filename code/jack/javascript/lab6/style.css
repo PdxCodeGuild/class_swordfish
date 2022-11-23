@@ -1,0 +1,58 @@
+
+
+body {
+    background-color: #5A5A5A;
+    color: white;
+    margin: auto;
+}
+
+img {
+    width: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+button, ::file-selector-button {
+    color: white;
+    background-color: rgb(226, 119, 40);
+    padding: 8;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+
+}
+
+.file-drop {
+
+}
+
+.buttons {
+    margin:auto;
+    display: flex;
+    justify-content: space-around;
+    max-width: 500px;
+    
+}
+
+.main-header {
+    background-color: black;
+    color:white;
+    padding: 20px;
+}
+
+#main {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#viewDiv {
+    padding: 0;
+    margin: 0;
+    height: 85%;
+    width: 100%;
+}
+

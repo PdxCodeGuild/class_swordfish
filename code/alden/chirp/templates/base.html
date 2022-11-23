@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.css' %}">
+    <title>CHIRP</title>
+</head>
+<body>
+    <header class='row'>
+        <h1 class='col s6'><a href="{% url 'posts:index' %}">Chirp</a></h1>
+            <div class='col s6'>
+                <div class='nav'>
+                    {% if user.is_authenticated %}
+                        <p>Greetings, <a href="{% url 'users:profile' user.username %}" >{{ user.username }}</a><br>
+                        <a href="{% url 'logout' %}">Logout</a></p>
+                    {% else %}
+                        <a href="{% url 'login' %}">Login</a>
+                        <a href="{% url 'users:signup' %}">Sign Up!</a>
+                    {% endif %}
+                </div>
+            </div>
+    </header>
+    {% comment %} <div class='content'> {% endcomment %}
+        <div>
+            {% block content %}
+            {%  endblock content %}\
+        </div>
+    {% comment %} <div> {% endcomment %}
+        <script type="text/javascript" src="{% static 'css/materialize.js' %}"></script>
+</body>
+</html>

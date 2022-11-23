@@ -1,0 +1,92 @@
+html {
+    box-sizing: border-box;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    /* background-image: url("https://pbs.twimg.com/profile_images/1551595044754407425/glenmoSf_400x400.jpg"); */
+    background-color: darkblue;
+    color: orange;
+    padding: 2.5em;
+    font-family: Verdana, Tahoma, sans-serif
+}
+
+header {
+    background-color: navy;
+    border-radius: 30px;
+    text-align: center;
+    padding: 0.5em;
+}
+
+a {
+    color: white;
+}
+
+img {
+    border-radius: 55px;
+    height: 15vh;
+    width: auto;
+    object-fit: cover;
+    
+}
+
+main {
+    font-family: Times, serif;
+}
+
+.flextitle {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    text-align: left;
+    padding: 0.1em;
+}
+
+footer {
+    text-align: center;
+}
+
+@media (min-width: 700px) {
+    .flextitle {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        padding: 0.5em;
+    }
+
+    .flexstats {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        padding: 0.1em;
+    }
+}
+
+@media (min-width: 1000px) {
+    .flextitle {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        padding: 0.1em;
+    }
+
+    .flexstats {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        padding: 0.1em;
+    }
+
+    .flexbody {
+        padding-top: 0.10em;
+        padding-left: 5em;
+        padding-right: 5em;
+        padding-bottom: 0.10em;
+    }
+}

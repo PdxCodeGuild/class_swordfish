@@ -1,0 +1,16 @@
+Merritt's			Rachel's
+list of lists			new lists
+keys				headers
+contacts				contact_list
+data				contact_list
+data_results			(record) found_contact
+index_to_update			contact_to_update
+index_to_remove			remove_row
+key to update			update_key
+value to update			update_value
+data_csv_out			contact_csv_newconta
+
+with open ('contacts.csv', 'w') as csvfile:
+    writer = csv.DictWriter (csvfile, fieldnames=headers)
+    writer.writeheader()
+    writer.writerows(contact_list)

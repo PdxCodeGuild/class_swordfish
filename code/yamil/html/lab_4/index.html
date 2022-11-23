@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <title>Burrito Heaven!</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <div class="header"><h1>Burrito Heaven Order Form!</h1></div>
+    <h2>Customize your burrito:</h2>
+    <div class="columns">
+        <div class="column">
+            <img src='burritos.jpg' style=width:15em;height:20em/>
+        </div>
+        <div class="column">
+            <h3>What would you like in your burrito?</h3>
+            <form action="https://webhook.site/0a7b5be8-8584-40c1-9ec7-005acfd2a691" method="post" id="burritoform">
+                <label for="user_name">User Name</label><input type="text" name="user_name"/><br><br>
+                <label for="password">Password</label><input type="password" name="password"/><br><br>
+                Tortilla:  <label for="wheat_flour">White Flour</label><input type="radio" name="tortilla" value="white_flour" checked>
+                <label for="wheat_flour">Wheat Flour</label><input type="radio" name="tortilla" value="wheat_flour">
+                <label for="wheat_flour">Spinach</label><input type="radio" name="tortilla" value="spinach">
+                <label for="wheat_flour">Corn</label><input type="radio" name="tortilla" value="corn">
+                <br><br>
+                Meat:  <label for="carnitas">Carnitas</label><input type="radio" name="meat" value="carnitas">
+                <label for="chicken">Chicken</label><input type="radio" name="meat" value="chicken">
+                <label for="sofritas">Sofritas</label><input type="radio" name="meat" value="sofritas">
+                <br><br>
+                Extras:  <label for="guacamole">Guacamole</label> <input id="guacamole" type="checkbox" name="guacamole" value="guacamole">
+                <label for="beans">Beans</label><input id="beans" type="checkbox" name="beans" value="beans">
+                <label for="cheese">Cheese</label><input id ="cheese" type="checkbox" name="cheese" value="cheese">
+                <label for="sour_cream">Sour Cream</label><input id="sour_cream" type="checkbox" name="sour_cream" value="sour_cream">
+                <br><br>
+                <label for="textarea">Delivery Instructions:</label><textarea placeholder="Delivery instructions:" id="burritoform" name="delivery_instructions"></textarea><br><br>
+                <button type="submit">Submit</button>
+            </form>
+            </div>
+    </div>
+</body>
+</html>
