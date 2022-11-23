@@ -1,7 +1,68 @@
-{% if user.is_authenticated %}
-<h1>Welcome {{ user.username }}!</h1>
-<p><a href="{% url 'logout' %}">Logout</a><p>
-{% else %}
-<h1>Welcome, visitor!</h1>
-<p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
-{% endif %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jack's Pokedex</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h1 {
+            margin: 0px,
+            padding: 0px,
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            padding: 16px;
+            margin: 0;
+            background: #D3D3D3;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Jack's Pokedex</h1>
+        <div>
+            {% if user.is_authenticated %}
+            <p>Welcome, {{ user.username }}!</p>
+            <p><a href="{% url 'logout' %}">Logout</a><p>
+            {% else %}
+            <p>Welcome, visitor!</p>
+            <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
+            {% endif %}
+        </div>
+    </div>
+    <div id="app">
+        <ul>
+            <li v-for="pokemon in responseData">
+                {& pokemon.name &}
+            </li>
+        </ul>
+    </div>
+    <!-- Vue -->
+    <script src="https://unpkg.com/vue@2"></script>
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script>
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                responseData: {},
+            },
+            delimiters: ['{&', '&}'],
+            beforeMount: function() {
+                axios({
+                    method: "GET",
+                    url:"http://localhost:8000/apis/v1/",
+                }).then(response => {
+                    this.responseData = response.data
+                })
+            }
+        })
+    </script>
+</body>
+</html>
