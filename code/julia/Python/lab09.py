@@ -1,3 +1,4 @@
+#ATM Lab Both Versions#
 
 class ATM():
     def __init__(self):
@@ -6,27 +7,35 @@ class ATM():
         self.transactions = []
 
     def check_balance(self):
-        print("Available balance: ", self.balance)
-        print()
+        self.transactions.append(f"Account Balance: ${self.balance}")
+        return self.balance
 
-    def deposit(self, deposit_amount):
-        self.deposit_amount = deposit_amount
-        self.balance = self.balance + self.deposit_amount(f'The user deposited ${deposit_amount}.')
-        print("Current account balance: ", self.balance)
-        print()
+    def deposit(self, amount):
+            self.transactions.append(f"Amount Deposited: ${amount}")
+            self.balance += amount
+            return self.balance
+       
 
-    def check_withdrawal(self, amount ):
-        self.amount = amount
-        self.withdraw = self.withdraw = self.amount
-        print("Current account balance: ", self.withdraw)
+    def check_withdrawal(self, amount):
+        self.transactions.append(f"Withdrawal: ${amount}")
+        if amount <= self.balance:
+            return True
+        else:
+            return False
+
+    def withdraw(self, amount):
+        if amount <= self.balance:
+            return True
+        else:
+            return False
+        
+    def calc_interest(self):
+       interest = (self.interest * self.balance)
+       self.transactions.append(f"Interest: ${interest}")
+       return interest
     
-    def calc_interest(self, interest):
-        self.interest = interest
-        self.amount = self.amount = self.interest
-        print("Current interest rate: ")
-
-    
-
+    def print_transactions(self):
+        return self.transactions
 
 atm = ATM() # create an instance of our class
 print('Welcome to the ATM')
@@ -55,6 +64,10 @@ while True:
         amount = atm.calc_interest() # call the calc_interest() method
         atm.deposit(amount)
         print(f'Accumulated ${amount} in interest')
+
+    elif command == 'transactions':
+        report = atm.print_transactions()
+        print(f"transactions: {report}")
 
     elif command == 'help':
         print('Available commands:')

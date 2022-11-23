@@ -2,6 +2,7 @@
 
 .incomplete-todos {
     text-decoration: underline;
+    font-size: medium;
 
 }
 .completed-todos{
@@ -14,6 +15,7 @@ body {
     border: 10px solid #5694D6;
     border-style: groove;
     background-color: aliceblue;
+   
     
   }
 div {

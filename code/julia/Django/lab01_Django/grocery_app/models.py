@@ -9,7 +9,7 @@ class GroceryItem(models.Model):
    completed = models.BooleanField(default=False)
 
 
-
+# Dunder string method:
    def __str__(self):
     return self.description
 

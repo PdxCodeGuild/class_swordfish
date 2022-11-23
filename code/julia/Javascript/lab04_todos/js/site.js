@@ -2,12 +2,20 @@
 new Vue({
     el: '#app',
     data: {
+      
         todoText: "",
         todos: [
-            {id: 1, text: "Clean the bedroom", completed: true, createdDate: new Date()},
-            {id: 2, text: "Go grocery shopping", completed: false, createdDate: new Date()},
-            {id: 3, text: "Wash the car", completed: false, createdDate: new Date()},
-            {id: 4, text: "Do homework", completed: false, createdDate: new Date() },
+            {id: 1, text: "Clean the bedroom", 
+            completed: true, createdDate: new Date()},
+
+            {id: 2, text: "Go grocery shopping", 
+            completed: false, createdDate: new Date()},
+
+            {id: 3, text: "Wash the car", 
+            completed: false, createdDate: new Date()},
+
+            {id: 4, text: "Do homework", 
+            completed: false, createdDate: new Date() },
         ],
         nextTodoId: 5
     },
