@@ -1,73 +1,31 @@
-//ROT Cipher
-// let alphabet = {
-//     "a" : "n",
-//     "b" : "o",
-//     "c" : "p",
-//     "d" : "q",
-//     "e" : "r",
-//     "f" : "s",
-//     "g" : "t",
-//     "h" : "u",
-//     "i" : "v",
-//     "j" : "w",
-//     "k" : "x",
-//     "l" : "y",
-//     "m" : "z",
-//     "n" : "a",
-//     "o" : "b",
-//     "p" : "c",
-//     "q" : "d",
-//     "r" : "e",
-//     "s" : "f",
-//     "t" : "g",
-//     "u" : "h",
-//     "v" : "i",
-//     "w" : "j",
-//     "x" : "k",
-//     "y" : "l",
-//     "z" : "m",
-// }
-let alphabet = 'abcdefghijklmnopqrstuvwxyz'
-let newAlphabet = 'nopqrstuvwxyzabcdefghijklm'
-console.log(alphabet)
-console.log(newAlphabet)
+// Blackjack Advice 
 
-let message = '';
-let user = prompt("Enter a word: ")
+let dict = {"A": 1, "2": 2, "3":3, "4":4, "5":5 , "6":6, "7":7, "8":8, "9":9, "10":10, "J": 10, "Q": 10, "K":10}
 
+let card_type1 = prompt("What is your first card? ")
+let card_type2 = prompt("What is your second card? ")
+let card_type3 = prompt("what is your third card? ")
 
-let char = user
-user_word += rot13[char]
-alert(user_word)
+// alert(dict[card_type1] + [card_type2] + [card_type3])
+// alert(dict[card_type2])
+// alert(dict[card_type3])
 
-// let str = 'abcd';
+let type_one = dict[card_type1]
+let type_two = dict[card_type2]
+let type_three = dict[card_type3]
 
-// for(let i=0; i<str.length; i++){
-//     let index = alphabet.indexOf(str[i])
-//     encoded += newAlphabet[index];
-// }
-// "nopq"
+let results = type_one + type_two + type_three
+alert("Your results are: " + results)
 
-// let user = prompt("Enter a word: ")
+if (results < 17){
+    alert(results + " Hit");
 
+}else if(results >= 17){
+    alert(results + " Stay");
 
+}else if (results == 21, results < 21){
+    alert(results + " Blackjack!");
 
-// // // return message.replace([a-z]/gi, letter = )
-// // // let user_word = ""
-// function rot13(rot){
-//     let user = rot
-
-// }
-
-// // let rot13 = 13
-// // let message = []
-// // for (let char of user){
-// //     alert()
-// // }
-
-// let result = numA * numB
-// return result
-// // // let char = user
-// // // let results = user_word += rot13[char]
-// // // alert(user_word)
-  
+}else{
+    alert(results + " Already Busted!");   
+}
