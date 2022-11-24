@@ -4,6 +4,7 @@ var app = new Vue({
   data: {
     photoInfo: {},
     randomPhotoInfo: {},
+    imageGalleryInfo: {},
     searchDate: '',
   },
   methods: {
@@ -30,11 +31,23 @@ var app = new Vue({
           this.photoInfo = this.randomPhotoInfo[0]
       }) 
     },
+    imageGallery: function() {
+      axios({
+        method: "GET",
+        url: 'https://api.nasa.gov/planetary/apod?api_key=wTsEGeI7sDZUbINg9RJiPLHEXgOh8bM0FsGlkbrL', 
+        params: {
+          count: 25
+        } 
+      }).then((response) => {
+        this.imageGalleryInfo = response.data
+      })
+    }
   },
   computed: {
 
   },
   beforeMount: function () {
       this.getPhoto()
+      this.imageGallery()
   }
 })

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Javascript Mini Capstone</title>
+    <title>Astronomy Photos</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 <body>
@@ -18,25 +18,32 @@
                 </blockquote>
             </figure>
             <br>
-            <h4>Photos by date</h4>
-            <input type="date"v-model='searchDate'>            
-            <button class="btn btn-secondary btn-sm" v-on:click="getPhoto">Get Photo</button>
+            <br>
+            <div class="container-fluid">
+                <div class="float-start" class="container-sm">
+                    <h4>Photos by date</h4>
+                    <input type="date"v-model='searchDate'>            
+                    <button class="btn btn-secondary btn-sm" v-on:click="getPhoto">Submit</button>
+                </div>
+                <div class="float-sm-end" class="container-sm">
+                    <h4>Random photo of the day</h4>
+                    <button class="btn btn-secondary btn-sm" v-on:click="getRandomPhoto">Random photo</button>           
+                </div>
+            </div>
             <br>
             <br>
-
-            <h4>Random photo of the day</h4>
-            <button class="btn btn-secondary btn-sm" v-on:click="getRandomPhoto">Get random photo</button>
-            <br>
-            <br>
-
         </div>
+        <br>
+        <br>
         <div class="container-sm"> 
             <figure class="figure">
                 <h4 class="display-6">{{photoInfo.title}}</h4>
                 <p>Date: {{photoInfo.date}}</p>
-                <img v-bind:src="photoInfo.hdurl" class="figure-img img-fluid rounded"/>
-                <figcaption class="figure-caption">{{photoInfo.explanation}}</figcaption>
+                <img v-bind:src="photoInfo.hdurl" class="container-sm" class="figure-img img-fluid rounded"/>
             </figure>
+            <p>{{photoInfo.explanation}}</p>
+            <br>
+            <br>
         </div>
 
     </div>
