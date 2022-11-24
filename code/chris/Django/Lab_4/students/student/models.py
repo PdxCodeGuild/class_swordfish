@@ -15,7 +15,7 @@ class Student(models.Model):
     cohort = models.CharField(max_length=30)
     favorite_topic = models.CharField(max_length=50)
     favorite_teacher = models.CharField(max_length=30)
-    capstone = models.URLField(max_length=200, blank=False)
+    capstone = models.URLField(max_length=200, null=True, blank=True)
 
     def __str__(self):
         return self.last_name + ", " + self.first_name
