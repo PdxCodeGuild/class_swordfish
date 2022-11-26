@@ -98,7 +98,7 @@ let units = {
 console.log(units)
 
 let inputDistance = prompt('What is the distance?')
-let inputUnit = prompt('What is the unit(ft, i, m, km, yd, in)?')
+let inputUnit = prompt('What is the unit(ft, mi, m, km, yd, in)?')
 let outputUnit = prompt('What is the output unit(ft, mi, m, km, yd, in)?')
 // convert any input_unit to meters
 let convertedInputUnit = units[inputUnit]

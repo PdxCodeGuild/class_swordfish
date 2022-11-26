@@ -86,7 +86,7 @@ function updateContact(contacts) {
 
     //iterate over the length of the contacts list
     for (let i = 0; i < contacts.length; i++) {
-        //console.log(i, contacts[i])
+        console.log(i, contacts[i])
         if (contacts[i]['name'] == nameToUpdate) {
             let inputAttribute = prompt('What do you want to update? "name", "favoriteFruit", "favoriteColor" ')
             let inputValue = prompt('What do you want to update it to?')
@@ -103,12 +103,18 @@ function deleteContact(contacts) {
     //ask the user for the contact's name
     let nameToDelete = prompt('Enter the contact\'s name you want to delete')
     // iterate over the contacts
-    for (let i = 0; i < contacts.length; i++) {
-        if (contacts[i]['name'] == nameToDelete) {
-            delete contacts[i]
+    // for (let i = 0; i < contacts.length; i++) {
+    // if (contacts[i]['name'] == nameToDelete) {
+    // delete contacts[i]
+    // }
+    // }
+
+    return contacts.filter(function (contact) {
+        if (contact.name != nameToDelete) {
+            return contact
+            console.log('deleted')
         }
-    }
-    return contacts
+    })
 }
 deleteContact(contacts)
 
@@ -118,7 +124,8 @@ while (!stop) {
     let response = prompt('Enter a choice(q, c, r, u, d): ')
     if (response == 'q') {
         console.log('Person wants to quit')
-        let stop = true
+        stop = true
+        break
     } else if (response == 'c') {
         console.log('Person wants to create')
         let contact = createContact(theKeys, contacts)
