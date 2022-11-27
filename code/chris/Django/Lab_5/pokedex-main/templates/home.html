@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PokeDex</title>
+    {% comment %} <link rel="stylesheet" href="code/chris/Django/Lab_5/pokedex-main/static/main.css" /> {% endcomment %}
 </head>
 <body> 
     <div id="pokeapp">
@@ -13,6 +14,7 @@
             <ul>
                 <li v-for="p in pokemon">
                     <h4>Pokemon Name: [[ p.name ]]</h4>
+                    <p><img :src=[[p.image_front]]> <img :src=[[p.image_back]]></p>
                     <p>Pokemon Height: [[ p.height ]] - Pokemon Weight: [[ p.weight ]]</p>
                     <button @click="editPokemon">Edit</button>
                 </li>
