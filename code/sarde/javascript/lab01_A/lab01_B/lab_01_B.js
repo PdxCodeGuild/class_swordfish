@@ -5,6 +5,7 @@ console.log(select_input_unit)
 let distance_input = document.querySelector('#distance_input')
 console.log('distance', distance_input)
 let select_output_unit = document.querySelector('#select_output_unit')
+console.log(select_output_unit)
 let convert_bt = document.querySelector('#convert_bt');
 let output_div = document.querySelector('#output_div');
 convert_bt.onclick = function () {
@@ -17,17 +18,20 @@ convert_bt.onclick = function () {
         'in': 0.0254
     }
     // console.log(units)
-    let input_unit = select_input_unit.value
-    console.log(input_unit)
-    let output_unit = select_output_unit.value
-    console.log(output_unit)
-    let convertedInputUnit = units[input_unit]
-    console.log('convertedInputUnit', convertedInputUnit)
-    let convertedOutputUnit = units[output_unit]
-    console.log('convertedOutputUnit', convertedOutputUnit)
-    let total = distance_input * convertedInputUnit
-    console.log('total', total)
-    output_div.innerText = total / convertedOutputUnit;
-    console.log('output', output_div)
+    let distance = distance_input.value
+    // console.log(typeof distance, distance)//string
+    let convertedInputDistance = parseInt(distance)
+    // // console.log('Input distance as an Integer', convertedInputDistance)
+    // console.log(typeof convertedInputDistance)//number
+    let inputUnit = units[select_input_unit.value]
+    // console.log(inputUnit)
+    // let outputUnit = units[select_output_unit.value]
+    // console.log(outputUnit)
+    let total = convertedInputDistance * inputUnit / outputUnit
+    // console.log('Total', total)
+
+    output_div.innerText = `${convertedInputDistance + select_input_unit.value + ' ' + 'is' + ' ' + total.toFixed(2) + select_output_unit.value + '\s'
+        }`
+    // console.log(output_div)
 
 }
