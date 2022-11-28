@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+# this was included for the DIRS[] update for os.path.join
+# import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -38,8 +40,20 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # installed django-filter due to error
+    'django_filters',
+
     'students_app',
+    # these two were added once we installed DRF to add our API functionality
+    'apis',
+    'rest_framework',
 ]
+
+# we need to add default rest framework permissions
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': (
+        'django_filters.rest_framework.DjangoFilterBackend',)
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -57,6 +71,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
+        # os.path.join(BASE_DIR, 'templates') this was something i found online and we've used in the past
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
