@@ -36,8 +36,12 @@ let retrieved_name = document.querySelector('#retrieved_name');
 let retrieve_bt = document.querySelector('#retrieve_bt');
 let retrieved_div = document.querySelector('#retrieved_div');
 retrieve_bt.onclick = function () {
-    let name = retrieved_name.value;
-    console.log(name);
+    let inputName = retrieved_name.value;
+    console.log('Input Name', inputName);
+
+
     // retrieved_div.innerText = `${name}`;
     // console.log(retrieved_div)
+
+
 }
