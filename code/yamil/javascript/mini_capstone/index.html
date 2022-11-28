@@ -34,12 +34,10 @@
     <div id="app">
         <div class="page-input">
             <select v-model="selected">
-                <option value="zip-code-option">Zip Code</option>
                 <option value="city-option">City</option>
                 <option value="state-option">State</option>
                 <option value="country-option">Country</option>
             </select>
-            <input v-if="selected == 'zip-code-option'" type="text" placeholder="Zip Code:" v-model="selectedText">
             <input v-if="selected == 'city-option'" type="text" placeholder="City:" v-model="selectedText">
             <input v-if="selected == 'state-option'" type="text" placeholder="State:" v-model="selectedText">
             <input v-if="selected == 'country-option'" type="text" placeholder="Country:" v-model="selectedText">

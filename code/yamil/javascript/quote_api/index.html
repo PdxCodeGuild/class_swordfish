@@ -11,15 +11,16 @@
   <div id="app">
   <h2>Welcome to Favorite Quotes!</h2>
     <h3>Search for your favorite quotes here:</h3>
-    <input type="text" v-model="newSearch">
-      <button v-on:click="keywordSearch">Keyword</button>
-      <button v-on:click="authorSearch">Author</button>
-      <button v-on:click="tagSearch">Tag</button>
-    <button v-on:click="nextPage">Next Page</button>
+    <key-word-search @component-search="keywordSearch"></key-word-search>
+    <!-- <button v-on:click="keywordSearch">Keyword</button> -->
+    <input type="text" v-model="newSearch" placeholder="Search by tag or author">
+    <button v-on:click="authorSearch">Author</button>
+    <button v-on:click="tagSearch">Tag</button>
+    <ol>
+      <li v-for="quote in quotes.quotes">{{quote.body}}</li>
+    </ol>
     <button v-on:click="previousPage">Previous Page</button>
-      <ol>
-        <li v-for="quote in quotes.quotes">{{quote.body}}</li>
-      </ol>
+    <button v-on:click="nextPage">Next Page</button>
     </div>
     <!-- Vue -->
     <script src="https://unpkg.com/vue@2"></script>
