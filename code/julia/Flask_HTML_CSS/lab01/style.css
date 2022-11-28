@@ -12,7 +12,10 @@ html {
 
 
 body {
-    background-color: #AEC0A0;
+    background-image: url('images/background.jpeg');  
+    /* background-color: #AEC0A0; */
+    text-align: center;
+
 }
 .imgMain{
     display: block;
@@ -45,8 +48,33 @@ body {
 
 
 }
+.list-heading {
+    font-weight: normal;
+    text-decoration: underline;
+   
+  
 
+}
+/* 
 ul{
     color: "#ffffff";
 
-}
+
+} */
+ul {
+   
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+  
+  li {
+    padding-left: 1em;
+    text-indent: -1em;
+  }
+  
+  li:before {
+    content: '~';
+    padding-right: 5px;
+  }
+  

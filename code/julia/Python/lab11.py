@@ -1,6 +1,6 @@
 # Quotes API
 import requests
-import pprint
+import pprint 
 import json
 import time
 
@@ -20,7 +20,7 @@ import time
 ###-----Version 2: List Quotes by Keyword-----###
 
 keyword = input("Enter a keyword to search for quotes: ")
-print(f'Loading page with a list of quotes associated with the word {keyword}...: ')
+print(f'Loading page with a list of quotes associated with the word {keyword}... \n')
 
 response = requests.get(f'https://favqs.com/api/quotes?page=<page>&filter={keyword}', params={'format': 'json'}, headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'})
 
@@ -39,6 +39,7 @@ for quote in list_of_quotes:
 while True:
 
     user_selected = input("Enter 'next page' for more quotes, 'new search' to enter a new search keyword or 'exit' to exit:\n >>> ")
+
     if user_selected == 'next page':
         page = keyword_quotes['page'] + 1
         response = requests.get(f'https://favqs.com/api/quotes?page=<page>&filter={keyword}', params={'format': 'json'}, headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'})
@@ -57,6 +58,13 @@ while True:
             auth = quote['author']
             bod = quote['body']
             print(auth,"\n", bod, "\n")
+
+    elif user_selected == 'exit': 
+        user_selected = False
+        print("You've exited")
+        break
+
+
 
 
 
