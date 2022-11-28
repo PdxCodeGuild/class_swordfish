@@ -8,17 +8,15 @@ const eventSearchApi = new Vue({
       eventsList: [],
       keyword: "",
       city: "",                
-      country: "",             
-      postalCode: "",          
+      country: "",         
       state: "",               
       genre: "",               
-      selected: "",
+      selected: "state-option",
       selectedText: "",
-      selection: "",
+      selection: "keyword-option",
       cityMod: "&city=",
       keywordMod: "&keyword=",
       countryMod: "&countryCode=",
-      postalCodeMod: "&postalCode=",
       stateMod: "&stateCode=",
       genreMod: "&classificationName=",
     },
@@ -27,10 +25,7 @@ const eventSearchApi = new Vue({
     },
     methods: {
         eventSearch: function() {
-          if (this.selected === "zip-code-option") {
-            this.postalCode = this.selectedText
-          }
-          else if (this.selected === "city-option") {
+          if (this.selected === "city-option") {
             this.city = this.selectedText
           }
           else if (this.selected === "state-option") {
