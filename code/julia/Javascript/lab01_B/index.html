@@ -9,13 +9,30 @@
 <body>
     <h1>Welcome to Unit Converter</h1>
     <input type="text" id="distance" placeholder="Enter distance...">
-    <input type="text" id="input" placeholder="Enter input unit...">
-    <input type="text" id="output" placeholder="Enter output unit...">
+    <!-- <label for="units_1">Choose a unit</label> -->
+    <select name="options" id="input">
+        <option value="ft">ft</option>
+        <option value="m">m</option>
+        <option value="mi">mi</option>
+        <option value="km">km</option>
+        <option value="yards">yd</option>
+        <option value="inches">in</option>
+    </select>
+<p>Convert to:</p>
+    <select name="options2" id="output">
+        <option value="ft">ft</option>
+        <option value="m">m</option>
+        <option value="mi">mi</option>
+        <option value="km">km</option>
+        <option value="yards">yd</option>
+        <option value="inches">in</option>
+    </select>
 <br>
    <button id="bt">click</button>
-<p>Converted Results:</p>
-  <div id="convert"></div>
-  <p id="results"></p>
+
+  <div id="convert">Converted results:</div>
+  <p id="result"></p>
+
     <script src="part_B.js"></script>
 </body>
 </html>

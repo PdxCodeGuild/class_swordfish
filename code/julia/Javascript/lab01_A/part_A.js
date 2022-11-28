@@ -10,8 +10,8 @@ let distance = {
 }
 
 let user = prompt('What is the distance?: ')
-let unit_str = prompt('What are the units?: ')
-let unit_str2 = prompt('What are the output units?: ')
+let unit_str = prompt('What are the units?(ft, m, mi, km, yards, inches): ')
+let unit_str2 = prompt('What are the output units?(ft, m, mi, km, yards, inches): ')
 
 let answer = user
 let unit = distance[unit_str]

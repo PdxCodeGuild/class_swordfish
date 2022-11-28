@@ -6,9 +6,9 @@ let cards = {
     "J": 10, "Q": 10, "K":10, 
 }
 
-let card_type1 = prompt("What is your first card? (Card Type: K, Q, J, 10, 9, 8, 7, 6, 5, 4, 3, 2, ace)")
-let card_type2 = prompt("What is your second card? (Card Type: K, Q, J, 10, 9, 8, 7, 6, 5, 4, 3, 2, ace)")
-let card_type3 = prompt("what is your third card? (Card Type: K, Q, J, 10, 9, 8, 7, 6, 5, 4, 3, 2, ace)")
+let card_type1 = prompt("What is your first card? (Card Type: K, Q, J, 10, 9, 8, 7, 6, 5, 4, 3, 2, A)")
+let card_type2 = prompt("What is your second card? (Card Type: K, Q, J, 10, 9, 8, 7, 6, 5, 4, 3, 2, A)")
+let card_type3 = prompt("what is your third card? (Card Type: K, Q, J, 10, 9, 8, 7, 6, 5, 4, 3, 2, A)")
 
 let card_total = cards[card_type1] + cards[card_type2] + cards[card_type3]
 
