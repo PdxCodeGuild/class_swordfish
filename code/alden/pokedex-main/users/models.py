@@ -1,8 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+# from pokemon.models import Pokemon
 
 class CustomUser(AbstractUser):
-    pass
+    
     # caught = the set of Pokemon associated with that user
 
     # This is where you would add additional fields.
