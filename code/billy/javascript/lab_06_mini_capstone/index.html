@@ -20,9 +20,11 @@
                 <option value="materials">Material</option>
             </select>
             <p>Refine the result:</p>
-            <input v-model="inputName" placeholder="Bokoblin, Lynel guts, etc...">
+            <input v-model="searchTerm" placeholder="Bokoblin, Lynel guts, etc...">
             <button @click='getAllData'>Search the Archives...</button>
         </div>
+
+        <p>{{ searchTerm }}</p>
 
         <div id="searchResults">
             <template v-if="inputType === 'monsters'">
