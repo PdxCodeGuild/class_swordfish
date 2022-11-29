@@ -17,7 +17,7 @@
 
     <h3>Incomplete Items</h3>
     <ul>
-    {% for item in incomplete_items %}
+    {% for item in incompleted_items %}
         <li>{{ item.description }}
             <form action="{% url 'grocery_list:complete' item.id %}" method="post">
                 {% csrf_token %}

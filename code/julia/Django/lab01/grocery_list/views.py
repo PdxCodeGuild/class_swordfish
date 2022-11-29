@@ -7,10 +7,9 @@ from .models import GroceryItem
 # Create your views here.
 
 def index(request):
-   incompleted_items = GroceryItem.objects.filter(completed=False).ordered_by('created_date')
-   completed_items = GroceryItem.objects.filter(completed=True)
-   context = {'incompleted_items':incompleted_items, 
-      'completed_items':completed_items}
+   incompleted_items = GroceryItem.objects.filter(completed=False).order_by('created_date')
+   completed_items = GroceryItem.objects.filter(completed=True).order_by('-completed_date')
+   context = {'incompleted_items':incompleted_items,'completed_items':completed_items}
    return render(request, 'grocery_list/index.html', context)
 
 
@@ -28,8 +27,10 @@ def complete(request, pk):
    else:
       item.completed = True 
       item.completed_date = timezone.now()
-      item.save()  
-      return HttpResponseRedirect(reverse('grocery_list:index'))
+   item.save()  
+   return HttpResponseRedirect(reverse('grocery_list:index'))
+
+
 
 
 def delete(request, pk):
