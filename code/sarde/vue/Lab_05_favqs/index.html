@@ -29,8 +29,8 @@
         <button @click="selectByAuthor">search</button><br>
         search by:<input type="text" v-model="tag" placeholder="tag">
         <button @click="selectByTag">search</button>
-        <button @click="page++">next page</button>
-        <button @click="page--">previous page</button>
+        <button @click="selectByTag('Next')">next page</button>
+        <button @click="selectByTag('Previous')">previous page</button>
 
     </div>
 

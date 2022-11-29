@@ -10,16 +10,16 @@ def index():
     return 'Hello World!'
 
 
-@app.route('/todo/')
-def todo():
-    # database = JsonDB('db.json')
-    #print('database!!!!!!!!!', database)
-    # database.load()
-    # the_thing = database.get('todos')
-    # print(the_thing)
+@app.route('/todos/')
+def todos():
+    db = JsonDB('db.json')
+    print('database!!!!!!!!!', db)
+    # [{'text': 'walk the dog', 'priority': 'high'}, {'text': 'butter the cat', 'priority': 'medium'}, {'text': 'wash dishes', 'priority': 'low'}]
+    db.load()
+    todos = db.get('todos')
+    print('To-Do List', todos)
 
-    #a_string = 'abcdefgh'
-    return render_template('index.html')
+    return render_template('index.html', todos=todos)
 
 
 app.run(debug=True)

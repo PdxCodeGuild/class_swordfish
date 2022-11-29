@@ -90,7 +90,18 @@ const vm = new Vue({
                 this.quotesList = this.responseData.quotes
             })
         },
-        selectByTag: function () {
+        selectByTag: function (theArgument) {
+            console.log('The Argument', theArgument)
+            if (theArgument === 'Next' && this.responseData.last_page === false) {
+                console.log('We are going to the next page')
+                this.page += 1
+                console.log('Page')
+            } else if (theArgument === 'Previous' && this.page !== 1) {
+                this.page -= 1
+                console.log('We are going to the previous page')
+            } else {
+                console.log('We are getting the current page')
+            }
             axios({
                 method: 'get',
                 // https://favqs.com/api/quotes/?filter=funny&type=tag
