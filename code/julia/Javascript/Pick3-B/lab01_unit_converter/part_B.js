@@ -21,7 +21,6 @@ button.addEventListener('click', function(){
     console.log("answer" , answer) 
     convert_unit.innerText = answer
     
-
 })
 
 function converter(distance,input_unit,output_unit){
@@ -40,10 +39,3 @@ function converter(distance,input_unit,output_unit){
 
 
 
-
-
-// let answer = user
-// let unit = distance[unit_str]
-// let results = unit * user
-// console.log(user + " " + unit_str + " is " + results + " " + unit_str2 )
-// alert(user + " " + unit_str + " is " + results + " " + unit_str2)
