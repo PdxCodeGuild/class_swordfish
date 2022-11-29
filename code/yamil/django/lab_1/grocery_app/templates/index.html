@@ -4,9 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
+    <title>Grocery List</title>
 </head>
 <body>
-    <p>Test</p>
+    <h1>Welcome to your grocery list!</h1>
+
+    <h3>Grocery List:</h3>
+        {% for x in incomplete_items %}
+        <li> {{ x }} </li>
+        {% endfor %}
+    <h3>Completed:</h3>
+        {% for x in complete_items %}
+            <li> {{ x }} </li>
+        {% endfor %}
 </body>
 </html>
