@@ -1,0 +1,42 @@
+{% extends 'home.html' %}
+
+{% block content %}
+  
+    <div>
+        <h3>Caught</h3>
+        {% for pokemon in request.user.caught.all %}
+            <li>{{ pokemon.name }} -- {{ pokemon.id }}</li>
+            <a href='../release/{{pokemon.id}}'>Remove</a>
+        {% endfor %}
+    </div>
+<div id='app'> 
+    <div v-for="pokemon in pokedex">
+        <h3>[ pokemon.name ]</h3>
+        <a :href='"../caught/"+ pokemon.id'>Add</a>
+    </div>
+
+</div>
+<script>
+let pokedex = new Vue({
+    el: '#app',
+    delimiters: ['[', ']'],
+    data:{
+        pokedex: []
+    },
+    methods: {
+        getPokemon: function(){
+            axios({
+                method: 'GET',
+                url: '/api/pokemon/'
+            }).then((response) => {
+                this.pokedex = response.data
+            })
+        }
+    },
+    beforeMount: function(){
+        this.getPokemon()
+    }
+})
+</script>
+
+{% endblock content %}
