@@ -8,6 +8,7 @@ let shift = parseInt(prompt('Please enter the number of places to shift the mess
 
 let output = []
 
+// this cycles through each character in the input string, and adds the shifted character the the output array
 for (let i of input) {
     if (alphabet.includes(i)) {
         output.push(alphabet[(alphabet.indexOf(i) + shift) % alphabet.length])
