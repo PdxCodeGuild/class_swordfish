@@ -18,9 +18,10 @@ Vue.component('quotes', {
 var app = new Vue({
   el: '#app',
   data: {
+    type: "",
     keywordSearch: "",
-    authorSearch: "",
-    tagSearch: "",
+    inputSearch: "",
+    inputType: "",    
     quotes: {},
     parameters:{},
 
@@ -37,7 +38,9 @@ var app = new Vue({
           this.quotes = response.data
       }) 
     },
-    getQuotesKeyword: function() {
+    getQuotesSearch: function() {
+      this.inputSearch = this.keywordSearch
+      this.inputType = this.type
       axios({
           method: "GET",
           url: "https://favqs.com/api/quotes/",
@@ -45,43 +48,15 @@ var app = new Vue({
               'Authorization': 'Token token="9daa8830e1b3e3a7b44eda726857db04"'
           },
           params: {
-            filter: this.keywordSearch,
-            type: 'keyword'
+
+            filter: this.inputSearch,
+            type: this.inputType
           }
       }).then((response) => {
           this.quotes = response.data
       }) 
     },
-    getQuotesAuthor: function() {
-      axios({
-          method: "GET",
-          url: "https://favqs.com/api/quotes/",
-          headers: {
-              'Authorization': 'Token token="9daa8830e1b3e3a7b44eda726857db04"'
-          },
-          params: {
-            filter: this.authorSearch,
-            type: 'author'
-          }
-      }).then((response) => {
-          this.quotes = response.data
-      }) 
-    },
-    getQuotesTag: function() {
-      axios({
-          method: "GET",
-          url: "https://favqs.com/api/quotes/",
-          headers: {
-              'Authorization': 'Token token="9daa8830e1b3e3a7b44eda726857db04"'
-          },
-          params: {
-            filter: this.tagSearch,
-            type: 'tag'
-          }
-      }).then((response) => {
-          this.quotes = response.data
-      }) 
-    },
+    
     nextPage: function() {
       axios({
         method: 'GET',
@@ -90,7 +65,25 @@ var app = new Vue({
             'Authorization': 'Token token="9daa8830e1b3e3a7b44eda726857db04"'
         },
         params: {
+          filter: this.inputSearch,
+          type: this.inputType,
           page: this.quotes.page + 1
+        }
+      }).then((response) => { 
+          this.quotes = response.data
+      })
+    },
+    previousPage: function() {
+      axios({
+        method: 'GET',
+        url: 'https://favqs.com/api/quotes',
+        headers: {
+            'Authorization': 'Token token="9daa8830e1b3e3a7b44eda726857db04"'
+        },
+        params: {
+          filter: this.inputSearch,
+          type: this.inputType,
+          page: this.quotes.page - 1
         }
       }).then((response) => { 
           this.quotes = response.data
