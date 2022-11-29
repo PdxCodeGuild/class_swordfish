@@ -69,9 +69,15 @@ def save(contact_list):
     with open('contacts.csv', 'w') as file:
         file.write(headers_str)
         file.write("\n")
+
+        working_list = []
         for contact in contact_list:
-            file.write(",".join(list(contact.values())))
-            file.write("\n")
+            working_list.append(",".join(list(contact.values())))
+        print("working list", working_list)
+        working_string = "\n".join(working_list)
+        print(working_string)
+        file.write(working_string)
+
 
 
 keep_going = True
