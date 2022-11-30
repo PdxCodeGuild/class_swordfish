@@ -28,7 +28,7 @@ let rot13={
     "z" : "m",
 }
 
-let test = 'cat'
+
 
 let user_word = prompt("Type a word: ")
 let encoded_str = ''
