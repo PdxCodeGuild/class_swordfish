@@ -19,14 +19,16 @@
         <li>{{todo.text}} ({{todo.priority}})</li>
         {% endfor %}
     </ol>
-    <form action="/add/" method="post">
-        <input type="text" name="text" placeholder="new todo item">
-        <select>
-            {% for todo in todos%}
-            <option>{{todo.priority}}</option>
+    <form action="/add/" method="POST">
+        <label for="input-box">Todo text:</label>
+        <input type="text" name="text" id="input-box" placeholder="new todo item">
+        <label for="priority-box">Priority:</label>
+        <select name="priority" id="priority-box">
+            {% for priority in priorities %}
+            <option value="{{priority}}">{{priority}}</option>
             {% endfor %}
         </select>
         <input type="submit" value="Add">
-
+    </form>
 </body>
 </html>
