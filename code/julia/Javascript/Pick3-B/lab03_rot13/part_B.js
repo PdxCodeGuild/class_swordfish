@@ -59,13 +59,3 @@ encode.addEventListener('click', function (){
     
 })
 
-
-
-// let user_word = prompt("Type a word: ")
-// let encoded_str = ''
-
-// for (let char of user_word){
-//     encoded_str += rot13[char]
-// }
-
-// alert(encoded_str)

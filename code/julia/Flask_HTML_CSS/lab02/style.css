@@ -91,5 +91,13 @@ header{
   }
 
 }
+@media (min-width: 1000px){
+  .products{
+    display: flex;
+    justify-content:flex-start;
+    flex-direction: row;
+    
+  }
+}
 
 
