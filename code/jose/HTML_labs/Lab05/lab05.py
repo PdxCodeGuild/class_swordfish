@@ -56,6 +56,7 @@ def index():
         print(response)
         print(user_distance)
         print(user_units)
+        print(converted_units)
         return render_template('lab05.html', converted_units=converted_units)
 
 

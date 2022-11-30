@@ -13,6 +13,9 @@ class Chirp(models.Model):
     def get_absolute_url(self):
         return reverse('chirp')
 
+    class Meta:
+        ordering =['-created']
+
 
     
     
