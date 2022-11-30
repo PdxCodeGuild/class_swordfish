@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X=UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- will need the other curly braces above. also would need the corresponding css link here to go with above styles.css-->
+    <title> Chirp Posts Index </title>
+
+</head>
+
+
+<body>
+    <h1>Chirp Posts</h1>
+
+
+    <h3>Posts</h3>
+    <ul>
+        {% for post in posts %}
+        <li>
+            {{ post.title }}
+            {{ post.author }}
+            {{ post.body }}
+        </li>
+        {% endfor %}
+    </ul>
+
+</body>
+
+</html>
