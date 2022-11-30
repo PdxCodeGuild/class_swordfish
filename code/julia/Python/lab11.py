@@ -20,49 +20,38 @@ import time
 ###-----Version 2: List Quotes by Keyword-----###
 
 keyword = input("Enter a keyword to search for quotes: ")
-print(f'Loading page with a list of quotes associated with the word {keyword}... \n')
 
-response = requests.get(f'https://favqs.com/api/quotes?page=<page>&filter={keyword}', params={'format': 'json'}, headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'})
-
-keyword_quotes = response.json()
-# print(response.text)
 page = 1
 
-list_of_quotes = keyword_quotes['quotes']
-time.sleep(3)
-for quote in list_of_quotes:
-    author = quote['author']
-    body = quote['body']
-    print(body)
-    print(author,"\n")
-
 while True:
+        
+    print(f'Loading page with a list of quotes associated with the word {keyword}... \n')
 
-    user_selected = input("Enter 'next page' for more quotes, 'new search' to enter a new search keyword or 'exit' to exit:\n >>> ")
 
-    if user_selected == 'next page':
-        page = keyword_quotes['page'] + 1
-        response = requests.get(f'https://favqs.com/api/quotes?page=<page>&filter={keyword}', params={'format': 'json'}, headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'})
-        keyword_quotes = response.json()
-        for x in keyword_quotes['quotes']:
-             author = quote['author']
-             body = quote['body']
-             print(x['body'])
-             print(x['author'],"\n")
+    response = requests.get(f'https://favqs.com/api/quotes?', params={'filter': keyword, 'page': page}, headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'})
 
-    elif user_selected == 'new search':
-        keyword = input("Enter a new keyword:\n")
-        response = requests.get(f'https://favqs.com/api/quotes?page=<page>&filter={keyword}', params={'format': 'json'}, headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'})
-        keyword_quotes = response.json()
-        for word in keyword_quotes['quotes']:
-            auth = quote['author']
-            bod = quote['body']
-            print(auth,"\n", bod, "\n")
+    keyword_quotes = response.json()
+    
 
-    elif user_selected == 'exit': 
-        user_selected = False
-        print("You've exited")
+    list_of_quotes = keyword_quotes['quotes']
+    time.sleep(3)
+    for quote in list_of_quotes:
+        author = quote['author']
+        body = quote['body']
+        print(body)
+        print(author,"\n")
+
+    next_move = input("Type 'next' for next page, 'new' for new search or 'done' to exit: ")
+    if next_move == 'next':
+        page += 1
+
+    elif next_move == 'new':
+        keyword = input("Enter a new word: ")
+        page = 1
+
+    else:
         break
+   
 
 
 

@@ -24,10 +24,9 @@ class ATM():
             return False
 
     def withdraw(self, amount):
-        if amount <= self.balance:
-            return True
-        else:
-            return False
+        self.balance -= amount
+        return amount
+       
         
     def calc_interest(self):
        interest = (self.interest * self.balance)
