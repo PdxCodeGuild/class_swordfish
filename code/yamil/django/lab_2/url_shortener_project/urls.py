@@ -1,4 +1,4 @@
-"""grocery_list_project URL Configuration
+"""url_shortener_project URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
@@ -17,6 +17,6 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path("", include('grocery_app.urls')),
     path('admin/', admin.site.urls),
+    path('index/', include('url_shortener_app.urls')),
 ]

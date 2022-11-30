@@ -4,9 +4,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
+    <title>Grocery List</title>
 </head>
 <body>
-    <p>Test</p>
+    <h1>Welcome to your grocery list!</h1>
+    <form action="{% url 'grocery_app:add' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="list_text" id="list_text" placeholder="New Item:">  <input type="submit" value="Add!">
+    </form>
+    <h3>Grocery List:</h3>
+        <ul>
+            {% for x in incomplete_items %}
+            <li>
+                <form action="{% url 'grocery_app:delete' x.id %}" method="post">
+                    {{ x }}
+                    {% csrf_token %}
+                    <input type="submit" value="&cross;">
+                </form><form action="{% url 'grocery_app:complete' x.id %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="&checkmark;">
+                </form>
+            </li>
+            {% endfor %}
+        </ul>
+    <h3>Completed:</h3>
+        {% for x in complete_items %}
+            <ul>
+                <li>
+                    <form action="{% url 'grocery_app:delete' x.id %}" method="post">
+                        {{ x }}
+                        {% csrf_token %}
+                        <input type="submit" value="&cross;">
+                    </form>
+                    <form action="{% url 'grocery_app:complete' x.id %}" method="post">
+                        {% csrf_token %}
+                        <input type="submit" value="&curvearrowleft;">
+                    </form>
+                </li>
+            </ul>
+        {% endfor %}
 </body>
 </html>
