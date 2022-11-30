@@ -16,12 +16,11 @@
         <ul>
             {% for x in incomplete_items %}
             <li>
-                <form action="{% url 'grocery_app:delete' item.id %}" method="post">
+                <form action="{% url 'grocery_app:delete' x.id %}" method="post">
                     {{ x }}
                     {% csrf_token %}
                     <input type="submit" value="&cross;">
-                </form>
-                <form action="{% url 'grocery_app:complete' item.id %}" method="post">
+                </form><form action="{% url 'grocery_app:complete' x.id %}" method="post">
                     {% csrf_token %}
                     <input type="submit" value="&checkmark;">
                 </form>
@@ -32,12 +31,12 @@
         {% for x in complete_items %}
             <ul>
                 <li>
-                    <form action="{% url 'grocery_app:delete' item.id %}" method="post">
+                    <form action="{% url 'grocery_app:delete' x.id %}" method="post">
                         {{ x }}
                         {% csrf_token %}
                         <input type="submit" value="&cross;">
                     </form>
-                    <form action="{% url 'grocery_app:complete' item.id %}" method="post">
+                    <form action="{% url 'grocery_app:complete' x.id %}" method="post">
                         {% csrf_token %}
                         <input type="submit" value="&curvearrowleft;">
                     </form>
