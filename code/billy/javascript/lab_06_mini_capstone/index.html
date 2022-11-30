@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href="static/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <img id="images" src="static/korok_gif.GIF"></img>
+        <h1 id="headers">The Legend of Zelda: Breath of the Wild Compendium</h1>
+
+        <div id="searchBox">
+            <p>I am looking for more info on a...</p>
+            <select v-model="inputType">
+                <option value="monsters">Monster</option>
+                <option value="treasure">Treasure</option>
+                <option value="materials">Material</option>
+            </select>
+            <p>Refine the result:</p>
+            <input v-model="searchTerm" placeholder="Bokoblin, Lynel guts, etc...">
+            <button @click='getAllData'>Search the Archives...</button>
+        </div>
+
+        <p>{{ searchTerm }}</p>
+
+        <div id="searchResults">
+            <template v-if="inputType === 'monsters'">
+                <ol>
+                    <li v-for="x in responseData.data.monsters">
+                        {{ responseData.data.monsters }}
+                    </li>
+                </ol>
+            </template>
+            <template v-if="inputType === 'treasure'">
+                <ol>
+                    <li v-for="x in responseData.data.treasure">
+                        {{ responseData.data.treasure }}
+                    </li>
+                </ol>
+            </template>
+
+            <template v-if="inputType === 'materials'">
+                <ol>
+                    <li v-for="x in responseData.data.equipment">
+                        {{ responseData.data.equipment }}
+                    </li>
+                </ol>
+            </template>
+
+        </div>
+    </div>
+    <!--Axios-->
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <!--Vue-->
+    <script src='https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js'></script>
+    <script src='js/app.js'></script>
+</body>
+</html>
