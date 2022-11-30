@@ -11,11 +11,11 @@ let output = []
 // this cycles through each character in the input string, and adds the shifted character the the output array
 for (let i of input) {
     if (alphabet.includes(i)) {
-        meters.push(alphabet[(alphabet.indexOf(i) + shift) % alphabet.length])
+        output.push(alphabet[(alphabet.indexOf(i) + shift) % alphabet.length])
     }
     else {
         alert("please enter lowercase letters only, without spaces")
     }
 }
 
-alert(meters.join(''))
+alert(output.join(''))
