@@ -4,3 +4,25 @@ html {
 *, *:before, *:after {
     box-sizing: inherit;
 }
+h1, h2, h3 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: grey;
+    text-align: center;
+}
+
+body {
+    background-image: url('https://t3.ftcdn.net/jpg/04/67/79/44/360_F_467794401_GbHBNEn6CIVnNaegs1xnQVhJma3Hhwf9.jpg');
+    /* background-image: url('https://m.media-amazon.com/images/I/41OWvtFxX-L._AC_SY1000_.jpg'); */
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+ul, li {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-style: bold;
+    color: grey;
+    /* text-align: center; */
+}
+
+input {
+    color: gray;
+}
