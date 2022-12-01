@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'posts',
-
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -138,3 +138,11 @@ STATICFILES_DIRS = [BASE_DIR / 'static']
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Added this line for CustomUsers
+# make sure the users.CustomUser matches the name of the users/accounts app
+AUTH_USER_MODEL = "users.CustomUser"
+
+# These are the base redirect connections for login/logout
+LOGIN_REDIRECT_URL = "home"
+LOGOUT_REDIRECT_URL = "home"
