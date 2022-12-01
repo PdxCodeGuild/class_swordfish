@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chirp</title>
+</head>
+     <h1> Chirp away!</h1>
+<body>
+    <header>
+        <div class= "nav_right">
+             {% if user.is_authenticated %} 
+             <p>Hello, <a href="{% url 'users:profile' user.username %}">{{ user.username }}</a>!</p> 
+             <p><a href="{% url 'logout' %}">Logout</a></p> 
+            <p><a href="{% url 'chirp_app:new' %}"> New Chirp</a></p>
+             {% else %} 
+                <p><a href="{% url 'login' %}">Login</a></p>
+                <p><a href="{% url 'users:signup' %}">Sign Up</a></p>
+             {% endif %}  
+
+
+
+    {% for chirp in object_list %}
+        <p> 
+            <li><a href = "{{ chirp.getabsolute_url }}"> {{Chirp.chirp}}
+            {{ chirp.chirp }} -{{chirp.chirper }}
+             <br>-created- {{chirp.created}} 
+             <br> -edited- {{chirp.edited}}
+        </p>
+
+    {% endfor %}
+    
+    <h1> New Chirp</h1>
+    <p><a href="{% url 'chirp_app:new' %}">Add Chirp</a></p> 
+
+    <div class = "container"> 
+        {% block content %}
+        {% endblock content %}
+    </div>
+</body>
+</html>

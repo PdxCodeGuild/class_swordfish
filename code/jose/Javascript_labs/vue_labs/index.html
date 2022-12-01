@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Example</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{ messages.message1 }}</p>
+        <input v-model="todo">
+        <!-- <button v-on:click="message += '!'">click me!</button> -->
+        <button v-on:click="addItem">Add new item</button>
+        <ul>
+            <li
+                v-for="(todo, i) in todos"
+                :key="todo.id"
+            >
+                {{ i }} -- {{ todo.text }} <button v-on:click="removeItem">Remove</button>
+            </li>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

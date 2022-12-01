@@ -1,0 +1,57 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+
+body{
+    background-color: rgb(246, 228, 205);
+}
+
+textarea{
+    margin-left: 1rem;
+}
+hr{
+    margin-right: 66%;
+}
+.background{
+    min-height: 100%;
+    min-width: 100%;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: .25;
+}
+
+form{
+    gap: 10px;
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-right: 20%;
+    font-family: 'Open Sans', sans-serif;
+    align-items: stretch;
+    font: bold;
+  
+}
+input{
+    margin-top: .5rem;
+    margin-left: 2rem;
+}
+
+img{
+    max-width: 120px;
+    max-height: 120px;
+}
+header{
+    text-align: center;
+}
+h1{
+    text-align: center;
+}
+footer{
+    text-align: center;
+}

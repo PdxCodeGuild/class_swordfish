@@ -1,0 +1,81 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+.whole-page{
+background-color: whitesmoke;
+
+}
+.title {
+    text-align: center;
+    font-family: Arial, Helvetica, 'Times New Roman';
+}
+
+.picture-of-geralt{
+    margin: 50px 25% 50px 25%;
+    display: block;
+    height: 950px
+}
+
+.geralt-quote{
+    color: black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: italic;
+    font-size: 1.75rem;
+    text-align: center;
+    margin-bottom: 25px
+
+}
+.paragraphs{
+    text-align: justify;
+    font-size: 1.4rem;
+    font-family: Arial, Helvetica, 'Times New Roman';
+    padding: 40px;
+    border: 3px solid rgb(74, 71, 71)
+
+}
+.places-paragraph{
+    text-align: justify;
+    font-size: 1.4rem;
+    font-family: Arial, Helvetica, 'Times New Roman';
+    padding: 40px;
+    border: 3px solid rgb(74, 71, 71)
+}
+
+.locations-of-travels{
+    text-align: justify;
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, 'Times New Roman', Times, serif;
+    color: rgb(81, 27, 27)
+}
+
+.source-from-wiki{
+    font-size: 1.9rem;
+    text-align: justify;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+}
+
+.link{
+    color: red
+}
+
+/* .whole-page{
+    background-image: url(https://assets-prd.ignimgs.com/2022/04/05/witcher-ue5-1649174840089.jpg);
+    background-repeat: no-repeat;
+    opacity: 1;
+    height: 100%;
+    max-width: 100%; */
+
+/* } */
+.background{
+    min-height: 100%;
+    min-width: 100%;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: .10;
+}
