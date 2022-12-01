@@ -1,0 +1,13 @@
+body{
+    background-color: navy;
+    color: aliceblue;
+    margin-top: 10%;
+    text-align: center;
+
+}
+span{
+    content:"\2193";
+    display: inline-block;
+    font-size: 50px;
+    
+}
