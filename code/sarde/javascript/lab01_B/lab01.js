@@ -27,10 +27,10 @@ convert_bt.onclick = function () {
     // console.log(inputUnit)
     // let outputUnit = units[select_output_unit.value]
     // console.log(outputUnit)
-    let total = convertedInputDistance * inputUnit / outputUnit
+    let total = convertedInputDistance * inputUnit / distance
     // console.log('Total', total)
 
-    output_div.innerText = `${convertedInputDistance + select_input_unit.value + ' ' + 'is' + ' ' + total.toFixed(2) + select_output_unit.value + '\s'
+    output_div.innerText = `${convertedInputDistance + select_input_unit.value + ' ' + 'is' + ' ' + total.toFixed(2) + select_output_unit.value
         }`
     // console.log(output_div)
 
