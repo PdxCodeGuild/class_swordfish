@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+
+<body>
+    <header class="header-el">
+        <p class="date">November 30, 2022</p>
+        <nav class="nav-top">Newsletter Sign-Up
+        <h1 class="title">A Blog of The Blogs</h1>
+      
+        <hr>
+        </nav>
+    </header>
+
+
+    <div class="wrapper">
+        <nav class="nav-el"> 
+            <p class="for-more">For More:</p>
+            <ul class="nav-side">
+                <li>Create a Blog</li>
+                <li>About Us</li>
+                <li>Services</li>
+                <li>Contact Us</li>
+                
+            </ul>
+        </nav>
+    
+        <section class="posts-one">
+            
+                <h1 class="blog-title">Title: {{posts[0]['title'] }}</h1>
+                <p class="author">Author: {{posts[0]['author'] }}</p>
+                <p class="date">Date: {{posts[0]['date'] }}</p>
+                <p class="body">Body: {{posts[0]['body'] }}</p>
+        <br><br>
+                <h1 class="blog-title">Title: {{posts[1]['title'] }}</h1>
+                <p class="author">Author: {{posts[1]['author'] }}</p>
+                <p class="date">Date: {{posts[1]['date'] }}</p>
+                <p class="body">Body: {{posts[1]['body'] }}</p>
+        <br><br>   
+                <h1 class="blog-title">Title: {{posts[2]['title'] }}</h1>
+                <p class="author">Author: {{posts[2]['author'] }}</p>
+                <p class="date">Date: {{posts[2]['date'] }}</p>
+                <p class="body">Body: {{posts[2]['body'] }}</p>
+        <br><br>
+                <h1 class="blog-title">Title: {{posts[3]['title'] }}</h1>
+                <p class="author">Author: {{posts[3]['author'] }}</p>
+                <p class="date">Date: {{posts[3]['date'] }}</p>
+                <p class="body">Body: {{posts[3]['body'] }}</p>
+                    
+        <br><br>   
+                <h1 class="blog-title">Title: {{posts[4]['title'] }}</h1>
+                <p class="author">Author: {{posts[4]['author'] }}</p>
+                <p class="date">Date: {{posts[4]['date'] }}</p>
+                <p class="body">Body: {{posts[4]['body'] }}</p>
+                                
+        </section>
+
+    </div>
+    <hr>
+    <footer class="footer">Copyright 2022</footer>
+
+
+</body>
+</html>  

@@ -1,0 +1,25 @@
+
+header{
+    display: flex;
+    background-color: #F2E8DF;
+    padding: 3px;
+    justify-content: center;
+}
+
+body{
+    text-align: center;
+    background-color: #D95204;
+
+}
+img{
+    width: 50%;
+    border: 1px #F2E8DF;
+
+    
+
+}
+label{
+    font-weight: bold;
+    font-size: large;
+    
+}

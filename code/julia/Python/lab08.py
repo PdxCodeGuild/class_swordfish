@@ -1,78 +1,117 @@
 #Contact List
 
-#with open('contacts.csv', 'r') as file:
-    #lines = file.read().split('\n')
-    #print(lines)
-
-
 dictionary = {}
-with open("contacts.csv") as file:
-    contact_list = []
-    lines = file.read().split("\n")
-    
-    for line in lines:
-        line = line.split(",")
+contact_list = []
 
-        contact = {'Name' :line[0], 'Age' :line[1], 'Color' :line[2]}
+with open('contacts.csv', 'r') as file:
+    lines = file.read().split('\n')
+    headers_str = lines.pop(0)
+    headers_list = headers_str.split(",")
+    # print("lines", lines)
+    # print("headers", headers_str)
+    # print(headers_list[0])
+  
+    for line in lines:
+        # print("before pop", line)
+        line = line.split(",")
+        # print("after pop", line)
+
+        contact = {headers_list[0] :line[0], 'Age' :line[1], 'Color' :line[2]}
         contact_list.append(contact)
 
-
-def new_contact():
-    print("Add a new contact")
-    contact = {}
-    contact['name'] = input("Add name: ")
-    contact['age'] = input("Add an age: ")
-    contact['color'] = input("Add a color: ")
-    return contact
-
-def retrieve(contact, c_list):
-    for person in c_list:
+print(contact_list, 'before change')
        
+
+
+def new_contact(contact_list):
+    print("Add a new contact: ")
+    contact = {}
+    contact['Name'] = input("Add name: ")
+    contact['Age'] = input("Add an age: ")
+    contact['Color'] = input("Add a color: ")
+    contact_list.append(contact)
+    return contact_list
+    
+
+
+def retrieve_contact(contact_list):
+    search_name = input("Enter a name: ")
+    for contact in contact_list:
         #check if person at the key of name is == to contact
-        print(person)
+        if search_name == contact['Name']:
+            return contact
+
+
+def update_contact(contact_list):
+    update_name = input("Update contact: ")
+    for contact in contact_list:
+        if update_name == contact['Name']:
+            user = input(f"What do you want to change: {', '.join(list(contact.keys()))}? ")
+            if user in list(contact.keys()):
+                contact[user] = input("\n>>> ")
+                print("accepted")
+            else: 
+                print("not accepted")
+            
+            return contact_list
+
+def delete_contact(contact_list):
+    user_delete = input("Enter the name of contact you wish to delete: ")
+    confirm_deletion = input("Are you sure you want to delete? ")
+    if confirm_deletion.lower() in ['yes']:
+      for contact in contact_list:
+          if user_delete == contact['Name']:
+              contact_list.remove(contact)
+              print(contact)
+    print("Updated contact list: ",contact_list)          
+          
+def save(contact_list):
+    with open('contacts.csv', 'w') as file:
+        file.write(headers_str)
+        file.write("\n")
+
+        working_list = []
+        for contact in contact_list:
+            working_list.append(",".join(list(contact.values())))
+        print("working list", working_list)
+        working_string = "\n".join(working_list)
+        print(working_string)
+        file.write(working_string)
 
 
 
-
-
-
-print(contact_list)
 keep_going = True
 while keep_going:
     response = input("\nWhat would you like to do? Enter 'c' to create a new contact, 'r' to retrieve a contact record, 'u' to update an existing contact record, 'd' to delete an existing contact record, or 'exit' to exit: ").lower()
     print(response)
+
     if response == "exit":
         keep_going = False
         print("You've exited")
+        save(contact_list)
+        
 
     elif response == "c":
-        contact = new_contact()
-        contact_list.append(contact)
+        contact_list = new_contact(contact_list)
         print(contact_list)
 
     elif response == "r":
-        contact = input('Enter a name')
-        print(retrieve(contact, contact_list))
+        contact = retrieve_contact(contact_list)
+        print(contact['Name'])
+        print(contact['Age'])
+        print(contact['Color'])
 
     elif response == "u":
-        contact = input('Enter a name you would like to update: ')
-        contact_list.update(contact)
+        contact_list = update_contact(contact_list)
         print(contact_list)
        
-       
-
-
-
-    elif response == len(contact_list):
-        print(contact_list[0])
+    elif response == "d":
+        delete_contact(contact_list)
+        
         
 
+
    
-
-    
-
-           
-print(contact_list)
 
 
 
