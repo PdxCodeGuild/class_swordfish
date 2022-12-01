@@ -36,7 +36,7 @@ import re
 while True:
 
     keyword= input('What keyword would you like to search for?: ')
-    response = requests.get('https://favqs.com/api/quotes/?page='+keyword+'&type=tag', headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'})
+    response = requests.get('https://favqs.com/api/quotes/?page='+keyword+'&type=tag', headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}, params = params)
     results = response.json()
     # pprint.pprint(results)
     combined_quotes = results ['quotes']

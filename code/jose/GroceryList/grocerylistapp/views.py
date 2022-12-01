@@ -2,38 +2,38 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from datetime import datetime
+from django.utils import timezone
 from .models import GroceryItem
 
 
 def index(request):
-    incomplete_items = GroceryItem.objects.filter(complete=False)
-    completed_items = GroceryItem.objects.filter(complete=True)
-    return render(request, 'grocery_list/index.html', {'incomplete_items':incomplete_items, 'completed_items':completed_items})
+    incomplete_items = GroceryItem.objects.filter(item_completed=False).order_by('created_date')
+    completed_items = GroceryItem.objects.filter(item_completed=True).order_by('-completed_date')
+    context = {
+        'incomplete_items': incomplete_items,
+        'completed_items': completed_items
+    }
+    return render(request, 'grocery_list/index.html', context)
 
 def add(request):
-    new_item = request.POST['new_item']
-    if len(new_item.replace(' ','')) > 0: # checks if input is empty or only spaces
-        grocery = GroceryItem(item_text=new_item.capitalize(), create_date=datetime.now(), complete_date=None, complete=0)
-        grocery.save()
-    incomplete_items = GroceryItem.objects.filter(complete=False)
-    completed_items = GroceryItem.objects.filter(complete=True)
-    return HttpResponseRedirect("../")
+    item_description = request.POST['item']
+    GroceryItem.objects.create(item=item_description)
+    return HttpResponseRedirect(reverse('grocerylistapp:index'))
 
-def complete(request, item_id):
-    item = get_object_or_404(GroceryItem.objects.filter(id=item_id))
+def complete(request, pk):
+    item = get_object_or_404(GroceryItem, pk=pk)
     item.item_completed = True
-    item.completed_date = datetime.now()
+    item.completed_date = timezone.now()
     item.save()
-    return HttpResponseRedirect("../")
+    return HttpResponseRedirect(reverse('grocerylistapp:index'))
 
-def incomplete(request, item_id):
-    item = get_object_or_404(GroceryItem.objects.filter(id=item_id))
+def incomplete(request, pk):
+    item = get_object_or_404(GroceryItem, pk=pk)
     item.item_completed = False
-    item.completed_date = None
     item.save()
-    return HttpResponseRedirect("../")
+    return HttpResponseRedirect(reverse('grocerylistapp:index'))
 
-def delete(request, item_id):
-    item = get_object_or_404(GroceryItem.objects.filter(id=item_id))
+def delete(request, pk):
+    item = get_object_or_404(GroceryItem, pk=pk)
     item.delete()
-    return HttpResponseRedirect("../")
+    return HttpResponseRedirect(reverse('grocerylistapp:index'))
