@@ -41,7 +41,7 @@ def login(request):
     login_password = request.POST['password']
     logged_user = authenticate(request, username=login_username,
                                password=login_password)
-    if user is not None:
+    if logged_user is not None:
         login(request, logged_user)
     else:
         return f'invalid login'
