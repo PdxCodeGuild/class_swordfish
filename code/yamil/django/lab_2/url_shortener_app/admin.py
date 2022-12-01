@@ -1,4 +1,4 @@
 from django.contrib import admin
-from .models import Urls
+from .models import Url
 
-admin.site.register(Urls)
+admin.site.register(Url)

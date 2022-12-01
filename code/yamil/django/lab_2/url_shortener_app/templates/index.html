@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+</head>
+<body>
+    <h1>Welcome to URL Shortener app!</h1>
+    <br>
+    <h3>Please enter your URL here:<h3>
+        <form action="{% url 'url_shortener:submit_url' %}" method="post">
+            {% csrf_token %}
+            <input type="url" name="long_url" id="long_url" placeholder="Please enter url here:">
+            <input type="submit" value="Shorten!">
+        </form>
+    <h3>Your new url:</h3>
+        <ul>
+            {% for url_set in the_stuff %}
+                <li><a target="_blank" href="http://localhost:8000/redirect/{{ url_set.short_code }}/">http://localhost:8000/redirect/{{ url_set.short_code }}/</a></li>
+            {% endfor%}
+        </ul>
+</body>
+</html>
