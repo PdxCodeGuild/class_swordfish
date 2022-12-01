@@ -7,6 +7,6 @@ router.register('students', views.StudentViewSet, basename='students')
 app_name = 'students_app'
 
 urlpatterns = [
-    path('/', views.index, name='index'),
+    path('', views.index, name='index'),
 ] + router.urls
 
