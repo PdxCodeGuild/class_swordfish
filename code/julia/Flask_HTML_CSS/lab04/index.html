@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burrito-order</title>
+    <link rel="stylesheet" href="burrito.css">
+</head>
+<body>
+    
+    <header>
+        <h1>The Burrito Order Form</h1>
+        <br><br>
+    </header>
+    <form action="https://webhook.site/d0bedcb6-b3f5-456a-989c-9b9cd4e0e7a0" method="POST">
+        <br><br>
+        <label for="name">Enter name:</label>
+        <input type="text" id="user_name" name="name">
+        <label for="password">Enter password:</label>
+        <input type="password" id="user_password" name="password">
+        <button type="submit" title="submit the form">submit</button>
+        <br><br>
+    </form>
+    <img class="image"src="./image/burrito.jpeg" alt="burrito">
+    <form action="https://webhook.site/d0bedcb6-b3f5-456a-989c-9b9cd4e0e7a0" method="POST">
+        <h2>Burrito Order</h2>
+        <div></div>
+        <label>Tortilla:</label>
+            <input type="radio" name="tortilla">White Flour
+            <input type="radio" name="tortilla">Wheat Flour
+            <input type="radio" name="tortilla">Spinach
+            <input type="radio" name="tortilla">Corn
+        <br><br>
+        <label>Rice:</label>
+            <input type="radio" name="rice">White Rice
+            <input type="radio" name="rice">Brown Rice
+        <br><br>
+        <label>Beans:</label>
+            <input type="radio" name="beans">Black Beans
+            <input type="radio" name="beans">Pinto Beans
+        <br><br>
+        <label>Protein:</label>
+            <input type="radio" name="protein">Carnitas
+            <input type="radio" name="protein">Chicken
+            <input type="radio" name="protein">Sofritas
+            <input type="radio" name="protein">None
+        <br><br>
+        <label>Additional Ingredients:</label>
+            <input type="checkbox" name="additional ingredients">Cheese
+            <input type="checkbox" name="additional ingredients">Sour Cream
+            <br><br>
+      
+        <textarea>Delivery Insructions:</textarea>
+        <br><br>
+        <button type="submit" title="submit_the_form">Submit Order</button>
+
+
+    </form>
+    
+</body>
+</html>
