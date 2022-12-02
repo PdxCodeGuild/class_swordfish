@@ -1,4 +1,4 @@
-"""chirp_project URL Configuration
+"""chirp URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
@@ -18,7 +18,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('chirp_app.urls')),
-    path('users/', include('users.urls')),
+    path('', include('chirpapp.urls')),
+    path('admin/doc/', include('django.contrib.admindocs.urls')),
     path('users/', include('django.contrib.auth.urls')),
+    path('users/', include('users.urls'))
 ]
