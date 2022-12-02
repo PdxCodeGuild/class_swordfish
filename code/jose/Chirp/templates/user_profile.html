@@ -2,10 +2,10 @@
 
 {% block content %}
 
-    <h1>{{ user_profile.username }}</h1>
-    <h5><em>Chirping away since {{ user_profile.date_joined }}!</em></h5>
+    <h1>{{ chirperprofile.username }}</h1>
+    <h5><em>Chirping away since {{ chirperprofile.date_joined }}!</em></h5>
 
-    {% for chirp in user_profile.Chirps.all %}
+    {% for chirp in chirperprofile.Chirps.all %}
             
             <p>{{chirp.date_created }}<br>{{ chirp.chirp }}</p>
 

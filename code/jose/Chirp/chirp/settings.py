@@ -27,7 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+LOGIN_URL = '/users/login'
+LOGIN_REDIRECT_URL = '/chirperprofile'
 # Application definition
 
 INSTALLED_APPS = [
