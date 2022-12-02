@@ -1,0 +1,43 @@
+{% extends 'home.html' %}
+
+{% block content %}
+<div id="app">
+  {% csrf_token %}
+
+  <a href="{% url 'pokemon:new_pokemon' %}">
+    Add new Pokemon
+  </a>
+  <div v-for="pokemon in pokedex">
+    <h2>[[ pokemon.number ]]</h2>
+    <h3>[[ pokemon.name ]]</h3>
+    <p>Height: [[ pokemon.height ]] m</p>
+    <p>Weight: [[ pokemon.weight ]] lbs</p>
+    <img v-bind:src="[[pokemon.image_front]]"/>
+    <img v-bind:src="[[pokemon.image_back]]"/>
+    <button><a :href='"../api/pokemon/edit/"+ pokemon.id'>Edit</a></button>
+    <br>
+  </div>
+</div>
+<script>
+  let pokedex = new Vue({
+    el: '#app',
+    delimiters: ['[[', ']]'], // This is new
+    data: {
+      pokedex: [],
+    },
+    methods: {
+      getPokedex: function() {
+        axios({
+            method: 'GET',
+            url: '/api/pokemon/',
+            
+          }).then(res => this.pokedex = res.data)
+      },       
+    },
+    beforeMount: function(){
+        this.getPokedex()
+    }
+  });
+</script>
+
+{% endblock %}

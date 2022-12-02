@@ -1,0 +1,79 @@
+{% extends 'home.html' %}
+
+
+{% block content %}
+
+    <h1>Edit Pokemon</h1>
+    <div id="app">
+        {% csrf_token %}
+        <p>Name: <input type="text" v-model="editedPokemon.name" v-bind:placeholder="currentPokemon.name"></p>
+        <p>Number: <input type="number" v-model="editedPokemon.number" v-bind:placeholder="currentPokemon.number"></p>
+        <p>Height: <input type="number" v-model="editedPokemon.height" v-bind:placeholder="currentPokemon.height"></p>
+        <p>Weight: <input type="number" v-model="editedPokemon.weight" v-bind:placeholder="currentPokemon.weight"></p>
+        <p>Front image url: <input type="text" v-model="editedPokemon.image_front" v-bind:placeholder="currentPokemon.image_front"></p>
+        <p>Back image url: <input type="text" v-model="editedPokemon.image_back" v-bind:placeholder="currentPokemon.image_back"></p>
+        <a href="{% url 'pokemon:index' %}">
+            <button v-on:click="editPokemon">Edit</button>
+        </a>
+        {% csrf_token %}
+        <a href="{% url 'pokemon:index' %}">
+        <button v-on:click="deletePokemon">Delete</button>
+        </a>
+    </div>
+    <script>
+        let pokemon = new Vue({
+          el: '#app',
+          delimiters: ['[[', ']]'], // This is new
+          data: {
+            currentPokemon: {},
+            pokemonId: '{{pokemon.id}}',
+            editedPokemon: {
+                "name": "",
+                "number": null,
+                "id": null,
+                "height": null,
+                "weight": null,
+                "image_front": "{{pokemon.image_front}}",
+                "image_back": "{{pokemon.image_back}}",
+                "types": [
+                    "psychic"
+                ]
+            },
+            },
+          methods: {
+            getPokemon: function() {
+                axios({
+                    method: 'GET',
+                    url: '/api/pokemon/{{pokemon.id}}',
+                    
+                  }).then(res => this.currentPokemon = res.data)
+              },
+            editPokemon: function() {
+              let csrf_token = document.querySelector("input[name=csrfmiddlewaretoken]").value;
+              axios({
+                method: 'PATCH',
+                url: `/api/pokemon/${this.pokemonId}/`,
+                headers: {
+                  "X-CSRFToken": csrf_token
+                },
+                data: this.editedPokemon
+              }).then(res => console.log(res))
+            },
+            deletePokemon: function() {
+                let csrf_token = document.querySelector("input[name=csrfmiddlewaretoken]").value;
+                axios({
+                    method: 'DELETE',
+                    url: `/api/pokemon/${this.pokemonId}`,
+                    headers: {
+                      "X-CSRFToken": csrf_token
+                    },
+                  }).then(res => this.pokedex = res.data)
+              },
+          },
+          beforeMount: function(){
+            this.getPokemon()
+        }
+        });
+      </script>
+
+{% endblock content %}

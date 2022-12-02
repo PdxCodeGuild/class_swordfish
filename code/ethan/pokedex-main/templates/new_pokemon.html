@@ -1,0 +1,54 @@
+{% extends 'home.html' %}
+
+
+{% block content %}
+
+    <h1>New Pokemon</h1>
+    <div id="app">
+        {% csrf_token %}
+        <p>Name: <input type="text" v-model="new_pokemon.name"></p>
+        <p>Number: <input type="number" v-model="new_pokemon.number"></p>
+        <p>Height: <input type="number" v-model="new_pokemon.height"></p>
+        <p>Weight: <input type="number" v-model="new_pokemon.weight"></p>
+        <p>Front image url:<input type="text" v-model="new_pokemon.image_front"></p>
+        <p>Back image url:<input type="text" v-model="new_pokemon.image_back"></p>
+        <a href="{% url 'pokemon:index' %}">
+            <button v-on:click="addPokemon">Add</button>
+        </a>
+    </div>
+    <script>
+        let pokemon = new Vue({
+          el: '#app',
+          delimiters: ['[[', ']]'], // This is new
+          data: {
+            new_pokemon: {
+                "name": "",
+                "number": null,
+                "id": null,
+                "height": null,
+                "weight": null,
+                "image_front": "",
+                "image_back": "",
+                "types": [
+                    "poison",
+                    "grass"
+                ]
+            },
+            },
+          methods: {
+            addPokemon: function() {
+              let csrf_token = document.querySelector("input[name=csrfmiddlewaretoken]").value;
+              axios({
+                method: 'POST',
+                url: '/api/pokemon/',
+                headers: {
+                  "X-CSRFToken": csrf_token
+                },
+                data: this.new_pokemon
+              }).then(res => console.log(res))
+            }
+          },
+        });
+      </script>
+
+{% endblock content %}
