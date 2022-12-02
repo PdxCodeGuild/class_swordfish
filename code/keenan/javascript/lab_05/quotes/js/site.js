@@ -19,6 +19,7 @@ const vm = new Vue({
         page: '',
         nextPageNum: 1,
         apiResponse: [],
+        searchBool: false,
 	},
 	methods:{
         loadQuotes: function() {
@@ -31,7 +32,7 @@ const vm = new Vue({
             }).then(response => {
                 this.quotes = response.data.quotes
                 this.apiResponse = response.data
-                // console.log(response.data)
+                console.log(response.data)
                 // console.log('data then data.quotes')
                 // console.log(response.data.quotes)
             })
@@ -104,13 +105,18 @@ const vm = new Vue({
             }).then((response) => {
                 // this.searchType = 'tag'
                 // this.apiResponse = response.data
-                this.nextPageNum++
+                this.searchBool = true
                 this.quotes = response.data.quotes
                 this.apiResponse = response.data
                 console.log(this.searchType)
             })
          },
-         nextTagPage: function() {
+         nextPage: function() {
+            this.nextPageNum++
+            this.searchGeneral()
+         },
+         previousPage: function() {
+            this.nextPageNum--
             this.searchGeneral()
          }
 	},
