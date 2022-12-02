@@ -10,14 +10,25 @@
 
 <body>
    <div id="app">
-        <div>Quotes Title Placeholder</div>
-        <div v-if="Object.keys(quotes).length">
-            <div v-for="quote in quotes.quotes" :key="quote.id">
+        <h1>Quotes Title Placeholder</h1>
+        <input type="text" v-model="searchTerm" placeholder="Search Term"><br>
+        <button v-on:click="searchKey">Search by Keyword</button>
+        <!-- <button v-on:click="searchAuthor">Search by Author</button>
+        <button v-on:click="searchTag">Search by Quote Tag</button> -->
+        
+        <div v-if="Object.keys(quotes).length"></div>
+            <quote-component
+            :quotes="quotes" 
+            ></quote-component>
+
+
+            <!-- <div v-for="quote in quotes" :key="quote.id">
+                <p>{{ quote.id }}</p>
                 <p>{{ quote.body }}</p>
                 <p>{{ quote.author }}</p>
-                <hr>
-            </div>
-
+            </div> -->
+        </div>
+    
    </div>
     
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
