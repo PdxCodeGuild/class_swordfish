@@ -85,7 +85,12 @@ for contact in split_lines: # loop over contacts
     row = ','.join(contact.values()) # turn contact values into comma separated string
     lines.append(row)  # add row to lines
 
-    csv = '\n'.join(lines) # turn lines list into string
+lines = '\n'.join(lines)
+
+with open('contacts.csv', 'w') as file:
+    file.write(lines)
+
+    # csv = '\n'.join(lines) # turn lines list into string
 # new_lines = []
 # print(split_lines)
 # for i, dict in enumerate(split_lines):

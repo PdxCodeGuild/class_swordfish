@@ -36,7 +36,7 @@ import re
 while True:
 
     keyword= input('What keyword would you like to search for?: ')
-    response = requests.get('https://favqs.com/api/quotes/?page='+keyword+'&type=tag', headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'}, params = params)
+    response = requests.get('https://favqs.com/api/quotes/?page='+keyword+'&type=tag', headers = {'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b"'})
     results = response.json()
     # pprint.pprint(results)
     combined_quotes = results ['quotes']
@@ -64,6 +64,8 @@ while True:
     # for val in combined_quotes[i]['body']:
         # print (val)
     elif second_user_input == 'next page':
+        page = results ['page'] + 1
+        response = requests.get('https://favqs.com/api/quotes', params={'page': page}, headers={'Authorization': 'Token token="855df50978dc9afd6bf86579913c9f8b'})
         for i, value in enumerate(combined_quotes):
             print(combined_quotes[i]['author'])
             print(combined_quotes[i]['body'])
