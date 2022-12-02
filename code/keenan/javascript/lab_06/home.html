@@ -13,9 +13,16 @@
     <div id="app">
         <div class="container">
             <h1>Nasa Image of the Day Capstone</h1>
-            <img :src="nasaresponse.hdurl" class="img-fluid" alt='image placeholder'/>
-            <p>{{ nasaresponse.explanation }}</p>
+            <img :src="nasaResponse.hdurl" class="img-fluid" alt='image placeholder'/>
+            <p>{{ nasaResponse.explanation }}</p>
         </div>         
+        <br>
+        <div>Search for an image on a specific date:</div>
+        <input type="text" v-model="myDate" placeholder="YYYY-MM-DD">
+        <button v-on:click="searchDate">Search By Date</button>
+
+        <!-- <input type="text" v-model="myConcept" placeholder="Search by Concepts">
+        <button v-on:click="searchConcept"></button> -->
     </div>
     
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
