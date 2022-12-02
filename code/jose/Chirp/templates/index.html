@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class='form'>
+    <h3>Chirp Away!</h3>
+    <form action="{% url 'Chirps:index' %}" method="post">
+        {% csrf_token %}
+        <input type='text' name='post'>
+        <input type='submit' value='Post'>
+    </form>
+</div>
+<div class='content'>
+    <div  class='posts'>
+    {% for chirp in chirps %}
+        <h4><a href="{% url 'users:chirperprofile' chirp.chirper.username %}" >{{ chirp.chirper.username }}</a></h4>{{chirp.date_made}}
+        <p>{{ chirp.chirp }}</p>
+    {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}
