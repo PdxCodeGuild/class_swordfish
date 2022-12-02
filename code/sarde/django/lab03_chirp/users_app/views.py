@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 from django.urls import reverse
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate
+from django.contrib.auth import login as djangos_login
 
 
 def greeting(request):
@@ -42,7 +43,11 @@ def login(request):
     logged_user = authenticate(request, username=login_username,
                                password=login_password)
     if logged_user is not None:
-        login(request, logged_user)
+        djangos_login(request, logged_user)
+        the_url_we_are_going_to = reverse('posts_app:index')
+        print(the_url_we_are_going_to)
+
+        return HttpResponseRedirect(the_url_we_are_going_to)
     else:
         return f'invalid login'
 

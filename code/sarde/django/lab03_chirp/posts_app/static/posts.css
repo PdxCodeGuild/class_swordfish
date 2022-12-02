@@ -4,3 +4,34 @@ html {
 *, *:before, *:after {
     box-sizing: inherit;
 }
+h1 {
+    font-family: sans-serif;
+    color:purple;
+}
+body {
+    font-family: sans-serif;
+}
+img {
+    height: auto;
+    width: 5rem;
+}
+body {
+    color: purple;
+}
+
+.topnav {
+    background-color: hotpink;
+    overflow: hidden;
+    
+}
+.topnav a {
+    color: purple;
+    font-family: sans-serif;
+    float: right;
+    text-align: center;
+    padding: 24px 20px;
+}
+.topnav span {
+    color:purple;
+    font-family: sans-serif;
+}
