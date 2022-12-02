@@ -10,7 +10,6 @@ app_name = 'pokemon'
 urlpatterns = [
     path('', views.index, name='index'),
     path('pokemon/new/', views.PokemonCreateView.as_view(), name='new_pokemon'),
-    path('pokemon/<int:_id>/delete/', views.delete, name='delete_pokemon'),
-    path('pokemon/edit/<int:_id>/', views.edit, name='edit_pokemon')
+    path('pokemon/edit/<int:pokemon_id>', views.edit, name='edit_pokemon'),
 ] + router.urls
 

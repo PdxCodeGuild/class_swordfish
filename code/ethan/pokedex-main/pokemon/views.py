@@ -21,11 +21,6 @@ class PokemonCreateView(LoginRequiredMixin, CreateView):
     template_name = 'new_pokemon.html'
     fields = ['number', 'name', 'height', 'weight', 'image_front', 'image_back', 'caught_by']
 
-def delete(request, item_id):
-    item = get_object_or_404(Pokemon, pk=item_id)
-    item.delete()
-    return HttpResponseRedirect(reverse('pokemon:index'))
-
 def edit(request, pokemon_id):
     pokemon = get_object_or_404(Pokemon, pk=pokemon_id)
-    return render(request, 'edit_pokemon.html')
+    return render(request, 'edit_pokemon.html', {'pokemon': pokemon})

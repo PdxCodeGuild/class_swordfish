@@ -14,18 +14,10 @@
     <p>Weight: [[ pokemon.weight ]] lbs</p>
     <img v-bind:src="[[pokemon.image_front]]"/>
     <img v-bind:src="[[pokemon.image_back]]"/>
-    <button v-on:click="editPokemon">Edit</button>
-    
+    <button><a :href='"../api/pokemon/edit/"+ pokemon.id'>Edit</a></button>
     <br>
   </div>
 </div>
-
-{% comment %} 
-how to edit pokemon
-method: 'PATCH',
-pokemon.id 
-url: `/api/pokemon/$(pokemon.id)/`,
-{% endcomment %}
 <script>
   let pokedex = new Vue({
     el: '#app',
@@ -40,18 +32,7 @@ url: `/api/pokemon/$(pokemon.id)/`,
             url: '/api/pokemon/',
             
           }).then(res => this.pokedex = res.data)
-      },
-      editPokemon: function() {
-        let csrf_token = document.querySelector("input[name=csrfmiddlewaretoken]").value;
-        axios({
-          method: 'PATCH',
-          url: "/api/pokemon/`$(pokemon.id)`",
-          headers: {
-            "X-CSRFToken": csrf_token
-          },
-          
-        }).then(res => console.log(res))
-      }
+      },       
     },
     beforeMount: function(){
         this.getPokedex()
