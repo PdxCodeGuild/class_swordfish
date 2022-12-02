@@ -1,0 +1,33 @@
+{% if user.is_authenticated %}
+<h1>Welcome {{ user.username }}!</h1>
+<p><a href="{% url 'logout' %}">Logout</a><p>
+{% else %}
+<h1>Welcome, visitor!</h1>
+<p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
+
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            pokemon: [],
+        },
+        methods
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js'></script>
+{% endif %}
