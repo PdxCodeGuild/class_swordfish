@@ -9,6 +9,8 @@ const vm = new Vue({
     el: '#app',
     data: {
         nasaresponse: [],
+        date: '',
+        hdur: '',
     },
     methods:{
         loadNasa: function() {
