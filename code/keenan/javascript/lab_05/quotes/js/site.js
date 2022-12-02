@@ -13,9 +13,9 @@ Vue.component('quote-component', {
 const vm = new Vue({
 	el: '#app',
 	data: {
-        // message: 'Vue Connected',
 		quotes: [],
         searchTerm: '',
+        page: '1',
 	},
 	methods:{
         loadQuotes: function() {
@@ -26,7 +26,6 @@ const vm = new Vue({
                     "Authorization": `Token token="855df50978dc9afd6bf86579913c9f8b"`
                 },
             }).then(response => 
-				// console.log(response.data)) -- this uses the entire api response
                 this.quotes = response.data.quotes)
          },
          searchKey: function() {
@@ -37,6 +36,38 @@ const vm = new Vue({
                     "Authorization": `Token token="855df50978dc9afd6bf86579913c9f8b"`
                 },
                 params: {
+                    filter: this.searchTerm
+                }
+            }).then((response) => {
+                this.quotes = response.data.quotes
+                // console.log(response.data)
+            })
+         },
+         searchAuthor: function() {
+            axios({
+                methods: 'GET',
+                url: 'https://favqs.com/api/quotes',
+                headers: {
+                    "Authorization": `Token token="855df50978dc9afd6bf86579913c9f8b"`
+                },
+                params: {
+                    type: 'author',
+                    filter: this.searchTerm
+                }
+            }).then((response) => {
+                this.quotes = response.data.quotes
+
+            })
+         },
+         searchTag: function() {
+            axios({
+                methods: 'GET',
+                url: 'https://favqs.com/api/quotes',
+                headers: {
+                    "Authorization": `Token token="855df50978dc9afd6bf86579913c9f8b"`
+                },
+                params: {
+                    type: 'tag',
                     filter: this.searchTerm
                 }
             }).then((response) => {

@@ -8,3 +8,7 @@ html {
 *:after {
     box-sizing: inherit;
 }
+
+.header {
+    text-align: center;
+}

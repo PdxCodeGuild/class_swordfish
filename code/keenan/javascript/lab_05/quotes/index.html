@@ -4,19 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quotes Lab</title>
+    <title>Quotes with Axios and Javascript</title>
     <link rel="stylesheet" href="css/site.css" />
 </head>
 
 <body>
    <div id="app">
-        <h1>Quotes Title Placeholder</h1>
-        <input type="text" v-model="searchTerm" placeholder="Search Term"><br>
-        <button v-on:click="searchKey">Search by Keyword</button>
-        <!-- <button v-on:click="searchAuthor">Search by Author</button>
-        <button v-on:click="searchTag">Search by Quote Tag</button> -->
-        
-        <div v-if="Object.keys(quotes).length"></div>
+        <div class="header">
+            <h1>Quotes with Axios and Javascript</h1>
+            <input type="text" v-model="searchTerm" placeholder="Search Term"><br>
+            <button v-on:click="searchKey">Search by Keyword</button>
+            <button v-on:click="searchAuthor">Search by Author</button>
+            <button v-on:click="searchTag">Search by Quote Tag</button>
+            <p>Page {{ page }}</p>
+        </div>
+
+        <br><br>
+        <div v-if="Object.keys(quotes).length">
             <quote-component
             :quotes="quotes" 
             ></quote-component>
