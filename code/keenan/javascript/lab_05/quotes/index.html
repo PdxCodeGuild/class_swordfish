@@ -16,7 +16,9 @@
             <button v-on:click="searchKey">Search by Keyword</button>
             <button v-on:click="searchAuthor">Search by Author</button>
             <button v-on:click="searchTag">Search by Quote Tag</button>
-            <p>Page {{ page }}</p>
+            <p>Page {{ api_response.page }}</p>
+
+            <button v-if="api_response.last_page === false" v-on:click="nextPage">>></button>
         </div>
 
         <br><br>

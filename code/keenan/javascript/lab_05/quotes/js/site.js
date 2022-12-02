@@ -15,7 +15,8 @@ const vm = new Vue({
 	data: {
 		quotes: [],
         searchTerm: '',
-        page: '1',
+        page: '',
+        api_response: [],
 	},
 	methods:{
         loadQuotes: function() {
@@ -25,8 +26,13 @@ const vm = new Vue({
                 headers: {
                     "Authorization": `Token token="855df50978dc9afd6bf86579913c9f8b"`
                 },
-            }).then(response => 
-                this.quotes = response.data.quotes)
+            }).then(response => {
+                this.quotes = response.data.quotes
+                this.api_response = response.data
+                console.log(response.data)
+                console.log('data then data.quotes')
+                console.log(response.data.quotes)
+            })
          },
          searchKey: function() {
             axios({
@@ -56,7 +62,6 @@ const vm = new Vue({
                 }
             }).then((response) => {
                 this.quotes = response.data.quotes
-
             })
          },
          searchTag: function() {
@@ -74,12 +79,21 @@ const vm = new Vue({
                 this.quotes = response.data.quotes
                 // console.log(response.data)
             })
+         },
+         nextPage: function() {
+            // cycle through pages of random quotes
+            if (searchTerm == '') {
+                this.api_response.page ++
+                this.loadQuotes
+            }
+            // else if (  ) basically an else if for each search parameter type, like no search term, filter/searchterm exists but 
+            // type === author, and type ===tag
          }
 	},
 	computed:{
 
 	},	
-	created: function() {
+	beforeMount: function() {
         this.loadQuotes()
     }
 })
