@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as djangos_login
+from django.contrib.auth import logout as djangos_logout
 
 
 def greeting(request):
@@ -56,3 +57,11 @@ def render_login(request):
     return render(request, 'users_app/login.html')
 
     # def user_profile(request):
+
+def logout(request):
+        djangos_logout(request)
+        return HttpResponseRedirect(reverse('users_app:render_login'))
+
+def render_logout(request):
+    return render(request, 'users_app/logout.html')
+

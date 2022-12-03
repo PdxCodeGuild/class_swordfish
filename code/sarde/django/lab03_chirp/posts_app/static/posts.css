@@ -18,10 +18,16 @@ img {
 body {
     color: purple;
 }
+footer p {
+    text-align: center;
 
+}
 .topnav {
     background-color: hotpink;
     overflow: hidden;
+    /* position: fixed; 
+    bottom: 0;
+    width: 100%; */
     
 }
 .topnav a {

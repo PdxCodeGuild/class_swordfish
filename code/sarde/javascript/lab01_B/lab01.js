@@ -20,6 +20,8 @@ convert_bt.onclick = function () {
     // console.log(units)
     let distance = distance_input.value
     // console.log(typeof distance, distance)//string
+    intDistance = parseFloat(distance)
+    console.log(typeof intDistance, intDistance)
     let convertedInputDistance = parseInt(distance)
     // // console.log('Input distance as an Integer', convertedInputDistance)
     // console.log(typeof convertedInputDistance)//number
@@ -28,7 +30,7 @@ convert_bt.onclick = function () {
     // let outputUnit = units[select_output_unit.value]
     // console.log(outputUnit)
     let total = convertedInputDistance * inputUnit / distance
-    // console.log('Total', total)
+    console.log('Total', total)
 
     output_div.innerText = `${convertedInputDistance + select_input_unit.value + ' ' + 'is' + ' ' + total.toFixed(2) + select_output_unit.value
         }`
