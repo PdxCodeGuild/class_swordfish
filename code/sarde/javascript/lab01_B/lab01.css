@@ -1,0 +1,16 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+    background-color:rosybrown;
+    background-size: cover;
+    font-family: sans-serif;
+    color: bisque;
+}
+h1 {
+
+    font-family: sans-serif;
+}

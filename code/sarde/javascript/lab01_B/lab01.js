@@ -19,21 +19,24 @@ convert_bt.onclick = function () {
     }
     // console.log(units)
     let distance = distance_input.value
-    // console.log(typeof distance, distance)//string
-    intDistance = parseFloat(distance)
-    console.log(typeof intDistance, intDistance)
-    let convertedInputDistance = parseInt(distance)
-    // // console.log('Input distance as an Integer', convertedInputDistance)
-    // console.log(typeof convertedInputDistance)//number
+    console.log('PRINTING', typeof distance, distance)//string 12
     let inputUnit = units[select_input_unit.value]
-    // console.log(inputUnit)
-    // let outputUnit = units[select_output_unit.value]
-    // console.log(outputUnit)
-    let total = convertedInputDistance * inputUnit / distance
-    console.log('Total', total)
+    console.log('PRINTING', inputUnit)//0.3048
+    let outputUnit = units[select_output_unit.value]
+    console.log('PRINTING', outputUnit)//0.0254
+    // let convertedInputDistance = parseInt(distance)
+    // // // console.log('Input distance as an Integer', convertedInputDistance)
+    // // console.log(typeof convertedInputDistance)//number
+    // let convertedInputUnit = units[inputUnit]
+    // let convertedOutputUnit = units[outputUnit]
 
-    output_div.innerText = `${convertedInputDistance + select_input_unit.value + ' ' + 'is' + ' ' + total.toFixed(2) + select_output_unit.value
-        }`
+    // let total = convertedInputDistance * inputUnit / distance
+    let total = distance * inputUnit//12 * 0.3048
+    console.log('Total', total)//3.6576
+    let result = total / outputUnit
+    console.log(result)//144.00000000000003
+
+    output_div.innerText = `${distance}${select_input_unit.value} is ${(result.toFixed(4))}${select_output_unit.value}`
     // console.log(output_div)
 
 }
