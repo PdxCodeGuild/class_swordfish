@@ -1,0 +1,14 @@
+{% extends 'homepage.html' %}
+
+{% block content %}
+<div class="results">
+    <h1>{{ user_profile.username }}</h1>
+    <h5><em>User since {{ user_profile.date_joined }}!</em></h5>
+
+    {% for post in user_profile.posts.all %}
+            
+        <p>{{post.created_date }}<br>{{ post.post_body }}</p>
+
+    {% endfor %}
+</div>
+{% endblock content %}

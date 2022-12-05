@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="icon" img src="{% static 'images/Chirp-1.png' %}" type="image/icon type">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>Chirp</title>
+</head>
+<body>
+    <header>
+        <div class="wrapper">
+            <div class="top_nav">
+                <div class="left">
+                    <div class="logo">
+                            <a href="{% url 'posts:index' %}"><img src="{% static 'images/Chirp-1.png' %}" alt="Logo"></a>
+                    </div>
+                </div>
+                    <div class="right">
+                    {% if user.is_authenticated %}
+                        <ul>
+                            <li><p>Welcome, <a href="{% url 'users:profile' user.username %}" >{{ user.username }}</a>!<br></li>
+                            <li><a href="{% url 'logout' %}">Logout</a></p></li>
+                        </ul>
+                    {% else %}
+                        <ul>
+                            <li><a href="{% url 'login' %}">Login</a></li>
+                            <li><a href="{% url 'users:signup' %}">Sign Up!</a></li>
+                        </ul>
+                    {% endif %}
+                    </div>
+            </div>
+    </header>
+        <div>
+            {% block content %}
+            {%  endblock content %}\
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{% extends 'homepage.html' %}
+
+{% block content %}
+<div class="results">
+<div class='form'>
+    <h3>Post!</h3>
+    <form action="{% url 'posts:add' %}" method="post">
+        {% csrf_token %}
+        <input type='text' name='post_body'>
+        <input type='submit' value='Post'>
+    </form>
+</div>
+<br><br>
+<div class='content'>
+    <div  class='posts'>
+    {% for post in list_of_posts %}
+        <h4><a href="{% url 'users:profile' post.author.username %}">{{ post.author.username }}</a></h4>
+        <p>{{ post.post_body }}</p>
+        <br><br>
+    {% endfor %}
+    </div>
+</div>
+</div>
+
+{% endblock content %}
