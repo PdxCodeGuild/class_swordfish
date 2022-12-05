@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask To-Do List</title>
+    <!--<link rel="stylesheet" href="/static/style.css">-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" >
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" />
+</head>
+<body>
+    <h1>Sardé's To-Do List</h1>
+    <h2>December 2022</h2>
+    <h3>12/5-12/11</h3>
+    <ol>
+        {% for todo in todos %}
+        <li>{{todo.text}} ({{todo.priority}})</li>
+        {% endfor %}
+    </ol>
+    <form action="/add/" method="POST">
+        <label for="input-box">Todo text:</label>
+        <input type="text" name="text" id="input-box" placeholder="new todo item">
+        <label for="priority-box">Priority:</label>
+        <select name="priority" id="priority-box">
+            {% for priority in priorities %}
+            <option value="{{priority}}">{{priority}}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Add">
+    </form>
+</body>
+</html>

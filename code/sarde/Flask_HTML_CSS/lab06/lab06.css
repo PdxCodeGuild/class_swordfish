@@ -11,7 +11,11 @@ nav, a {
     color:black;
 }
 body {
+    /* background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3rGCtMc7VxLsw6JE3sZFfGYCGcOGvAL05mA&usqp=CAU') ; */
+    /* background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-8Vc0RTPNbdpYGMudsl7AHLnlCLAUPGMlkQ&usqp=CAU'); */
     background-color: grey;
+    background-size: cover;
+    /* background-repeat: no-repeat; */
     
 }
 .skills {
@@ -23,9 +27,8 @@ body {
 
 }
 
-/* nav {
-    width: 100%;
-    position: absolute;
-    top: 0;
-} */
+ .nav-bar {
+    color: red;
+   
+} 
 

@@ -1,0 +1,17 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+h1 {
+    color: magenta;
+    text-align: center;
+    font-family: 'Rubik Distressed', cursive;   
+}
+button {
+    color: magenta;
+}
+li {
+    color: magenta;
+}

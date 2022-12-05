@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FavQs</title>
+    <!-- Add your styles here! -->
+    <link rel="stylesheet" href="css/site.css" />
+</head>
+
+<body>
+    <div id="app">
+        {{ message }}<br>
+        <!-- <button @click="getQotd">get-qotd</button><br> -->
+        <!-- <ul>
+            <li v-for="quote in quotesList">{{quote}}</li>
+        </ul> -->
+        <!-- <quote-item v-bind:the-message="message">
+        </quote-item> -->
+        <!-- <test-item v-bind:test-property="quotesList">
+        </test-item> -->
+        <display-quote v-for="quote in quotesList" v-bind:quote="quote">
+        </display-quote>
+        search by:<input type="text" v-model="keyword" placeholder="keyword">
+        <button @click="filterQotd">search</button><br>
+        search by:<input type="text" v-model="author" placeholder="author">
+        <button @click="selectByAuthor">search</button><br>
+        search by:<input type="text" v-model="tag" placeholder="tag">
+        <button @click="selectByTag">search</button>
+        <button @click="selectByTag('Next')">next page</button>
+        <button @click="selectByTag('Previous')">previous page</button>
+
+    </div>
+
+    <!-- Include Vue from a CDN of your choice, I chose unpkg -->
+    <script src="https://unpkg.com/vue@2"></script>
+    <!-- Include your code here... -->
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src="js/site.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chirp</title>
+    <link rel="stylesheet" href="{% static 'posts.css' %}">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" />
+</head>
+
+<body>
+    <div class="topnav">
+        {% if user.is_authenticated %}
+
+        <span>Hello {{ user.username }}</span><br> 
+        <span>{{user.email}}</span> 
+        <a href ="{% url 'users_app:logout' %}">Logout</a>
+        <a href="{% url 'posts_app:new' %}">Chirp</a>
+
+        {% else %}
+        <a href="{% url 'users_app:render_login' %}">Login</a>
+        <a href={% url 'users_app:render_signup' %}>Sign up</a>
+        {% endif %}
+    </div>
+    <header>
+        {% comment %} <img src="https://assets.stickpng.com/thumbs/580b57fcd9996e24bc43c53e.png" alt="twitter-logo">    {% endcomment %}
+        <img src="https://pngimg.com/uploads/twitter/twitter_PNG35.png" alt="twitterlogo-pink">    
+    </header>
+    <main>
+        {% block content%}
+        {% endblock content %}       
+    </main>
+    <br>
+    <footer>
+        <p>© 2022 Chirp, Inc.</p>
+    </footer>
+</body>
+
+</html>
+
+
+
+

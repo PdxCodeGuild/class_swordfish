@@ -1,0 +1,43 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+h1 {
+    font-family: sans-serif;
+    color:purple;
+}
+body {
+    font-family: sans-serif;
+}
+img {
+    height: auto;
+    width: 5rem;
+}
+body {
+    color: purple;
+}
+footer p {
+    text-align: center;
+
+}
+.topnav {
+    background-color: hotpink;
+    overflow: hidden;
+    /* position: fixed; 
+    bottom: 0;
+    width: 100%; */
+    
+}
+.topnav a {
+    color: purple;
+    font-family: sans-serif;
+    float: right;
+    text-align: center;
+    padding: 24px 20px;
+}
+.topnav span {
+    color:purple;
+    font-family: sans-serif;
+}

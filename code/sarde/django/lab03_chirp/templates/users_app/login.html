@@ -1,0 +1,16 @@
+{% extends 'posts_app/posts.html' %}
+
+{% block content %}
+
+{% comment %} <a href={% url 'users_app:render_signup' %}>Sign up ????</a> {% endcomment %}
+<h1>Login</h1>
+<form action={% url 'users_app:login'%} method="post">
+    {% csrf_token %}
+    <label for='name'>Username:</label>
+    <input type="text" name="username"><br>
+    <label for='password'>Password:</label>
+    <input type='password' name="password"><br>
+    <input type="submit" value="Log In">
+</form>
+
+{% endblock %}
