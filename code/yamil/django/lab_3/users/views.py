@@ -16,9 +16,9 @@ from django.contrib.auth.models import User
     # else:
     #     # return an 'invalid login' error message
 
-class NewUser(CreateView):
+class SignupView(CreateView):
     form_class = UserCreationForm
-    template_name = 'new_user.html'
+    template_name = 'signup.html'
     success_url = reverse_lazy('login')
 
 class UserProfileView(DetailView):
