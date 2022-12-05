@@ -23,18 +23,31 @@ let second_card = document.getElementById('second_card')
 let third_card = document.getElementById('third_card')
 
 totalBtn.addEventListener('click', function() {
+    let advice
     let total = values[first_card.value] + values[second_card.value] + values[third_card.value]
         console.log(total)
         if (total === 21) {
-            alert('Blackjack! You win!')
+            // alert('Blackjack! You win!')
+            advice = 'Blackjack! You win!'
+            let pTag = document.getElementById('advice')
+            pTag.innerText = advice
         }
         else if (total < 21 && total >= 17) {
-            alert('Your total is ' + total + ". Stay.")
+            // alert('Your total is ' + total + ". Stay.")
+            advice = 'Your total is ' + total + '. Stay.'
+            let pTag = document.getElementById('advice')
+            pTag.innerText = advice
         }
         else if (total < 17 && total > 0) {
-            alert('Your total is ' + total + ". Hit.")
+            // alert('Your total is ' + total + ". Hit.")
+            advice = 'Your total is ' + total + '. Hit.'
+            let pTag = document.getElementById('advice')
+            pTag.innerText = advice
         }
         else {
-            alert('You bust!')
+            // alert('You bust!')
+            advice = 'You bust!'
+            let pTag = document.getElementById('advice')
+            pTag.innerText = advice
         }
 })

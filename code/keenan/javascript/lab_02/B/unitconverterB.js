@@ -18,5 +18,9 @@ convertBtn.addEventListener('click', function () {
     // console.log(output_distance)
     // console.log(output_distance.toFixed(2))
     output_distance = output_distance.toFixed(2)
-    alert('Your output distance is ' + output_distance + ' ' + unit_out.value)
+    let output = 'Your output distance is ' + output_distance + ' ' + unit_out.value
+    // console.log(output)
+    let pTag = document.getElementById('output')
+    pTag.innerText = output
+    // alert('Your output distance is ' + output_distance + ' ' + unit_out.value)
 })

@@ -5,7 +5,7 @@ let shift = document.getElementById('shift')
 let output = []
 
 cipherBtn.addEventListener('click', function(){
-    console.log(input.value)
+    let answer
     for (let i of input.value) {
         if (alphabet.includes(i)) {
             output.push(alphabet[(alphabet.indexOf(i) + parseFloat(shift.value)) % alphabet.length])
@@ -14,5 +14,9 @@ cipherBtn.addEventListener('click', function(){
             alert("please enter lowercase letters only, without spaces")
         }
     }
-    alert(output.join(''))
+    answer = output.join('')
+    // console.log(answer)
+    let pTag = document.getElementById('answer')
+    pTag.innerText = answer
+    // alert(output.join(''))
 })
