@@ -4,20 +4,18 @@ const vm = new Vue({
     data: {
         // .this when calling attributes and methods
         pokemons: '',
-        hardCodedString: 'goodbye fellow humans',
         urlEndPoint: '/apis/v1/pokemon/',
         csrf_token: '',
         pokemon: '',
-        testPokemonId: 200,
-        hardCodedPokemon: {
-            "number": 239,
-            "name": "ivysaur",
-            "height": 1.0,
-            "weight": 13.0,
-            "image_front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png",
-            "image_back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/2.png",
+        editPokemonMode: false,
+        newPokemon: {
+            number: '',
+            name: '',
+            height: '',
+            weight: '',
+            image_front: '',
+            image_back: '',
         },
-
     },
     methods: {
         getPokemonInfo: function() {
@@ -27,7 +25,6 @@ const vm = new Vue({
                 url: this.urlEndPoint,
             }).then(response => {
                 this.pokemons = response.data
-                console.log(this.pokemons)
             }).catch(error => {
                 console.log(error.response),
                 console.log(error.response.data)
@@ -43,18 +40,50 @@ const vm = new Vue({
                     url: this.urlEndPoint + id // id is a local variable to this function.
                 }).then(response => {
                     this.pokemon = response.data
-                    console.log(this.pokemon)
                 }).catch(error => {
                     console.log(error.response),
                     console.log(error.response.data)
                 })
             }
         },
+        updatePokemon: function() {
+            axios({
+                method: 'PUT',
+                url: this.urlEndPoint + this.pokemon.id + '/',
+                headers: {
+                    'X-CSRFToken': this.csrf_token,
+                },
+                data: this.pokemon
+            }).then(response => {
+                this.pokemon = response.data
+                console.log('updating',this.pokemon)
+            }).catch(error => {
+                console.log(error.response),
+                console.log(error.response.data)
+            })
+        },
+        deletePokemon: function(id) {
+            axios({
+                method: 'DELETE',
+                url: this.urlEndPoint + id + '/',
+                headers: {
+                    'X-CSRFToken': this.csrf_token,
+                },
+                data: this.pokemon
+            }).then(response => {
+                this.pokemon = response.data
+                console.log('deleting', this.pokemon)
+                this.getPokemonInfo()
+            }).catch(error => {
+                console.log(error.response),
+                console.log(error.response.data)
+            })
+        },
         createPokemon: function() {
             axios({
                 method: 'POST',
                 url: this.urlEndPoint,
-                data: this.hardCodedPokemon,
+                data: this.newPokemon,
                 headers: {
                     'X-CSRFToken': this.csrf_token,
                 },
@@ -76,4 +105,7 @@ const vm = new Vue({
         console.log("Mounted")
         this.csrf_token = document.querySelector("input[name=csrfmiddlewaretoken]").value
     },
+    created: function() {
+        this.getPokemonInfo()
+    }
 })
