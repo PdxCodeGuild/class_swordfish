@@ -1,6 +1,7 @@
 from django.shortcuts import render
 # from django.http import HttpResponse
 from .models import Post
+# from users.models import CustomUser
 
 
 def index(request):
