@@ -8,7 +8,7 @@ class Post(models.Model):
     title = models.CharField(max_length=60)
     post_body = models.CharField(max_length=128)
     # auth.user links the post to the user model in the auth app
-    #
+    # I need to impor thte CustomUser above from the users app, and reference the model item below
     # related_name allows u to access all of the posts by an auther by user.posts
     # the default is users.modelnam_set but we assign it a new location
     # on_delete is what happens if an author user is deleted, if an author is delete all posts are deleted
