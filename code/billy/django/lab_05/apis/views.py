@@ -10,3 +10,6 @@ class ListPokemon(generics.ListCreateAPIView):
 class DetailPokemon(generics.RetrieveUpdateDestroyAPIView):
     queryset = models.Pokemon.objects.all()
     serializer_class = PokemonSerializer
+class ListType(generics.ListCreateAPIView):
+    queryset = models.Type.objects.all()
+    serializer_class = TypeSerializer

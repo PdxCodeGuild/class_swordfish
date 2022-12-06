@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    'django.contrib.admindocs',
     'pokemon.apps.PokemonConfig',
     'users.apps.UsersConfig',
     'rest_framework',
