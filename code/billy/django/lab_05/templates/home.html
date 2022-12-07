@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% csrf_token %}
+    {% if user.is_authenticated %}
+    <h1>Welcome {{ user.username | capfirst }}!</h1>
+    <p><a href="{% url 'logout' %}">Logout</a><p>
+    {% else %}
+    <h1>Welcome, visitor!</h1>
+    <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
+    {% endif %}   
+    
+    <a href='/apis/v1/pokemon' target='_blank'>Django Pokemon API</a>
+
+    <div id='app'>
+        <h2>Enter a New Pokemon's Info:</h2>
+        <div>
+            <label for='number'>Pokemon Number</label>
+            <input v-model='newPokemon.number' id='number'><br>
+            <label for='name'>Name</label>
+            <input v-model='newPokemon.name' id='name'><br>
+            <label for='weight'>Weight</label>
+            <input v-model='newPokemon.weight' id='weight'><br>
+            <label for='height'>Height</label>
+            <input v-model='newPokemon.height' id='height'><br>
+            <label for='front'>Front Image</label>
+            <input v-model='newPokemon.image_front' id='front'><br>
+            <label for='back'>Back Image</label>
+            <input v-model='newPokemon.image_back' id='back'><br><br>
+        </div>
+        <button @click=createPokemon>Create Pokemon</button><br><br>
+
+        <button @click='editPokemonMode = !editPokemonMode'>Toggle Edit Mode</button>
+        <button @click='getPokemonInfo' v-if='Object.keys(pokemon).length'>Load All Pokemon</button>
+        <div v-if='Object.keys(pokemon).length && !editPokemonMode'>
+            <dl>
+                <dt>Name</dt>
+                <dd>[[ pokemon.name ]] </dd>
+                <dt>Weight</dt>
+                <dd>[[ pokemon.weight ]]</dd>
+                <dt>Height</dt>
+                <dd>[[ pokemon.height ]]</dd>
+                <dt>Type</dt>
+                <dd v-for='type in pokemon.type_detail'>[[ type.type ]]</dd>
+                <img :src='[[ pokemon.image_front ]]' :alt='[[ pokemon.name ]]'>
+                <img :src='[[ pokemon.image_back ]]' :alt='[[ pokemon.name ]]'>
+            </dl>
+        </div>
+        <p v-if='pokemon && editPokemonMode'>
+            <label for='name'>Name</label>
+            <input v-model='pokemon.name'id='name'><br>
+            <label for='weight'>Weight</label>
+            <input v-model='pokemon.weight' id='weight'><br>
+            <label for='height'>Height</label>
+            <input v-model='pokemon.height' id='height'><br>
+            <label for='front'>Front Image</label>
+            <input v-model='pokemon.image_front' id='front'><br>
+            <label for='back'>Back Image</label>
+            <input v-model='pokemon.image_back' id='back'><br>
+            <button @click='updatePokemon'>Update Pokemon Stats</button>
+            <button @click='deletePokemon(pokemon.id)'>Delete Pokemon From Existence</button>
+        </p>
+        <h2>Full Pokemon List</h2>
+        <ul>
+            <li v-for='pokemon in pokemons'>
+                <button @click='getSinglePokemonInfo(pokemon.id)'>[[ pokemon.name ]]</button>
+            </li>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <script src='https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js'></script>
+    <script src={% static 'js/app.js' %}></script>
+</body>
+</html>
+
+
+
+
