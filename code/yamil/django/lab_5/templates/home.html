@@ -19,11 +19,15 @@
     <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
     {% endif %}
 
+
+    <h1> Pokemon in your region: </h1>
     <div id="app">
-      <div v-for="pokemon in pokemonData">
-        [[ pokemon.number]].[[ pokemon.name ]] [[pokemon.image_front]]
-        <img src=[[pokemon.image_front]]>
-        {% comment %} <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png"/> {% endcomment %}
+      <div class="row">
+        <div v-for="pokemon in pokemonData">
+          <ul>
+            <li>[[ pokemon.number ]] [[ pokemon.name ]]<br><img v-bind:src="pokemon.image_front"></li>
+          <ul>
+        </div>
       </div>
     </div>
 

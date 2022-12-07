@@ -3,16 +3,10 @@ from pokemon import models
 
 class PokemonSerializer(serializers.ModelSerializer):
     class Meta:
-        fields = (
-            'name',
-            'number',
-            'image_front'
-        )
+        fields = ("__all__")
         model = models.Pokemon
 
 class TypeSerializer(serializers.ModelSerializer):
     class Meta:
-        fields = (
-            'type',
-        )
+        fields = ("__all__")
         model = models.Type

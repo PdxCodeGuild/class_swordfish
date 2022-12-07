@@ -5,3 +5,18 @@ body {
     background-attachment: fixed;
     color: white;
 }
+
+a {
+    color: white
+}
+
+#row ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+  }
+  
+#row ul li {
+    list-style: none;
+    flex: 0 0 33.333333%;
+}

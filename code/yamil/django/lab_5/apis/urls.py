@@ -5,5 +5,5 @@ from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
 router.register('pokemon', PokemonViewSet, basename='pokemon')
-router.register('type', TypeViewSet, basename='Type')
+router.register('type', TypeViewSet, basename='type')
 urlpatterns = router.urls
