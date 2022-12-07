@@ -1,42 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+        <h1>Welcome {{ user.username }}!</h1>
+        <p><a href="{% url 'logout' %}">Logout</a><p>
+    {% else %}
+        <h1>Welcome, visitor!</h1>
+        <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
+    {% endif %}
+
+    <div id="app">
+        <p>[[ message ]]</p>
+    </div>
+
+    <script src="https://unpkg.com/vue@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+
+    <script>
+        const vm = new Vue({
+            el:'#app',
+            delimiters:['[[',']]'],
+            data: {
+                message: 'Pokedex',
+            },
+            methods: {
+                getPokemon: function () {
+                    axios({
+                        method: 'get',
+                        url:'http://127.0.0.1:8000/pokemon-api/',
+                    }).then((response) => {
+                        console.log("response", response)
+                        console.log("response.data", response.data)
+                    })
+            },
+        
+            created: function () {
+                this.getPokemon()
+            },
+        
+        })
+        
+        
+        
+    </script>
+</body>
+</html>
 
 
 
-<div id="app">
-    <p>{{message}}</p>
-</div>
-<script src="https://unpkg.com/vue@2"></script>
-<script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-
-{% if user.is_authenticated %}
-<h1>Welcome {{ user.username }}!</h1>
-<p><a href="{% url 'logout' %}">Logout</a><p>
-{% else %}
-<h1>Welcome, visitor!</h1>
-<p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
-{% endif %}
-
-<script>
-const vm = new Vue({
-    el:'#app',
-    data: {
-        message: 'Pokedex',
-    },
-    methods: {
-        getPokemon: function () {
-            axios({
-                method: 'get',
-                url:'http://127.0.0.1:8000/pokemon-api/',
-            }).then((response) => {
-                console.log("response", response)
-            })
-    },
-
-    created: function () {
-        this.getPokemon()
-    },
-
-})
 
 
 
-</script>
+
