@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h2>Add a New Chirp</h2>
+    <div class="new-chirp">
+        <form action="" method="post">
+            {% csrf_token %}
+            {% comment %} form.as_p each input element will be as paragraphs, vs as div/table {% endcomment %}
+            {{ form.as_p }}
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h4><a href="{% url 'posts:home' %}">HOME</a></h4>
+<h2>This is the profile page for {{ object.username }}.</h2>
+{% comment %} need to be able to cycle through only posts by user {% endcomment %}
+  {% for post in object.posts.all %}
+    <div class="post-entry">
+      <h3>{{ post.title }}</h3>
+      <p>{{ post.created_date }}</p>
+      <p>{{ post.post_body }}</p>
+    </div>
+  {% endfor %}
+
+{% endblock content %}

@@ -1,16 +1,16 @@
 {% extends "base.html" %}
 
-{% block title %}Home{% endblock %}
-
 {% block content %}
-{% if user.is_authenticated %}
-home.html page works and is displaying  
 
-Hi {{ user.username }}!
-  <p><a href="{% url 'logout' %}">Log Out</a></p>
-{% else %}
-  <p>You are not logged in</p>
-  <a href="{% url 'login' %}">Log In</a> |
-  <a href="{% url 'signup' %}">Sign Up</a>
-{% endif %}
-{% endblock %}
+<h2>All Chirps</h2>
+  {% for post in object_list %}
+    <div class="post-entry">
+      <h3>{{ post.title }}</h3>
+      <h4><em><a href="{% url 'users:profile' post.author.id %}">{{ post.author.username }}</a></em></h4>
+      <p>{{ post.created_date }}</p>
+      <p>{{ post.post_body }}</p>
+      {% comment %} could add |linebreaksbr to the post_body line to show line breaks {% endcomment %}
+    </div>
+  {% endfor %}
+
+{% endblock content %}

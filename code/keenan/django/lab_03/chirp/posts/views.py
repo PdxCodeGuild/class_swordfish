@@ -1,13 +1,24 @@
-from django.shortcuts import render
+
 # from django.http import HttpResponse
-from .models import Post
-# from users.models import CustomUser
+from django.views.generic import ListView
+from django.views.generic.edit import CreateView
+from django.urls import reverse_lazy
+from . models import Post
 
 
-def index(request):
-    # return HttpResponse('django connected')
-    posts = Post.objects.all()
-    context = {
-        'posts': posts,
-    }
-    return render(request, 'posts/index.html', context)
+class ChirpListView(ListView):
+    model = Post
+    template_name = 'home.html'
+
+
+class ChirpCreateView(CreateView):
+    model = Post
+    template_name = 'new_chirp.html'
+    fields = ['title', 'post_body']
+    # can pull the author if we can assign with username
+    # posts: searches for a urls.py file with an app_name of 'posts' for the 'home' name
+    success_url = reverse_lazy('posts:home')
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)

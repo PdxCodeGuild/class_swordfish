@@ -122,8 +122,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-
 STATICFILES_DIRS = [BASE_DIR / 'static']
+
 # the below code was from the project set up instructions and is a legacy 
 # method for project set up that might be overly complex or dated.
 # STATICFILES_DIRS = (
@@ -144,5 +144,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = "users.CustomUser"
 
 # These are the base redirect connections for login/logout
-LOGIN_REDIRECT_URL = "home"
-LOGOUT_REDIRECT_URL = "home"
+LOGIN_REDIRECT_URL = "posts:home"
+LOGOUT_REDIRECT_URL = "posts:home"
