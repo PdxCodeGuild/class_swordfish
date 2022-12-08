@@ -8,7 +8,7 @@ const meters = {
     m:1,
     km:1000,
     yd:0.9144,
-    inches:0.0254,
+    in:0.0254,
 }
 
 convertBtn.addEventListener('click', function () {
