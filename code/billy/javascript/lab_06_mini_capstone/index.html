@@ -9,28 +9,25 @@
 </head>
 <body>
     <div id="app">
-        <img id="images" src="static/korok_gif.GIF"></img>
-        <h1 id="headers">The Legend of Zelda: Breath of the Wild Compendium</h1>
+        <h1 id="headers">The Legend of Zelda: Breath of the Wild <br> Compendium</h1>
 
         <div id="searchBox">
-            <p>I am looking for more info on...</p>
-            <input v-model="searchTerm" placeholder="Bokoblin, Lynel guts, etc...">
+            <input v-model="searchTerm" placeholder="Bokoblin, apple, etc..."><p>&nbsp</p>
             <button @click='getGameInformation'>Search the Archives...</button>
         </div>
 
         <div id="searchResults">
-            <dl v-for="data in responseData">
-                <b><dt>Name:</dt></b>
-                <dd>{{ data.name }}</dd><br>
-                <b><dt>Category Type:</dt></b>
-                <dd>{{ data.category }}</dd><br>
-                <b><dt>Description:</dt></b>
-                <dd>{{ data.description }}</dd><br>
-                <b><dt>Common Locations:</dt></b>
-                <dd>{{ data.common_locations }}</dd><br>
-                <b><dt>Common Drops:</dt></b>
-                <dd>{{ data.drops }}</dd>
-            </dl>
+            <ol v-for="data in responseData">
+                <img :src="[[ data.image ]]" id="images">
+                <b><p>Category Type:</p></b>
+                <p>{{ data.category }}</p>
+                <b><p>Description:</p></b>
+                <p>{{ data.description }}</p>
+                <b><p>Common Locations:</p></b>
+                <p v-for="location in data.common_locations">{{ location }}</p>
+                <b><p>Common Drops:</p></b>
+                <p v-for="item_drops in data.drops">{{ item_drops }}</p>
+            </ol>
         </div>
     </div>
     <!--Axios-->
