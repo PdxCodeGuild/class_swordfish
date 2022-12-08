@@ -15,12 +15,30 @@ class UserSerializer(serializers.ModelSerializer):
         )
 
 
+class NestedTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Type
+        fields = [
+            'type',
+        ]
+
+
 class PokemonSerializer(serializers.ModelSerializer):
+    types = NestedTypeSerializer(many=True, read_only=True)
+    
     class Meta:
         model = Pokemon
-        fields = (
-            "__all__"
-        )
+        fields = [
+            'types',
+            'id',
+            'number',
+            'name',
+            'height',
+            'weight',
+            'image_front',
+            'image_back',
+            'caught_by'
+        ]
 
 
 class TypeSerializer(serializers.ModelSerializer):
@@ -29,3 +47,6 @@ class TypeSerializer(serializers.ModelSerializer):
         fields = (
             "__all__"
         )
+
+
+
