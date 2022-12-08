@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Url Shortner</title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <main>
+        <h1>URL Shortner App</h1>
+        <br>
+        <form action="{% url 'url_app:index' %}" method="POST">
+            {% csrf_token %}
+            <input type="url" name="long_url" id="long_url" placeholder="Enter url here...">
+            <input type="submit" value="short">
+            
+        </form>
+        <div>{% for url in results %}
+            <p>{{url.long}}
+                <a href="{% url 'url_app:redirect' url.short %}">{{url.short}}</a>
+            </p>
+             {% endfor %}
+        </div>
+    </main>
+</body>
