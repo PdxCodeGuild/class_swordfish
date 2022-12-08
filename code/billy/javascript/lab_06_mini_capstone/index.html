@@ -13,44 +13,24 @@
         <h1 id="headers">The Legend of Zelda: Breath of the Wild Compendium</h1>
 
         <div id="searchBox">
-            <p>I am looking for more info on a...</p>
-            <select v-model="inputType">
-                <option value="monsters">Monster</option>
-                <option value="treasure">Treasure</option>
-                <option value="materials">Material</option>
-            </select>
-            <p>Refine the result:</p>
+            <p>I am looking for more info on...</p>
             <input v-model="searchTerm" placeholder="Bokoblin, Lynel guts, etc...">
-            <button @click='getAllData'>Search the Archives...</button>
+            <button @click='getGameInformation'>Search the Archives...</button>
         </div>
 
-        <p>{{ searchTerm }}</p>
-
         <div id="searchResults">
-            <template v-if="inputType === 'monsters'">
-                <ol>
-                    <li v-for="x in responseData.data.monsters">
-                        {{ responseData.data.monsters }}
-                    </li>
-                </ol>
-            </template>
-            
-            <template v-if="inputType === 'treasure'">
-                <ol>
-                    <li v-for="x in responseData.data.treasure">
-                        {{ responseData.data.treasure }}
-                    </li>
-                </ol>
-            </template>
-
-            <template v-if="inputType === 'materials'">
-                <ol>
-                    <li v-for="x in responseData.data.equipment">
-                        {{ responseData.data.equipment }}
-                    </li>
-                </ol>
-            </template>
-
+            <dl v-for="data in responseData">
+                <b><dt>Name:</dt></b>
+                <dd>{{ data.name }}</dd><br>
+                <b><dt>Category Type:</dt></b>
+                <dd>{{ data.category }}</dd><br>
+                <b><dt>Description:</dt></b>
+                <dd>{{ data.description }}</dd><br>
+                <b><dt>Common Locations:</dt></b>
+                <dd>{{ data.common_locations }}</dd><br>
+                <b><dt>Common Drops:</dt></b>
+                <dd>{{ data.drops }}</dd>
+            </dl>
         </div>
     </div>
     <!--Axios-->
