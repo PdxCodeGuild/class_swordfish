@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>All Chirps</h2>
+  {% for post in object_list %}
+    <div class="post-entry">
+      <h3>{{ post.title }}</h3>
+      <h4><em><a href="{% url 'users:profile' post.author.id %}">{{ post.author.username }}</a></em></h4>
+      <p>{{ post.created_date }}</p>
+      <p>{{ post.post_body }}</p>
+      {% comment %} could add |linebreaksbr to the post_body line to show line breaks {% endcomment %}
+    </div>
+  {% endfor %}
+
+{% endblock content %}

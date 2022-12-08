@@ -4,17 +4,60 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quotes Lab</title>
+    <title>Quotes with Axios and Javascript</title>
     <link rel="stylesheet" href="css/site.css" />
 </head>
 
 <body>
-   <div id="app">{{message}}
-        <div>Quotes Placeholder</div>
+   <div id="app">
+        <div class="header">
+            <h1>Quotes with Axios and Javascript</h1>
+            
+            <input type="text" v-model="searchTerm" placeholder="Search Term">
+            <select v-model="searchType">
+                <option value="keyword">keyword</option>
+                <option value="author">author</optsion>
+                <option value="tag">tag</option>
+            </select>
+            <br>
+            <button v-on:click="searchGeneral">Search Quotes with the Dropdown Options</button>
+            <!-- <button v-on:click="searchKey">Search by Keyword</button>
+            <button v-on:click="searchAuthor">Search by Author</button> -->
+            <!-- <button v-on:click="searchTag">Search by Quote Tag</button> -->
+            <br>
 
+
+            <!-- create a dropdown for the search type -->
+            <div v-if="searchBool">
+                <p>Page {{ apiResponse.page }}</p>
+                <button  v-if="nextPageNum !== 1" v-on:click="previousPage"><<</button>
+                <button v-if="apiResponse.last_page === false" v-on:click="nextPage">>></button>
+            </div>
+            <div v-else>
+                <button v-on:click="loadQuotes">25 New Random Quotes</button>
+            </div>
+        </div>
+
+        <br><br>
+        <div v-if="Object.keys(quotes).length">
+            <quote-component
+            :quotes="apiResponse.quotes"
+            ></quote-component>
+            
+            <!-- <div v-for="quote in quotes" :key="quote.id">
+                <p>{{ quote.id }}</p>
+                <p>{{ quote.body }}</p>
+                <p>{{ quote.author }}</p>
+            </div> -->
+        </div>
+    
    </div>
     
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <script src="https://unpkg.com/vue@2"></script>
     <script src="js/site.js"></script>
 </body>
 </html> 
+
+<!-- https://favqs.com/api/ -->
+<!-- https://favqs.com/api/qotd -->

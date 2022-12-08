@@ -13,6 +13,7 @@ import string
 # create two views, one that will generate a random shortened_code
 # a second view to check that and then redirect the user to the long url if it was in the db
 
+
 def index(request):
     # we don't need context or to display anything here, later, this is to show our db during development
     url_items = Url.objects.all()

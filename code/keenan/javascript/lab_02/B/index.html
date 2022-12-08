@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter in JS with DOM</title>
+</head>
+<body>
+    <h1>Unit Converter in JS with DOM</h1>
+
+    <p>What is your distance to convert?</p>
+    <!-- this will take a text input so we will need to cast to a number -->
+    <input type="text" id="input">
+    <p>Provide the units for the intial distance to convert:</p>
+    <select id="unit_in">
+        <option value ="ft">feet</option>
+        <option value ="mi">miles</option>
+        <option value ="m">meters</option>
+        <option value ="km">kilometers</option>
+        <option value ="yd">yards</option>
+        <option value ="in">inches</option>
+    </select>
+
+    <p>What unit would you like to convert this distance to?</p>
+    <select id="unit_out">
+        <option value ="ft">feet</option>
+        <option value ="mi">miles</option>
+        <option value ="m">meters</option>
+        <option value ="km">kilometers</option>
+        <option value ="yd">yards</option>
+        <option value ="in">inches</option>
+    </select>
+    <br>
+    <button id="convertBtn">Convert the distance from input units to the output units</button>
+    <p id="output"></p>
+
+    <script src = "unitconverterB.js">     </script>
+</body>
+</html>
