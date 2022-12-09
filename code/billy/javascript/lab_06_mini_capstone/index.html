@@ -9,48 +9,25 @@
 </head>
 <body>
     <div id="app">
-        <img id="images" src="static/korok_gif.GIF"></img>
-        <h1 id="headers">The Legend of Zelda: Breath of the Wild Compendium</h1>
+        <h1 id="headers">The Legend of Zelda: Breath of the Wild <br> Compendium</h1>
 
         <div id="searchBox">
-            <p>I am looking for more info on a...</p>
-            <select v-model="inputType">
-                <option value="monsters">Monster</option>
-                <option value="treasure">Treasure</option>
-                <option value="materials">Material</option>
-            </select>
-            <p>Refine the result:</p>
-            <input v-model="searchTerm" placeholder="Bokoblin, Lynel guts, etc...">
-            <button @click='getAllData'>Search the Archives...</button>
+            <input v-model="searchTerm" placeholder="Bokoblin, apple, etc..."><p>&nbsp</p>
+            <button @click='getGameInformation'>Search the Archives...</button>
         </div>
 
-        <p>{{ searchTerm }}</p>
-
         <div id="searchResults">
-            <template v-if="inputType === 'monsters'">
-                <ol>
-                    <li v-for="x in responseData.data.monsters">
-                        {{ responseData.data.monsters }}
-                    </li>
-                </ol>
-            </template>
-            
-            <template v-if="inputType === 'treasure'">
-                <ol>
-                    <li v-for="x in responseData.data.treasure">
-                        {{ responseData.data.treasure }}
-                    </li>
-                </ol>
-            </template>
-
-            <template v-if="inputType === 'materials'">
-                <ol>
-                    <li v-for="x in responseData.data.equipment">
-                        {{ responseData.data.equipment }}
-                    </li>
-                </ol>
-            </template>
-
+            <ol v-for="data in responseData">
+                <img :src="[[ data.image ]]" id="images">
+                <b><p>Category Type:</p></b>
+                <p>{{ data.category }}</p>
+                <b><p>Description:</p></b>
+                <p>{{ data.description }}</p>
+                <b><p>Common Locations:</p></b>
+                <p v-for="location in data.common_locations">{{ location }}</p>
+                <b><p>Common Drops:</p></b>
+                <p v-for="item_drops in data.drops">{{ item_drops }}</p>
+            </ol>
         </div>
     </div>
     <!--Axios-->
