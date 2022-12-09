@@ -26,24 +26,31 @@ integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG
         <p>[[ message ]]</p>
 
         <div id="pokemon-list">
-            <h3>All Pokemon Listed!</h4>
+            <h3>All Pokemon Listed!</h3>
             <ul>
                 <li v-for="pokemon in apiResponse" :key="pokemon.id">
                     <img :src="pokemon.image_front" :alt="pokemon.name">
                     <h3>[[ pokemon.name ]]</h3>
-                    <h4>[[ pokemon.id ]]</h4>
-                    {% comment %} pokemon types currently do not display, it could be because 2 results are returned or because i need to drop down a level {% endcomment %}
-                    <h4>[[ pokemon.type ]]</h4>
+                    <h4>Pokemon ID #[[ pokemon.id ]]</h4>
+                    {% comment %} apiResponse[0].id {% endcomment %}
+                    <h4>Pokemon Types:</h4>
+                    <ul>
+                        {% comment %} pokemon types currently do not display, it could be because 2 results are returned or because i need to drop down a level {% endcomment %}
+                        {% comment %} the pokemone.nested_types is the array, and item is the iterating variable within it, and we need to access the .type of each item  {% endcomment %}
+                        {% comment %} apiResponse[0].nested_types[0].type {% endcomment %}
+                        <li v-for="item in pokemon.nested_types" :key="item.id">[[ item.type ]]</li>
+                    </ul>
                 </li>
             </ul>
 
         </div>
-        
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    </div>
 
-        <script>
-            let app = new Vue({
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <script>
+        let app = new Vue({
                 el: '#app',
                 delimiters: ['[[', ']]'],
                 data: {
@@ -53,7 +60,6 @@ integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG
                   type:[],
                   apiResponse: [],
 
-                
                 },
                 methods: {
                   logMessage: function () {
@@ -74,8 +80,6 @@ integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG
                   this.loadPokemon();
                 }
               });
-        </script>
-
-    </div>
+    </script>
 
 </body>
