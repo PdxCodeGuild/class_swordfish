@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+</head>
+
+<body>
+    {% csrf_token %}
+
+    {% if user.is_authenticated %}
+    <h1>Welcome {{ user.username }}!</h1>
+    <p><a href="{% url 'logout' %}">Logout</a>
+    <p>
+        {% else %}
+    <h1>Welcome, visitor!</h1>
+    <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
+    {% endif %}
+
+    <div id="app">
+        <div>
+            <button @click="addPokemon">Add</button>
+            <label for="number">number</label>
+            <input v-model="newPokemon.number" id="number" placeholder="number">
+            <label for="name">name</label>
+            <input v-model="newPokemon.name" id="name" placeholder="name">
+            <label for="height">height</label>
+            <input v-model="newPokemon.height" id="height" placeholder="height">
+            <label for="weight">weight</label>
+            <input v-model="newPokemon.weight" id="weight" placeholder="weight">
+            <br>
+            <!-- <label for="image_front">image front:</label>
+            <input v-model="newPokemon.image_front" id="image_front" placeholder="image_front">
+            <label for="image_back">image back:</label>
+            <input v-model="newPokemon.image_back" id="image_back" placeholder="image_back"> -->
+            <br>
+            <label for="image_front">image front:</label>
+            <input v-model="newPokemon.image_front" type="url" id="url">
+            <label for="image_back">image back:</label>
+            <input v-model="newPokemon.image_back" type="url" id="url">
+        </div>
+        <br>
+        <br>
+        <div>
+            <button @click="updatePokemon">Update</button>
+            <label for="number">number</label>
+            <input v-model="editPokemon.number" id="number" placeholder="number">
+            <label for="name">name</label>
+            <input v-model="editPokemon.name" id="name" placeholder="name">
+            <label for="height">height</label>
+            <input v-model="editPokemon.height" id="height" placeholder="height">
+            <label for="weight">weight</label>
+            <input v-model="editPokemon.weight" id="weight" placeholder="weight">
+            <br>
+            <br>
+            <label for="image_front">image front:</label>
+            <input v-model="editPokemon.image_front" type="url" id="url">
+            <label for="image_back">image back:</label>
+            <input v-model="editPokemon.image_back" type="url" id="url">
+        </div>
+        <br>
+        <br>
+        <div>
+            <button @click="deletePokemon">Delete</button>
+            <label for="delete"></label>
+            <input v-model="idToRemove" id="delete" placeholder="enter an id">
+        </div>
+
+
+        <h1>[[ message ]]</h1>
+        <!-- <pre>[[ listOfPokemons ]]</pre> -->
+        <ul>
+            <li v-for="pokemon in listOfPokemons">
+                [[ pokemon.name ]]
+            </li>
+        </ul>
+
+    </div>
+
+    <script src="https://unpkg.com/vue@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            delimiters: ['[[', ']]'],
+            data: {
+                message: 'Pokedex',
+                urlEndpoint: '/pokemon-api/',
+                listOfPokemons: '',
+                hardCodedPokemon: {
+                    "number": 1,
+                    "name": "bulbasaur",
+                    "height": 0.7,
+                    "weight": 6.9,
+                    "image_front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+                    "image_back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png",
+                },
+                csrf_token: '',
+                newPokemon: {
+                    number: '',
+                    name: '',
+                    height: '',
+                    weight: '',
+                    image_front: '',
+                    image_back: '',
+
+                },
+                editPokemon: {
+                    number: '',
+                    name: '',
+                    height: '',
+                    weight: '',
+                    image_front: '',
+                    image_back: '',
+                },
+                removePokemon: {
+                    number: '',
+                    name: '',
+                    height: '',
+                    weight: '',
+                    image_front: '',
+                    image_back: '',
+                },
+                idToRemove: 0,
+            },
+
+            methods: {
+                loadPokedex: function () {
+                    console.log('loading pokemon')
+                    axios({
+                        method: 'get',
+                        url: this.urlEndpoint,
+                    }).then(response => {
+                        // console.log(response.data)
+                        this.listOfPokemons = response.data
+                        console.log('listOfPokemons', this.listOfPokemons)
+
+                    }).catch(error => {
+                        console.log('error.response: ', error.response)
+                        console.log('error.response.data: ', error.response.data)
+                    })
+                },
+                addPokemon: function () {
+                    console.log('adding pokemon')
+                    axios({
+                        method: 'post',
+                        url: this.urlEndpoint,
+                        data: this.newPokemon,
+                        headers: {
+                            "X-CSRFToken": this.csrf_token
+                        },
+                    }).then(response => {
+                        console.log('response.data', response.data)
+                        this.loadPokedex()
+                    }).catch(error => {
+                        console.log('error.response: ', error.response)
+                        console.log('error.response.data: ', error.response.data)
+                    })
+                },
+                updatePokemon: function () {
+                    console.log('updating pokemon')
+                    axios({
+                        method: 'put',
+                        url: this.urlEndpoint + '2/',
+                        data: this.editPokemon,
+                        headers: {
+                            "X-CSRFToken": this.csrf_token
+                        },
+                    }).then(response => {
+                        console.log('response.data', response.data)
+                        this.loadPokedex()
+                    }).catch(error => {
+                        console.log('error.response: ', error.response)
+                        console.log('error.response.data: ', error.response.data)
+                    })
+                },
+                deletePokemon: function () {
+                    console.log('deleting pokemon')
+                    axios({
+                        method: 'delete',
+                        url: this.urlEndpoint + `${this.idToRemove}/`,
+                        data: this.removePokemon,
+                        headers: {
+                            "X-CSRFToken": this.csrf_token
+                        },
+                    }).then(response => {
+                        console.log('response.data', response.data)
+                        this.loadPokedex()
+                    }).catch(error => {
+                        console.log('error.response: ', error.response)
+                        console.log('error.response.data: ', error.response.data)
+                    })
+                },
+
+            },
+
+
+
+
+
+            mounted: function () {
+                console.log('mounting')
+                this.loadPokedex()
+                this.csrf_token = document.querySelector("input[name=csrfmiddlewaretoken]").value
+
+            }
+
+
+
+
+
+        });
+
+
+
+    </script>
+</body>
+
+</html>

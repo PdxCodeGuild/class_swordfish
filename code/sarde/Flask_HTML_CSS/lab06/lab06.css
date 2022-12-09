@@ -8,7 +8,7 @@ h1 {
     color:rosybrown;
 }
 nav, a {
-    color:black;
+    color:rosybrown;
 }
 body {
     /* background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3rGCtMc7VxLsw6JE3sZFfGYCGcOGvAL05mA&usqp=CAU') ; */
@@ -16,6 +16,7 @@ body {
     background-color: grey;
     background-size: cover;
     /* background-repeat: no-repeat; */
+    font-family: ;
     
 }
 .skills {
@@ -28,7 +29,8 @@ body {
 }
 
  .nav-bar {
-    color: red;
+    color:rosybrown;
+    flex: auto;
    
 } 
 
