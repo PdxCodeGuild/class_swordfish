@@ -25,7 +25,7 @@ class NestedTypeSerializer(serializers.ModelSerializer):
 
 class PokemonSerializer(serializers.ModelSerializer):
     types = NestedTypeSerializer(many=True, read_only=True)
-    
+
     class Meta:
         model = Pokemon
         fields = [
@@ -47,6 +47,5 @@ class TypeSerializer(serializers.ModelSerializer):
         fields = (
             "__all__"
         )
-
 
 
