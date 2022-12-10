@@ -13,6 +13,7 @@ integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG
 
 <body>
     <h1>Pokedex Application with DRF and Vue</h1><br>
+
     {% if user.is_authenticated %}
     <h3>Welcome {{ user.username }}!</h3>
     <p><a href="{% url 'logout' %}">Logout</a><p>
@@ -23,10 +24,19 @@ integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG
 
     <div id='app'>
         
-        <p>[[ message ]]</p>
+        {% comment %} <p>[[ message ]]</p> {% endcomment %}
+        <div id='caught-pokemon'>
+            <h2>All Pokemon You've Caught</h2>
+            {% comment %} can probably use a computed function to tally all of the caught pokemon instead of cycling through the whole list {% endcomment %}
+            {% comment %} <ul>
+                <li v-for="pokemon in apiResponse" :key="pokemon.id">
+                    
+                </li>
+            </ul> {% endcomment %}
+        </div>
 
         <div id="pokemon-list">
-            <h3>All Pokemon Listed!</h3>
+            <h2>All Pokemon Listed!</h2>
             <ul>
                 <li v-for="pokemon in apiResponse" :key="pokemon.id">
                     <img :src="pokemon.image_front" :alt="pokemon.name">
@@ -35,11 +45,13 @@ integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG
                     {% comment %} apiResponse[0].id {% endcomment %}
                     <h4>Pokemon Types:</h4>
                     <ul>
-                        {% comment %} pokemon types currently do not display, it could be because 2 results are returned or because i need to drop down a level {% endcomment %}
                         {% comment %} the pokemone.nested_types is the array, and item is the iterating variable within it, and we need to access the .type of each item  {% endcomment %}
                         {% comment %} apiResponse[0].nested_types[0].type {% endcomment %}
                         <li v-for="item in pokemon.nested_types" :key="item.id">[[ item.type ]]</li>
                     </ul>
+                    <div id="catch">
+                        <button @click="catchPokemon(pokemon)">Catch this Pokemon!</button>
+                    </div>
                 </li>
             </ul>
 
@@ -59,7 +71,8 @@ integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG
                   pokemon: [],
                   type:[],
                   apiResponse: [],
-
+                    caught: [],
+                    caught_list: [],
                 },
                 methods: {
                   logMessage: function () {
@@ -74,7 +87,24 @@ integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG
                         this.apiResponse = response.data
                         console.log(response.data)
                     })
-                  }
+                  },
+
+                  catchPokemon: function(pokemon) {
+                    this.currentUser.caught_list.push(pokemon.id)
+                    axios({
+                        methods: 'PATCH',
+                        url: '/apis/user/',
+                        data: {
+                            'caught': this.currentUser.caught_list
+                        },
+                    }).then(response => {
+                        console.log(this.currentUser.caught_list)
+                    })
+                  },
+
+                },
+                computed: {
+                    
                 },
                 mounted: function () {
                   this.loadPokemon();

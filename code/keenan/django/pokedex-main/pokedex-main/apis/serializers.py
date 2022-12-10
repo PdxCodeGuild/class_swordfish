@@ -6,15 +6,6 @@ from users.models import CustomUser
 from pokemon.models import Pokemon, Type
 
 
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = CustomUser
-        fields = (
-            "__all__"
-            # this could be something like fields = ['url', 'username', 'email', 'groups']
-        )
-
-
 class TypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Type
@@ -37,7 +28,6 @@ class PokemonSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pokemon
         fields = [
-            'nested_types',
             'id',
             'number',
             'name',
@@ -45,6 +35,19 @@ class PokemonSerializer(serializers.ModelSerializer):
             'weight',
             'image_front',
             'image_back',
-            'caught_by'
+            'caught_by',
+            'nested_types',
         ]
 
+
+class UserSerializer(serializers.ModelSerializer):
+    caught_list = PokemonSerializer(source='caught', many=True)
+ 
+    class Meta:
+        model = CustomUser
+        fields = (
+            'id',
+            'username',
+            'caught',
+            'caught_list',
+        )
