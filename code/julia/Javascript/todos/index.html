@@ -10,13 +10,17 @@
 </head>
 <body>
     <div id="app">
+        <input v-model="todoText" type="text" placeholder="Enter todo...">
+        <button>Add</button>
+        <button>Complete</button>
+        <button>Delete</button>
     <ol>
         <li v-for="todo in todos"> 
             {{ todo.text }}
         </li>
     </ol>
+    {{ todoText }}
     </div>
-
     <!-- Include Vue from a CDN of your choice, I chose unpkg -->
     <script src="https://unpkg.com/vue@2"></script>
     <!-- Include your code here... -->

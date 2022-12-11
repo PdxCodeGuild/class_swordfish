@@ -1,8 +1,9 @@
 new Vue({
     el: '#app',
     data: {
+        todoText: '',
         todos:[
-            { id: 0, text: 'Complete your homework'},
+            { id: 0, text: 'Complete homework'},
             { id: 1, text: 'Go grocery shopping'},
             { id: 2, text: 'Finish laundry'},
             { id: 3, text: 'Make dinner'},
@@ -12,6 +13,12 @@ new Vue({
 
     methods:{
         addTodo: function(){
-           let newTodo = this.todos
+           this.todos = nextTodoId
+           return newTodos
+    },
+
+    toggleTodo:{ function() {
+
     }
+}}
 })
