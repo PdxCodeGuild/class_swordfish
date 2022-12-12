@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a href="{% url 'chirps:list' %}">Home</a>
+    <div class="chirp-entry">
+       
+        <h4><em>{{ chirp.author.username }}</em></h4>
+        <p>{{ chirp.tiny_body|linebreaksbr }}</p>
+    </div>
+
+    {% if account == chirp.author %}
+        {% comment %} <p><a href="{% url 'chirp:edit' chirp.pk %}">+ Edit Blog Post</a></p>
+        <p><a href="{% url 'chirp:delete' chirp.pk %}">+ Delete Blog Post</a></p> {% endcomment %}
+    {% endif %}
+
+{% endblock content %}

@@ -3,12 +3,21 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-{% if user.is_authenticated %}
-  Hi {{ user.username }}!
-  <p><a href="{% url 'logout' %}">Log Out</a></p>
-{% else %}
-  <p>You are not logged in</p>
-  <a href="{% url 'login' %}">Log In</a> |
-  <a href="{% url 'signup' %}">Sign Up</a>
-{% endif %}
+
+<ul>
+  <div>
+  <h1>Chirp Board</h1>
+</div>
+  {% for chirp in object_list %}
+ <div class="chirp-entry">
+  
+  <h2>{{chirp.author}}</h2>
+  <li>
+    <a href="{% url 'chirps:detail' chirp.id %}"> {{ chirp.tiny_body }}</a>
+  </li>
+  {% endfor %}
+</div>
+</ul>
+
+
 {% endblock %}

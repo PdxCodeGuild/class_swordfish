@@ -1,0 +1,41 @@
+ html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+html{
+    padding: 2em
+} 
+
+body {
+    font-family: 'Libre Franklin', sans-serif;
+    font-size: 18px;
+    background-color: #1da1f2;
+    color: #f5f8fa;
+    align-items: center;
+    }
+
+ul{
+    background-color: #657786;
+    border: 5px solid #E1E8ED;
+    border-radius: 5px;
+    padding: 8%;
+    margin-left: 30%;
+    
+}
+li{
+    color: #f5f8fa;
+
+}
+
+a{
+    color: #f5f8fa;
+}
+ header h1 a{
+   
+    color: white;
+    text-decoration-style: double;
+
+ }
