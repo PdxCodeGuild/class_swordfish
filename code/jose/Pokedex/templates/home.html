@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+</head>
+<body>
+    {% csrf_token %}
+        {% if user.is_authenticated %}
+        <h1>Hello {{ user.username | capfirst }}!</h1>
+        <p><a href="{% url 'logout' %}">Logout</a><p>
+        {% else %}
+            <h1> Hello guest user</h1>
+        <p><a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
+        {% endif %}   
+    
+    <a href='/apis/v1/Pokemon' target='_blank'>Pokemon API</a>
+
+    <div id='app'>
+        <h2>Enter your new Pokemon and information here.</h2>
+        <div>
+            <input v-model='newPokemon.name' id='name'><br>
+            <label for='name'>Name</label>
+
+            <input v-model='newPokemon.number' id='number'><br>
+            <label for='number'>Number</label>
+
+            <input v-model='newPokemon.weight' id='weight'><br>
+            <label for='weight'>Weight</label>
+
+            <input v-model='newPokemon.height' id='height'><br>
+            <label for='height'>Height</label>
+
+            <input v-model='Pokemon.image' id='image'><br>
+            <label for='image'>Image</label>
+
+    </div>
+        <button @click=createPokemon>Enter a new Pokemon</button><br><br>
+        <button @click='editPokemonMode = !editPokemonMode'>Edit Existing Pokemon</button>
+        <button @click='getPokemonInfo' v-if='Object.keys(Pokemon).length'>Full Pokemon List in Inventory</button>
+    <div v-if='Object.keys(Pokemon).length && !editPokemonMode'>
+        <dl>
+            <dt>Name</dt>
+            <dd>[[ Pokemon.name ]] </dd>
+
+            <dt>Type</dt>
+            <dd v-for='type in Pokemon.type_detail'>[[ type.type ]]</dd>
+            <img :src='[[ Pokemon.image ]]' :alt='[[ Pokemon.name ]]'>
+
+            <dt>Weight</dt>
+            <dd>[[ Pokemon.weight ]]</dd>
+
+            <dt>Height</dt>
+            <dd>[[ Pokemon.height ]]</dd>
+           
+            </dl>
+        </div>
+        <p v-if='Pokemon && editPokemonMode'>
+            <input v-model='Pokemon.name'id='name'><br>
+            <label for='name'>Name</label>
+            <input v-model='Pokemon.weight' id='weight'><br>
+            <label for='weight'>Weight</label>
+            <input v-model='Pokemon.height' id='height'><br>
+            <label for='height'>Height</label>
+            <input v-model='Pokemon.image' id='image1'><br>
+            <label for='front'>Image</label>
+            <button @click='updatePokemon'>Update Pokemon Stats</button>
+            <button @click='deletePokemon(Pokemon.id)'>Delete Pokemon From Existence</button>
+        </p>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
