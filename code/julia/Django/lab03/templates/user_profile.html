@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>{{ user_profile.username }}</h1>
+    <h5><em>Writing stuff since {{ user_profile.date_joined }}!</em></h5>
+
+    {% for chirp in user_profile.chirp.all %}
+        <div class="chirp-entry">
+            <h2><a href="{% url 'chirps:detail' chirp.id %}">{{ chirp.author }}</a></h2>
+            <h4><em>{{ chirp.author.username }}</em></h4>
+            <p>{{ chirp.tiny_body|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+
+{% endblock content %}

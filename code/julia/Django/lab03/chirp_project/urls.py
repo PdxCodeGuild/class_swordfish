@@ -1,4 +1,4 @@
-"""url_project URL Configuration
+"""chirp_project URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
@@ -15,10 +15,22 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.views.generic.base  import RedirectView 
+from django.views.generic.base import TemplateView, RedirectView
+
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('url_app.urls')),
-    path('', RedirectView.as_view(pattern_name='url_app:index'))
+    path("accounts/", include("accounts.urls")),
+    path("accounts/", include("django.contrib.auth.urls")),
+    path('chirps/', include('posts.urls')),
+    path('', RedirectView.as_view(pattern_name='chirps:list'))
 ]
+  
+    
+
+
+
+
+

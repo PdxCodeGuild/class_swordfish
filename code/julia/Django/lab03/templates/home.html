@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<ul>
+  <div>
+  <h1>Chirp Board</h1>
+</div>
+  {% for chirp in object_list %}
+ <div class="chirp-entry">
+  
+  <h2>{{chirp.author}}</h2>
+  <li>
+    <a href="{% url 'chirps:detail' chirp.id %}"> {{ chirp.tiny_body }}</a>
+  </li>
+  {% endfor %}
+</div>
+</ul>
+
+
+{% endblock %}
