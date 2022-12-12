@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse
 from . models import Url
 from random import choice
 from string import ascii_letters, digits
@@ -32,5 +32,5 @@ def submit(request):
 
 
 def redirect(request, short_url):
-    url = get_object_or_404(Url, short_url=short_url)
-    return HttpResponse(url.long)
+    url = get_object_or_404(Url, short=short_url)
+    return HttpResponseRedirect(url.long)
