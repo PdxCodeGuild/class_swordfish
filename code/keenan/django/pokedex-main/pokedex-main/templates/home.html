@@ -31,6 +31,7 @@ integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG
 			<ul>
 				<li v-for="pokemon in capturedPokemon" :key="pokemon.id">
 					<h3>[[ pokemon.name ]]</h3>
+					<button @click="releasePokemon(pokemon)">Release This Pokemon</button>
 				</li>
 			</ul>
         </div>
@@ -123,6 +124,23 @@ integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG
 						console.log('capturedPokemon', this.capturedPokemon)
                     })
                   },
+
+				  releasePokemon: function(pokemon) {
+					const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
+					console.log(pokemon.caught_by)
+					let trainer = pokemon.caught_by.filter(id => id != this.currentUser.id)
+					console.log(trainer)
+					axios({	
+                        method: 'PATCH',
+						headers: {'X-CSRFToken': csrftoken},
+                        url: `/api/v1/pokemons/${pokemon.id}/`,
+                        data: {
+                            'caught_by': trainer
+                        },
+                    }).then(response => {
+						this.loadPokemon()
+                    })
+				  },
 
 				  caughtPokemon: function() {
 					console.log('caughtpokemon')
