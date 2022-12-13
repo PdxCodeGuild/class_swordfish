@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="static/main.css"/>
+    <title>Pokedex!</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+    <h1>Welcome {{ user.username }}!</h1>
+    <p><a href="{% url 'logout' %}">Logout</a><p>
+    {% else %}
+    <h1>Welcome, visitor!</h1>
+    <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
+    {% endif %}
+
+
+    <h1> Pokemon in your region: </h1>
+    <div id="app">
+      <div class="row">
+        <div v-for="pokemon in pokemonData">
+          <ul>
+            <li>[[ pokemon.number ]] [[ pokemon.name ]]<br><img v-bind:src="pokemon.image_front"></li>
+          <ul>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let pokedexApi = new Vue({
+        el: '#app',
+        delimiters: ['[[', ']]'],
+        data: {
+          pokemonData : [],
+          typeData : []
+        },
+        methods: {
+          pokemonLoad: function() {
+            axios({
+              method: "GET",
+              url: 'apis/v1/pokemon'
+            }).then((response) => {
+              this.pokemonData = response.data
+            })
+          }
+        },
+        beforeMount: function() {
+          this.pokemonLoad()
+        }
+      })
+    </script>      
+</body>
+</html>
