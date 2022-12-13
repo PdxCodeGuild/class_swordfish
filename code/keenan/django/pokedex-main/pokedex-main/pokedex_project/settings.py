@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'pokemon.apps.PokemonConfig',
     'users.apps.UsersConfig',
     'rest_framework',
+    'django.contrib.admindocs',
 ]
 
 MIDDLEWARE = [

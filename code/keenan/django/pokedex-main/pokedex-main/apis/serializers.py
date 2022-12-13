@@ -41,6 +41,7 @@ class PokemonSerializer(serializers.ModelSerializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
+    # the default would be read_only=true, and updating the queryset allows us to use the pokemon objects for the update queryset=Pokemon.objects.all() ---- WIP notes
     caught_list = PokemonSerializer(source='caught', many=True)
  
     class Meta:

@@ -62,17 +62,18 @@ integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
     <script>
-        let app = new Vue({
+        const app = new Vue({
                 el: '#app',
                 delimiters: ['[[', ']]'],
                 data: {
                   message: 'Pokedex Delimiters work',
-                  user: [],
                   pokemon: [],
                   type:[],
                   apiResponse: [],
-                    caught: [],
-                    caught_list: [],
+                  caught: [],
+                  user: '',
+                  caught_list: [],
+                  currentUser: '',
                 },
                 methods: {
                   logMessage: function () {
@@ -82,23 +83,40 @@ integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG
                   loadPokemon: function() {
                     axios({
                         method: 'GET',
-                        url: '/apis/pokemon/',
+                        url: '/api/v1/pokemons/',
                     }).then(response => {
                         this.apiResponse = response.data
                         console.log(response.data)
                     })
                   },
+                  
+                  loadCurrentUser: function() {
+                    axios({
+						method: 'GET',
+						url: '/api/v1/current-user/'
+                    }).then(response => {
+						this.currentUser = response.data[0]
+						console.log(response.data[0])
+					}).catch(error => {
+						console.log(error.response)
+					})
+                  },
+
 
                   catchPokemon: function(pokemon) {
-                    this.currentUser.caught_list.push(pokemon.id)
+                    console.log('line107', pokemon.caught_by)
+					pokemon['caught_by'] = [...pokemon['caught_by'], 1]
+                    console.log('line109', pokemon.caught_by)
                     axios({
                         methods: 'PATCH',
-                        url: '/apis/user/',
+				{% comment %} backticks needed for the ${} notation {% endcomment %}
+                        url: `/api/v1/pokemons/${pokemon.id}`,
                         data: {
-                            'caught': this.currentUser.caught_list
+                            'caught_by': pokemon.caught_by
                         },
                     }).then(response => {
-                        console.log(this.currentUser.caught_list)
+                        console.log(response)
+						console.log(pokemon.caught_by)
                     })
                   },
 
