@@ -12,6 +12,7 @@ integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG
 </head>
 
 <body>
+	{% csrf_token %}
     <h1>Pokedex Application with DRF and Vue</h1><br>
 
     {% if user.is_authenticated %}
@@ -27,12 +28,11 @@ integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG
         {% comment %} <p>[[ message ]]</p> {% endcomment %}
         <div id='caught-pokemon'>
             <h2>All Pokemon You've Caught</h2>
-            {% comment %} can probably use a computed function to tally all of the caught pokemon instead of cycling through the whole list {% endcomment %}
-            {% comment %} <ul>
-                <li v-for="pokemon in apiResponse" :key="pokemon.id">
-                    
-                </li>
-            </ul> {% endcomment %}
+			<ul>
+				<li v-for="pokemon in capturedPokemon" :key="pokemon.id">
+					<h3>[[ pokemon.name ]]</h3>
+				</li>
+			</ul>
         </div>
 
         <div id="pokemon-list">
@@ -74,6 +74,7 @@ integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG
                   user: '',
                   caught_list: [],
                   currentUser: '',
+				  capturedPokemon: [],
                 },
                 methods: {
                   logMessage: function () {
@@ -87,6 +88,7 @@ integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG
                     }).then(response => {
                         this.apiResponse = response.data
                         console.log(response.data)
+						this.capturedPokemon = this.caughtPokemon()
                     })
                   },
                   
@@ -96,7 +98,6 @@ integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG
 						url: '/api/v1/current-user/'
                     }).then(response => {
 						this.currentUser = response.data[0]
-						console.log(response.data[0])
 					}).catch(error => {
 						console.log(error.response)
 					})
@@ -104,28 +105,42 @@ integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG
 
 
                   catchPokemon: function(pokemon) {
-                    console.log('line107', pokemon.caught_by)
-					pokemon['caught_by'] = [...pokemon['caught_by'], 1]
-                    console.log('line109', pokemon.caught_by)
-                    axios({
-                        methods: 'PATCH',
-				{% comment %} backticks needed for the ${} notation {% endcomment %}
-                        url: `/api/v1/pokemons/${pokemon.id}`,
+                    console.log('line113', pokemon.caught_by)
+					console.log('line114', this.currentUser)
+					trainer = [...pokemon['caught_by'], this.currentUser.id]
+                    console.log('line116', pokemon.caught_by)
+                    const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
+					axios({	
+                        method: 'PATCH',
+						headers: {'X-CSRFToken': csrftoken},
+                        url: `/api/v1/pokemons/${pokemon.id}/`,
                         data: {
-                            'caught_by': pokemon.caught_by
+                            'caught_by': trainer
                         },
                     }).then(response => {
-                        console.log(response)
 						console.log(pokemon.caught_by)
+						this.loadPokemon()
+						console.log('capturedPokemon', this.capturedPokemon)
                     })
                   },
 
+				  caughtPokemon: function() {
+					console.log('caughtpokemon')
+					let capturedPokemon = this.apiResponse.filter(pokemon => {
+						return pokemon.caught_by.includes(this.currentUser.id)
+					})
+					console.log(this.apiResponse)
+					console.log(capturedPokemon)
+					return capturedPokemon
+				},
+
                 },
                 computed: {
-                    
+
                 },
                 mounted: function () {
                   this.loadPokemon();
+				  this.loadCurrentUser();
                 }
               });
     </script>
