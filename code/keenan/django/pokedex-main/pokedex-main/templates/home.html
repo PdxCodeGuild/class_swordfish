@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X=UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- testing bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+<title>Pokedex Application</title>
+</head>
+
+<body>
+	{% csrf_token %}
+    <h1>Pokedex Application with DRF and Vue</h1><br>
+
+    {% if user.is_authenticated %}
+    <h3>Welcome {{ user.username }}!</h3>
+    <p><a href="{% url 'logout' %}">Logout</a><p>
+    {% else %}
+    <h3>Welcome, visitor!</h3>
+    <p>You are not logged in. <a href="{% url 'login' %}">Login</a> <a href="{% url 'users:signup' %}">Sign Up</a></p>
+    {% endif %}
+
+    <div id='app'>
+        
+        {% comment %} <p>[[ message ]]</p> {% endcomment %}
+        <div id='caught-pokemon'>
+            <h2>All Pokemon You've Caught</h2>
+			<ul>
+				<li v-for="pokemon in capturedPokemon" :key="pokemon.id">
+					<h3>[[ pokemon.name ]]</h3>
+					<button @click="releasePokemon(pokemon)">Release This Pokemon</button>
+				</li>
+			</ul>
+        </div>
+
+        <div id="pokemon-list">
+            <h2>All Pokemon Listed!</h2>
+            <ul>
+                <li v-for="pokemon in apiResponse" :key="pokemon.id">
+                    <img :src="pokemon.image_front" :alt="pokemon.name">
+                    <h3>[[ pokemon.name ]]</h3>
+                    <h4>Pokemon ID #[[ pokemon.id ]]</h4>
+                    {% comment %} apiResponse[0].id {% endcomment %}
+                    <h4>Pokemon Types:</h4>
+                    <ul>
+                        {% comment %} the pokemone.nested_types is the array, and item is the iterating variable within it, and we need to access the .type of each item  {% endcomment %}
+                        {% comment %} apiResponse[0].nested_types[0].type {% endcomment %}
+                        <li v-for="item in pokemon.nested_types" :key="item.id">[[ item.type ]]</li>
+                    </ul>
+                    <div id="catch">
+                        <button @click="catchPokemon(pokemon)">Catch this Pokemon!</button>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <script>
+        const app = new Vue({
+                el: '#app',
+                delimiters: ['[[', ']]'],
+                data: {
+                  message: 'Pokedex Delimiters work',
+                  pokemon: [],
+                  type:[],
+                  apiResponse: [],
+                  caught: [],
+                  user: '',
+                  caught_list: [],
+                  currentUser: '',
+				  capturedPokemon: [],
+                },
+                methods: {
+                  logMessage: function () {
+                    console.log(this);
+                  },
+
+                  loadPokemon: function() {
+                    axios({
+                        method: 'GET',
+                        url: '/api/v1/pokemons/',
+                    }).then(response => {
+                        this.apiResponse = response.data
+                        console.log(response.data)
+						this.capturedPokemon = this.caughtPokemon()
+                    })
+                  },
+                  
+                  loadCurrentUser: function() {
+                    axios({
+						method: 'GET',
+						url: '/api/v1/current-user/'
+                    }).then(response => {
+						this.currentUser = response.data[0]
+					}).catch(error => {
+						console.log(error.response)
+					})
+                  },
+
+
+                  catchPokemon: function(pokemon) {
+                    console.log('line113', pokemon.caught_by)
+					console.log('line114', this.currentUser)
+					trainer = [...pokemon['caught_by'], this.currentUser.id]
+                    console.log('line116', pokemon.caught_by)
+                    const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
+					axios({	
+                        method: 'PATCH',
+						headers: {'X-CSRFToken': csrftoken},
+                        url: `/api/v1/pokemons/${pokemon.id}/`,
+                        data: {
+                            'caught_by': trainer
+                        },
+                    }).then(response => {
+						console.log(pokemon.caught_by)
+						this.loadPokemon()
+						console.log('capturedPokemon', this.capturedPokemon)
+                    })
+                  },
+
+				  releasePokemon: function(pokemon) {
+					const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
+					console.log(pokemon.caught_by)
+					let trainer = pokemon.caught_by.filter(id => id != this.currentUser.id)
+					console.log(trainer)
+					axios({	
+                        method: 'PATCH',
+						headers: {'X-CSRFToken': csrftoken},
+                        url: `/api/v1/pokemons/${pokemon.id}/`,
+                        data: {
+                            'caught_by': trainer
+                        },
+                    }).then(response => {
+						this.loadPokemon()
+                    })
+				  },
+
+				  caughtPokemon: function() {
+					console.log('caughtpokemon')
+					let capturedPokemon = this.apiResponse.filter(pokemon => {
+						return pokemon.caught_by.includes(this.currentUser.id)
+					})
+					console.log(this.apiResponse)
+					console.log(capturedPokemon)
+					return capturedPokemon
+				},
+
+                },
+                computed: {
+
+                },
+                mounted: function () {
+                  this.loadPokemon();
+				  this.loadCurrentUser();
+                }
+              });
+    </script>
+
+</body>
