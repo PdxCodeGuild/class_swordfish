@@ -126,6 +126,7 @@
                     image_back: '',
                 },
                 idToRemove: 0,
+
             },
 
             methods: {
@@ -165,7 +166,7 @@
                     console.log('updating pokemon')
                     axios({
                         method: 'put',
-                        url: this.urlEndpoint + '2/',
+                        url: this.urlEndpoint + this.editPokemon.number + '/',
                         data: this.editPokemon,
                         headers: {
                             "X-CSRFToken": this.csrf_token
