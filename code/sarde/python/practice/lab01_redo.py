@@ -15,3 +15,6 @@ So we can get the output in meters by multiplying the input distance by 0.3048.
 units = {
     'feet': 0.3048,
 }
+# ask the user to input the number of feet
+feet = input('What is the distance in feet?:')
+print(feet)
